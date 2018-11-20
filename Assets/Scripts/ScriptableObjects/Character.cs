@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu]
 public class Character : ScriptableObject
 {
-    public string characterName;
+    public string m_CharacterName;
 
-    public int dailyMoraleLossFactor;
-    public int dailyHealthLossFactor;
+    public float m_DailyMoraleLossFactor;
+    public float m_DailyHungerLossFactor;
+    public float m_DailyWarmthLossFactor;
+
+
 }
