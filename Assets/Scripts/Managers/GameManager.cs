@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager : MonoBehaviour {
-
+public class GameManager : MonoBehaviour
+{
     public int m_Day;
     public int m_Temperature;
 
@@ -18,10 +18,14 @@ public class GameManager : MonoBehaviour {
     public TextMeshProUGUI m_TemperatureText;
     public TextMeshProUGUI m_CountDownText;
 
-    private int m_CharacterNumber = 2;
+    public GameObject m_CharacterCardPanel;
+    public GameObject m_CharacterCardPrefab;
+    public List<Character> m_AllCharacters = new List<Character>();
+    public List<CharacterManager> m_ActiveCharacters = new List<CharacterManager>();
 
     private float m_CountDownValue;
     private int m_CountDownValueInt;
+    private int m_CharacterCounter = 0;
 
     private WaitForSeconds m_WaitForInformationScreen;
     private WaitForSeconds m_WaitForDayStarting;
@@ -45,15 +49,40 @@ public class GameManager : MonoBehaviour {
         SetCharacters();
 
         StartCoroutine(GameLoop());
-	}
+    }
 
     private void Update()
     {
+        #region CountDownTimer
         m_CountDownValue -= Time.deltaTime;
-
         m_CountDownValueInt = (int)m_CountDownValue;
         m_CountDownText.text = m_CountDownValueInt.ToString();
+        #endregion
     }
+
+    public void InstantiateNewCharacter(string characterName)
+    {
+        Character characterSO = null;
+
+        for (int i = 0; i < m_AllCharacters.Count; i++)
+        {
+            if (m_AllCharacters[i].m_CharacterName == characterName && m_AllCharacters[i].m_WasUsed == false && m_ActiveCharacters.Count < 6)
+            {
+                m_AllCharacters[i].m_WasUsed = true;
+                characterSO = m_AllCharacters[i];
+
+                CharacterManager tempCharacter = new CharacterManager(characterSO);
+
+                tempCharacter.m_Instance = Instantiate(m_CharacterCardPrefab, m_CharacterCardPanel.transform) as GameObject;
+                tempCharacter.Setup(m_CharacterCounter);
+                m_ActiveCharacters.Add(tempCharacter);
+
+                m_CharacterCounter++;
+            }
+        }
+    }
+
+    #region SetterFunctions
 
     private void SetDay()
     {
@@ -80,6 +109,10 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    #endregion
+
+    #region GameLoop
+
     private IEnumerator GameLoop()
     {
         yield return StartCoroutine(InformationScreen());
@@ -87,7 +120,7 @@ public class GameManager : MonoBehaviour {
         yield return StartCoroutine(DayPlaying());
         yield return StartCoroutine(DayEnding());
 
-        if(m_CharacterNumber == 0)
+        if(m_ActiveCharacters.Count == 0)
         {
             // END THE GAME
         }
@@ -108,8 +141,7 @@ public class GameManager : MonoBehaviour {
     private IEnumerator DayStarting()
     {
         m_CountDownValue = m_DayStartingLength;
-
-        //Add new Items to List if gotten
+        
         yield return m_WaitForDayStarting;
     }
 
@@ -126,4 +158,7 @@ public class GameManager : MonoBehaviour {
 
         yield return m_WaitForDayEnding;
     }
+
+    #endregion
+
 }

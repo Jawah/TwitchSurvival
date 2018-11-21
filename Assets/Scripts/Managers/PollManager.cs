@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PollManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	int GeneratePolls()
+    {
+        int numberOfPolls = 0;
+
+
+
+        return numberOfPolls;
+    }
 }
