@@ -23,9 +23,13 @@ public class GameManager : MonoBehaviour
     public List<Character> m_AllCharacters = new List<Character>();
     public List<CharacterManager> m_ActiveCharacters = new List<CharacterManager>();
 
+    public GameObject m_InformationPanel;
+    public List<InformationEvent> m_InformationEvents = new List<InformationEvent>();
+
+    private int m_CharacterCounter = 0;
+
     private float m_CountDownValue;
     private int m_CountDownValueInt;
-    private int m_CharacterCounter = 0;
 
     private WaitForSeconds m_WaitForInformationScreen;
     private WaitForSeconds m_WaitForDayStarting;
@@ -132,10 +136,22 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator InformationScreen()
     {
-        m_CountDownValue = m_InformationScreenLength;
+        if (Random.Range(0,2) == 2)
+        {
+            InformationEvent tempEvent = m_InformationEvents[Random.Range(0, m_InformationEvents.Count)];
+            m_CountDownValue = tempEvent.m_EventLength;
 
-        //BIG EVENT CHECK
-        yield return m_WaitForInformationScreen;
+            m_InformationPanel.SetActive(true);
+            m_InformationPanel.GetComponentInChildren<TextMeshProUGUI>().text = tempEvent.m_DescriptionText;
+
+            yield return new WaitForSeconds(m_CountDownValue);
+            m_InformationPanel.SetActive(false);
+        }
+        else
+        {
+            m_CountDownValue = m_InformationScreenLength;
+            yield return m_WaitForInformationScreen;
+        }
     }
 
     private IEnumerator DayStarting()
