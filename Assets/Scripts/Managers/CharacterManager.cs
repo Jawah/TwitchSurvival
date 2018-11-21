@@ -59,11 +59,5 @@ public class CharacterManager
         m_MoraleValueText.text = m_MoraleValue.ToString("F1");
         m_FullValueText.text = m_FullValue.ToString("F1");
         m_WarmthValueText.text = m_WarmthValue.ToString("F1");
-        
-    }
-
-    float RoundNumber(float x, int decimalPlaces)
-    {
-        return Mathf.Round(x * Mathf.Pow(10, decimalPlaces));
     }
 }
