@@ -60,4 +60,15 @@ public class CharacterManager
         m_FullValueText.text = m_FullValue.ToString("F1");
         m_WarmthValueText.text = m_WarmthValue.ToString("F1");
     }
+
+    public void SetNewCharacterValues(float accumalatedMoraleItemFactors, float accumalatedFullItemFactors, float accumalatedWarmthItemFactors)
+    {
+        m_MoraleValue -= (m_MoraleLossFactor + accumalatedMoraleItemFactors);
+        m_FullValue -= (m_FullLossFactor + accumalatedFullItemFactors);
+        m_WarmthValue -= (m_WarmthLossFactor + accumalatedWarmthItemFactors);
+
+        m_MoraleValueText.text = m_MoraleValue.ToString("F1");
+        m_FullValueText.text = m_FullValue.ToString("F1");
+        m_WarmthValueText.text = m_WarmthValue.ToString("F1");
+    }
 }

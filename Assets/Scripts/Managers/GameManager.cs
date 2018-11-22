@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator InformationScreen()
     {
-        if (Random.Range(0,2) == 2)
+        if (Random.Range(0,3) == 2)
         {
             InformationEvent tempEvent = m_InformationEvents[Random.Range(0, m_InformationEvents.Count)];
             m_CountDownValue = tempEvent.m_EventLength;
@@ -157,7 +157,10 @@ public class GameManager : MonoBehaviour
     private IEnumerator DayStarting()
     {
         m_CountDownValue = m_DayStartingLength;
+
+        CalculateAndSetDailyValues();
         
+
         yield return m_WaitForDayStarting;
     }
 
@@ -177,4 +180,15 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    void CalculateAndSetDailyValues()
+    {
+        float accumalatedMoraleItemFactors = 0;
+        float accumalatedFullItemFactors = 0;
+        float accumalatedWarmthItemFactors = 0;
+
+        for(int i = 0; i < m_ActiveCharacters.Count; i++)
+        {
+            m_ActiveCharacters[i].SetNewCharacterValues(accumalatedMoraleItemFactors, accumalatedFullItemFactors, accumalatedWarmthItemFactors);
+        }
+    }
 }
