@@ -9,10 +9,10 @@ public class Character : ResettableScriptableObject
     public float m_DailyFullLossFactor;
     public float m_DailyWarmthLossFactor;
 
-    public bool m_WasUsed = false;
+    public bool m_InUse = false;
 
     public override void Reset()
     {
-        m_WasUsed = false;
+        m_InUse = false;
     }
 }

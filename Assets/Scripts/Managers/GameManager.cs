@@ -23,10 +23,13 @@ public class GameManager : MonoBehaviour
     public List<Character> m_AllCharacters = new List<Character>();
     public List<CharacterManager> m_ActiveCharacters = new List<CharacterManager>();
 
+    public GameObject m_ItemPanel;
+    public GameObject m_ItemPrefab;
+    public List<Item> m_AllItems = new List<Item>();
+    public List<ItemManager> m_ActiveItems = new List<ItemManager>();
+
     public GameObject m_InformationPanel;
     public List<InformationEvent> m_InformationEvents = new List<InformationEvent>();
-
-    private int m_CharacterCounter = 0;
 
     private float m_CountDownValue;
     private int m_CountDownValueInt;
@@ -63,29 +66,7 @@ public class GameManager : MonoBehaviour
         m_CountDownText.text = m_CountDownValueInt.ToString();
         #endregion
     }
-
-    public void InstantiateNewCharacter(string characterName)
-    {
-        Character characterSO = null;
-
-        for (int i = 0; i < m_AllCharacters.Count; i++)
-        {
-            if (m_AllCharacters[i].m_CharacterName == characterName && m_AllCharacters[i].m_WasUsed == false && m_ActiveCharacters.Count < 6)
-            {
-                m_AllCharacters[i].m_WasUsed = true;
-                characterSO = m_AllCharacters[i];
-
-                CharacterManager tempCharacter = new CharacterManager(characterSO);
-
-                tempCharacter.m_Instance = Instantiate(m_CharacterCardPrefab, m_CharacterCardPanel.transform) as GameObject;
-                tempCharacter.Setup(m_CharacterCounter);
-                m_ActiveCharacters.Add(tempCharacter);
-
-                m_CharacterCounter++;
-            }
-        }
-    }
-
+    
     #region SetterFunctions
 
     private void SetDay()
@@ -180,7 +161,46 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    void CalculateAndSetDailyValues()
+    public void InstantiateNewCharacter(string characterName)
+    {
+        Character characterSO = null;
+
+        for (int i = 0; i < m_AllCharacters.Count; i++)
+        {
+            if (m_AllCharacters[i].m_CharacterName == characterName && m_AllCharacters[i].m_InUse == false && m_ActiveCharacters.Count < 6)
+            {
+                m_AllCharacters[i].m_InUse = true;
+                characterSO = m_AllCharacters[i];
+
+                CharacterManager tempCharacter = new CharacterManager(characterSO);
+
+                tempCharacter.m_Instance = Instantiate(m_CharacterCardPrefab, m_CharacterCardPanel.transform) as GameObject;
+                tempCharacter.Setup(m_ActiveCharacters.Count);
+                m_ActiveCharacters.Add(tempCharacter);
+            }
+        }
+    }
+
+    public void InstantiateNewItem(string itemName)
+    {
+        Item itemSO;
+
+        for(int i = 0; i < m_AllItems.Count; i++)
+        {
+            if (m_AllItems[i].m_ItemName == itemName && m_ActiveItems.Count < 6)
+            {
+                itemSO = m_AllItems[i];
+
+                ItemManager tempItem = new ItemManager(itemSO);
+
+                tempItem.m_Instance = Instantiate(m_ItemPrefab, m_ItemPanel.transform) as GameObject;
+                tempItem.Setup(m_ActiveItems.Count);
+                m_ActiveItems.Add(tempItem);
+            }
+        }
+    }
+
+    private void CalculateAndSetDailyValues()
     {
         float accumalatedMoraleItemFactors = 0;
         float accumalatedFullItemFactors = 0;
