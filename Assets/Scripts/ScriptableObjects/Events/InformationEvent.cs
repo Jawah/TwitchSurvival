@@ -7,5 +7,5 @@ public class InformationEvent : Event
 {
     [TextArea]
     public string m_DescriptionText;
-    public float m_EventLength;
+    //public float m_EventLength;
 }

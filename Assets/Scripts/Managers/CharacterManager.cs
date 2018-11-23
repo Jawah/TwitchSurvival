@@ -19,6 +19,8 @@ public class CharacterManager
     public float m_FullLossFactor;
     public float m_WarmthLossFactor;
 
+    public bool isPlundering = false;
+
     Character m_Character;
 
     private TextMeshProUGUI m_NameText;

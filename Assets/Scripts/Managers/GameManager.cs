@@ -38,8 +38,15 @@ public class GameManager : MonoBehaviour
     public GameObject m_InformationPanel;
     public List<InformationEvent> m_InformationEvents = new List<InformationEvent>();
 
+    public List<Event> m_AllEvents = new List<Event>();
+
     private float m_CountDownValue;
     private int m_CountDownValueInt;
+
+    private bool m_WaitingForPoll = false;
+
+    private enum EventEnum { Food, MedPack };
+    private EventEnum m_EventEnum;
 
     private WaitForSeconds m_WaitForInformationScreen;
     private WaitForSeconds m_WaitForDayStarting;
@@ -72,8 +79,14 @@ public class GameManager : MonoBehaviour
         m_CountDownValueInt = (int)m_CountDownValue;
         m_CountDownText.text = m_CountDownValueInt.ToString();
         #endregion
+
+        if (m_WaitingForPoll)
+        {
+
+        }
+
     }
-    
+
     #region SetterFunctions
 
     private void SetDay()
@@ -114,7 +127,7 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(DayPlaying());
         yield return StartCoroutine(DayEnding());
 
-        if(m_ActiveCharacters.Count == 0)
+        if (m_ActiveCharacters.Count == 0)
         {
             // END THE GAME
         }
@@ -129,22 +142,14 @@ public class GameManager : MonoBehaviour
         m_Day++;
         SetDay();
 
-        if (Random.Range(0,3) == 2)
-        {
-            InformationEvent tempEvent = m_InformationEvents[Random.Range(0, m_InformationEvents.Count)];
-            m_CountDownValue = tempEvent.m_EventLength;
+        InformationEvent tempEvent = m_InformationEvents[Random.Range(0, m_InformationEvents.Count)];
+        m_CountDownValue = tempEvent.m_EventLength;
 
-            m_InformationPanel.SetActive(true);
-            m_InformationPanel.GetComponentInChildren<TextMeshProUGUI>().text = tempEvent.m_DescriptionText;
+        m_InformationPanel.SetActive(true);
+        m_InformationPanel.GetComponentInChildren<TextMeshProUGUI>().text = tempEvent.m_DescriptionText;
 
-            yield return new WaitForSeconds(m_CountDownValue);
-            m_InformationPanel.SetActive(false);
-        }
-        else
-        {
-            m_CountDownValue = m_InformationScreenLength;
-            yield return m_WaitForInformationScreen;
-        }
+        yield return new WaitForSeconds(m_CountDownValue);
+        m_InformationPanel.SetActive(false);
     }
 
     private IEnumerator DayStarting()
@@ -158,8 +163,17 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DayPlaying()
     {
-        m_CountDownValue = m_DayPlayingLength;
+        m_WaitingForPoll = true;
 
+        for(int i = 0; i < m_ActiveCharacters.Count; i++)
+        {
+            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), m_ActiveCharacters[i]));
+            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_ActiveCharacters[i]));
+        }
+
+        yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
+
+        m_CountDownValue = m_DayPlayingLength;
         yield return m_WaitForDayPlaying;
     }
 
@@ -198,7 +212,7 @@ public class GameManager : MonoBehaviour
     {
         Item itemSO;
 
-        for(int i = 0; i < m_AllItems.Count; i++)
+        for (int i = 0; i < m_AllItems.Count; i++)
         {
             if (m_AllItems[i].m_ItemName == itemName && m_ActiveItems.Count < 6)
             {
@@ -221,16 +235,59 @@ public class GameManager : MonoBehaviour
         float accumalatedFullItemFactors = 0;
         float accumalatedWarmthItemFactors = 0;
 
-        for(int j = 0; j < m_ActiveItems.Count; j++)
+        for (int j = 0; j < m_ActiveItems.Count; j++)
         {
             accumalatedMoraleItemFactors += m_ActiveItems[j].m_MoraleFactorChangeValue;
             accumalatedFullItemFactors += m_ActiveItems[j].m_FullFactorChangeValue;
             accumalatedWarmthItemFactors += m_ActiveItems[j].m_WarmthFactorChangeValue;
         }
 
-        for(int i = 0; i < m_ActiveCharacters.Count; i++)
+        for (int i = 0; i < m_ActiveCharacters.Count; i++)
         {
             m_ActiveCharacters[i].SetNewCharacterValues(accumalatedMoraleItemFactors, accumalatedFullItemFactors, accumalatedWarmthItemFactors);
         }
+    }
+
+    private IEnumerator DoPoll(Event eventV, CharacterManager characterV)
+    {
+        switch (eventV.name)
+        {
+            case "FoodEvent":
+                m_CountDownValue = eventV.m_EventLength;
+                Debug.Log("Food Event for " + characterV.m_CharacterName + ". Length: " + eventV.m_EventLength + " seconds");
+
+                yield return new WaitForSeconds(eventV.m_EventLength);
+                break;
+
+            case "MedPackEvent":
+                m_CountDownValue = eventV.m_EventLength;
+                Debug.Log("MedPack Event for " + characterV.m_CharacterName + ". Length: " + eventV.m_EventLength + " seconds");
+
+                yield return new WaitForSeconds(eventV.m_EventLength);
+                break;
+        }
+        yield return null;
+    }
+
+    private IEnumerator DoPoll(Event eventV)
+    {
+        switch (eventV.name)
+        {
+            case "FireWoodEvent":
+                m_CountDownValue = eventV.m_EventLength;
+                Debug.Log("EndOfDayEvent. Length: " + eventV.m_EventLength + " seconds");
+
+                yield return new WaitForSeconds(eventV.m_EventLength);
+                break;
+
+            case "EndOfDayEvent":
+                m_CountDownValue = eventV.m_EventLength;
+                Debug.Log("EndOfDayEvent. Length: " + eventV.m_EventLength + " seconds");
+
+
+                yield return new WaitForSeconds(eventV.m_EventLength);
+                break;
+        }
+        yield return null;
     }
 }
