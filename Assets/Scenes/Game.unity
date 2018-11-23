@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 136520487}
   - component: {fileID: 136520486}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: MedPackText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 265653175}
   - component: {fileID: 265653174}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: FirewoodText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 583302560}
   - component: {fileID: 583302559}
   m_Layer: 5
-  m_Name: TextMeshPro Text
+  m_Name: FoodText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1808,6 +1808,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Day: 1
   m_Temperature: 12
+  m_FoodValue: 5
+  m_FirewoodValue: 3
+  m_MedPackValue: 1
   m_InformationScreenLength: 4
   m_DayStartingLength: 6
   m_DayPlayingLength: 11
@@ -1815,6 +1818,9 @@ MonoBehaviour:
   m_DayText: {fileID: 1625242878}
   m_TemperatureText: {fileID: 1064832630}
   m_CountDownText: {fileID: 2094026931}
+  m_FoodText: {fileID: 583302559}
+  m_FirewoodText: {fileID: 265653174}
+  m_MedPackText: {fileID: 136520486}
   m_CharacterCardPanel: {fileID: 730090731}
   m_CharacterCardPrefab: {fileID: 1326025991572586, guid: 2a383aff094d9fa438d2bbc5b60c65b2,
     type: 2}

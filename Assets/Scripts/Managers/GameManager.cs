@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
     public int m_Day;
     public int m_Temperature;
 
+    public int m_FoodValue;
+    public int m_FirewoodValue;
+    public int m_MedPackValue;
+
     public float m_InformationScreenLength;
     public float m_DayStartingLength;
     public float m_DayPlayingLength;
@@ -17,6 +21,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI m_DayText;
     public TextMeshProUGUI m_TemperatureText;
     public TextMeshProUGUI m_CountDownText;
+    public TextMeshProUGUI m_FoodText;
+    public TextMeshProUGUI m_FirewoodText;
+    public TextMeshProUGUI m_MedPackText;
 
     public GameObject m_CharacterCardPanel;
     public GameObject m_CharacterCardPrefab;
@@ -81,7 +88,9 @@ public class GameManager : MonoBehaviour
 
     private void SetRessources()
     {
-
+        m_FoodText.text = m_FoodValue + "x";
+        m_FirewoodText.text = m_FirewoodValue + "x";
+        m_MedPackText.text = m_MedPackValue + "x";
     }
 
     private void SetItems()
@@ -117,6 +126,9 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator InformationScreen()
     {
+        m_Day++;
+        SetDay();
+
         if (Random.Range(0,3) == 2)
         {
             InformationEvent tempEvent = m_InformationEvents[Random.Range(0, m_InformationEvents.Count)];
@@ -140,7 +152,6 @@ public class GameManager : MonoBehaviour
         m_CountDownValue = m_DayStartingLength;
 
         CalculateAndSetDailyValues();
-        
 
         yield return m_WaitForDayStarting;
     }
