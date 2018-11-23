@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Name: FoodEvent
   m_EditorClassIdentifier: 
   m_EventLength: 3
+  m_EventDescription: 
+  m_PossibleAnswers:
+  - J
+  - N

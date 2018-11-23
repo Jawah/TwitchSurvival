@@ -19,6 +19,9 @@ public class CharacterManager
     public float m_FullLossFactor;
     public float m_WarmthLossFactor;
 
+    public float m_FullGainValue;
+    public float m_WarmthGainValue;
+
     public bool isPlundering = false;
 
     Character m_Character;
@@ -43,6 +46,9 @@ public class CharacterManager
         m_MoraleValue = (1 - m_MoraleLossFactor) * Random.Range(5f, 10f);
         m_FullValue = (1 - m_FullLossFactor) * Random.Range(8f, 10f);
         m_WarmthValue = (1 - m_WarmthLossFactor) * Random.Range(5f, 10f);
+
+        m_FullGainValue = m_Character.m_FullGainValue;
+        m_WarmthGainValue = m_Character.m_WarmthGainValue;
 
         var children = m_Instance.GetComponentsInChildren<TextMeshProUGUI>();
         foreach (var child in children)
@@ -71,6 +77,18 @@ public class CharacterManager
 
         m_MoraleValueText.text = m_MoraleValue.ToString("F1");
         m_FullValueText.text = m_FullValue.ToString("F1");
+        m_WarmthValueText.text = m_WarmthValue.ToString("F1");
+    }
+
+    public void AddFull()
+    {
+        m_FullValue += m_FullGainValue;
+        m_FullValueText.text = m_FullValue.ToString("F1");
+    }
+
+    public void AddWarmth()
+    {
+        m_WarmthValue += m_WarmthGainValue;
         m_WarmthValueText.text = m_WarmthValue.ToString("F1");
     }
 }

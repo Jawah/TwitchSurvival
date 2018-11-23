@@ -6,4 +6,7 @@ using UnityEngine;
 public class Event : ScriptableObject
 {
     public float m_EventLength;
+    public string m_EventDescription;
+
+    public List<string> m_PossibleAnswers = new List<string>();
 }
