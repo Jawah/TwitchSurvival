@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdded41d6414a8a4fb268cccb0d36407, type: 3}
   m_Name: FoodEvent
   m_EditorClassIdentifier: 
-  m_EventLength: 0
+  m_EventLength: 3
