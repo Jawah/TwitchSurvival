@@ -210,6 +210,13 @@ public class GameManager : MonoBehaviour
         float accumalatedFullItemFactors = 0;
         float accumalatedWarmthItemFactors = 0;
 
+        for(int j = 0; j < m_ActiveItems.Count; j++)
+        {
+            accumalatedMoraleItemFactors += m_ActiveItems[j].m_MoraleFactorChangeValue;
+            accumalatedFullItemFactors += m_ActiveItems[j].m_FullFactorChangeValue;
+            accumalatedWarmthItemFactors += m_ActiveItems[j].m_WarmthFactorChangeValue;
+        }
+
         for(int i = 0; i < m_ActiveCharacters.Count; i++)
         {
             m_ActiveCharacters[i].SetNewCharacterValues(accumalatedMoraleItemFactors, accumalatedFullItemFactors, accumalatedWarmthItemFactors);

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_ItemDescription: 123
   m_ItemShortDescription: 33
   m_MoraleFactorChangeValue: 0
-  m_FullFactorChangeValue: 0
+  m_FullFactorChangeValue: 0.1
   m_WarmthFactorChangeValue: 0
   m_Icon: {fileID: 0}
   m_InUse: 0
