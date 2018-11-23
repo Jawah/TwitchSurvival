@@ -161,9 +161,11 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    #region InstantiationMethods
+
     public void InstantiateNewCharacter(string characterName)
     {
-        Character characterSO = null;
+        Character characterSO;
 
         for (int i = 0; i < m_AllCharacters.Count; i++)
         {
@@ -199,6 +201,8 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    #endregion
 
     private void CalculateAndSetDailyValues()
     {

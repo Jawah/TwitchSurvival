@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ItemManager
@@ -18,9 +19,12 @@ public class ItemManager
     public float m_FullFactorChangeValue;
     public float m_WarmthFactorChangeValue;
 
-    Item m_Item;
+    private Sprite m_Icon;
+
+    private Item m_Item;
 
     private TextMeshProUGUI m_ShortDescText;
+    private Image m_Image;
 
     public ItemManager(Item itemSO)
     {
@@ -39,8 +43,12 @@ public class ItemManager
         m_FullFactorChangeValue = m_Item.m_FullFactorChangeValue;
         m_WarmthFactorChangeValue = m_Item.m_WarmthFactorChangeValue;
 
+        m_Icon = m_Item.m_Icon;
+
         m_ShortDescText = m_Instance.GetComponentInChildren<TextMeshProUGUI>();
+        m_Image = m_Instance.GetComponentInChildren<Image>();
 
         m_ShortDescText.text = m_ItemShortDescription;
+        m_Image.sprite = m_Icon;
     }
 }

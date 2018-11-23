@@ -11,9 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f3b043b7eb46442b4813af33d2687d, type: 3}
   m_Name: Controller
   m_EditorClassIdentifier: 
-  m_ItemName: 
-  m_Description: 
+  m_ItemName: Controller
+  m_ItemDescription: 123
+  m_ItemShortDescription: 33
   m_MoraleFactorChangeValue: 0
-  m_HungerFactorChangeValue: 0
+  m_FullFactorChangeValue: 0
   m_WarmthFactorChangeValue: 0
   m_Icon: {fileID: 0}
+  m_InUse: 0
