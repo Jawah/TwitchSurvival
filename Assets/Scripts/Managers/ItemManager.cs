@@ -6,7 +6,6 @@ using TMPro;
 
 public class ItemManager
 {
-
     public int m_ItemNumber;
 
     public string m_ItemName;

@@ -46,12 +46,15 @@ public class GameManager : MonoBehaviour
     private float m_CountDownValue;
     private int m_CountDownValueInt;
 
-    private float m_FireWoodStrength = 2;
+
+    private float m_FireWoodStrength = 2f;
 
     private bool m_GatherVotes = false;
 
-    private enum EventEnum { Food, MedPack };
-    private EventEnum m_EventEnum;
+    int numberOfValidAnswers;
+
+    //private enum EventEnum { Food, MedPack };
+    //private EventEnum m_EventEnum;
 
     private WaitForSeconds m_WaitForInformationScreen;
     private WaitForSeconds m_WaitForDayStarting;
@@ -264,7 +267,7 @@ public class GameManager : MonoBehaviour
     #region PollMethods
     private IEnumerator DoPoll(Event eventV, CharacterManager characterV)
     {
-        int numberOfValidAnswers = 0;
+        numberOfValidAnswers = 0;
 
         switch (eventV.name)
         {
@@ -276,22 +279,7 @@ public class GameManager : MonoBehaviour
                 m_GatherVotes = true;
                 yield return new WaitForSeconds(eventV.m_EventLength);
 
-                for (int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
-                {
-                    m_ListOfValidAnswersDivided.Add(new List<string>());
-                }
-
-                for (int j = 0; j < m_PollAnswers.Count; j++)
-                {
-                    for (int k = 0; k < eventV.m_PossibleAnswers.Count; k++)
-                    {
-                        if (m_PollAnswers[j] == eventV.m_PossibleAnswers[k])
-                        {
-                            m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
-                            numberOfValidAnswers++;
-                        }
-                    }
-                }
+                CalculateAnswers(eventV);
 
                 if (m_ListOfValidAnswersDivided[0].Count > m_ListOfValidAnswersDivided[1].Count)
                 {
@@ -317,22 +305,7 @@ public class GameManager : MonoBehaviour
                 m_GatherVotes = true;
                 yield return new WaitForSeconds(eventV.m_EventLength);
 
-                for (int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
-                {
-                    m_ListOfValidAnswersDivided.Add(new List<string>());
-                }
-
-                for (int j = 0; j < m_PollAnswers.Count; j++)
-                {
-                    for (int k = 0; k < eventV.m_PossibleAnswers.Count; k++)
-                    {
-                        if (m_PollAnswers[j] == eventV.m_PossibleAnswers[k])
-                        {
-                            m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
-                            numberOfValidAnswers++;
-                        }
-                    }
-                }
+                CalculateAnswers(eventV);
 
                 if (m_ListOfValidAnswersDivided[0].Count > m_ListOfValidAnswersDivided[1].Count)
                 {
@@ -356,22 +329,7 @@ public class GameManager : MonoBehaviour
                 m_GatherVotes = true;
                 yield return new WaitForSeconds(eventV.m_EventLength);
 
-                for (int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
-                {
-                    m_ListOfValidAnswersDivided.Add(new List<string>());
-                }
-
-                for (int j = 0; j < m_PollAnswers.Count; j++)
-                {
-                    for (int k = 0; k < eventV.m_PossibleAnswers.Count; k++)
-                    {
-                        if (m_PollAnswers[j] == eventV.m_PossibleAnswers[k])
-                        {
-                            m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
-                            numberOfValidAnswers++;
-                        }
-                    }
-                }
+                CalculateAnswers(eventV);
 
                 /*
                  * 
@@ -393,7 +351,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DoPoll(Event eventV)
     {
-        int numberOfValidAnswers = 0;
+        numberOfValidAnswers = 0;
         
         switch (eventV.name)
         {
@@ -405,22 +363,7 @@ public class GameManager : MonoBehaviour
                 m_GatherVotes = true;
                 yield return new WaitForSeconds(eventV.m_EventLength);
 
-                for (int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
-                {
-                    m_ListOfValidAnswersDivided.Add(new List<string>());
-                }
-
-                for (int j = 0; j < m_PollAnswers.Count; j++)
-                {
-                    for (int k = 0; k < eventV.m_PossibleAnswers.Count; k++)
-                    {
-                        if (m_PollAnswers[j] == eventV.m_PossibleAnswers[k])
-                        {
-                            m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
-                            numberOfValidAnswers++;
-                        }
-                    }
-                }
+                CalculateAnswers(eventV);
 
                 if (m_ListOfValidAnswersDivided[0].Count > m_ListOfValidAnswersDivided[1].Count)
                 {
@@ -439,4 +382,25 @@ public class GameManager : MonoBehaviour
         yield return null;
     }
     #endregion
+
+    
+    void CalculateAnswers(Event eventV)
+    {
+        for (int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
+        {
+            m_ListOfValidAnswersDivided.Add(new List<string>());
+        }
+
+        for (int j = 0; j < m_PollAnswers.Count; j++)
+        {
+            for (int k = 0; k < eventV.m_PossibleAnswers.Count; k++)
+            {
+                if (m_PollAnswers[j] == eventV.m_PossibleAnswers[k])
+                {
+                    m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
+                    numberOfValidAnswers++;
+                }
+            }
+        }
+    }
 }
