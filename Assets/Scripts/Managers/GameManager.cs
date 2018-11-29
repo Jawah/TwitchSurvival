@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
             yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_ActiveCharacters[i]));
         }
 
-        yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
+        yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FirewoodEvent")));
 
         for (int j = 0; j < m_ActiveCharacters.Count; j++)
         {
@@ -292,7 +292,6 @@ public class GameManager : MonoBehaviour
 
                 m_PollAnswers.Clear();
                 m_ListOfValidAnswersDivided.Clear();
-                numberOfValidAnswers = 0;
 
                 break;
             #endregion
@@ -316,7 +315,6 @@ public class GameManager : MonoBehaviour
 
                 m_PollAnswers.Clear();
                 m_ListOfValidAnswersDivided.Clear();
-                numberOfValidAnswers = 0;
 
                 break;
             #endregion
@@ -341,7 +339,6 @@ public class GameManager : MonoBehaviour
 
                 m_PollAnswers.Clear();
                 m_ListOfValidAnswersDivided.Clear();
-                numberOfValidAnswers = 0;
 
                 break;
                 #endregion
@@ -355,10 +352,10 @@ public class GameManager : MonoBehaviour
         
         switch (eventV.name)
         {
-            #region FireWood
-            case "FireWoodEvent":
+            #region Firewood
+            case "FirewoodEvent":
                 m_CountDownValue = eventV.m_EventLength;
-                Debug.Log("EndOfDayEvent. Length: " + eventV.m_EventLength + " seconds");
+                Debug.Log("Firewood. Length: " + eventV.m_EventLength + " seconds");
 
                 m_GatherVotes = true;
                 yield return new WaitForSeconds(eventV.m_EventLength);
@@ -374,7 +371,6 @@ public class GameManager : MonoBehaviour
 
                 m_PollAnswers.Clear();
                 m_ListOfValidAnswersDivided.Clear();
-                numberOfValidAnswers = 0;
 
                 break;
                 #endregion
@@ -383,7 +379,6 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    
     void CalculateAnswers(Event eventV)
     {
         for (int i = 0; i < eventV.m_PossibleAnswers.Count; i++)

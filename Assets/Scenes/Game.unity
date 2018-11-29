@@ -1842,8 +1842,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9c02801e0ff11ff4ba58b325d8b844ba, type: 2}
   - {fileID: 11400000, guid: 0a702151133e28a44bddbbdfcb96462a, type: 2}
   m_AllEvents:
-  - {fileID: 11400000, guid: a23e7aa1399ec0d4f90d9e7b3b2d4a3d, type: 2}
-  - {fileID: 11400000, guid: f27b3447b95bdfc48b7eb27f87ff4b7c, type: 2}
+  - {fileID: 11400000, guid: fc47a19d031e98b4c83e58be5709572c, type: 2}
+  - {fileID: 11400000, guid: d550bab8713313e4a913cfde94c9cf34, type: 2}
   - {fileID: 11400000, guid: 8a00d9bf8e1787240b1a2d28d1b6db8b, type: 2}
   - {fileID: 11400000, guid: 5e22ec392560c8d46a94588ba95fdcd0, type: 2}
 --- !u!4 &831557926

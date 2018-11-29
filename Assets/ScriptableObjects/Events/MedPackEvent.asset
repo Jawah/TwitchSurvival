@@ -8,10 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdded41d6414a8a4fb268cccb0d36407, type: 3}
+  m_Script: {fileID: 11500000, guid: a7c03a2b83889184b9decec597f2ff41, type: 3}
   m_Name: MedPackEvent
   m_EditorClassIdentifier: 
-  m_EventLength: 3
+  m_EventLength: 5
   m_EventDescription: 
   m_PossibleAnswers:
   - Y

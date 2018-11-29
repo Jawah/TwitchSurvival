@@ -8,7 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdded41d6414a8a4fb268cccb0d36407, type: 3}
+  m_Script: {fileID: 11500000, guid: 9bf4dbfb6b969b046a451e763a0adc28, type: 3}
   m_Name: EndOfDayEvent
   m_EditorClassIdentifier: 
-  m_EventLength: 4
+  m_EventLength: 5
+  m_EventDescription: 
+  m_PossibleAnswers:
+  - A
+  - B
+  - C
