@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Events/EndOfDayEvent")]
 public class EndOfDayEvent : Event {
 
-    public override void Execute()
+    public void Execute()
     {
         Debug.Log("lol");
     }

@@ -22,7 +22,9 @@ public class CharacterManager
     public float m_FullGainValue;
     public float m_WarmthGainValue;
 
-    public bool isPlundering = false;
+    public bool m_IsPlundering = false;
+
+    public bool m_IsSick = false;
 
     Character m_Character;
 

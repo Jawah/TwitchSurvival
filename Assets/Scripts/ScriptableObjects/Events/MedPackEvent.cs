@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Events/MedPackEvent")]
 public class MedPackEvent : Event {
 
-    public override void Execute()
+    public void Execute()
     {
         Debug.Log("lol");
     }

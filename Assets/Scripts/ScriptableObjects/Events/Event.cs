@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Event : ScriptableObject
+public class Event : ScriptableObject
 {
     public float m_EventLength;
+
+    [TextArea]
     public string m_EventDescription;
 
     public List<string> m_PossibleAnswers = new List<string>();
 
-    public abstract void Execute();
+    public virtual void Execute(List<List<string>> dividedList, CharacterManager characterV) { Debug.LogWarning("No override Execute function declard!"); }
+
+    public virtual void Execute(List<List<string>> dividedList) { Debug.LogWarning("No override Execute function declard!"); }
 }

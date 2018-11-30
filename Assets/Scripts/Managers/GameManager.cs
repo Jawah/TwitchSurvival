@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int m_FirewoodValue;
     public int m_MedPackValue;
 
+    public float DailyFireValueLoss;
+
     public float m_InformationScreenLength;
     public float m_DayStartingLength;
     public float m_DayPlayingLength;
@@ -34,10 +36,8 @@ public class GameManager : MonoBehaviour
     public GameObject m_ItemPrefab;
     public List<Item> m_AllItems = new List<Item>();
     public List<ItemManager> m_ActiveItems = new List<ItemManager>();
-
+    
     public GameObject m_InformationPanel;
-    public List<InformationEvent> m_InformationEvents = new List<InformationEvent>();
-
     public List<Event> m_AllEvents = new List<Event>();
 
     private List<string> m_PollAnswers = new List<string>();
@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     private float m_CountDownValue;
     private int m_CountDownValueInt;
 
-    private float m_FireWoodStrength = 2f;
+    public float m_FireWoodStrength = 2f;
 
     private bool m_GatherVotes = false;
 
@@ -57,8 +57,21 @@ public class GameManager : MonoBehaviour
     private WaitForSeconds m_WaitForDayPlaying;
     private WaitForSeconds m_WaitForDayEnding;
 
+
+    private static GameManager m_instance;
+    public static GameManager Instance { get { return m_instance; } }
+
     private void Awake()
     {
+        if (m_instance != null && m_instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            m_instance = this;
+        }
+
         m_WaitForInformationScreen = new WaitForSeconds(m_InformationScreenLength);
         m_WaitForDayStarting = new WaitForSeconds(m_DayStartingLength);
         m_WaitForDayPlaying = new WaitForSeconds(m_DayPlayingLength);
@@ -68,9 +81,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetDay();
-        SetTemperature();
+        CalculateAndSetTemperature();
         SetRessources();
-        SetItems();
         SetCharacters();
 
         StartCoroutine(GameLoop());
@@ -101,11 +113,6 @@ public class GameManager : MonoBehaviour
         m_DayText.text = "DAY " + m_Day;
     }
 
-    private void SetTemperature()
-    {
-        m_TemperatureText.text = m_Temperature + "°C";
-    }
-
     private void SetRessources()
     {
         m_FoodText.text = m_FoodValue + "x";
@@ -113,14 +120,34 @@ public class GameManager : MonoBehaviour
         m_MedPackText.text = m_MedPackValue + "x";
     }
 
-    private void SetItems()
+    private void SetCharacters()
     {
 
     }
 
-    private void SetCharacters()
+    private void CalculateAndSetCharacterValues()
     {
+        float accumalatedMoraleItemFactors = 0;
+        float accumalatedFullItemFactors = 0;
+        float accumalatedWarmthItemFactors = 0;
 
+        for (int j = 0; j < m_ActiveItems.Count; j++)
+        {
+            accumalatedMoraleItemFactors += m_ActiveItems[j].m_MoraleFactorChangeValue;
+            accumalatedFullItemFactors += m_ActiveItems[j].m_FullFactorChangeValue;
+            accumalatedWarmthItemFactors += m_ActiveItems[j].m_WarmthFactorChangeValue;
+        }
+
+        for (int i = 0; i < m_ActiveCharacters.Count; i++)
+        {
+            m_ActiveCharacters[i].SetNewCharacterValues(accumalatedMoraleItemFactors, accumalatedFullItemFactors, accumalatedWarmthItemFactors);
+        }
+    }
+
+    private void CalculateAndSetTemperature()
+    {
+        m_Temperature = (int)(m_FireWoodStrength * 8);
+        m_TemperatureText.text = m_Temperature + "°C";
     }
 
     #endregion
@@ -149,11 +176,11 @@ public class GameManager : MonoBehaviour
         m_Day++;
         SetDay();
 
-        InformationEvent tempEvent = m_InformationEvents[Random.Range(0, m_InformationEvents.Count)];
+        Event tempEvent = m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "InformationEvent");
         m_CountDownValue = tempEvent.m_EventLength;
 
         m_InformationPanel.SetActive(true);
-        m_InformationPanel.GetComponentInChildren<TextMeshProUGUI>().text = tempEvent.m_DescriptionText;
+        m_InformationPanel.GetComponentInChildren<TextMeshProUGUI>().text = tempEvent.m_EventDescription;
 
         yield return new WaitForSeconds(m_CountDownValue);
         m_InformationPanel.SetActive(false);
@@ -163,7 +190,8 @@ public class GameManager : MonoBehaviour
     {
         m_CountDownValue = m_DayStartingLength;
 
-        CalculateAndSetDailyValues();
+        CalculateAndSetCharacterValues();
+        CalculateAndSetTemperature();
 
         yield return m_WaitForDayStarting;
     }
@@ -192,6 +220,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator DayEnding()
     {
         m_CountDownValue = m_DayEndingLength;
+
+        m_FireWoodStrength -= DailyFireValueLoss;
 
         yield return m_WaitForDayEnding;
     }
@@ -241,25 +271,6 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    private void CalculateAndSetDailyValues()
-    {
-        float accumalatedMoraleItemFactors = 0;
-        float accumalatedFullItemFactors = 0;
-        float accumalatedWarmthItemFactors = 0;
-
-        for (int j = 0; j < m_ActiveItems.Count; j++)
-        {
-            accumalatedMoraleItemFactors += m_ActiveItems[j].m_MoraleFactorChangeValue;
-            accumalatedFullItemFactors += m_ActiveItems[j].m_FullFactorChangeValue;
-            accumalatedWarmthItemFactors += m_ActiveItems[j].m_WarmthFactorChangeValue;
-        }
-
-        for (int i = 0; i < m_ActiveCharacters.Count; i++)
-        {
-            m_ActiveCharacters[i].SetNewCharacterValues(accumalatedMoraleItemFactors, accumalatedFullItemFactors, accumalatedWarmthItemFactors);
-        }
-    }
-
     #region PollMethods
     private IEnumerator DoPoll(Event eventV, CharacterManager characterV)
     {
@@ -276,13 +287,8 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(eventV.m_EventLength);
 
                 CalculateAnswers(eventV);
-                
-                if (m_ListOfValidAnswersDivided[0].Count > m_ListOfValidAnswersDivided[1].Count)
-                {
-                    characterV.AddFull();
-                    m_FoodValue--;
-                    m_FoodText.text = m_FoodValue.ToString() + "x";
-                }
+
+                eventV.Execute(m_ListOfValidAnswersDivided, characterV);
 
                 m_GatherVotes = false;
 
@@ -358,11 +364,16 @@ public class GameManager : MonoBehaviour
 
                 CalculateAnswers(eventV);
 
+                eventV.Execute(m_ListOfValidAnswersDivided);
+
+                /*
                 if (m_ListOfValidAnswersDivided[0].Count > m_ListOfValidAnswersDivided[1].Count)
                 {
                     m_FireWoodStrength = 3;
+                    m_FirewoodValue--;
+                    m_FirewoodText.text = m_FirewoodValue.ToString() + "x";
                 }
-
+                */
                 m_GatherVotes = false;
 
                 m_PollAnswers.Clear();

@@ -1806,15 +1806,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c71632fb917ed40aae771cb2c42b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Day: 1
+  m_Day: 0
   m_Temperature: 12
   m_FoodValue: 5
   m_FirewoodValue: 3
   m_MedPackValue: 1
+  DailyFireValueLoss: 0.4
   m_InformationScreenLength: 4
-  m_DayStartingLength: 6
-  m_DayPlayingLength: 11
-  m_DayEndingLength: 6
+  m_DayStartingLength: 3
+  m_DayPlayingLength: 3
+  m_DayEndingLength: 3
   m_DayText: {fileID: 1625242878}
   m_TemperatureText: {fileID: 1064832630}
   m_CountDownText: {fileID: 2094026931}
@@ -1837,15 +1838,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3ce7512d88e0ea34f837a7ec826a2024, type: 2}
   - {fileID: 11400000, guid: 1d0bbb945a20d5d42b65d46192003083, type: 2}
   m_InformationPanel: {fileID: 1008719542}
-  m_InformationEvents:
-  - {fileID: 11400000, guid: 3cc52268daba51346959c0d49c2bad0b, type: 2}
-  - {fileID: 11400000, guid: 9c02801e0ff11ff4ba58b325d8b844ba, type: 2}
-  - {fileID: 11400000, guid: 0a702151133e28a44bddbbdfcb96462a, type: 2}
   m_AllEvents:
   - {fileID: 11400000, guid: fc47a19d031e98b4c83e58be5709572c, type: 2}
   - {fileID: 11400000, guid: d550bab8713313e4a913cfde94c9cf34, type: 2}
   - {fileID: 11400000, guid: 8a00d9bf8e1787240b1a2d28d1b6db8b, type: 2}
   - {fileID: 11400000, guid: 5e22ec392560c8d46a94588ba95fdcd0, type: 2}
+  - {fileID: 11400000, guid: e2672d7e42f7071428d7aef7f67f7d05, type: 2}
 --- !u!4 &831557926
 Transform:
   m_ObjectHideFlags: 0
