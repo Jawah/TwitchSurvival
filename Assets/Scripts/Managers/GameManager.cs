@@ -46,15 +46,11 @@ public class GameManager : MonoBehaviour
     private float m_CountDownValue;
     private int m_CountDownValueInt;
 
-
     private float m_FireWoodStrength = 2f;
 
     private bool m_GatherVotes = false;
 
     int numberOfValidAnswers;
-
-    //private enum EventEnum { Food, MedPack };
-    //private EventEnum m_EventEnum;
 
     private WaitForSeconds m_WaitForInformationScreen;
     private WaitForSeconds m_WaitForDayStarting;
@@ -280,7 +276,7 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(eventV.m_EventLength);
 
                 CalculateAnswers(eventV);
-
+                
                 if (m_ListOfValidAnswersDivided[0].Count > m_ListOfValidAnswersDivided[1].Count)
                 {
                     characterV.AddFull();
