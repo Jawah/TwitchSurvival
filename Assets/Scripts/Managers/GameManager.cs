@@ -366,14 +366,6 @@ public class GameManager : MonoBehaviour
 
                 eventV.Execute(m_ListOfValidAnswersDivided);
 
-                /*
-                if (m_ListOfValidAnswersDivided[0].Count > m_ListOfValidAnswersDivided[1].Count)
-                {
-                    m_FireWoodStrength = 3;
-                    m_FirewoodValue--;
-                    m_FirewoodText.text = m_FirewoodValue.ToString() + "x";
-                }
-                */
                 m_GatherVotes = false;
 
                 m_PollAnswers.Clear();
