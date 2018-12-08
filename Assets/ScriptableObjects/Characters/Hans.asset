@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Hans
   m_EditorClassIdentifier: 
   m_CharacterName: Hans
+  m_CharacterSprite: {fileID: 21300000, guid: 5f43f8302d4526545b67d3a85ba9a47e, type: 3}
   m_DailyMoraleLossFactor: 0.2
   m_DailyFullLossFactor: 0.6
   m_DailyWarmthLossFactor: 0.1

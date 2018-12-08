@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class CharacterManager
 {
     public string m_CharacterName;
     public int m_CharacterNumber;
+    public Sprite m_CharacterSprite;
 
     public GameObject m_Instance;
 
@@ -33,6 +35,8 @@ public class CharacterManager
     private TextMeshProUGUI m_FullValueText;
     private TextMeshProUGUI m_WarmthValueText;
 
+    private Image m_CharacterImage;
+
     public CharacterManager(Character characterSO)
     {
         m_Character = characterSO;
@@ -44,6 +48,7 @@ public class CharacterManager
         m_CharacterName = m_Character.m_CharacterName;
         m_MoraleLossFactor = m_Character.m_DailyMoraleLossFactor;
         m_FullLossFactor = m_Character.m_DailyFullLossFactor;
+        m_CharacterSprite = m_Character.m_CharacterSprite;
         m_WarmthLossFactor = m_Character.m_DailyWarmthLossFactor;
         m_MoraleValue = (1 - m_MoraleLossFactor) * Random.Range(5f, 10f);
         m_FullValue = (1 - m_FullLossFactor) * Random.Range(8f, 10f);
@@ -52,8 +57,8 @@ public class CharacterManager
         m_FullGainValue = m_Character.m_FullGainValue;
         m_WarmthGainValue = m_Character.m_WarmthGainValue;
 
-        var children = m_Instance.GetComponentsInChildren<TextMeshProUGUI>();
-        foreach (var child in children)
+        var textChildren = m_Instance.GetComponentsInChildren<TextMeshProUGUI>();
+        foreach (var child in textChildren)
         {
             if (child.gameObject.CompareTag(Tags.NAME_TEXT_TAG))
                 m_NameText = child.GetComponent<TextMeshProUGUI>();
@@ -65,10 +70,18 @@ public class CharacterManager
                 m_WarmthValueText = child.GetComponent<TextMeshProUGUI>();
         }
 
+        var imageChildren = m_Instance.GetComponentsInChildren<Image>();
+        foreach (var child in imageChildren)
+        {
+            if (child.gameObject.CompareTag(Tags.CHARACTER_IMAGE_TAG))
+                m_CharacterImage = child.GetComponent<Image>();
+        }
+
         m_NameText.text = m_CharacterName;
         m_MoraleValueText.text = m_MoraleValue.ToString("F1");
         m_FullValueText.text = m_FullValue.ToString("F1");
         m_WarmthValueText.text = m_WarmthValue.ToString("F1");
+        m_CharacterImage.sprite = m_CharacterSprite;
     }
 
     public void SetNewCharacterValues(float accumalatedMoraleItemFactors, float accumalatedFullItemFactors, float accumalatedWarmthItemFactors)
