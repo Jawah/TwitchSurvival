@@ -1,0 +1,3260 @@
+fileFormatVersion: 2
+guid: de7a469151975f040a62dde52c7bfe58
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Chatbox-Spritesheet_0
+    21300002: Chatbox-Spritesheet_1
+    21300004: Chatbox-Spritesheet_2
+    21300006: Chatbox-Spritesheet_3
+    21300008: Chatbox-Spritesheet_4
+    21300010: Chatbox-Spritesheet_5
+    21300012: Chatbox-Spritesheet_6
+    21300014: Chatbox-Spritesheet_7
+    21300016: Chatbox-Spritesheet_8
+    21300018: Chatbox-Spritesheet_9
+    21300020: Chatbox-Spritesheet_10
+    21300022: Chatbox-Spritesheet_11
+    21300024: Chatbox-Spritesheet_12
+    21300026: Chatbox-Spritesheet_13
+    21300028: Chatbox-Spritesheet_14
+    21300030: Chatbox-Spritesheet_15
+    21300032: Chatbox-Spritesheet_16
+    21300034: Chatbox-Spritesheet_17
+    21300036: Chatbox-Spritesheet_18
+    21300038: Chatbox-Spritesheet_19
+    21300040: Chatbox-Spritesheet_20
+    21300042: Chatbox-Spritesheet_21
+    21300044: Chatbox-Spritesheet_22
+    21300046: Chatbox-Spritesheet_23
+    21300048: Chatbox-Spritesheet_24
+    21300050: Chatbox-Spritesheet_25
+    21300052: Chatbox-Spritesheet_26
+    21300054: Chatbox-Spritesheet_27
+    21300056: Chatbox-Spritesheet_28
+    21300058: Chatbox-Spritesheet_29
+    21300060: Chatbox-Spritesheet_30
+    21300062: Chatbox-Spritesheet_31
+    21300064: Chatbox-Spritesheet_32
+    21300066: Chatbox-Spritesheet_33
+    21300068: Chatbox-Spritesheet_34
+    21300070: Chatbox-Spritesheet_35
+    21300072: Chatbox-Spritesheet_36
+    21300074: Chatbox-Spritesheet_37
+    21300076: Chatbox-Spritesheet_38
+    21300078: Chatbox-Spritesheet_39
+    21300080: Chatbox-Spritesheet_40
+    21300082: Chatbox-Spritesheet_41
+    21300084: Chatbox-Spritesheet_42
+    21300086: Chatbox-Spritesheet_43
+    21300088: Chatbox-Spritesheet_44
+    21300090: Chatbox-Spritesheet_45
+    21300092: Chatbox-Spritesheet_46
+    21300094: Chatbox-Spritesheet_47
+    21300096: Chatbox-Spritesheet_48
+    21300098: Chatbox-Spritesheet_49
+    21300100: Chatbox-Spritesheet_50
+    21300102: Chatbox-Spritesheet_51
+    21300104: Chatbox-Spritesheet_52
+    21300106: Chatbox-Spritesheet_53
+    21300108: Chatbox-Spritesheet_54
+    21300110: Chatbox-Spritesheet_55
+    21300112: Chatbox-Spritesheet_56
+    21300114: Chatbox-Spritesheet_57
+    21300116: Chatbox-Spritesheet_58
+    21300118: Chatbox-Spritesheet_59
+    21300120: Chatbox-Spritesheet_60
+    21300122: Chatbox-Spritesheet_61
+    21300124: Chatbox-Spritesheet_62
+    21300126: Chatbox-Spritesheet_63
+    21300128: Chatbox-Spritesheet_64
+    21300130: Chatbox-Spritesheet_65
+    21300132: Chatbox-Spritesheet_66
+    21300134: Chatbox-Spritesheet_67
+    21300136: Chatbox-Spritesheet_68
+    21300138: Chatbox-Spritesheet_69
+    21300140: Chatbox-Spritesheet_70
+    21300142: Chatbox-Spritesheet_71
+    21300144: Chatbox-Spritesheet_72
+    21300146: Chatbox-Spritesheet_73
+    21300148: Chatbox-Spritesheet_74
+    21300150: Chatbox-Spritesheet_75
+    21300152: Chatbox-Spritesheet_76
+    21300154: Chatbox-Spritesheet_77
+    21300156: Chatbox-Spritesheet_78
+    21300158: Chatbox-Spritesheet_79
+    21300160: Chatbox-Spritesheet_80
+    21300162: Chatbox-Spritesheet_81
+    21300164: Chatbox-Spritesheet_82
+    21300166: Chatbox-Spritesheet_83
+    21300168: Chatbox-Spritesheet_84
+    21300170: Chatbox-Spritesheet_85
+    21300172: Chatbox-Spritesheet_86
+    21300174: Chatbox-Spritesheet_87
+    21300176: Chatbox-Spritesheet_88
+    21300178: Chatbox-Spritesheet_89
+    21300180: Chatbox-Spritesheet_90
+    21300182: Chatbox-Spritesheet_91
+    21300184: Chatbox-Spritesheet_92
+    21300186: Chatbox-Spritesheet_93
+    21300188: Chatbox-Spritesheet_94
+    21300190: Chatbox-Spritesheet_95
+    21300192: Chatbox-Spritesheet_96
+    21300194: Chatbox-Spritesheet_97
+    21300196: Chatbox-Spritesheet_98
+    21300198: Chatbox-Spritesheet_99
+    21300200: Chatbox-Spritesheet_100
+    21300202: Chatbox-Spritesheet_101
+    21300204: Chatbox-Spritesheet_102
+    21300206: Chatbox-Spritesheet_103
+    21300208: Chatbox-Spritesheet_104
+    21300210: Chatbox-Spritesheet_105
+    21300212: Chatbox-Spritesheet_106
+    21300214: Chatbox-Spritesheet_107
+    21300216: Chatbox-Spritesheet_108
+    21300218: Chatbox-Spritesheet_109
+    21300220: Chatbox-Spritesheet_110
+    21300222: Chatbox-Spritesheet_111
+    21300224: Chatbox-Spritesheet_112
+    21300226: Chatbox-Spritesheet_113
+    21300228: Chatbox-Spritesheet_114
+    21300230: Chatbox-Spritesheet_115
+    21300232: Chatbox-Spritesheet_116
+    21300234: Chatbox-Spritesheet_117
+    21300236: Chatbox-Spritesheet_118
+    21300238: Chatbox-Spritesheet_119
+    21300240: Chatbox-Spritesheet_120
+    21300242: Chatbox-Spritesheet_121
+    21300244: Chatbox-Spritesheet_122
+    21300246: Chatbox-Spritesheet_123
+    21300248: Chatbox-Spritesheet_124
+    21300250: Chatbox-Spritesheet_125
+    21300252: Chatbox-Spritesheet_126
+    21300254: Chatbox-Spritesheet_127
+    21300256: Chatbox-Spritesheet_128
+    21300258: Chatbox-Spritesheet_129
+    21300260: Chatbox-Spritesheet_130
+    21300262: Chatbox-Spritesheet_131
+    21300264: Chatbox-Spritesheet_132
+    21300266: Chatbox-Spritesheet_133
+    21300268: Chatbox-Spritesheet_134
+    21300270: Chatbox-Spritesheet_135
+    21300272: Chatbox-Spritesheet_136
+    21300274: Chatbox-Spritesheet_137
+    21300276: Chatbox-Spritesheet_138
+    21300278: Chatbox-Spritesheet_139
+    21300280: Chatbox-Spritesheet_140
+    21300282: Chatbox-Spritesheet_141
+    21300284: Chatbox-Spritesheet_142
+    21300286: Chatbox-Spritesheet_143
+    21300288: Chatbox-Spritesheet_144
+    21300290: Chatbox-Spritesheet_145
+    21300292: Chatbox-Spritesheet_146
+    21300294: Chatbox-Spritesheet_147
+    21300296: Chatbox-Spritesheet_148
+    21300298: Chatbox-Spritesheet_149
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528eadfda9f6da1478c56bcb32d2e313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 14500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a65e1e4f527084b82ee32e765ccf16
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 14500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b112a0ce27e3c7341bfaf4cd596848ae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 14500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c09d8eb21408fb46a4f00de5cf63a65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 14500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193b1b84910e3eb45800bb4579c4911f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6550e8d24cecf1e43bf6b9e8ab5b5fbf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 14000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f3d58a412a5c4439045efbd31bc632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 14000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03dcc5ff8c3b6cc4e802a27523bfc8ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 14000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5e936eb917f724eb50e152438e5287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 14000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 085beef863b405a47a91ae91a9e83a2e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cdc6ca3f5f79d34c8b460500039d1ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 13500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79645978fd0a604b9b2a78309835dfb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 13500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c0a9f75050d5f47828b13b0744b80f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 13500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d5dfeab12e1cc64b8044947c051525a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 13500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8345549709230454e8632df301f47fac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7950e338960c643419829be557ebffef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 13000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c962257e7ee0bb47adbc1e84c3f313b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 13000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2da1290191c974eae0cd1104e877ad
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 13000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 964f996ecc01e4042976eefae992a4a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 13000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae07488f05558c04ea85ea6b582863c5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de19db946c0a00d429e3d09c27e7cb22
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 12500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecccd0393c34c5545b77323afda74cf1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 12500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede1bcdcce8126f4bba707986d91a03b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 12500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53e5b44d69081e74682b3299be986c8b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 12500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d8635a2a1285214787fc7ca8fe74353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 930979294e369364ba3a176f8461a98a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 12000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d46453559f7714c8c9f7c0b3f7e53d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 12000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83c018802627d21419b983f9911e9e80
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 12000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36eaccedbc232134585ae2233781be4c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 12000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 730eb43a66b491d45a3d10d94e0faa65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d567727e69c8a4397442e0cf3787e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 11500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a26124521e0ac9479e0fee611c1e292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 11500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47ea41e57c90d8408107caa4c221abf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 11500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19651c16c6fbabf4e912a7d72e548b76
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 11500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e480daa3c870e124987dffbcd9ed1827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 11000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4012122d30dc24db7e469a96a3adf1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 11000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1354267ae60c5304b858cf7899619e14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 11000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96970ab985b243c448062d4f6bf8f442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 11000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 420179c99be8a4e4c98181b0fb56b74e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 11000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a51783fb49d0e4b43a421237db999f12
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333efc9802cf46c4cb58015b0a473c7b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 10500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c5cbcc467b4ba42a5e68f5ef1cdd46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 10500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34fbabddf0dfcec4ca1d645201cdca0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 10500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721d78d04adadf54cae77bc19bbb45de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 10500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9036d479432f3da409cb58719d66ee8c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4836c3c51d73fa64c8a9984fe31bce8e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 10000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ccea560b57c7514cb0ffb84d6f2ad69
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 10000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d14e0f41cbeef94480dd798fa1b972a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 10000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7328ff253353638449e9be587d05ed46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 10000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3586e5bc8745d1e46a0ddcacc3a14613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9314cf6c8251af240b91c972940d4d42
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 9500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17740fb0a1f64ab418e32e3012859b4b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_52
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 9500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a60080cbe9c086489e48f229d125c39
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_53
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 9500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bcbb46e641d1d4438d8b3b923344a72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_54
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 9500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7067347a737c58048b1bf26b2c080edc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_55
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d689f1c13f7fec4487f3b948c78253d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_56
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 9000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b5f838a3d372843b9d644898c6043f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_57
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 9000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d90f5569c554dd44926e3386f3d0bd9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_58
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 9000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a91a2095ef69534c942f817f84e76b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_59
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 9000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52f65d077156a142bf9e4f7dbabf845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 324336786ecc7954080639dacdcbc0be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_61
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 8500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116a4589431fb0c4586a4a0875125d33
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_62
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 8500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86bdee07ba4bcbd43a4a336368ede5bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_63
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 8500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87264df7f3995984ba032188bdde4daa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_64
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 8500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93022f3263265649ab9e73a6fcc38cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_65
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b99e8f45f3ebd447a5c1113431acbfc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_66
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 8000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8ed7d50de56b94aa5bd988db32a52c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_67
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 8000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7a95a24d1998b45b98a913eb63c073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_68
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 8000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269380274bb26b94994765d141fea7fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_69
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 8000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d6e4e86e6098634a946bd6b03badb92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d98652bb11af3b24f969d219b950fddc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_71
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 7500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa985fc20294d9540b2c94c484257985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_72
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 7500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da6d0552050aa4e40bf233bf42f21bea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_73
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 7500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0afcc9e61b627408aeeb7365a41371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_74
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 7500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76cb0589bcf907e46be376f16faff3b5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_75
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 426995df868ae4e4299f9be37514650e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_76
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 7000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58eaf9b507eb47c429eba823522dd0e1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_77
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 7000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 314481f2a7b1bd54ab1281d362f9bd66
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_78
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 7000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 532ca1bb5f5a9a445b750ceb43446f02
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_79
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 7000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133d3bac72599b540b5d6d9d0563cca3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68a93e69023d85047a596c5f6275c7b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_81
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 6500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07649216c05cb1b48becf233692d7940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_82
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 6500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6cf46e9bcefb1d44b300a778b4bdaec
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_83
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 6500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bab1a35daed01743b3f8bb82d2d3f99
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_84
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 6500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bc6900952869194186e0cf38011e70d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_85
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f11f6c86222483449cb6cad9407cfaf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_86
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 6000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6ff51129568c14084c3775c37de8c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_87
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 6000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6fed663142b0374fb16bac0cf8a9dfc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_88
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 6000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c723aad053739fb4cb180c76b8ab66a9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_89
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 6000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d19166dcc15de3e4dbba57ecaa28e6fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_90
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb1d40a8760eba46b598885435f166b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_91
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 5500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2933279fc7d2c574295f7c8a98603066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_92
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 5500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c912b565eac04364ab5b66b8f2cec5c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_93
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 5500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e96fa7063ca31d45bec6ec0fa9c2f56
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_94
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 5500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574210408a2a26948ad67edfbe32cd72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_95
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 683799895fb66b1439bfcdd48cf77ee9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_96
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 5000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cd958b5364abe44aba9770b8cb4cbfa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_97
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 5000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602a05d6245ebb349ba0f9064383a1f8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_98
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 5000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8934a6347f86241bd7407a878e0ea5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_99
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 5000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7a0646b65fdae489e8d215b34d96dd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_100
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beea7827802c97f4da2b772c14a8f498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_101
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 4500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 412231868ba3b0d46967550909767c9c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_102
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b4b2c4928437c45bdd8cbc54e306ca
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_103
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 4500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bdcdd1bb2ca6c9449fbbca081e3240d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_104
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 4500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8d57e239603954ba100c68e0817c31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d72f55460ac7f4dbc26f69ec55184a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_106
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 4000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff5778a492702f45b9faffd701f7a81
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_107
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 4000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da5a38016f6390643b5cc9f47efae219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_108
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 4000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 263e65e56eca8e34cb4cde8ca8a42429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_109
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 4000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18449bbd42828ca44a95dfafb8698edf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f995cbed6320318438f2f47edea98965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_111
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 3500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab1fec23499ede4cb5f79fcb105eefe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_112
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 3500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb88437deb0b52549bfdf8fbea16e5e7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_113
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 3500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52cd9bb80b448246ba28c057dd2cec3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_114
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5b5b1b91e6a454dbc1cbe76fdd491a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_115
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3202d2527df30b04aa5611e7a6f519f0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_116
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 3000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d6128a922cd3945907f60689c31693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_117
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 3000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a31af2628f3b1234e9fbeef69a16da19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_118
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 3000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2af6c73554f922498c9ac1b713ddb85
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_119
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3e8af6c70d2b64d9999e4d8e591047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0d989bab11771a46929857f272e95cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_121
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc344a1d08ea70d488523c2532009a7d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_122
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d4df0700328c8343a263609e2b916e9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_123
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898a68960ccf53f40b8aef69c3e64f3d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_124
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60f27f5396d9d974c98773d467e3265a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_125
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57660e0933b5bb6488f21c30fc409f1f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_126
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 2000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 459513067f7b549428dc725fb262d2f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_127
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b370579201f3e544b0046dba6309534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_128
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 2000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28a256c793e43cb4aa6dd7c52a269c83
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_129
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e75ad629b35f24d8d6ada61f8776c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99bddda8861f52438430989f00483b4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_131
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55bc1720b7e723d448afe9909539150e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_132
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e8433e708546649951a1e28b24e425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_133
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad1035eb96bf9142adea072afcaed5e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_134
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35db3ce18d329cd4cbd670347c6f5ec2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_135
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01665ae0267b67a4a9f74105af707500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_136
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 1000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3407eb1d14d7dca499055bf56ed68f53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_137
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cbdaf2a7b4fbe948b9eaa00bf533e62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_138
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 1000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc045cbe0a872974dbfc0e8ae6268ea7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_139
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1000
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d27c61bd23b0aa4391e17aa0f23b968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_140
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b282a248af3709146b8a2b22db2b2bd2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_141
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b40fb3650dc28d04b95b341bea668cbd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_142
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8bc991f8d144f4097233f350cfdef7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_143
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc83254967997e147b26835aa68ea39d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_144
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 500
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48da778d89dd9684fb1ab2784bbaea27
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_145
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b978a8fe894b8e428f9455c2d4edc55
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_146
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0262a7f068dbf354e94ce6502e86790b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_147
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ebec55a1a403c4c86b89fec20ce85a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_148
+      rect:
+        serializedVersion: 2
+        x: 2250
+        y: 0
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20a010c4705f0e4382df744a8d30062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chatbox-Spritesheet_149
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 750
+        height: 500
+      alignment: 1
+      pivot: {x: 0, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a8d9c93b50735a4fa93346340ce9476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: ea62aae31338843429004be4f2be225d
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
