@@ -49,16 +49,17 @@ public class GameManager : MonoBehaviour
     private List<string> m_PollAnswers = new List<string>();
     private List<List<string>> m_ListOfValidAnswersDivided = new List<List<string>>();
 
-    private float m_CountDownValue;
+    public float m_CountDownValue;
     private int m_CountDownValueInt;
 
     public float m_FireWoodStrength = 2f;
 
     private bool m_GatherVotes = false;
 
-    private Event currentEvent;
+    public Event currentEvent;
+    public CharacterManager currentCharacter;
 
-    int numberOfValidAnswers;
+    private int numberOfValidAnswers;
 
     private WaitForSeconds m_WaitForInformationScreen;
     private WaitForSeconds m_WaitForDayStarting;
@@ -111,7 +112,7 @@ public class GameManager : MonoBehaviour
                     m_PollAnswers.Add(keyCode.ToString());
             }
 
-            CalculateSliderValues();
+            CalculateAnswers();
         }
     }
 
@@ -215,12 +216,12 @@ public class GameManager : MonoBehaviour
             yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_ActiveCharacters[i]));
         }
 
-        yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FirewoodEvent")));
-
         for (int j = 0; j < m_ActiveCharacters.Count; j++)
         {
             yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), m_ActiveCharacters[j]));
         }
+
+        yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
 
         m_CountDownValue = m_DayPlayingLength;
         yield return m_WaitForDayPlaying;
@@ -283,141 +284,39 @@ public class GameManager : MonoBehaviour
     #region PollMethods
     private IEnumerator DoPoll(Event eventV, CharacterManager characterV)
     {
-        numberOfValidAnswers = 0;
+        currentEvent = eventV;
+        currentCharacter = characterV;
 
-        switch (eventV.name)
-        {
-            #region Food
-            case "FoodEvent":
-                m_CountDownValue = eventV.m_EventLength;
+        eventV.Instantiate();
+        m_GatherVotes = true;
 
-                m_QuestionText.text = "Should " + characterV.m_CharacterName + " get something to eat?";
-                
-                for(int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
-                {
-                    GameObject tempAnswer = m_AnswerPrefab;
-                    tempAnswer.GetComponent<TextMeshProUGUI>().text = eventV.m_PossibleAnswers[i];
-                    Instantiate(tempAnswer, m_AnswersPanel.transform);
+        yield return new WaitForSeconds(eventV.m_EventLength);
 
-                    GameObject tempSlider = m_SliderPrefab;
-                    tempSlider.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = eventV.m_PossibleAnswers[i];
-                    Instantiate(tempSlider, m_ResultPanel.transform);
-                }
+        CalculateAnswers();
+        eventV.Execute(m_ListOfValidAnswersDivided, characterV);
+        m_GatherVotes = false;
 
-                Debug.Log("Food Event for " + characterV.m_CharacterName + ". Length: " + eventV.m_EventLength + " seconds");
-
-                m_GatherVotes = true;
-                currentEvent = eventV;
-
-                yield return new WaitForSeconds(eventV.m_EventLength);
-                
-                CalculateAnswers(eventV);
-
-                eventV.Execute(m_ListOfValidAnswersDivided, characterV);
-
-                m_GatherVotes = false;
-
-                foreach(Transform child in m_AnswersPanel.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-
-                m_QuestionText.text = null;
-
-                foreach (Transform child in m_ResultPanel.transform)
-                {
-                    Destroy(child.gameObject);
-                }
-
-                m_PollAnswers.Clear();
-                m_ListOfValidAnswersDivided.Clear();
-
-                break;
-            #endregion
-
-            #region MedPack
-            case "MedPackEvent":
-                m_CountDownValue = eventV.m_EventLength;
-                Debug.Log("MedPack Event for " + characterV.m_CharacterName + ". Length: " + eventV.m_EventLength + " seconds");
-
-                m_GatherVotes = true;
-                yield return new WaitForSeconds(eventV.m_EventLength);
-
-                CalculateAnswers(eventV);
-
-                if (m_ListOfValidAnswersDivided[0].Count > m_ListOfValidAnswersDivided[1].Count)
-                {
-                    // MED BEHAVIOUR
-                }
-
-                m_GatherVotes = false;
-
-                m_PollAnswers.Clear();
-                m_ListOfValidAnswersDivided.Clear();
-
-                break;
-            #endregion
-
-            #region EndOfDay
-            case "EndOfDayEvent":
-                m_CountDownValue = eventV.m_EventLength;
-                Debug.Log("EndOfDayEvent. Length: " + eventV.m_EventLength + " seconds");
-
-                m_GatherVotes = true;
-                yield return new WaitForSeconds(eventV.m_EventLength);
-
-                CalculateAnswers(eventV);
-
-                /*
-                 * 
-                 * END OF DAY BEHAVIOUR
-                 * 
-                 */
-
-                m_GatherVotes = false;
-
-                m_PollAnswers.Clear();
-                m_ListOfValidAnswersDivided.Clear();
-
-                break;
-                #endregion
-        }
-        yield return null;
+        ResetForNewEvent();
     }
 
     private IEnumerator DoPoll(Event eventV)
     {
-        numberOfValidAnswers = 0;
-        
-        switch (eventV.name)
-        {
-            #region Firewood
-            case "FirewoodEvent":
-                m_CountDownValue = eventV.m_EventLength;
-                Debug.Log("Firewood. Length: " + eventV.m_EventLength + " seconds");
+        currentEvent = eventV;
 
-                m_GatherVotes = true;
-                yield return new WaitForSeconds(eventV.m_EventLength);
+        eventV.Instantiate();
+        m_GatherVotes = true;
 
-                CalculateAnswers(eventV);
+        yield return new WaitForSeconds(eventV.m_EventLength);
 
-                eventV.Execute(m_ListOfValidAnswersDivided);
+        CalculateAnswers();
+        eventV.Execute(m_ListOfValidAnswersDivided);
+        m_GatherVotes = false;
 
-                m_GatherVotes = false;
-
-                m_PollAnswers.Clear();
-                //m_ListOfValidAnswersDivided.Clear();
-
-                break;
-                #endregion
-        }
-        yield return null;
+        ResetForNewEvent();
     }
     #endregion
 
-    #region CalculateMethods
-
-    void CalculateSliderValues()
+    void CalculateAnswers()
     {
         m_ListOfValidAnswersDivided.Clear();
 
@@ -438,7 +337,7 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if(m_PollAnswers.Count != 0)
+        if (m_PollAnswers.Count != 0)
         {
             for (int l = 0; l < m_ListOfValidAnswersDivided.Count; l++)
             {
@@ -447,28 +346,25 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
-    void CalculateAnswers(Event eventV)
+    
+    void ResetForNewEvent()
     {
+        foreach (Transform child in m_AnswersPanel.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        m_QuestionText.text = null;
+
+        foreach (Transform child in m_ResultPanel.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        currentCharacter = null;
+        currentEvent = null;
+
+        m_PollAnswers.Clear();
         m_ListOfValidAnswersDivided.Clear();
-
-        for (int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
-        {
-            m_ListOfValidAnswersDivided.Add(new List<string>());
-        }
-
-        for (int j = 0; j < m_PollAnswers.Count; j++)
-        {
-            for (int k = 0; k < eventV.m_PossibleAnswers.Count; k++)
-            {
-                if (m_PollAnswers[j] == eventV.m_PossibleAnswers[k])
-                {
-                    m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
-                    numberOfValidAnswers++;
-                }
-            }
-        }
     }
-
-    #endregion
 }
