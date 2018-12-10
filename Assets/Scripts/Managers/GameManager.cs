@@ -26,6 +26,12 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI m_FoodText;
     public TextMeshProUGUI m_FirewoodText;
     public TextMeshProUGUI m_MedPackText;
+    public TextMeshProUGUI m_QuestionText;
+
+    public GameObject m_AnswersPanel;
+    public GameObject m_AnswerPrefab;
+    public GameObject m_ResultPanel;
+    public GameObject m_SliderPrefab;
 
     public GameObject m_CharacterCardPanel;
     public GameObject m_CharacterCardPrefab;
@@ -49,6 +55,8 @@ public class GameManager : MonoBehaviour
     public float m_FireWoodStrength = 2f;
 
     private bool m_GatherVotes = false;
+
+    private Event currentEvent;
 
     int numberOfValidAnswers;
 
@@ -103,6 +111,17 @@ public class GameManager : MonoBehaviour
                 if (Input.GetKeyDown(keyCode))
                     m_PollAnswers.Add(keyCode.ToString());
             }
+
+            /*
+            for(int i = 0; i < m_ListOfValidAnswersDivided.Count; i++)
+            {
+                float value = m_ListOfValidAnswersDivided[i].Count / m_PollAnswers.Count;
+
+                Debug.Log(value);
+
+                m_ResultPanel.transform.GetChild(i).GetComponentInChildren<Slider>().value = value;
+            }
+            */
         }
     }
 
@@ -281,16 +300,46 @@ public class GameManager : MonoBehaviour
             #region Food
             case "FoodEvent":
                 m_CountDownValue = eventV.m_EventLength;
+
+                m_QuestionText.text = "Should " + characterV.m_CharacterName + " get something to eat?";
+                
+                for(int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
+                {
+                    GameObject tempAnswer = m_AnswerPrefab;
+                    tempAnswer.GetComponent<TextMeshProUGUI>().text = eventV.m_PossibleAnswers[i];
+                    Instantiate(tempAnswer, m_AnswersPanel.transform);
+
+                    GameObject tempSlider = m_SliderPrefab;
+                    tempSlider.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = eventV.m_PossibleAnswers[i];
+                    Instantiate(tempSlider, m_ResultPanel.transform);
+                }
+
                 Debug.Log("Food Event for " + characterV.m_CharacterName + ". Length: " + eventV.m_EventLength + " seconds");
 
                 m_GatherVotes = true;
+                //currentEvent = eventV;
+
                 yield return new WaitForSeconds(eventV.m_EventLength);
+
+                
 
                 CalculateAnswers(eventV);
 
                 eventV.Execute(m_ListOfValidAnswersDivided, characterV);
 
                 m_GatherVotes = false;
+
+                foreach(Transform child in m_AnswersPanel.transform)
+                {
+                    Destroy(child.gameObject);
+                }
+
+                m_QuestionText.text = null;
+
+                foreach (Transform child in m_ResultPanel.transform)
+                {
+                    Destroy(child.gameObject);
+                }
 
                 m_PollAnswers.Clear();
                 m_ListOfValidAnswersDivided.Clear();
@@ -377,6 +426,8 @@ public class GameManager : MonoBehaviour
         yield return null;
     }
     #endregion
+
+
 
     void CalculateAnswers(Event eventV)
     {
