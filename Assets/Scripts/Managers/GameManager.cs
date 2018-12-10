@@ -64,8 +64,7 @@ public class GameManager : MonoBehaviour
     private WaitForSeconds m_WaitForDayStarting;
     private WaitForSeconds m_WaitForDayPlaying;
     private WaitForSeconds m_WaitForDayEnding;
-
-
+    
     private static GameManager m_instance;
     public static GameManager Instance { get { return m_instance; } }
 
@@ -112,16 +111,7 @@ public class GameManager : MonoBehaviour
                     m_PollAnswers.Add(keyCode.ToString());
             }
 
-            /*
-            for(int i = 0; i < m_ListOfValidAnswersDivided.Count; i++)
-            {
-                float value = m_ListOfValidAnswersDivided[i].Count / m_PollAnswers.Count;
-
-                Debug.Log(value);
-
-                m_ResultPanel.transform.GetChild(i).GetComponentInChildren<Slider>().value = value;
-            }
-            */
+            CalculateSliderValues();
         }
     }
 
@@ -317,12 +307,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Food Event for " + characterV.m_CharacterName + ". Length: " + eventV.m_EventLength + " seconds");
 
                 m_GatherVotes = true;
-                //currentEvent = eventV;
+                currentEvent = eventV;
 
                 yield return new WaitForSeconds(eventV.m_EventLength);
-
                 
-
                 CalculateAnswers(eventV);
 
                 eventV.Execute(m_ListOfValidAnswersDivided, characterV);
@@ -418,7 +406,7 @@ public class GameManager : MonoBehaviour
                 m_GatherVotes = false;
 
                 m_PollAnswers.Clear();
-                m_ListOfValidAnswersDivided.Clear();
+                //m_ListOfValidAnswersDivided.Clear();
 
                 break;
                 #endregion
@@ -427,10 +415,43 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region CalculateMethods
 
+    void CalculateSliderValues()
+    {
+        m_ListOfValidAnswersDivided.Clear();
+
+        for (int i = 0; i < currentEvent.m_PossibleAnswers.Count; i++)
+        {
+            m_ListOfValidAnswersDivided.Add(new List<string>());
+        }
+
+        for (int j = 0; j < m_PollAnswers.Count; j++)
+        {
+            for (int k = 0; k < currentEvent.m_PossibleAnswers.Count; k++)
+            {
+                if (m_PollAnswers[j] == currentEvent.m_PossibleAnswers[k])
+                {
+                    m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
+                    numberOfValidAnswers++;
+                }
+            }
+        }
+
+        if(m_PollAnswers.Count != 0)
+        {
+            for (int l = 0; l < m_ListOfValidAnswersDivided.Count; l++)
+            {
+                float newValue = (float)m_ListOfValidAnswersDivided[l].Count / (float)m_PollAnswers.Count;
+                m_ResultPanel.transform.GetChild(l).GetComponentInChildren<Slider>().value = newValue;
+            }
+        }
+    }
 
     void CalculateAnswers(Event eventV)
     {
+        m_ListOfValidAnswersDivided.Clear();
+
         for (int i = 0; i < eventV.m_PossibleAnswers.Count; i++)
         {
             m_ListOfValidAnswersDivided.Add(new List<string>());
@@ -448,4 +469,6 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }
