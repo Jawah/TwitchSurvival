@@ -8,7 +8,7 @@ public class MedPackEvent : Event {
     public override void Instantiate()
     {
         GameManager.Instance.m_CountDownValue = m_EventLength;
-        GameManager.Instance.m_QuestionText.text = "Should " + GameManager.Instance.currentCharacter.m_CharacterName + " get a MedPack?";
+        GameManager.Instance.m_QuestionText.text = "Should " + GameManager.Instance.m_CurrentCharacter.m_CharacterName + " get a MedPack?";
 
         base.Instantiate();
     }

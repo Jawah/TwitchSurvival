@@ -8,7 +8,7 @@ public class EndOfDayEvent : Event {
     public override void Instantiate()
     {
         GameManager.Instance.m_CountDownValue = m_EventLength;
-        GameManager.Instance.m_QuestionText.text = "What should " + GameManager.Instance.currentCharacter.m_CharacterName + " do overnight?";
+        GameManager.Instance.m_QuestionText.text = "What should " + GameManager.Instance.m_CurrentCharacter.m_CharacterName + " do overnight?";
 
         base.Instantiate();
     }

@@ -6,10 +6,9 @@ using UnityEngine.UI;
 using TwitchChatter;
 
 public class TwitchChatPoll : MonoBehaviour
-{
-	// Name of the Twitch channel to join for the poll
+{   
+    // Name of the Twitch channel to join for the poll
 	public string _pollChannelName;
-
 	// Keywords used to indicate the poll options
 	// Chat messages will be compared to these strings
 	// to see if a user has cast a vote.

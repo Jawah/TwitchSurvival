@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using TwitchChatter;
 
 public class GameManager : MonoBehaviour
 {
@@ -46,7 +47,9 @@ public class GameManager : MonoBehaviour
     public GameObject m_InformationPanel;
     public List<Event> m_AllEvents = new List<Event>();
 
-    private List<string> m_PollAnswers = new List<string>();
+    public List<string> m_VotersList = new List<string>();
+
+    public List<string> m_PollAnswers = new List<string>();
     private List<List<string>> m_ListOfValidAnswersDivided = new List<List<string>>();
 
     public float m_CountDownValue;
@@ -54,10 +57,12 @@ public class GameManager : MonoBehaviour
 
     public float m_FireWoodStrength = 2f;
 
-    private bool m_GatherVotes = false;
+    public bool m_GatherVotes = false;
+    
+    public Event m_CurrentEvent;
+    public CharacterManager m_CurrentCharacter;
+    public List<string> m_CurrentPossibleAnswers = new List<string>();
 
-    public Event currentEvent;
-    public CharacterManager currentCharacter;
 
     private int numberOfValidAnswers;
 
@@ -106,11 +111,13 @@ public class GameManager : MonoBehaviour
 
         if (m_GatherVotes)
         {
+            /*
             foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKeyDown(keyCode))
                     m_PollAnswers.Add(keyCode.ToString());
             }
+            */
 
             CalculateAnswers();
         }
@@ -284,8 +291,9 @@ public class GameManager : MonoBehaviour
     #region PollMethods
     private IEnumerator DoPoll(Event eventV, CharacterManager characterV)
     {
-        currentEvent = eventV;
-        currentCharacter = characterV;
+        m_CurrentEvent = eventV;
+        m_CurrentCharacter = characterV;
+        m_CurrentPossibleAnswers = eventV.m_PossibleAnswers;
 
         eventV.Instantiate();
         m_GatherVotes = true;
@@ -301,7 +309,8 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DoPoll(Event eventV)
     {
-        currentEvent = eventV;
+        m_CurrentEvent = eventV;
+        m_CurrentPossibleAnswers = eventV.m_PossibleAnswers;
 
         eventV.Instantiate();
         m_GatherVotes = true;
@@ -320,16 +329,16 @@ public class GameManager : MonoBehaviour
     {
         m_ListOfValidAnswersDivided.Clear();
 
-        for (int i = 0; i < currentEvent.m_PossibleAnswers.Count; i++)
+        for (int i = 0; i < m_CurrentEvent.m_PossibleAnswers.Count; i++)
         {
             m_ListOfValidAnswersDivided.Add(new List<string>());
         }
 
         for (int j = 0; j < m_PollAnswers.Count; j++)
         {
-            for (int k = 0; k < currentEvent.m_PossibleAnswers.Count; k++)
+            for (int k = 0; k < m_CurrentEvent.m_PossibleAnswers.Count; k++)
             {
-                if (m_PollAnswers[j] == currentEvent.m_PossibleAnswers[k])
+                if (m_PollAnswers[j] == m_CurrentEvent.m_PossibleAnswers[k])
                 {
                     m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
                     numberOfValidAnswers++;
@@ -361,10 +370,39 @@ public class GameManager : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        currentCharacter = null;
-        currentEvent = null;
+        m_CurrentCharacter = null;
+        m_CurrentEvent = null;
 
+        m_VotersList.Clear();
+        m_CurrentPossibleAnswers.Clear();
         m_PollAnswers.Clear();
         m_ListOfValidAnswersDivided.Clear();
     }
+    /*
+    private void OnChatMessage(ref TwitchChatMessage msg)
+    {
+        if (m_GatherVotes)
+        {
+            if (!m_VotersList.Contains(msg.userName))
+            {
+                bool isValidVote = false;
+
+                for (int i = 0; i < m_CurrentPossibleAnswers.Count; i++)
+                {
+                    if (msg.chatMessagePlainText.Equals(m_CurrentPossibleAnswers[i]))
+                    {
+                        isValidVote = true;
+
+                        m_PollAnswers.Add(msg.chatMessagePlainText);
+                    }
+                }
+
+                if (isValidVote)
+                {
+                    m_VotersList.Add(msg.userName);
+                }
+            }
+        }
+    }
+    */
 }
