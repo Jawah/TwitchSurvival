@@ -13,6 +13,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventLength: 15
   m_EventDescription: 
-  m_PossibleAnswers:
-  - Y
-  - N
+  m_PossibleAnswers: []

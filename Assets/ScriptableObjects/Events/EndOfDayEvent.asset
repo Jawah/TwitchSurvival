@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EventLength: 5
   m_EventDescription: 
   m_PossibleAnswers:
-  - A
-  - B
-  - C
+  - '!Stay'
+  - '!Plunder'
+  - '!Timber'

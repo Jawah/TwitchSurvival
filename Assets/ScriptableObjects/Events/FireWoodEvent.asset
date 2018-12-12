@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EventLength: 5
   m_EventDescription: 
   m_PossibleAnswers:
-  - Y
-  - N
+  - '!Yes'
+  - '!No'

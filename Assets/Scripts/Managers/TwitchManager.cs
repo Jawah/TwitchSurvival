@@ -5,8 +5,7 @@ using UnityEngine.UI;
 using TwitchChatter;
 
 public class TwitchManager : MonoBehaviour {
-
-    // Name of the Twitch channel to join for the poll
+    
     public string _pollChannelName;
 
     private void Start()

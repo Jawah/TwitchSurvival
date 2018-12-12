@@ -111,14 +111,6 @@ public class GameManager : MonoBehaviour
 
         if (m_GatherVotes)
         {
-            /*
-            foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))
-            {
-                if (Input.GetKeyDown(keyCode))
-                    m_PollAnswers.Add(keyCode.ToString());
-            }
-            */
-
             CalculateAnswers();
         }
     }
@@ -262,6 +254,7 @@ public class GameManager : MonoBehaviour
 
                 tempCharacter.m_Instance = Instantiate(m_CharacterCardPrefab, m_CharacterCardPanel.transform) as GameObject;
                 tempCharacter.Setup(m_ActiveCharacters.Count);
+                //tempCharacter.OnVariableChange += VariableCahng
                 m_ActiveCharacters.Add(tempCharacter);
             }
         }
@@ -374,35 +367,7 @@ public class GameManager : MonoBehaviour
         m_CurrentEvent = null;
 
         m_VotersList.Clear();
-        m_CurrentPossibleAnswers.Clear();
         m_PollAnswers.Clear();
         m_ListOfValidAnswersDivided.Clear();
     }
-    /*
-    private void OnChatMessage(ref TwitchChatMessage msg)
-    {
-        if (m_GatherVotes)
-        {
-            if (!m_VotersList.Contains(msg.userName))
-            {
-                bool isValidVote = false;
-
-                for (int i = 0; i < m_CurrentPossibleAnswers.Count; i++)
-                {
-                    if (msg.chatMessagePlainText.Equals(m_CurrentPossibleAnswers[i]))
-                    {
-                        isValidVote = true;
-
-                        m_PollAnswers.Add(msg.chatMessagePlainText);
-                    }
-                }
-
-                if (isValidVote)
-                {
-                    m_VotersList.Add(msg.userName);
-                }
-            }
-        }
-    }
-    */
 }
