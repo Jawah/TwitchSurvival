@@ -28,8 +28,11 @@ public class CharacterManager
 
     public bool m_IsSick = false;
 
-    public enum PlayerState {Default, Plunder, ChopWood};
+    public enum PlayerState { Default, Plunder, ChopWood };
     public PlayerState playerState = PlayerState.Default;
+
+    private enum HealthState { Default, Sick, Depressed, Fracture };
+    private HealthState healthState = HealthState.Default;
 
     private Character m_Character;
 
@@ -112,13 +115,13 @@ public class CharacterManager
 
     public void AddFull()
     {
-        m_FullValue += m_FullGainValue;
+        FullValue += m_FullGainValue;
         m_FullValueText.text = m_FullValue.ToString("F1");
     }
 
     public void AddWarmth()
     {
-        m_WarmthValue += m_WarmthGainValue;
+        WarmthValue += m_WarmthGainValue;
         m_WarmthValueText.text = m_WarmthValue.ToString("F1");
     }
 

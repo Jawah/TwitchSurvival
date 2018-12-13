@@ -1818,6 +1818,7 @@ MonoBehaviour:
     m_WarmthGainValue: 0
     m_IsPlundering: 0
     m_IsSick: 0
+    playerState: 0
   m_CurrentPossibleAnswers: []
 --- !u!4 &831557926
 Transform:
@@ -1873,12 +1874,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pollChannelName: jawahscript
-  _optionOneLabel: {fileID: 0}
-  _optionTwoLabel: {fileID: 0}
-  _optionThreeLabel: {fileID: 0}
-  _optionOneCountLabel: {fileID: 0}
-  _optionTwoCountLabel: {fileID: 0}
-  _optionThreeCountLabel: {fileID: 0}
 --- !u!1 &1008719542
 GameObject:
   m_ObjectHideFlags: 0

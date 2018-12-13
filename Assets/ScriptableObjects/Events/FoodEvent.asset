@@ -13,4 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_EventLength: 15
   m_EventDescription: 
-  m_PossibleAnswers: []
+  m_PossibleAnswers:
+  - '!Yes'
+  - '!No'

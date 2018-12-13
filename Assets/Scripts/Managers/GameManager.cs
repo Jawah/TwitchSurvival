@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
     public CharacterManager m_CurrentCharacter;
     public List<string> m_CurrentPossibleAnswers = new List<string>();
 
+    private InformationManager m_InformationManager;
 
     private int numberOfValidAnswers;
 
@@ -84,6 +85,8 @@ public class GameManager : MonoBehaviour
         {
             m_instance = this;
         }
+
+        InformationManager m_InformaitonManager = new InformationManager();
 
         m_WaitForInformationScreen = new WaitForSeconds(m_InformationScreenLength);
         m_WaitForDayStarting = new WaitForSeconds(m_DayStartingLength);
@@ -189,7 +192,26 @@ public class GameManager : MonoBehaviour
         m_CountDownValue = tempEvent.m_EventLength;
 
         m_InformationPanel.SetActive(true);
-        m_InformationPanel.GetComponentInChildren<TextMeshProUGUI>().text = tempEvent.m_EventDescription;
+
+
+
+        for(int i = 0; i < m_ActiveCharacters.Count; i++)
+        {
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        //m_InformationPanel.GetComponentInChildren<TextMeshProUGUI>().text = tempEvent.m_EventDescription;
 
         yield return new WaitForSeconds(m_CountDownValue);
         m_InformationPanel.SetActive(false);
