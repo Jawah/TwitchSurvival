@@ -20,6 +20,7 @@ public class FirewoodEvent : Event {
             GameManager.Instance.m_FireWoodStrength = 3;
             GameManager.Instance.m_FirewoodValue--;
             GameManager.Instance.m_FirewoodText.text = GameManager.Instance.m_FirewoodValue.ToString() + "x";
+            GameManager.Instance.CalculateAndSetTemperature();
         }
     }
 }

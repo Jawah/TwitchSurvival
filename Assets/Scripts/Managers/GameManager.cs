@@ -63,9 +63,11 @@ public class GameManager : MonoBehaviour
     public CharacterManager m_CurrentCharacter;
     public List<string> m_CurrentPossibleAnswers = new List<string>();
 
-    private InformationManager m_InformationManager;
+    public InformationManager m_InformationManager;
 
     private int numberOfValidAnswers;
+
+    private bool firstRun = true;
 
     private WaitForSeconds m_WaitForInformationScreen;
     private WaitForSeconds m_WaitForDayStarting;
@@ -85,8 +87,6 @@ public class GameManager : MonoBehaviour
         {
             m_instance = this;
         }
-
-        InformationManager m_InformaitonManager = new InformationManager();
 
         m_WaitForInformationScreen = new WaitForSeconds(m_InformationScreenLength);
         m_WaitForDayStarting = new WaitForSeconds(m_DayStartingLength);
@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void CalculateAndSetTemperature()
+    public void CalculateAndSetTemperature()
     {
         m_Temperature = (int)(m_FireWoodStrength * 8);
         m_TemperatureText.text = m_Temperature + "°C";
@@ -168,7 +168,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameLoop()
     {
-        yield return StartCoroutine(InformationScreen());
+        if (!firstRun)
+        {
+            yield return StartCoroutine(InformationScreen());
+        }
         yield return StartCoroutine(DayStarting());
         yield return StartCoroutine(DayPlaying());
         yield return StartCoroutine(DayEnding());
@@ -188,31 +191,12 @@ public class GameManager : MonoBehaviour
         m_Day++;
         SetDay();
 
-        Event tempEvent = m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "InformationEvent");
-        m_CountDownValue = tempEvent.m_EventLength;
+        m_InformationManager.ExecuteInformationWindow();
+
+        m_CountDownValue = 11f;
 
         m_InformationPanel.SetActive(true);
-
-
-
-        for(int i = 0; i < m_ActiveCharacters.Count; i++)
-        {
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-        //m_InformationPanel.GetComponentInChildren<TextMeshProUGUI>().text = tempEvent.m_EventDescription;
-
+        
         yield return new WaitForSeconds(m_CountDownValue);
         m_InformationPanel.SetActive(false);
     }
@@ -255,6 +239,7 @@ public class GameManager : MonoBehaviour
         m_FireWoodStrength -= DailyFireValueLoss;
 
         yield return m_WaitForDayEnding;
+        firstRun = false;
     }
 
     #endregion
@@ -391,5 +376,6 @@ public class GameManager : MonoBehaviour
         m_VotersList.Clear();
         m_PollAnswers.Clear();
         m_ListOfValidAnswersDivided.Clear();
+        m_InformationManager.Reset();
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - FullValueText
   - WarmthValueText
   - CharacterImage
+  - HealthStatusText
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,10 @@ public class CharacterManager
     public float m_FullLossFactor;
     public float m_WarmthLossFactor;
 
+    public float m_HealthStatusMoraleLossFactor = 1;
+    public float m_HealthStatusFullLossFactor = 1;
+    public float m_HealthStatusWarmthLossFactor = 1;
+
     public float m_FullGainValue;
     public float m_WarmthGainValue;
 
@@ -31,12 +35,13 @@ public class CharacterManager
     public enum PlayerState { Default, Plunder, ChopWood };
     public PlayerState playerState = PlayerState.Default;
 
-    private enum HealthState { Default, Sick, Depressed, Fracture };
-    private HealthState healthState = HealthState.Default;
+    public enum HealthState { Default, Sick, Depressed, Fracture };
+    public HealthState healthState = HealthState.Default;
 
     private Character m_Character;
 
     private TextMeshProUGUI m_NameText;
+    private TextMeshProUGUI m_HealthStatusText;
     private TextMeshProUGUI m_MoraleValueText;
     private TextMeshProUGUI m_FullValueText;
     private TextMeshProUGUI m_WarmthValueText;
@@ -58,9 +63,9 @@ public class CharacterManager
         m_FullLossFactor = m_Character.m_DailyFullLossFactor;
         m_CharacterSprite = m_Character.m_CharacterSprite;
         m_WarmthLossFactor = m_Character.m_DailyWarmthLossFactor;
-        m_MoraleValue = (1 - m_MoraleLossFactor) * Random.Range(5f, 10f);
-        m_FullValue = (1 - m_FullLossFactor) * Random.Range(8f, 10f);
-        m_WarmthValue = (1 - m_WarmthLossFactor) * Random.Range(5f, 10f);
+        m_MoraleValue = Random.Range(3.3f, 9f);
+        m_FullValue = Random.Range(3.3f, 9f);
+        m_WarmthValue = Random.Range(3.3f, 9f);
 
         m_FullGainValue = m_Character.m_FullGainValue;
         m_WarmthGainValue = m_Character.m_WarmthGainValue;
@@ -76,6 +81,8 @@ public class CharacterManager
                 m_FullValueText = child.GetComponent<TextMeshProUGUI>();
             else if (child.gameObject.CompareTag(Tags.WARMTH_VALUE_TEXT_TAG))
                 m_WarmthValueText = child.GetComponent<TextMeshProUGUI>();
+            else if (child.gameObject.CompareTag(Tags.HEALTH_STATUS_TEXT_TAG))
+                m_HealthStatusText = child.GetComponent<TextMeshProUGUI>();
         }
 
         var imageChildren = m_Instance.GetComponentsInChildren<Image>();
@@ -104,9 +111,9 @@ public class CharacterManager
 
     public void SetNewCharacterValues(float accumalatedMoraleItemFactors, float accumalatedFullItemFactors, float accumalatedWarmthItemFactors)
     {
-        MoraleValue += (-m_MoraleLossFactor + accumalatedMoraleItemFactors);
-        FullValue += (-m_FullLossFactor + accumalatedFullItemFactors);
-        WarmthValue += (-m_WarmthLossFactor + accumalatedWarmthItemFactors);
+        MoraleValue += ((-m_MoraleLossFactor + accumalatedMoraleItemFactors) * m_HealthStatusMoraleLossFactor);
+        FullValue += ((-m_FullLossFactor + accumalatedFullItemFactors) * m_HealthStatusFullLossFactor);
+        WarmthValue += ((-m_WarmthLossFactor + accumalatedWarmthItemFactors) * m_HealthStatusWarmthLossFactor) + GameManager.Instance.m_FireWoodStrength/3;
 
         m_MoraleValueText.text = m_MoraleValue.ToString("F1");
         m_FullValueText.text = m_FullValue.ToString("F1");
@@ -158,6 +165,35 @@ public class CharacterManager
             m_WarmthValue = value;
             if (OnVariableChange != null)
                 OnVariableChange(m_WarmthValue, "Warmth");
+        }
+    }
+
+    public void StatusChanger()
+    {
+        switch (healthState)
+        {
+            case HealthState.Default:
+                m_HealthStatusMoraleLossFactor = 1;
+                m_HealthStatusFullLossFactor = 1;
+                m_HealthStatusWarmthLossFactor = 1;
+                m_HealthStatusText.text = "FEELS GOOD";
+                m_HealthStatusText.color = Color.green;
+                break;
+            case HealthState.Depressed:
+                m_HealthStatusMoraleLossFactor = 2;
+                m_HealthStatusText.text = "IS DEPRESSED";
+                m_HealthStatusText.color = Color.red;
+                break;
+            case HealthState.Fracture:
+                m_HealthStatusFullLossFactor = 2;
+                m_HealthStatusText.text = "BROKE A LEG";
+                m_HealthStatusText.color = Color.red;
+                break;
+            case HealthState.Sick:
+                m_HealthStatusWarmthLossFactor = 2;
+                m_HealthStatusText.text = "IS SICK";
+                m_HealthStatusText.color = Color.red;
+                break;
         }
     }
 

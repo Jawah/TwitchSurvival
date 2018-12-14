@@ -6,7 +6,7 @@ using TwitchChatter;
 
 public class TwitchManager : MonoBehaviour {
     
-    public string _pollChannelName;
+    [SerializeField] string _pollChannelName;
 
     private void Start()
     {

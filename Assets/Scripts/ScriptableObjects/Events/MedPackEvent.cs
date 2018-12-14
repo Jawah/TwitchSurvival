@@ -17,7 +17,10 @@ public class MedPackEvent : Event {
     {
         if (dividedList[0].Count > dividedList[1].Count)
         {
-            //MED PACK BEHAVIOUR
+            characterV.healthState = CharacterManager.HealthState.Default;
+            characterV.StatusChanger();
+            GameManager.Instance.m_MedPackValue--;
+            GameManager.Instance.m_MedPackText.text = GameManager.Instance.m_MedPackValue.ToString() + "x";
         }
     }
 }
