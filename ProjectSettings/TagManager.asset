@@ -10,6 +10,8 @@ TagManager:
   - WarmthValueText
   - CharacterImage
   - HealthStatusText
+  - ArrowGreen
+  - ArrowRed
   layers:
   - Default
   - TransparentFX
@@ -46,4 +48,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 448856463
     locked: 0

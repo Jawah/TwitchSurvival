@@ -17,9 +17,7 @@ public class InformationManager : MonoBehaviour {
     {
         ExecuteForSpecials();
         ExecuteForHealth();
-        ExecuteForStay();
-        ExecuteForPlunder();
-        ExecuteForTimber();
+        ExecuteForTask();
 
         for(int i = 0; i < m_InformationPanelTextList.Count; i++)
         {
@@ -37,6 +35,10 @@ public class InformationManager : MonoBehaviour {
         {
             specialEvent = (SpecialEvents)Random.Range(1, (int)SpecialEvents.NumberOfTypes);
             Debug.Log(specialEvent);
+        }
+        else
+        {
+            specialEvent = SpecialEvents.Default;   
         }
 
         switch (specialEvent)
@@ -115,19 +117,25 @@ public class InformationManager : MonoBehaviour {
         }
     }
 
-    void ExecuteForStay()
+    void ExecuteForTask()
     {
-        
-    }
+        for (int i = 0; i < GameManager.Instance.m_ActiveCharacters.Count; i++)
+        {
+            switch (GameManager.Instance.m_ActiveCharacters[i].playerState)
+            {
+                case CharacterManager.PlayerState.Default:
 
-    void ExecuteForPlunder()
-    {
-        //wenn der Charakter 
-    }
+                    break;
 
-    void ExecuteForTimber()
-    {
+                case CharacterManager.PlayerState.ChopWood:
 
+                    break;
+
+                case CharacterManager.PlayerState.Plunder:
+
+                    break;
+            }
+        }
     }
 
     public void Reset()
