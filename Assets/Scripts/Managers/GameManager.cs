@@ -196,27 +196,49 @@ public class GameManager : MonoBehaviour
         {
             case "Food":
                 if (newVal > m_OldFoodValue)
-                    m_FoodArrowGreen.Play();
+                {
+                    if (m_FoodArrowGreen != null)
+                        m_FoodArrowGreen.Play();
+                }
+
                 else
-                    m_FoodArrowRed.Play();
+                {
+                    if (m_FoodArrowRed != null)
+                        m_FoodArrowRed.Play();
+                }
 
                 m_OldFoodValue = newVal;
                 break;
 
             case "MedPack":
                 if (newVal > m_OldMedPackValue)
-                    m_MedPackArrowGreen.Play();
+                {
+                    if (m_MedPackArrowGreen != null)
+                        m_MedPackArrowGreen.Play();
+                }
+
                 else
-                    m_MedPackArrowRed.Play();
+                {
+                    if (m_MedPackArrowRed != null)
+                        m_MedPackArrowRed.Play();
+                }
 
                 m_OldMedPackValue = newVal;
                 break;
 
             case "Firewood":
                 if (newVal > m_OldFirewoodValue)
-                    m_FirewoodArrowGreen.Play();
+                {
+                    if (m_FirewoodArrowGreen != null)
+                        m_FirewoodArrowGreen.Play();
+                }
+                  
                 else
-                    m_FirewoodArrowRed.Play();
+                {
+                    if (m_FirewoodArrowRed != null)
+                        m_FirewoodArrowRed.Play();
+                }
+                    
 
                 m_OldFirewoodValue = newVal;
                 break;
@@ -321,7 +343,7 @@ public class GameManager : MonoBehaviour
     {
         m_InformationManager.ExecuteInformationWindow();
 
-        m_CountDownValue = 11f;
+        m_CountDownValue = 23f;
 
         m_InformationPanel.SetActive(true);
         

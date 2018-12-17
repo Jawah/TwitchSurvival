@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CanvasFadeOut : MonoBehaviour {
-    
-	void Start () {
+
+    CanvasGroup canvasGroup;
+
+
+    void OnEnable() {
+        canvasGroup = GetComponent<CanvasGroup>();
+
+        canvasGroup.alpha = 1;
+
         Fade();
 	}
 
@@ -28,8 +35,6 @@ public class CanvasFadeOut : MonoBehaviour {
 
     IEnumerator DoFade()
     {
-        CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
-
         while(canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime / 2;

@@ -46,7 +46,8 @@ public class InformationManager : MonoBehaviour {
             {
                 if(Random.Range(0,3) == 0)
                 {
-                    GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
+                    Destroy(GameManager.Instance.m_ActiveCharacters[i].m_Instance);
+                    //GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     m_InformationPanelTextList.Add(
                         GameManager.Instance.m_ActiveCharacters[i].m_CharacterName + " died. Everbody loses Morale. Why keep on going?");
 
@@ -204,7 +205,8 @@ public class InformationManager : MonoBehaviour {
                             GameManager.Instance.m_ActiveCharacters[j].MoraleValue -= 4;
                         }
 
-                        GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
+                        Destroy(GameManager.Instance.m_ActiveCharacters[i].m_Instance);
+                        //GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     }
                     else if (randNum == 1)
                     {
@@ -245,7 +247,8 @@ public class InformationManager : MonoBehaviour {
                             GameManager.Instance.m_ActiveCharacters[j].MoraleValue -= 4;
                         }
 
-                        GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
+                        Destroy(GameManager.Instance.m_ActiveCharacters[i].m_Instance);
+                        //GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     }
                     else if (randNum3 == 2)
                     {

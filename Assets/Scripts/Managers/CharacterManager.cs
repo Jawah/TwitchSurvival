@@ -268,27 +268,45 @@ public class CharacterManager
         {
             case "Morale":
                 if (newVal > m_oldMoraleValue)
-                    m_MoraleArrowGreen.Play();
+                {
+                    if(m_MoraleArrowGreen != null)
+                        m_MoraleArrowGreen.Play();
+                }
                 else
-                    m_MoraleArrowRed.Play();
+                {
+                    if(m_MoraleArrowRed != null)
+                        m_MoraleArrowRed.Play();
+                }
 
                 m_oldMoraleValue = newVal;
                 break;
 
             case "Full":
                 if (newVal > m_oldFullValue)
-                    m_FullArrowGreen.Play();
+                {
+                    if(m_FullArrowGreen != null)
+                        m_FullArrowGreen.Play();
+                }
                 else
-                    m_FullArrowRed.Play();
+                {
+                    if(m_FullArrowRed != null)
+                        m_FullArrowRed.Play();
+                }
 
                 m_oldFullValue = newVal;
                 break;
 
             case "Warmth":
                 if (newVal > m_oldWarmthValue)
-                    m_WarmthArrowGreen.Play();
+                {
+                    if(m_WarmthArrowGreen != null)
+                        m_WarmthArrowGreen.Play();
+                }
                 else
-                    m_WarmthArrowRed.Play();
+                {
+                    if(m_WarmthArrowRed != null)
+                        m_WarmthArrowRed.Play();
+                }
 
                 m_oldWarmthValue = newVal;
                 break;
