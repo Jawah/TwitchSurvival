@@ -23,9 +23,13 @@ public class EndOfDayEvent : Event {
         {
             characterV.playerState = CharacterManager.PlayerState.Plunder;
         }
-        else
+        else if (dividedList[2].Count > dividedList[1].Count)
         {
             characterV.playerState = CharacterManager.PlayerState.ChopWood;
+        }
+        else
+        {
+            characterV.playerState = CharacterManager.PlayerState.Default;
         }
     }
 }

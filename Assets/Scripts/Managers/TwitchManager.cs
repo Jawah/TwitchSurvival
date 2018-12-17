@@ -43,13 +43,13 @@ public class TwitchManager : MonoBehaviour {
 
                 for (int i = 0; i < GameManager.Instance.m_CurrentPossibleAnswers.Count; i++)
                 {
-                    if (msg.chatMessagePlainText.Equals(GameManager.Instance.m_CurrentPossibleAnswers[i]))
+                    if (msg.chatMessagePlainText.ToLower().Equals(GameManager.Instance.m_CurrentPossibleAnswers[i].ToLower()))
                     {
                         isValidVote = true;
 
                         Debug.Log(msg.chatMessagePlainText);
 
-                        GameManager.Instance.m_PollAnswers.Add(msg.chatMessagePlainText);
+                        GameManager.Instance.m_PollAnswers.Add(msg.chatMessagePlainText.ToLower());
                     }
                 }
 

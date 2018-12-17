@@ -196,6 +196,8 @@ public class CharacterManager
         {
             if (m_MoraleValue == value) return;
             m_MoraleValue = value;
+            if (MoraleValue < 0) MoraleValue = 0;
+            if (MoraleValue > 10) MoraleValue = 10;
             if (OnVariableChangeCharacterValues != null)
                 OnVariableChangeCharacterValues(m_MoraleValue, "Morale");
         }
@@ -208,6 +210,8 @@ public class CharacterManager
         {
             if (m_FullValue == value) return;
             m_FullValue = value;
+            if (FullValue < 0) FullValue = 0;
+            if (FullValue > 10) FullValue = 10;
             if (OnVariableChangeCharacterValues != null)
                 OnVariableChangeCharacterValues(m_FullValue, "Full");
         }
@@ -220,6 +224,8 @@ public class CharacterManager
         {
             if (m_WarmthValue == value) return;
             m_WarmthValue = value;
+            if (WarmthValue < 0) WarmthValue = 0;
+            if (WarmthValue > 10) WarmthValue = 10;
             if (OnVariableChangeCharacterValues != null)
                 OnVariableChangeCharacterValues(m_WarmthValue, "Warmth");
         }
@@ -248,6 +254,8 @@ public class CharacterManager
                 break;
             case HealthState.Sick:
                 m_HealthStatusWarmthLossFactor = 2;
+                m_HealthStatusFullLossFactor = 2;
+                m_HealthStatusMoraleLossFactor = 2;
                 m_HealthStatusText.text = "IS SICK";
                 m_HealthStatusText.color = Color.red;
                 break;

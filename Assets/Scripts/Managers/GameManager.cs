@@ -53,7 +53,11 @@ public class GameManager : MonoBehaviour
     public GameObject m_ItemPrefab;
     public List<Item> m_AllItems = new List<Item>();
     public List<ItemManager> m_ActiveItems = new List<ItemManager>();
-    
+
+    public GameObject m_WinPanel;
+    public GameObject m_LosePanel;
+    public GameObject m_DayPanel;
+
     public GameObject m_InformationPanel;
     public List<Event> m_AllEvents = new List<Event>();
 
@@ -108,6 +112,11 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        while (m_ActiveCharacters.Count < 2)
+        {
+            InstantiateNewCharacter(m_AllCharacters[Random.Range(0, m_AllCharacters.Count)].m_CharacterName);
+        }
+
         SetDay();
         CalculateAndSetTemperature();
         SetRessources();
@@ -141,8 +150,10 @@ public class GameManager : MonoBehaviour
         {
             if (m_FoodValue == value) return;
             m_FoodValue = value;
+            m_FoodText.text = m_FoodValue.ToString() + "x";
+            m_OldFoodValue = m_FoodValue;
             if (OnVariableChangeRessourcesValues != null)
-                OnVariableChangeRessourcesValues(3, "Food");
+                OnVariableChangeRessourcesValues(m_FoodValue, "Food");
         }
     }
 
@@ -153,8 +164,10 @@ public class GameManager : MonoBehaviour
         {
             if (m_MedPackValue == value) return;
             m_MedPackValue = value;
+            m_MedPackText.text = m_MedPackValue.ToString() + "x";
+            m_OldMedPackValue = m_MedPackValue;
             if (OnVariableChangeRessourcesValues != null)
-                OnVariableChangeRessourcesValues(3, "MedPack");
+                OnVariableChangeRessourcesValues(m_MedPackValue, "MedPack");
         }
     }
 
@@ -165,8 +178,10 @@ public class GameManager : MonoBehaviour
         {
             if (m_FirewoodValue == value) return;
             m_FirewoodValue = value;
+            m_FirewoodText.text = m_FirewoodValue.ToString() + "x";
+            m_OldFirewoodValue = m_FirewoodValue;
             if (OnVariableChangeRessourcesValues != null)
-                OnVariableChangeRessourcesValues(3, "Firewood");
+                OnVariableChangeRessourcesValues(m_FirewoodValue, "Firewood");
         }
     }
 
@@ -265,17 +280,24 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator GameLoop()
     {
+        yield return StartCoroutine(DayScreen());
+
         if (!firstRun)
         {
             yield return StartCoroutine(InformationScreen());
+
+            if (m_ActiveCharacters.Count == 0)
+            {
+                m_LosePanel.SetActive(true);
+            }
         }
         yield return StartCoroutine(DayStarting());
         yield return StartCoroutine(DayPlaying());
         yield return StartCoroutine(DayEnding());
 
-        if (m_ActiveCharacters.Count == 0)
+        if(m_Day == 10)
         {
-            // END THE GAME
+            m_WinPanel.SetActive(true);
         }
         else
         {
@@ -283,11 +305,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator InformationScreen()
+    private IEnumerator DayScreen()
     {
         m_Day++;
         SetDay();
 
+        m_DayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + m_Day.ToString();
+        m_DayPanel.SetActive(true);
+
+        m_CountDownValue = 3;
+        yield return new WaitForSeconds(3f);
+        m_DayPanel.SetActive(false);
+    }
+
+    private IEnumerator InformationScreen()
+    {
         m_InformationManager.ExecuteInformationWindow();
 
         m_CountDownValue = 11f;
@@ -435,9 +467,9 @@ public class GameManager : MonoBehaviour
         {
             for (int k = 0; k < m_CurrentEvent.m_PossibleAnswers.Count; k++)
             {
-                if (m_PollAnswers[j] == m_CurrentEvent.m_PossibleAnswers[k])
+                if (m_PollAnswers[j].ToLower() == m_CurrentEvent.m_PossibleAnswers[k].ToLower())
                 {
-                    m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j]);
+                    m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j].ToLower());
                     numberOfValidAnswers++;
                 }
             }
