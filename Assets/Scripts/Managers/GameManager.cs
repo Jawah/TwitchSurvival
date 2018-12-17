@@ -315,7 +315,6 @@ public class GameManager : MonoBehaviour
 
         m_CountDownValue = 3;
         yield return new WaitForSeconds(3f);
-        m_DayPanel.SetActive(false);
     }
 
     private IEnumerator InformationScreen()
