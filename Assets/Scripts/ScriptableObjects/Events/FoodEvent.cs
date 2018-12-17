@@ -18,7 +18,7 @@ public class FoodEvent : Event {
         if (dividedList[0].Count > dividedList[1].Count)
         {
             characterV.AddFull();
-            GameManager.Instance.m_FoodValue--;
+            GameManager.Instance.FoodValue--;
             GameManager.Instance.m_FoodText.text = GameManager.Instance.m_FoodValue.ToString() + "x";
         }
     }

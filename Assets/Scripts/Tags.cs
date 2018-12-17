@@ -6,4 +6,6 @@
     public static string WARMTH_VALUE_TEXT_TAG = "WarmthValueText";
     public static string CHARACTER_IMAGE_TAG = "CharacterImage";
     public static string HEALTH_STATUS_TEXT_TAG = "HealthStatusText";
+    public static string ARROW_GREEN_TAG = "ArrowGreen";
+    public static string ARROW_RED_TAG = "ArrowRed";
 }

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 199091727776432080}
   m_Layer: 0
   m_Name: Arrow-ParticleRedSmall
-  m_TagString: Untagged
+  m_TagString: ArrowRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 199029439773055432}
   m_Layer: 0
   m_Name: Arrow-ParticleGreenSmall
-  m_TagString: Untagged
+  m_TagString: ArrowGreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 199301731345537700}
   m_Layer: 0
   m_Name: Arrow-ParticleRedSmall
-  m_TagString: Untagged
+  m_TagString: ArrowRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 199586797743427870}
   m_Layer: 0
   m_Name: Arrow-ParticleGreenSmall
-  m_TagString: Untagged
+  m_TagString: ArrowGreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 199490315335803418}
   m_Layer: 0
   m_Name: Arrow-ParticleGreenSmall
-  m_TagString: Untagged
+  m_TagString: ArrowGreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 199918521147964522}
   m_Layer: 0
   m_Name: Arrow-ParticleRedSmall
-  m_TagString: Untagged
+  m_TagString: ArrowRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -678,6 +678,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4966495761843190, guid: d3a32684593ebd840ae7e0cfec56b17f,
     type: 2}
   m_PrefabInternal: {fileID: 275581471}
+--- !u!198 &275581473 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198234916022626436, guid: d3a32684593ebd840ae7e0cfec56b17f,
+    type: 2}
+  m_PrefabInternal: {fileID: 275581471}
 --- !u!1 &350461344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,6 +1040,11 @@ Prefab:
 --- !u!4 &540406493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4246863813208852, guid: 5c8854a6f98f6db4bb5d04a943556051,
+    type: 2}
+  m_PrefabInternal: {fileID: 540406492}
+--- !u!198 &540406494 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198075169409793502, guid: 5c8854a6f98f6db4bb5d04a943556051,
     type: 2}
   m_PrefabInternal: {fileID: 540406492}
 --- !u!1 &548653948
@@ -1909,6 +1919,12 @@ MonoBehaviour:
   m_FirewoodText: {fileID: 265653174}
   m_MedPackText: {fileID: 136520486}
   m_QuestionText: {fileID: 1635947309}
+  m_FoodArrowGreen: {fileID: 2016003415}
+  m_FoodArrowRed: {fileID: 275581473}
+  m_FirewoodArrowGreen: {fileID: 540406494}
+  m_FirewoodArrowRed: {fileID: 924265621}
+  m_MedPackArrowGreen: {fileID: 2037949029}
+  m_MedPackArrowRed: {fileID: 1993612665}
   m_AnswersPanel: {fileID: 1473071328}
   m_AnswerPrefab: {fileID: 1930182398113062, guid: dae2a1823c9124a4ab03b8c287014277,
     type: 2}
@@ -2064,6 +2080,11 @@ Prefab:
 --- !u!4 &924265620 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4966495761843190, guid: d3a32684593ebd840ae7e0cfec56b17f,
+    type: 2}
+  m_PrefabInternal: {fileID: 924265619}
+--- !u!198 &924265621 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198234916022626436, guid: d3a32684593ebd840ae7e0cfec56b17f,
     type: 2}
   m_PrefabInternal: {fileID: 924265619}
 --- !u!1 &1008719542
@@ -4345,6 +4366,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4966495761843190, guid: d3a32684593ebd840ae7e0cfec56b17f,
     type: 2}
   m_PrefabInternal: {fileID: 1993612663}
+--- !u!198 &1993612665 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198234916022626436, guid: d3a32684593ebd840ae7e0cfec56b17f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1993612663}
 --- !u!1001 &2016003413
 Prefab:
   m_ObjectHideFlags: 0
@@ -4396,6 +4422,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4246863813208852, guid: 5c8854a6f98f6db4bb5d04a943556051,
     type: 2}
   m_PrefabInternal: {fileID: 2016003413}
+--- !u!198 &2016003415 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198075169409793502, guid: 5c8854a6f98f6db4bb5d04a943556051,
+    type: 2}
+  m_PrefabInternal: {fileID: 2016003413}
 --- !u!1001 &2037949027
 Prefab:
   m_ObjectHideFlags: 0
@@ -4441,6 +4472,11 @@ Prefab:
 --- !u!4 &2037949028 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4246863813208852, guid: 5c8854a6f98f6db4bb5d04a943556051,
+    type: 2}
+  m_PrefabInternal: {fileID: 2037949027}
+--- !u!198 &2037949029 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 198075169409793502, guid: 5c8854a6f98f6db4bb5d04a943556051,
     type: 2}
   m_PrefabInternal: {fileID: 2037949027}
 --- !u!1 &2067771101

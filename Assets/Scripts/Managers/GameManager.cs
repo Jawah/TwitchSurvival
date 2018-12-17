@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
     public int m_Temperature;
 
     public int m_FoodValue;
+    private int m_OldFoodValue;
     public int m_FirewoodValue;
+    private int m_OldFirewoodValue;
     public int m_MedPackValue;
+    private int m_OldMedPackValue;
 
     public float DailyFireValueLoss;
 
@@ -28,6 +31,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI m_FirewoodText;
     public TextMeshProUGUI m_MedPackText;
     public TextMeshProUGUI m_QuestionText;
+
+    public ParticleSystem m_FoodArrowGreen;
+    public ParticleSystem m_FoodArrowRed;
+    public ParticleSystem m_FirewoodArrowGreen;
+    public ParticleSystem m_FirewoodArrowRed;
+    public ParticleSystem m_MedPackArrowGreen;
+    public ParticleSystem m_MedPackArrowRed;
 
     public GameObject m_AnswersPanel;
     public GameObject m_AnswerPrefab;
@@ -92,6 +102,8 @@ public class GameManager : MonoBehaviour
         m_WaitForDayStarting = new WaitForSeconds(m_DayStartingLength);
         m_WaitForDayPlaying = new WaitForSeconds(m_DayPlayingLength);
         m_WaitForDayEnding = new WaitForSeconds(m_DayEndingLength);
+
+        OnVariableChangeRessourcesValues += VariableChangeRessourcesHandler;
     }
 
     void Start()
@@ -118,7 +130,88 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    #region SetterFunctions
+    #region GetterSetterFunctions
+
+    #region Ressources
+
+    public int FoodValue
+    {
+        get { return m_FoodValue; }
+        set
+        {
+            if (m_FoodValue == value) return;
+            m_FoodValue = value;
+            if (OnVariableChangeRessourcesValues != null)
+                OnVariableChangeRessourcesValues(3, "Food");
+        }
+    }
+
+    public int MedPackValue
+    {
+        get { return m_MedPackValue; }
+        set
+        {
+            if (m_MedPackValue == value) return;
+            m_MedPackValue = value;
+            if (OnVariableChangeRessourcesValues != null)
+                OnVariableChangeRessourcesValues(3, "MedPack");
+        }
+    }
+
+    public int FirewoodValue
+    {
+        get { return m_FirewoodValue; }
+        set
+        {
+            if (m_FirewoodValue == value) return;
+            m_FirewoodValue = value;
+            if (OnVariableChangeRessourcesValues != null)
+                OnVariableChangeRessourcesValues(3, "Firewood");
+        }
+    }
+
+    public void VariableChangeRessourcesHandler(int newVal, string valueName)
+    {
+        ArrowDisplayRessources(newVal, valueName);
+    }
+
+    public void ArrowDisplayRessources(int newVal, string valueName)
+    {
+        switch (valueName)
+        {
+            case "Food":
+                if (newVal > m_OldFoodValue)
+                    m_FoodArrowGreen.Play();
+                else
+                    m_FoodArrowRed.Play();
+
+                m_OldFoodValue = newVal;
+                break;
+
+            case "MedPack":
+                if (newVal > m_OldMedPackValue)
+                    m_MedPackArrowGreen.Play();
+                else
+                    m_MedPackArrowRed.Play();
+
+                m_OldMedPackValue = newVal;
+                break;
+
+            case "Firewood":
+                if (newVal > m_OldFirewoodValue)
+                    m_FirewoodArrowGreen.Play();
+                else
+                    m_FirewoodArrowRed.Play();
+
+                m_OldFirewoodValue = newVal;
+                break;
+        }
+    }
+
+    public delegate void OnVariableChangeDelegate(int newVal, string valueName);
+    public event OnVariableChangeDelegate OnVariableChangeRessourcesValues;
+
+    #endregion
 
     private void SetDay()
     {
@@ -127,6 +220,10 @@ public class GameManager : MonoBehaviour
 
     private void SetRessources()
     {
+        m_OldFoodValue = m_FoodValue;
+        m_OldFirewoodValue = m_FirewoodValue;
+        m_OldMedPackValue = m_MedPackValue;
+
         m_FoodText.text = m_FoodValue + "x";
         m_FirewoodText.text = m_FirewoodValue + "x";
         m_MedPackText.text = m_MedPackValue + "x";

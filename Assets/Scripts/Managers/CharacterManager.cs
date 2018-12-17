@@ -14,8 +14,11 @@ public class CharacterManager
     public GameObject m_Instance;
 
     public float m_MoraleValue;
+    private float m_oldMoraleValue;
     public float m_FullValue;
+    private float m_oldFullValue;
     public float m_WarmthValue;
+    private float m_oldWarmthValue;
 
     public float m_MoraleLossFactor;
     public float m_FullLossFactor;
@@ -46,6 +49,13 @@ public class CharacterManager
     private TextMeshProUGUI m_FullValueText;
     private TextMeshProUGUI m_WarmthValueText;
 
+    private ParticleSystem m_MoraleArrowGreen;
+    private ParticleSystem m_MoraleArrowRed;
+    private ParticleSystem m_FullArrowGreen;
+    private ParticleSystem m_FullArrowRed;
+    private ParticleSystem m_WarmthArrowGreen;
+    private ParticleSystem m_WarmthArrowRed;
+
     private Image m_CharacterImage;
 
     public CharacterManager(Character characterSO)
@@ -55,7 +65,11 @@ public class CharacterManager
 
     public void Setup(int characterNumber)
     {
-        OnVariableChange += VariableChangeHandler;
+        m_oldMoraleValue = m_MoraleValue;
+        m_oldFullValue = m_FullValue;
+        m_oldWarmthValue = m_WarmthValue;
+        
+        OnVariableChangeCharacterValues += VariableChangeHandler;
 
         m_CharacterNumber = characterNumber;
         m_CharacterName = m_Character.m_CharacterName;
@@ -66,6 +80,9 @@ public class CharacterManager
         m_MoraleValue = Random.Range(3.3f, 9f);
         m_FullValue = Random.Range(3.3f, 9f);
         m_WarmthValue = Random.Range(3.3f, 9f);
+        m_oldMoraleValue = m_MoraleValue;
+        m_oldFullValue = m_FullValue;
+        m_oldWarmthValue = m_WarmthValue;
 
         m_FullGainValue = m_Character.m_FullGainValue;
         m_WarmthGainValue = m_Character.m_WarmthGainValue;
@@ -92,6 +109,45 @@ public class CharacterManager
                 m_CharacterImage = child.GetComponent<Image>();
         }
 
+        var particleChildren = m_Instance.GetComponentsInChildren<ParticleSystem>();
+        foreach (var child in particleChildren)
+        {
+            if (child.gameObject.CompareTag(Tags.ARROW_RED_TAG))
+            {
+                switch (child.transform.parent.name)
+                {
+                    case "MoralePanel":
+                        m_MoraleArrowRed = child.GetComponent<ParticleSystem>();
+                        break;
+
+                    case "HungerPanel":
+                        m_FullArrowRed = child.GetComponent<ParticleSystem>();
+                        break;
+
+                    case "WarmthPanel":
+                        m_WarmthArrowRed = child.GetComponent<ParticleSystem>();
+                        break;
+                }
+            }
+            else if (child.gameObject.CompareTag(Tags.ARROW_GREEN_TAG))
+            {
+                switch (child.transform.parent.name)
+                {
+                    case "MoralePanel":
+                        m_MoraleArrowGreen = child.GetComponent<ParticleSystem>();
+                        break;
+
+                    case "HungerPanel":
+                        m_FullArrowGreen = child.GetComponent<ParticleSystem>();
+                        break;
+
+                    case "WarmthPanel":
+                        m_WarmthArrowGreen = child.GetComponent<ParticleSystem>();
+                        break;
+                }
+            }
+        }
+
         m_NameText.text = m_CharacterName;
 
         m_MoraleValueText.text = m_MoraleValue.ToString("F1");
@@ -107,6 +163,7 @@ public class CharacterManager
     public void VariableChangeHandler(float newVal, string valueName)
     {
         TextColorChanger(newVal, valueName);
+        ArrowDisplay(newVal, valueName);
     }
 
     public void SetNewCharacterValues(float accumalatedMoraleItemFactors, float accumalatedFullItemFactors, float accumalatedWarmthItemFactors)
@@ -139,8 +196,8 @@ public class CharacterManager
         {
             if (m_MoraleValue == value) return;
             m_MoraleValue = value;
-            if (OnVariableChange != null)
-                OnVariableChange(m_MoraleValue, "Morale");
+            if (OnVariableChangeCharacterValues != null)
+                OnVariableChangeCharacterValues(m_MoraleValue, "Morale");
         }
     }
 
@@ -151,8 +208,8 @@ public class CharacterManager
         {
             if (m_FullValue == value) return;
             m_FullValue = value;
-            if (OnVariableChange != null)
-                OnVariableChange(m_FullValue, "Full");
+            if (OnVariableChangeCharacterValues != null)
+                OnVariableChangeCharacterValues(m_FullValue, "Full");
         }
     }
 
@@ -163,8 +220,8 @@ public class CharacterManager
         {
             if (m_WarmthValue == value) return;
             m_WarmthValue = value;
-            if (OnVariableChange != null)
-                OnVariableChange(m_WarmthValue, "Warmth");
+            if (OnVariableChangeCharacterValues != null)
+                OnVariableChangeCharacterValues(m_WarmthValue, "Warmth");
         }
     }
 
@@ -193,6 +250,39 @@ public class CharacterManager
                 m_HealthStatusWarmthLossFactor = 2;
                 m_HealthStatusText.text = "IS SICK";
                 m_HealthStatusText.color = Color.red;
+                break;
+        }
+    }
+
+    public void ArrowDisplay(float newVal, string valueName)
+    {
+        switch (valueName)
+        {
+            case "Morale":
+                if (newVal > m_oldMoraleValue)
+                    m_MoraleArrowGreen.Play();
+                else
+                    m_MoraleArrowRed.Play();
+
+                m_oldMoraleValue = newVal;
+                break;
+
+            case "Full":
+                if (newVal > m_oldFullValue)
+                    m_FullArrowGreen.Play();
+                else
+                    m_FullArrowRed.Play();
+
+                m_oldFullValue = newVal;
+                break;
+
+            case "Warmth":
+                if (newVal > m_oldWarmthValue)
+                    m_WarmthArrowGreen.Play();
+                else
+                    m_WarmthArrowRed.Play();
+
+                m_oldWarmthValue = newVal;
                 break;
         }
     }
@@ -231,5 +321,5 @@ public class CharacterManager
     }
 
     public delegate void OnVariableChangeDelegate(float newVal, string valueName);
-    public event OnVariableChangeDelegate OnVariableChange;
+    public event OnVariableChangeDelegate OnVariableChangeCharacterValues;
 }
