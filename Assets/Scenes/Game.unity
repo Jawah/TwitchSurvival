@@ -2829,7 +2829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Day: 0
   m_Temperature: 12
-  m_FoodValue: 5
+  m_FoodValue: 1
   m_FirewoodValue: 3
   m_MedPackValue: 1
   DailyFireValueLoss: 0.4
@@ -2837,6 +2837,7 @@ MonoBehaviour:
   m_DayStartingLength: 3
   m_DayPlayingLength: 3
   m_DayEndingLength: 3
+  m_DelayLength: 4
   m_DayText: {fileID: 1625242878}
   m_TemperatureText: {fileID: 1064832630}
   m_CountDownText: {fileID: 2094026931}
@@ -3894,34 +3895,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1125716155}
   m_CullTransparentMesh: 0
---- !u!1 &1150214196
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1150214197}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1150214197
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1150214196}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1195074078
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,7 +5192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 12.440002, y: -7.7500153}
+  m_AnchoredPosition: {x: 12.440002, y: -7.75}
   m_SizeDelta: {x: 342.31, y: 267.6}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &1903236925

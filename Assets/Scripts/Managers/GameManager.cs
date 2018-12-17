@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public float m_DayStartingLength;
     public float m_DayPlayingLength;
     public float m_DayEndingLength;
+    public float m_DelayLength;
 
     public TextMeshProUGUI m_DayText;
     public TextMeshProUGUI m_TemperatureText;
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour
     private WaitForSeconds m_WaitForDayStarting;
     private WaitForSeconds m_WaitForDayPlaying;
     private WaitForSeconds m_WaitForDayEnding;
+    private WaitForSeconds m_DelayBetweenQuestions;
     
     private static GameManager m_instance;
     public static GameManager Instance { get { return m_instance; } }
@@ -102,10 +104,12 @@ public class GameManager : MonoBehaviour
             m_instance = this;
         }
 
+        
         m_WaitForInformationScreen = new WaitForSeconds(m_InformationScreenLength);
         m_WaitForDayStarting = new WaitForSeconds(m_DayStartingLength);
         m_WaitForDayPlaying = new WaitForSeconds(m_DayPlayingLength);
         m_WaitForDayEnding = new WaitForSeconds(m_DayEndingLength);
+        m_DelayBetweenQuestions = new WaitForSeconds(m_DelayLength);
 
         OnVariableChangeRessourcesValues += VariableChangeRessourcesHandler;
     }
@@ -343,7 +347,7 @@ public class GameManager : MonoBehaviour
     {
         m_InformationManager.ExecuteInformationWindow();
 
-        m_CountDownValue = 23f;
+        m_CountDownValue = 16f;
 
         m_InformationPanel.SetActive(true);
         
@@ -367,16 +371,30 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < m_ActiveCharacters.Count; i++)
         {
-            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), m_ActiveCharacters[i]));
-            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_ActiveCharacters[i]));
+            if(FoodValue > 0)
+            {
+                yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), m_ActiveCharacters[i]));
+                yield return StartCoroutine(Wait());
+            }
+                
+            if(MedPackValue > 0)
+            {
+                yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_ActiveCharacters[i]));
+                yield return StartCoroutine(Wait());
+            }
         }
 
         for (int j = 0; j < m_ActiveCharacters.Count; j++)
         {
             yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), m_ActiveCharacters[j]));
+            yield return StartCoroutine(Wait());
         }
 
-        yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
+        if(FirewoodValue > 0)
+        {
+            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
+            yield return StartCoroutine(Wait());
+        }
 
         m_CountDownValue = m_DayPlayingLength;
         yield return m_WaitForDayPlaying;
@@ -390,6 +408,12 @@ public class GameManager : MonoBehaviour
 
         yield return m_WaitForDayEnding;
         firstRun = false;
+    }
+
+    private IEnumerator Wait()
+    {
+        m_CountDownValue = m_DelayLength;
+        yield return m_DelayBetweenQuestions;
     }
 
     #endregion

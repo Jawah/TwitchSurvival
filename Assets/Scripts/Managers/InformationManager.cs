@@ -47,6 +47,7 @@ public class InformationManager : MonoBehaviour {
                 if(Random.Range(0,3) == 0)
                 {
                     Destroy(GameManager.Instance.m_ActiveCharacters[i].m_Instance);
+                    GameManager.Instance.m_ActiveCharacters.Remove(GameManager.Instance.m_ActiveCharacters[i]);
                     //GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     m_InformationPanelTextList.Add(
                         GameManager.Instance.m_ActiveCharacters[i].m_CharacterName + " died. Everbody loses Morale. Why keep on going?");
@@ -93,7 +94,7 @@ public class InformationManager : MonoBehaviour {
                 break;
         }
     }
-
+    
     void ExecuteForHealth()
     {
         for (int i = 0; i < GameManager.Instance.m_ActiveCharacters.Count; i++)
@@ -206,6 +207,7 @@ public class InformationManager : MonoBehaviour {
                         }
 
                         Destroy(GameManager.Instance.m_ActiveCharacters[i].m_Instance);
+                        GameManager.Instance.m_ActiveCharacters.Remove(GameManager.Instance.m_ActiveCharacters[i]);
                         //GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     }
                     else if (randNum == 1)
@@ -235,7 +237,7 @@ public class InformationManager : MonoBehaviour {
 
                 case CharacterManager.PlayerState.Plunder:
 
-                    int randNum3 = Random.Range(0, 10);
+                    int randNum3 = Random.Range(0, 1);
 
                     if (randNum3 == 0 || randNum3 == 1)
                     {
@@ -248,6 +250,7 @@ public class InformationManager : MonoBehaviour {
                         }
 
                         Destroy(GameManager.Instance.m_ActiveCharacters[i].m_Instance);
+                        GameManager.Instance.m_ActiveCharacters.Remove(GameManager.Instance.m_ActiveCharacters[i]);
                         //GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     }
                     else if (randNum3 == 2)
@@ -292,6 +295,18 @@ public class InformationManager : MonoBehaviour {
                     GameManager.Instance.m_ActiveCharacters[i].playerState = CharacterManager.PlayerState.Default;
 
                     break;
+            }
+        }
+    }
+
+    void ExecuteForMorale()
+    {
+        if(Random.Range(0,4) == 0)
+        {
+            for(int i = 0; i < GameManager.Instance.m_ActiveCharacters.Count; i++)
+            {
+                GameManager.Instance.m_ActiveCharacters[i].MoraleValue += 3;
+                m_InformationPanelTextList.Add("Morale Boost for all because something good happened.");
             }
         }
     }
