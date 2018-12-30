@@ -237,7 +237,7 @@ public class InformationManager : MonoBehaviour {
 
                 case CharacterManager.PlayerState.Plunder:
 
-                    int randNum3 = Random.Range(0, 1);
+                    int randNum3 = Random.Range(0, 9);
 
                     if (randNum3 == 0 || randNum3 == 1)
                     {
@@ -301,7 +301,7 @@ public class InformationManager : MonoBehaviour {
 
     void ExecuteForMorale()
     {
-        if(Random.Range(0,4) == 0)
+        if(Random.Range(0,3) == 0)
         {
             for(int i = 0; i < GameManager.Instance.m_ActiveCharacters.Count; i++)
             {
@@ -313,7 +313,7 @@ public class InformationManager : MonoBehaviour {
 
     void ExecuteForHelp()
     {
-        if(Random.Range(0, 12) == 0)
+        if(Random.Range(0, 3) == 0)
         {
             bool characterChosen = false;
 

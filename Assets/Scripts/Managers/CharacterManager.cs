@@ -77,9 +77,9 @@ public class CharacterManager
         m_FullLossFactor = m_Character.m_DailyFullLossFactor;
         m_CharacterSprite = m_Character.m_CharacterSprite;
         m_WarmthLossFactor = m_Character.m_DailyWarmthLossFactor;
-        m_MoraleValue = Random.Range(3.3f, 9f);
-        m_FullValue = Random.Range(3.3f, 9f);
-        m_WarmthValue = Random.Range(3.3f, 9f);
+        m_MoraleValue = Random.Range(3.3f, 7f) + 2f;
+        m_FullValue = Random.Range(3.3f, 7f) + 2f;
+        m_WarmthValue = Random.Range(3.3f, 7f) + 2f;
         m_oldMoraleValue = m_MoraleValue;
         m_oldFullValue = m_FullValue;
         m_oldWarmthValue = m_WarmthValue;

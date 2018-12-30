@@ -321,9 +321,10 @@ public class GameManager : MonoBehaviour
         yield return StartCoroutine(DayPlaying());
         yield return StartCoroutine(DayEnding());
 
-        if(m_Day == 10)
+        if(m_Day == 5)
         {
             m_WinPanel.SetActive(true);
+            Time.timeScale = 0;
         }
         else
         {
@@ -347,7 +348,7 @@ public class GameManager : MonoBehaviour
     {
         m_InformationManager.ExecuteInformationWindow();
 
-        m_CountDownValue = 16f;
+        m_CountDownValue = 23f;
 
         m_InformationPanel.SetActive(true);
         

@@ -1342,8 +1342,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'It''s DAY 10. The Military made it to the house and saved all remaining
-    survivors!
+  m_text: 'It''s DAY 5. A group of Survivors made it to the house and saved all remaining
+    characters!
 
 
     YOU WIN!'
@@ -1414,15 +1414,15 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 436181719}
-    characterCount: 91
+    characterCount: 99
     spriteCount: 0
-    spaceCount: 17
-    wordCount: 17
+    spaceCount: 19
+    wordCount: 19
     linkCount: 0
     lineCount: 5
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -2829,7 +2829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Day: 0
   m_Temperature: 12
-  m_FoodValue: 1
+  m_FoodValue: 3
   m_FirewoodValue: 3
   m_MedPackValue: 1
   DailyFireValueLoss: 0.4
@@ -5192,7 +5192,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 12.440002, y: -7.75}
+  m_AnchoredPosition: {x: 12.440002, y: -7.7500153}
   m_SizeDelta: {x: 342.31, y: 267.6}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &1903236925
