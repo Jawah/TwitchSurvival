@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanvasFadeOut : MonoBehaviour {
+public class CanvasFade : MonoBehaviour {
 
     CanvasGroup canvasGroup;
-
 
     void OnEnable() {
         canvasGroup = GetComponent<CanvasGroup>();

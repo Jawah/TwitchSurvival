@@ -9,9 +9,16 @@ public class InformationManager : MonoBehaviour {
     [TextArea]
     [SerializeField] List<string> m_SpecialTextList = new List<string>();
 
+    private GameManager gm;
     private enum SpecialEvents { Default, Robbed, SicknessWave, NumberOfTypes };
     private SpecialEvents specialEvent = SpecialEvents.Default;
     private List<string> m_InformationPanelTextList = new List<string>();
+
+    private void Start()
+    {
+        gm = GameManager.Instance;
+        Debug.Log(gm);
+    }
 
     public void ExecuteInformationWindow()
     {
@@ -48,7 +55,6 @@ public class InformationManager : MonoBehaviour {
                 {
                     Destroy(GameManager.Instance.m_ActiveCharacters[i].m_Instance);
                     GameManager.Instance.m_ActiveCharacters.Remove(GameManager.Instance.m_ActiveCharacters[i]);
-                    //GameManager.Instance.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     m_InformationPanelTextList.Add(
                         GameManager.Instance.m_ActiveCharacters[i].m_CharacterName + " died. Everbody loses Morale. Why keep on going?");
 
