@@ -19,7 +19,7 @@ public class FoodEvent : Event {
         {
             characterV.AddFull();
             GameManager.Instance.FoodValue--;
-            GameManager.Instance.m_FoodText.text = GameManager.Instance.m_FoodValue.ToString() + "x";
+            GameManager.Instance.m_FoodText.text = GameManager.Instance.FoodValue.ToString() + "x";
         }
     }
 }

@@ -20,7 +20,7 @@ public class MedPackEvent : Event {
             characterV.healthState = CharacterManager.HealthState.Default;
             characterV.StatusChanger();
             GameManager.Instance.MedPackValue--;
-            GameManager.Instance.m_MedPackText.text = GameManager.Instance.m_MedPackValue.ToString() + "x";
+            GameManager.Instance.m_MedPackText.text = GameManager.Instance.MedPackValue.ToString() + "x";
         }
     }
 }
