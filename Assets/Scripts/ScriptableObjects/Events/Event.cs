@@ -17,13 +17,13 @@ public class Event : ScriptableObject
     {
         for (int i = 0; i < m_PossibleAnswers.Count; i++)
         {
-            GameObject tempAnswer = GameManager.Instance.m_AnswerPrefab;
+            GameObject tempAnswer = GameManager.Instance.m_InterfaceHandler.m_AnswerPrefab;
             tempAnswer.GetComponent<TextMeshProUGUI>().text = m_PossibleAnswers[i];
-            Instantiate(tempAnswer, GameManager.Instance.m_AnswersPanel.transform);
+            Instantiate(tempAnswer, GameManager.Instance.m_InterfaceHandler.m_AnswersPanel.transform);
 
-            GameObject tempSlider = GameManager.Instance.m_SliderPrefab;
+            GameObject tempSlider = GameManager.Instance.m_InterfaceHandler.m_SliderPrefab;
             tempSlider.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = m_PossibleAnswers[i];
-            Instantiate(tempSlider, GameManager.Instance.m_ResultPanel.transform);
+            Instantiate(tempSlider, GameManager.Instance.m_InterfaceHandler.m_ResultPanel.transform);
         }
 
     }

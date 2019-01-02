@@ -7,8 +7,8 @@ public class FirewoodEvent : Event {
 
     public override void Instantiate()
     {
-        GameManager.Instance.m_CountDownValue = m_EventLength;
-        GameManager.Instance.m_QuestionText.text = "Add Wood to the Fire?";
+        GameManager.Instance.CountDownValue = m_EventLength;
+        GameManager.Instance.m_InterfaceHandler.m_QuestionText.text = "Add Wood to the Fire?";
 
         base.Instantiate();
     }
@@ -17,9 +17,9 @@ public class FirewoodEvent : Event {
     {
         if (dividedList[0].Count > dividedList[1].Count)
         {
-            GameManager.Instance.m_FireWoodStrength = 3;
+            GameManager.Instance.FirewoodStrengthValue = 3;
             GameManager.Instance.FirewoodValue--;
-            GameManager.Instance.m_FirewoodText.text = GameManager.Instance.FirewoodValue.ToString() + "x";
+            GameManager.Instance.m_InterfaceHandler.m_FirewoodText.text = GameManager.Instance.FirewoodValue.ToString() + "x";
             GameManager.Instance.SetNewTemperature();
         }
     }

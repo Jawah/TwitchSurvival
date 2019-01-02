@@ -7,7 +7,7 @@ using TwitchChatter;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Sequence Lengths")]
+    [Header("Delay Lengths")]
 
     [SerializeField] float m_MiniDelayLength;
     [SerializeField] float m_ShortDelayLength;
@@ -23,19 +23,7 @@ public class GameManager : MonoBehaviour
     [Header("Other")]
 
     [SerializeField] float DailyFireValueLoss;
-
-    TextHandler m_TextHandler;
-    CharacterHandler characterHandler;
-    EventHandler eventHandler;
-
-    public TextMeshProUGUI m_DayText;
-    public TextMeshProUGUI m_TemperatureText;
-    public TextMeshProUGUI m_CountDownText;
-    public TextMeshProUGUI m_FoodText;
-    public TextMeshProUGUI m_FirewoodText;
-    public TextMeshProUGUI m_MedPackText;
-    public TextMeshProUGUI m_QuestionText;
-
+    
     public ParticleSystem m_FoodArrowGreen;
     public ParticleSystem m_FoodArrowRed;
     public ParticleSystem m_FirewoodArrowGreen;
@@ -46,26 +34,6 @@ public class GameManager : MonoBehaviour
     public delegate void ArrowAction();
     public event ArrowAction OnArrowCall;
 
-    public GameObject m_AnswersPanel;
-    public GameObject m_AnswerPrefab;
-    public GameObject m_ResultPanel;
-    public GameObject m_SliderPrefab;
-
-    public GameObject m_CharacterCardPanel;
-    public GameObject m_CharacterCardPrefab;
-    public List<Character> m_AllCharacters = new List<Character>();
-    public List<CharacterManager> m_ActiveCharacters = new List<CharacterManager>();
-
-    public GameObject m_ItemPanel;
-    public GameObject m_ItemPrefab;
-    public List<Item> m_AllItems = new List<Item>();
-    public List<ItemManager> m_ActiveItems = new List<ItemManager>();
-
-    public GameObject m_WinPanel;
-    public GameObject m_LosePanel;
-    public GameObject m_DayPanel;
-
-    public GameObject m_InformationPanel;
     public List<Event> m_AllEvents = new List<Event>();
 
     public List<string> m_VotersList = new List<string>();
@@ -73,38 +41,40 @@ public class GameManager : MonoBehaviour
     public List<string> m_PollAnswers = new List<string>();
     private List<List<string>> m_ListOfValidAnswersDivided = new List<List<string>>();
 
-    public float m_CountDownValue;
-    private int m_CountDownValueInt;
-
-    public float m_FireWoodStrength = 2f;
-
     public bool m_GatherVotes = false;
-    
-    public Event m_CurrentEvent;
-    public CharacterManager m_CurrentCharacter;
-    public List<string> m_CurrentPossibleAnswers = new List<string>();
 
-    public InformationManager m_InformationManager;
+    public Event m_CurrentEvent;
+
+    public List<string> m_CurrentPossibleAnswers = new List<string>();
 
     private int numberOfValidAnswers;
 
-    
-    // General Variables
+    // Manager/Handler Scripts
+    public InformationManager m_InformationManager;
+    public CharacterHandler m_CharacterHandler;
+    public ItemHandler m_ItemHandler;
+    public InterfaceHandler m_InterfaceHandler;
+
+    // "Other" Variables
     private int m_Day = 0;
     private int m_Temperature;
+    private int m_CountDownValueInt;
+    private float m_FireWoodStrength = 2f;
+    private float m_CountDownValue;
     private bool m_firstRun = true;
-    
+
     // For Comparibility with Ressource Values
     private int m_OldFoodValue;
     private int m_OldFirewoodValue;
     private int m_OldMedPackValue;
 
+    
     // Pre-defined WaitForSecond yields for easier Reusability
     private WaitForSeconds m_MiniWait;
     private WaitForSeconds m_ShortWait;
     private WaitForSeconds m_MediumWait;
     private WaitForSeconds m_LongWait;
-    
+
     // Singleton GameManager Instance
     private static GameManager m_instance;
     [HideInInspector]
@@ -125,6 +95,10 @@ public class GameManager : MonoBehaviour
         m_ShortWait = new WaitForSeconds(m_ShortDelayLength);
         m_MediumWait = new WaitForSeconds(m_MediumDelayLength);
         m_LongWait = new WaitForSeconds(m_LongDelayLength);
+
+        m_CharacterHandler = GetComponent<CharacterHandler>();
+        m_ItemHandler = GetComponent<ItemHandler>();
+        m_InterfaceHandler = GetComponent<InterfaceHandler>();
 
         OnRessourceValueChange += VariableChangeRessourcesHandler;
     }
@@ -147,14 +121,14 @@ public class GameManager : MonoBehaviour
     {
         m_CountDownValue -= Time.deltaTime;
         m_CountDownValueInt = (int)m_CountDownValue;
-        m_CountDownText.text = m_CountDownValueInt.ToString();
+        m_InterfaceHandler.SetCountDownValue(m_CountDownValueInt);
     }
 
     void InstantiateGame()
     {
-        while (m_ActiveCharacters.Count < 2)
+        while (m_CharacterHandler.m_ActiveCharacters.Count < 2)
         {
-            InstantiateNewCharacter(m_AllCharacters[Random.Range(0, m_AllCharacters.Count)].m_CharacterName);
+            m_CharacterHandler.InstantiateNewCharacter(m_CharacterHandler.m_AllCharacters[Random.Range(0, m_CharacterHandler.m_AllCharacters.Count)].m_CharacterName);
         }
 
         SetNewTemperature();
@@ -163,7 +137,25 @@ public class GameManager : MonoBehaviour
 
     #region GetterSetterFunctions
 
-    #region Ressources
+    public float CountDownValue
+    {
+        get { return m_CountDownValue; }
+        set
+        {
+            if (m_CountDownValue == value) return;
+            m_CountDownValue = value;
+        }
+    }
+
+    public float FirewoodStrengthValue
+    {
+        get { return m_FireWoodStrength; }
+        set
+        {
+            if (m_FireWoodStrength == value) return;
+            m_FireWoodStrength = value;
+        }
+    }
 
     public int FoodValue
     {
@@ -172,7 +164,7 @@ public class GameManager : MonoBehaviour
         {
             if (m_FoodValue == value) return;
             m_FoodValue = value;
-            m_FoodText.text = m_FoodValue.ToString() + "x";
+            m_InterfaceHandler.m_FoodText.text = m_FoodValue.ToString() + "x";
             m_OldFoodValue = m_FoodValue;
             if (OnRessourceValueChange != null)
                 OnRessourceValueChange(m_FoodValue, "Food");
@@ -186,7 +178,7 @@ public class GameManager : MonoBehaviour
         {
             if (m_MedPackValue == value) return;
             m_MedPackValue = value;
-            m_MedPackText.text = m_MedPackValue.ToString() + "x";
+            m_InterfaceHandler.m_MedPackText.text = m_MedPackValue.ToString() + "x";
             m_OldMedPackValue = m_MedPackValue;
             if (OnRessourceValueChange != null)
                 OnRessourceValueChange(m_MedPackValue, "MedPack");
@@ -200,12 +192,14 @@ public class GameManager : MonoBehaviour
         {
             if (m_FirewoodValue == value) return;
             m_FirewoodValue = value;
-            m_FirewoodText.text = m_FirewoodValue.ToString() + "x";
+            m_InterfaceHandler.m_FirewoodText.text = m_FirewoodValue.ToString() + "x";
             m_OldFirewoodValue = m_FirewoodValue;
             if (OnRessourceValueChange != null)
                 OnRessourceValueChange(m_FirewoodValue, "Firewood");
         }
     }
+
+    #endregion
 
     public void VariableChangeRessourcesHandler(int newVal, string valueName)
     {
@@ -270,8 +264,6 @@ public class GameManager : MonoBehaviour
 
     public delegate void OnVariableChangeDelegate(int newVal, string valueName);
     public event OnVariableChangeDelegate OnRessourceValueChange = delegate { };
-
-    #endregion
     
     private void SetRessources()
     {
@@ -279,9 +271,7 @@ public class GameManager : MonoBehaviour
         m_OldFirewoodValue = m_FirewoodValue;
         m_OldMedPackValue = m_MedPackValue;
 
-        m_FoodText.text = m_FoodValue + "x";
-        m_FirewoodText.text = m_FirewoodValue + "x";
-        m_MedPackText.text = m_MedPackValue + "x";
+        m_InterfaceHandler.SetRessourceText();
     }
 
     private void SetNewCharacterValues()
@@ -290,26 +280,26 @@ public class GameManager : MonoBehaviour
         float accumalatedFullItemFactors = 0;
         float accumalatedWarmthItemFactors = 0;
 
-        for (int j = 0; j < m_ActiveItems.Count; j++)
+        for (int j = 0; j < m_ItemHandler.m_ActiveItems.Count; j++)
         {
-            accumalatedMoraleItemFactors += m_ActiveItems[j].m_MoraleFactorChangeValue;
-            accumalatedFullItemFactors += m_ActiveItems[j].m_FullFactorChangeValue;
-            accumalatedWarmthItemFactors += m_ActiveItems[j].m_WarmthFactorChangeValue;
+            accumalatedMoraleItemFactors += m_ItemHandler.m_ActiveItems[j].m_MoraleFactorChangeValue;
+            accumalatedFullItemFactors += m_ItemHandler.m_ActiveItems[j].m_FullFactorChangeValue;
+            accumalatedWarmthItemFactors += m_ItemHandler.m_ActiveItems[j].m_WarmthFactorChangeValue;
         }
 
-        for (int i = 0; i < m_ActiveCharacters.Count; i++)
+        for (int i = 0; i < m_CharacterHandler.m_ActiveCharacters.Count; i++)
         {
-            m_ActiveCharacters[i].SetNewCharacterValues(accumalatedMoraleItemFactors, accumalatedFullItemFactors, accumalatedWarmthItemFactors);
+            m_CharacterHandler.m_ActiveCharacters[i].SetNewCharacterValues(accumalatedMoraleItemFactors, accumalatedFullItemFactors, accumalatedWarmthItemFactors);
         }
     }
 
     public void SetNewTemperature()
     {
         m_Temperature = (int)(m_FireWoodStrength * 8);
-        m_TemperatureText.text = m_Temperature + "°C";
+        m_InterfaceHandler.m_TemperatureText.text = m_Temperature + "°C";
     }
 
-    #endregion
+    
 
     #region GameLoop
 
@@ -321,9 +311,9 @@ public class GameManager : MonoBehaviour
         {
             yield return StartCoroutine(InformationScreen());
 
-            if (m_ActiveCharacters.Count == 0)
+            if (m_CharacterHandler.m_ActiveCharacters.Count == 0)
             {
-                m_LosePanel.SetActive(true);
+                m_InterfaceHandler.m_LosePanel.SetActive(true);
             }
         }
         yield return StartCoroutine(DayStarting());
@@ -331,7 +321,7 @@ public class GameManager : MonoBehaviour
 
         if(m_Day == 5)
         {
-            m_WinPanel.SetActive(true);
+            m_InterfaceHandler.m_WinPanel.SetActive(true);
             Time.timeScale = 0;
         }
         else
@@ -343,9 +333,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator NewDay()
     {
         m_Day++;
-        m_DayText.text = "DAY " + m_Day;
-        m_DayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + m_Day.ToString();
-        m_DayPanel.SetActive(true);
+        m_InterfaceHandler.m_DayText.text = "DAY " + m_Day;
+        m_InterfaceHandler.m_DayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + m_Day.ToString();
+        m_InterfaceHandler.m_DayPanel.SetActive(true);
 
         m_FireWoodStrength -= DailyFireValueLoss;
 
@@ -356,13 +346,13 @@ public class GameManager : MonoBehaviour
     private IEnumerator InformationScreen()
     {
         m_InformationManager.ExecuteInformationWindow();
-        
-        m_InformationPanel.SetActive(true);
+
+        m_InterfaceHandler.m_InformationPanel.SetActive(true);
 
         m_CountDownValue = m_LongDelayLength;
         yield return m_LongWait;
 
-        m_InformationPanel.SetActive(false);
+        m_InterfaceHandler.m_InformationPanel.SetActive(false);
     }
 
     private IEnumerator DayStarting()
@@ -378,24 +368,24 @@ public class GameManager : MonoBehaviour
     {
         m_GatherVotes = true;
 
-        for (int i = 0; i < m_ActiveCharacters.Count; i++)
+        for (int i = 0; i < m_CharacterHandler.m_ActiveCharacters.Count; i++)
         {
             if(FoodValue > 0)
             {
-                yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), m_ActiveCharacters[i]));
+                yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), m_CharacterHandler.m_ActiveCharacters[i]));
                 yield return StartCoroutine(AfterQuestion());
             }
                 
             if(MedPackValue > 0)
             {
-                yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_ActiveCharacters[i]));
+                yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_CharacterHandler.m_ActiveCharacters[i]));
                 yield return StartCoroutine(AfterQuestion());
             }
         }
 
-        for (int j = 0; j < m_ActiveCharacters.Count; j++)
+        for (int j = 0; j < m_CharacterHandler.m_ActiveCharacters.Count; j++)
         {
-            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), m_ActiveCharacters[j]));
+            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), m_CharacterHandler.m_ActiveCharacters[j]));
             yield return StartCoroutine(AfterQuestion());
         }
 
@@ -417,56 +407,13 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region InstantiationMethods
-
-    public void InstantiateNewCharacter(string characterName)
-    {
-        Character characterSO;
-
-        for (int i = 0; i < m_AllCharacters.Count; i++)
-        {
-            if (m_AllCharacters[i].m_CharacterName == characterName && m_AllCharacters[i].m_InUse == false && m_ActiveCharacters.Count < 6)
-            {
-                m_AllCharacters[i].m_InUse = true;
-                characterSO = m_AllCharacters[i];
-
-                CharacterManager tempCharacter = new CharacterManager(characterSO);
-
-                tempCharacter.m_Instance = Instantiate(m_CharacterCardPrefab, m_CharacterCardPanel.transform) as GameObject;
-                tempCharacter.Setup(m_ActiveCharacters.Count);
-                //tempCharacter.OnVariableChange += VariableCahng
-                m_ActiveCharacters.Add(tempCharacter);
-            }
-        }
-    }
-
-    public void InstantiateNewItem(string itemName)
-    {
-        Item itemSO;
-
-        for (int i = 0; i < m_AllItems.Count; i++)
-        {
-            if (m_AllItems[i].m_ItemName == itemName && m_ActiveItems.Count < 6)
-            {
-                itemSO = m_AllItems[i];
-
-                ItemManager tempItem = new ItemManager(itemSO);
-
-                tempItem.m_Instance = Instantiate(m_ItemPrefab, m_ItemPanel.transform) as GameObject;
-                tempItem.Setup(m_ActiveItems.Count);
-                m_ActiveItems.Add(tempItem);
-            }
-        }
-    }
-
-    #endregion
-
+    
     #region PollMethods
 
     private IEnumerator DoPoll(Event eventV, CharacterManager characterV)
     {
         m_CurrentEvent = eventV;
-        m_CurrentCharacter = characterV;
+        m_CharacterHandler.m_CurrentCharacter = characterV;
         m_CurrentPossibleAnswers = eventV.m_PossibleAnswers;
 
         eventV.Instantiate();
@@ -526,26 +473,26 @@ public class GameManager : MonoBehaviour
             for (int l = 0; l < m_ListOfValidAnswersDivided.Count; l++)
             {
                 float newValue = (float)m_ListOfValidAnswersDivided[l].Count / (float)m_PollAnswers.Count;
-                m_ResultPanel.transform.GetChild(l).GetComponentInChildren<Slider>().value = newValue;
+                m_InterfaceHandler.m_ResultPanel.transform.GetChild(l).GetComponentInChildren<Slider>().value = newValue;
             }
         }
     }
     
     void ResetForNewEvent()
     {
-        foreach (Transform child in m_AnswersPanel.transform)
+        foreach (Transform child in m_InterfaceHandler.m_AnswersPanel.transform)
         {
             Destroy(child.gameObject);
         }
 
-        m_QuestionText.text = null;
+        m_InterfaceHandler.m_QuestionText.text = null;
 
-        foreach (Transform child in m_ResultPanel.transform)
+        foreach (Transform child in m_InterfaceHandler.m_ResultPanel.transform)
         {
             Destroy(child.gameObject);
         }
 
-        m_CurrentCharacter = null;
+        m_CharacterHandler.m_CurrentCharacter = null;
         m_CurrentEvent = null;
 
         m_VotersList.Clear();

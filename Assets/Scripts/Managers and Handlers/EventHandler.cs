@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class EventHandler : MonoBehaviour {
 
-	IEnumerator EventRoutine()
+    //public List<Event> m_AllEvents = new List<Event>();
+
+    IEnumerator EventRoutine()
     {
 
 

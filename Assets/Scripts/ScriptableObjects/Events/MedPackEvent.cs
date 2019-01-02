@@ -7,8 +7,8 @@ public class MedPackEvent : Event {
     
     public override void Instantiate()
     {
-        GameManager.Instance.m_CountDownValue = m_EventLength;
-        GameManager.Instance.m_QuestionText.text = "Should " + GameManager.Instance.m_CurrentCharacter.m_CharacterName + " get a MedPack?";
+        GameManager.Instance.CountDownValue = m_EventLength;
+        GameManager.Instance.m_InterfaceHandler.m_QuestionText.text = "Should " + GameManager.Instance.m_CharacterHandler.m_CurrentCharacter.m_CharacterName + " get a MedPack?";
 
         base.Instantiate();
     }
@@ -20,7 +20,7 @@ public class MedPackEvent : Event {
             characterV.healthState = CharacterManager.HealthState.Default;
             characterV.StatusChanger();
             GameManager.Instance.MedPackValue--;
-            GameManager.Instance.m_MedPackText.text = GameManager.Instance.MedPackValue.ToString() + "x";
+            GameManager.Instance.m_InterfaceHandler.m_MedPackText.text = GameManager.Instance.MedPackValue.ToString() + "x";
         }
     }
 }
