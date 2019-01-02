@@ -2442,6 +2442,9 @@ GameObject:
   - component: {fileID: 831557925}
   - component: {fileID: 831557929}
   - component: {fileID: 831557928}
+  - component: {fileID: 831557931}
+  - component: {fileID: 831557930}
+  - component: {fileID: 831557932}
   - component: {fileID: 831557927}
   m_Layer: 0
   m_Name: GameManager
@@ -2470,33 +2473,15 @@ MonoBehaviour:
   m_MedPackValue: 1
   DailyFireValueLoss: 0.4
   m_InformationManager: {fileID: 580662213}
-  m_FoodArrowGreen: {fileID: 2016003415}
-  m_FoodArrowRed: {fileID: 275581473}
-  m_FirewoodArrowGreen: {fileID: 540406494}
-  m_FirewoodArrowRed: {fileID: 924265621}
-  m_MedPackArrowGreen: {fileID: 2037949029}
-  m_MedPackArrowRed: {fileID: 1993612665}
-  m_ItemPanel: {fileID: 21615858}
-  m_ItemPrefab: {fileID: 1123968554060092, guid: 5935c0464b7f5ee429ad782743a04c07,
-    type: 2}
-  m_AllItems:
-  - {fileID: 11400000, guid: b1f900b3bc445ba4193bad908ac81617, type: 2}
-  - {fileID: 11400000, guid: 3733864bef0e3534c847b0a48f2ee7e7, type: 2}
-  - {fileID: 11400000, guid: 3e1b75e8e8e536744919ca5d993e7b24, type: 2}
-  - {fileID: 11400000, guid: 817be6a696d25f54c81882c8dfdabfd0, type: 2}
-  - {fileID: 11400000, guid: e74ffb1b2c6d5344992ee61074d70625, type: 2}
-  - {fileID: 11400000, guid: 04ae785e447ad6a449bb1937a11c1488, type: 2}
-  m_AllEvents:
-  - {fileID: 11400000, guid: fc47a19d031e98b4c83e58be5709572c, type: 2}
-  - {fileID: 11400000, guid: d550bab8713313e4a913cfde94c9cf34, type: 2}
-  - {fileID: 11400000, guid: 8a00d9bf8e1787240b1a2d28d1b6db8b, type: 2}
-  - {fileID: 11400000, guid: 5e22ec392560c8d46a94588ba95fdcd0, type: 2}
-  - {fileID: 0}
-  m_VotersList: []
-  m_PollAnswers: []
-  m_GatherVotes: 0
-  m_CurrentEvent: {fileID: 0}
-  m_CurrentPossibleAnswers: []
+  m_CharacterHandler: {fileID: 0}
+  m_ItemHandler: {fileID: 0}
+  m_InterfaceHandler: {fileID: 0}
+  m_EventHandler: {fileID: 0}
+  m_PollHandler: {fileID: 0}
+  m_ArrowHandler: {fileID: 0}
+  m_OldFoodValue: 0
+  m_OldFirewoodValue: 0
+  m_OldMedPackValue: 0
 --- !u!4 &831557926
 Transform:
   m_ObjectHideFlags: 0
@@ -2521,14 +2506,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de81e006a57f4e94cb5752b854756c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenArrowSmall: {fileID: 1044152784325946, guid: 9155ad8127d53284fb075abba9074fcf,
-    type: 2}
-  redArrowSmall: {fileID: 1737941436108398, guid: 19bebaf57ef1fbd4fbecd212bf6ed428,
-    type: 2}
-  greenArrowBig: {fileID: 1858857247798116, guid: 5c8854a6f98f6db4bb5d04a943556051,
-    type: 2}
-  redArrowBig: {fileID: 1734329050808422, guid: d3a32684593ebd840ae7e0cfec56b17f,
-    type: 2}
+  m_FoodArrowGreen: {fileID: 2016003415}
+  m_FoodArrowRed: {fileID: 275581473}
+  m_FirewoodArrowGreen: {fileID: 540406494}
+  m_FirewoodArrowRed: {fileID: 924265621}
+  m_MedPackArrowGreen: {fileID: 2037949029}
+  m_MedPackArrowRed: {fileID: 1993612665}
 --- !u!114 &831557928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2599,6 +2582,60 @@ MonoBehaviour:
     m_IsSick: 0
     playerState: 0
     healthState: 0
+--- !u!114 &831557930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 831557924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263e8ca7597fd5e48b868944ad36c166, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItemPanel: {fileID: 21615858}
+  m_ItemPrefab: {fileID: 1123968554060092, guid: 5935c0464b7f5ee429ad782743a04c07,
+    type: 2}
+  m_AllItems:
+  - {fileID: 11400000, guid: b1f900b3bc445ba4193bad908ac81617, type: 2}
+  - {fileID: 11400000, guid: 3733864bef0e3534c847b0a48f2ee7e7, type: 2}
+  - {fileID: 11400000, guid: 3e1b75e8e8e536744919ca5d993e7b24, type: 2}
+  - {fileID: 11400000, guid: 817be6a696d25f54c81882c8dfdabfd0, type: 2}
+  - {fileID: 11400000, guid: e74ffb1b2c6d5344992ee61074d70625, type: 2}
+  - {fileID: 11400000, guid: 04ae785e447ad6a449bb1937a11c1488, type: 2}
+--- !u!114 &831557931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 831557924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6437fd6de3de4b449973e9fd44d34f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllEvents:
+  - {fileID: 11400000, guid: 5e22ec392560c8d46a94588ba95fdcd0, type: 2}
+  - {fileID: 11400000, guid: 8a00d9bf8e1787240b1a2d28d1b6db8b, type: 2}
+  - {fileID: 11400000, guid: fc47a19d031e98b4c83e58be5709572c, type: 2}
+  - {fileID: 11400000, guid: d550bab8713313e4a913cfde94c9cf34, type: 2}
+  m_CurrentEvent: {fileID: 0}
+--- !u!114 &831557932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 831557924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fead61572fc30e45b75b04b1dd85a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_VotersList: []
+  m_PollAnswers: []
+  m_GatherVotes: 0
+  m_CurrentPossibleAnswers: []
+  numberOfValidAnswers: 0
 --- !u!1 &859341544
 GameObject:
   m_ObjectHideFlags: 0
@@ -4188,8 +4225,8 @@ RectTransform:
   - {fileID: 1886623911}
   - {fileID: 730090732}
   - {fileID: 2094026929}
-  - {fileID: 1446041803}
   - {fileID: 1660373056}
+  - {fileID: 1446041803}
   m_Father: {fileID: 1742818940}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4690,7 +4727,7 @@ RectTransform:
   - {fileID: 1865687520}
   - {fileID: 1008719545}
   m_Father: {fileID: 1573224903}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}

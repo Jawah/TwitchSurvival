@@ -1,18 +1,16 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using TwitchChatter;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Delay Lengths")]
 
-    [SerializeField] float m_MiniDelayLength;
-    [SerializeField] float m_ShortDelayLength;
-    [SerializeField] float m_MediumDelayLength;
-    [SerializeField] float m_LongDelayLength;
+    [SerializeField] private float m_MiniDelayLength;
+    [SerializeField] private float m_ShortDelayLength;
+    [SerializeField] private float m_MediumDelayLength;
+    [SerializeField] private float m_LongDelayLength;
 
     [Header("Ressource Values")]
 
@@ -20,42 +18,21 @@ public class GameManager : MonoBehaviour
     [SerializeField] int m_FirewoodValue;
     [SerializeField] int m_MedPackValue;
 
+    [FormerlySerializedAs("DailyFireValueLoss")]
     [Header("Other")]
 
-    [SerializeField] float DailyFireValueLoss;
+    [SerializeField] float m_DailyFireValueLoss;
     
-    public ParticleSystem m_FoodArrowGreen;
-    public ParticleSystem m_FoodArrowRed;
-    public ParticleSystem m_FirewoodArrowGreen;
-    public ParticleSystem m_FirewoodArrowRed;
-    public ParticleSystem m_MedPackArrowGreen;
-    public ParticleSystem m_MedPackArrowRed;
-
-    public delegate void ArrowAction();
-    public event ArrowAction OnArrowCall;
-
-    public List<Event> m_AllEvents = new List<Event>();
-
-    public List<string> m_VotersList = new List<string>();
-
-    public List<string> m_PollAnswers = new List<string>();
-    private List<List<string>> m_ListOfValidAnswersDivided = new List<List<string>>();
-
-    public bool m_GatherVotes = false;
-
-    public Event m_CurrentEvent;
-
-    public List<string> m_CurrentPossibleAnswers = new List<string>();
-
-    private int numberOfValidAnswers;
-
     // Manager/Handler Scripts
-    public InformationManager m_InformationManager;
-    public CharacterHandler m_CharacterHandler;
-    public ItemHandler m_ItemHandler;
-    public InterfaceHandler m_InterfaceHandler;
+    [HideInInspector] public InformationManager m_InformationManager;
+    [HideInInspector] public CharacterHandler m_CharacterHandler;
+    [HideInInspector] public ItemHandler m_ItemHandler;
+    [HideInInspector] public InterfaceHandler m_InterfaceHandler;
+    [HideInInspector] public EventHandler m_EventHandler;
+    [HideInInspector] public PollHandler m_PollHandler;
+    [HideInInspector] public ArrowHandler m_ArrowHandler;
 
-    // "Other" Variables
+    // Variables
     private int m_Day = 0;
     private int m_Temperature;
     private int m_CountDownValueInt;
@@ -64,10 +41,9 @@ public class GameManager : MonoBehaviour
     private bool m_firstRun = true;
 
     // For Comparibility with Ressource Values
-    private int m_OldFoodValue;
-    private int m_OldFirewoodValue;
-    private int m_OldMedPackValue;
-
+    [HideInInspector] public int m_OldFoodValue;
+    [HideInInspector] public int m_OldFirewoodValue;
+    [HideInInspector] public int m_OldMedPackValue;
     
     // Pre-defined WaitForSecond yields for easier Reusability
     private WaitForSeconds m_MiniWait;
@@ -99,6 +75,9 @@ public class GameManager : MonoBehaviour
         m_CharacterHandler = GetComponent<CharacterHandler>();
         m_ItemHandler = GetComponent<ItemHandler>();
         m_InterfaceHandler = GetComponent<InterfaceHandler>();
+        m_EventHandler = GetComponent<EventHandler>();
+        m_PollHandler = GetComponent<PollHandler>();
+        m_ArrowHandler = GetComponent<ArrowHandler>();
 
         OnRessourceValueChange += VariableChangeRessourcesHandler;
     }
@@ -113,8 +92,8 @@ public class GameManager : MonoBehaviour
     {
         CountDown();
 
-        if (m_GatherVotes)
-            CalculateAnswers();
+        if (m_PollHandler.m_GatherVotes)
+            m_PollHandler.CalculateAnswers();
     }
 
     void CountDown()
@@ -201,70 +180,12 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public void VariableChangeRessourcesHandler(int newVal, string valueName)
+    public void SetNewTemperature()
     {
-        ArrowDisplayRessources(newVal, valueName);
-        //OnArrowCall();
+        m_Temperature = (int)(m_FireWoodStrength * 8);
+        m_InterfaceHandler.m_TemperatureText.text = m_Temperature + "°C";
     }
 
-    public void ArrowDisplayRessources(int newVal, string valueName)
-    {
-        switch (valueName)
-        {
-            case "Food":
-                if (newVal > m_OldFoodValue)
-                {
-                    if (m_FoodArrowGreen != null)
-                        m_FoodArrowGreen.Play();
-                }
-
-                else
-                {
-                    if (m_FoodArrowRed != null)
-                        m_FoodArrowRed.Play();
-                }
-
-                m_OldFoodValue = newVal;
-                break;
-
-            case "MedPack":
-                if (newVal > m_OldMedPackValue)
-                {
-                    if (m_MedPackArrowGreen != null)
-                        m_MedPackArrowGreen.Play();
-                }
-
-                else
-                {
-                    if (m_MedPackArrowRed != null)
-                        m_MedPackArrowRed.Play();
-                }
-
-                m_OldMedPackValue = newVal;
-                break;
-
-            case "Firewood":
-                if (newVal > m_OldFirewoodValue)
-                {
-                    if (m_FirewoodArrowGreen != null)
-                        m_FirewoodArrowGreen.Play();
-                }
-                  
-                else
-                {
-                    if (m_FirewoodArrowRed != null)
-                        m_FirewoodArrowRed.Play();
-                }
-                    
-
-                m_OldFirewoodValue = newVal;
-                break;
-        }
-    }
-
-    public delegate void OnVariableChangeDelegate(int newVal, string valueName);
-    public event OnVariableChangeDelegate OnRessourceValueChange = delegate { };
-    
     private void SetRessources()
     {
         m_OldFoodValue = m_FoodValue;
@@ -293,14 +214,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetNewTemperature()
+    public void VariableChangeRessourcesHandler(int newVal, string valueName)
     {
-        m_Temperature = (int)(m_FireWoodStrength * 8);
-        m_InterfaceHandler.m_TemperatureText.text = m_Temperature + "°C";
+        m_ArrowHandler.ArrowDisplayRessources(newVal, valueName);
     }
 
+    public delegate void OnVariableChangeDelegate(int newVal, string valueName);
+    public event OnVariableChangeDelegate OnRessourceValueChange = delegate { };
     
-
     #region GameLoop
 
     private IEnumerator GameLoop()
@@ -337,7 +258,7 @@ public class GameManager : MonoBehaviour
         m_InterfaceHandler.m_DayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + m_Day.ToString();
         m_InterfaceHandler.m_DayPanel.SetActive(true);
 
-        m_FireWoodStrength -= DailyFireValueLoss;
+        m_FireWoodStrength -= m_DailyFireValueLoss;
 
         m_CountDownValue = m_MiniDelayLength;
         yield return m_MiniWait;
@@ -366,32 +287,38 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DayPlaying()
     {
-        m_GatherVotes = true;
+
+        /*******
+            THE BEHAVIOUR OF THE DAY WITH FREE STORY TELLING PARTS AND EVENT EXECUTIONS!
+            USE THE EVENTHANDLER AS YOU SEE FIT
+        *******/
+
+        m_PollHandler.m_GatherVotes = true;
 
         for (int i = 0; i < m_CharacterHandler.m_ActiveCharacters.Count; i++)
         {
             if(FoodValue > 0)
             {
-                yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), m_CharacterHandler.m_ActiveCharacters[i]));
+                yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), m_CharacterHandler.m_ActiveCharacters[i]));
                 yield return StartCoroutine(AfterQuestion());
             }
                 
             if(MedPackValue > 0)
             {
-                yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_CharacterHandler.m_ActiveCharacters[i]));
+                yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_CharacterHandler.m_ActiveCharacters[i]));
                 yield return StartCoroutine(AfterQuestion());
             }
         }
 
         for (int j = 0; j < m_CharacterHandler.m_ActiveCharacters.Count; j++)
         {
-            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), m_CharacterHandler.m_ActiveCharacters[j]));
+            yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), m_CharacterHandler.m_ActiveCharacters[j]));
             yield return StartCoroutine(AfterQuestion());
         }
 
         if(FirewoodValue > 0)
         {
-            yield return StartCoroutine(DoPoll(m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
+            yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
             yield return StartCoroutine(AfterQuestion());
         }
 
@@ -406,98 +333,4 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-
-    
-    #region PollMethods
-
-    private IEnumerator DoPoll(Event eventV, CharacterManager characterV)
-    {
-        m_CurrentEvent = eventV;
-        m_CharacterHandler.m_CurrentCharacter = characterV;
-        m_CurrentPossibleAnswers = eventV.m_PossibleAnswers;
-
-        eventV.Instantiate();
-        m_GatherVotes = true;
-
-        yield return new WaitForSeconds(eventV.m_EventLength);
-
-        CalculateAnswers();
-        eventV.Execute(m_ListOfValidAnswersDivided, characterV);
-        m_GatherVotes = false;
-
-        ResetForNewEvent();
-    }
-
-    private IEnumerator DoPoll(Event eventV)
-    {
-        m_CurrentEvent = eventV;
-        m_CurrentPossibleAnswers = eventV.m_PossibleAnswers;
-
-        eventV.Instantiate();
-        m_GatherVotes = true;
-
-        yield return new WaitForSeconds(eventV.m_EventLength);
-
-        CalculateAnswers();
-        eventV.Execute(m_ListOfValidAnswersDivided);
-        m_GatherVotes = false;
-
-        ResetForNewEvent();
-    }
-
-    #endregion
-
-    void CalculateAnswers()
-    {
-        m_ListOfValidAnswersDivided.Clear();
-
-        for (int i = 0; i < m_CurrentEvent.m_PossibleAnswers.Count; i++)
-        {
-            m_ListOfValidAnswersDivided.Add(new List<string>());
-        }
-
-        for (int j = 0; j < m_PollAnswers.Count; j++)
-        {
-            for (int k = 0; k < m_CurrentEvent.m_PossibleAnswers.Count; k++)
-            {
-                if (m_PollAnswers[j].ToLower() == m_CurrentEvent.m_PossibleAnswers[k].ToLower())
-                {
-                    m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j].ToLower());
-                    numberOfValidAnswers++;
-                }
-            }
-        }
-
-        if (m_PollAnswers.Count != 0)
-        {
-            for (int l = 0; l < m_ListOfValidAnswersDivided.Count; l++)
-            {
-                float newValue = (float)m_ListOfValidAnswersDivided[l].Count / (float)m_PollAnswers.Count;
-                m_InterfaceHandler.m_ResultPanel.transform.GetChild(l).GetComponentInChildren<Slider>().value = newValue;
-            }
-        }
-    }
-    
-    void ResetForNewEvent()
-    {
-        foreach (Transform child in m_InterfaceHandler.m_AnswersPanel.transform)
-        {
-            Destroy(child.gameObject);
-        }
-
-        m_InterfaceHandler.m_QuestionText.text = null;
-
-        foreach (Transform child in m_InterfaceHandler.m_ResultPanel.transform)
-        {
-            Destroy(child.gameObject);
-        }
-
-        m_CharacterHandler.m_CurrentCharacter = null;
-        m_CurrentEvent = null;
-
-        m_VotersList.Clear();
-        m_PollAnswers.Clear();
-        m_ListOfValidAnswersDivided.Clear();
-        m_InformationManager.Reset();
-    }
 }
