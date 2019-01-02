@@ -6,9 +6,9 @@ public class DataResetter : MonoBehaviour
     
     private void Awake()
     {
-        for (int i = 0; i < resettableScriptableObjects.Length; i++)
+        foreach (var scriptableObject in resettableScriptableObjects)
         {
-            resettableScriptableObjects[i].Reset();
+            scriptableObject.Reset();
         }
     }
 }

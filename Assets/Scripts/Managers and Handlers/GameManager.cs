@@ -14,14 +14,14 @@ public class GameManager : MonoBehaviour
 
     [Header("Ressource Values")]
 
-    [SerializeField] int m_FoodValue;
-    [SerializeField] int m_FirewoodValue;
-    [SerializeField] int m_MedPackValue;
+    [SerializeField] private int m_FoodValue;
+    [SerializeField] private int m_FirewoodValue;
+    [SerializeField] private int m_MedPackValue;
 
     [FormerlySerializedAs("DailyFireValueLoss")]
     [Header("Other")]
 
-    [SerializeField] float m_DailyFireValueLoss;
+    [SerializeField] private float m_DailyFireValueLoss;
     
     // Manager/Handler Scripts
     [HideInInspector] public InformationManager m_InformationManager;
@@ -33,14 +33,14 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public ArrowHandler m_ArrowHandler;
 
     // Variables
-    private int m_Day = 0;
+    private int m_Day;
     private int m_Temperature;
     private int m_CountDownValueInt;
     private float m_FireWoodStrength = 2f;
     private float m_CountDownValue;
     private bool m_firstRun = true;
 
-    // For Comparibility with Ressource Values
+    // For Comparability with Ressource Values
     [HideInInspector] public int m_OldFoodValue;
     [HideInInspector] public int m_OldFirewoodValue;
     [HideInInspector] public int m_OldMedPackValue;
@@ -53,14 +53,13 @@ public class GameManager : MonoBehaviour
 
     // Singleton GameManager Instance
     private static GameManager m_instance;
-    [HideInInspector]
     public static GameManager Instance { get { return m_instance; } }
 
     private void Awake()
     {
         if (m_instance != null && m_instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {
@@ -82,13 +81,13 @@ public class GameManager : MonoBehaviour
         OnRessourceValueChange += VariableChangeRessourcesHandler;
     }
 
-    void Start()
+    private void Start()
     {
         InstantiateGame();
         StartCoroutine(GameLoop());
     }
 
-    void Update()
+    private void Update()
     {
         CountDown();
 
@@ -96,14 +95,14 @@ public class GameManager : MonoBehaviour
             m_PollHandler.CalculateAnswers();
     }
 
-    void CountDown()
+    private void CountDown()
     {
         m_CountDownValue -= Time.deltaTime;
         m_CountDownValueInt = (int)m_CountDownValue;
         m_InterfaceHandler.SetCountDownValue(m_CountDownValueInt);
     }
 
-    void InstantiateGame()
+    private void InstantiateGame()
     {
         while (m_CharacterHandler.m_ActiveCharacters.Count < 2)
         {
@@ -121,7 +120,6 @@ public class GameManager : MonoBehaviour
         get { return m_CountDownValue; }
         set
         {
-            if (m_CountDownValue == value) return;
             m_CountDownValue = value;
         }
     }
@@ -131,7 +129,6 @@ public class GameManager : MonoBehaviour
         get { return m_FireWoodStrength; }
         set
         {
-            if (m_FireWoodStrength == value) return;
             m_FireWoodStrength = value;
         }
     }
@@ -197,20 +194,20 @@ public class GameManager : MonoBehaviour
 
     private void SetNewCharacterValues()
     {
-        float accumalatedMoraleItemFactors = 0;
-        float accumalatedFullItemFactors = 0;
-        float accumalatedWarmthItemFactors = 0;
+        float accumulatedMoraleItemFactors = 0;
+        float accumulatedFullItemFactors = 0;
+        float accumulatedWarmthItemFactors = 0;
 
-        for (int j = 0; j < m_ItemHandler.m_ActiveItems.Count; j++)
+        foreach (var item in m_ItemHandler.m_ActiveItems)
         {
-            accumalatedMoraleItemFactors += m_ItemHandler.m_ActiveItems[j].m_MoraleFactorChangeValue;
-            accumalatedFullItemFactors += m_ItemHandler.m_ActiveItems[j].m_FullFactorChangeValue;
-            accumalatedWarmthItemFactors += m_ItemHandler.m_ActiveItems[j].m_WarmthFactorChangeValue;
+            accumulatedMoraleItemFactors += item.m_MoraleFactorChangeValue;
+            accumulatedFullItemFactors += item.m_FullFactorChangeValue;
+            accumulatedWarmthItemFactors += item.m_WarmthFactorChangeValue;
         }
 
-        for (int i = 0; i < m_CharacterHandler.m_ActiveCharacters.Count; i++)
+        foreach (var character in m_CharacterHandler.m_ActiveCharacters)
         {
-            m_CharacterHandler.m_ActiveCharacters[i].SetNewCharacterValues(accumalatedMoraleItemFactors, accumalatedFullItemFactors, accumalatedWarmthItemFactors);
+            character.SetNewCharacterValues(accumulatedMoraleItemFactors, accumulatedFullItemFactors, accumulatedWarmthItemFactors);
         }
     }
 
@@ -290,29 +287,29 @@ public class GameManager : MonoBehaviour
 
         /*******
             THE BEHAVIOUR OF THE DAY WITH FREE STORY TELLING PARTS AND EVENT EXECUTIONS!
-            USE THE EVENTHANDLER AS YOU SEE FIT
+            USE THE EVENT HANDLER AS YOU SEE FIT
         *******/
 
         m_PollHandler.m_GatherVotes = true;
 
-        for (int i = 0; i < m_CharacterHandler.m_ActiveCharacters.Count; i++)
+        foreach (var character in m_CharacterHandler.m_ActiveCharacters)
         {
             if(FoodValue > 0)
             {
-                yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), m_CharacterHandler.m_ActiveCharacters[i]));
+                yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), character));
                 yield return StartCoroutine(AfterQuestion());
             }
                 
             if(MedPackValue > 0)
             {
-                yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), m_CharacterHandler.m_ActiveCharacters[i]));
+                yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), character));
                 yield return StartCoroutine(AfterQuestion());
             }
         }
 
-        for (int j = 0; j < m_CharacterHandler.m_ActiveCharacters.Count; j++)
+        foreach (var character in m_CharacterHandler.m_ActiveCharacters)
         {
-            yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), m_CharacterHandler.m_ActiveCharacters[j]));
+            yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), character));
             yield return StartCoroutine(AfterQuestion());
         }
 

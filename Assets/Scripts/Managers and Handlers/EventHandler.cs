@@ -8,7 +8,7 @@ public class EventHandler : MonoBehaviour {
 
     [HideInInspector] public Event m_CurrentEvent;
 
-    IEnumerator EventRoutine()
+    private IEnumerator EventRoutine()
     {
 
 

@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 using TwitchChatter;
 
 public class TwitchManager : MonoBehaviour {
     
-    [SerializeField] string _pollChannelName;
+    [SerializeField] private string _pollChannelName;
 
     private void Start()
     {

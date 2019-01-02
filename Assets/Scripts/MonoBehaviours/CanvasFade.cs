@@ -1,12 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CanvasFade : MonoBehaviour {
+    private CanvasGroup canvasGroup;
 
-    CanvasGroup canvasGroup;
-
-    void OnEnable() {
+    private void OnEnable() {
         canvasGroup = GetComponent<CanvasGroup>();
 
         canvasGroup.alpha = 1;
@@ -27,12 +25,12 @@ public class CanvasFade : MonoBehaviour {
         gameObject.SetActive(false);
     }
 
-    IEnumerator Wait()
+    private IEnumerator Wait()
     {
         yield return new WaitForSeconds(3f);
     }
 
-    IEnumerator DoFade()
+    private IEnumerator DoFade()
     {
         while(canvasGroup.alpha > 0)
         {

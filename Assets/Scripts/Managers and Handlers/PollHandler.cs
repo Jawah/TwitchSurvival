@@ -10,7 +10,7 @@ public class PollHandler : MonoBehaviour {
     public List<string> m_PollAnswers = new List<string>();
     public List<List<string>> m_ListOfValidAnswersDivided = new List<List<string>>();
 
-    public bool m_GatherVotes = false;
+    public bool m_GatherVotes;
 
     public List<string> m_CurrentPossibleAnswers = new List<string>();
 
@@ -60,13 +60,13 @@ public class PollHandler : MonoBehaviour {
             m_ListOfValidAnswersDivided.Add(new List<string>());
         }
 
-        for (int j = 0; j < m_PollAnswers.Count; j++)
+        foreach (var answer in m_PollAnswers)
         {
             for (int k = 0; k < GameManager.Instance.m_EventHandler.m_CurrentEvent.m_PossibleAnswers.Count; k++)
             {
-                if (m_PollAnswers[j].ToLower() == GameManager.Instance.m_EventHandler.m_CurrentEvent.m_PossibleAnswers[k].ToLower())
+                if (answer.ToLower() == GameManager.Instance.m_EventHandler.m_CurrentEvent.m_PossibleAnswers[k].ToLower())
                 {
-                    m_ListOfValidAnswersDivided[k].Add(m_PollAnswers[j].ToLower());
+                    m_ListOfValidAnswersDivided[k].Add(answer.ToLower());
                     numberOfValidAnswers++;
                 }
             }
@@ -76,13 +76,13 @@ public class PollHandler : MonoBehaviour {
         {
             for (int l = 0; l < m_ListOfValidAnswersDivided.Count; l++)
             {
-                float newValue = (float)m_ListOfValidAnswersDivided[l].Count / (float)m_PollAnswers.Count;
+                float newValue = m_ListOfValidAnswersDivided[l].Count / (float)m_PollAnswers.Count;
                 GameManager.Instance.m_InterfaceHandler.m_ResultPanel.transform.GetChild(l).GetComponentInChildren<Slider>().value = newValue;
             }
         }
     }
-    
-    void ResetForNewEvent()
+
+    private void ResetForNewEvent()
     {
         foreach (Transform child in GameManager.Instance.m_InterfaceHandler.m_AnswersPanel.transform)
         {

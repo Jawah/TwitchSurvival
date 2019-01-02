@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ItemHandler : MonoBehaviour {
@@ -11,17 +10,17 @@ public class ItemHandler : MonoBehaviour {
 
     public void InstantiateNewItem(string itemName)
     {
-        Item itemSO;
-
-        for (int i = 0; i < m_AllItems.Count; i++)
+        foreach (var item in m_AllItems)
         {
-            if (m_AllItems[i].m_ItemName == itemName && m_ActiveItems.Count < 6)
+            if (item.m_ItemName == itemName && m_ActiveItems.Count < 6)
             {
-                itemSO = m_AllItems[i];
+                var itemSO = item;
 
-                ItemManager tempItem = new ItemManager(itemSO);
+                ItemManager tempItem = new ItemManager(itemSO)
+                {
+                    m_Instance = Instantiate(m_ItemPrefab, m_ItemPanel.transform)
+                };
 
-                tempItem.m_Instance = Instantiate(m_ItemPrefab, m_ItemPanel.transform) as GameObject;
                 tempItem.Setup(m_ActiveItems.Count);
                 m_ActiveItems.Add(tempItem);
             }

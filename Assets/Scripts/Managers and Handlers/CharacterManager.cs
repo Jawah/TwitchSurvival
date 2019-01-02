@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
@@ -31,9 +29,9 @@ public class CharacterManager
     public float m_FullGainValue;
     public float m_WarmthGainValue;
 
-    public bool m_IsPlundering = false;
+    public bool m_IsPlundering;
 
-    public bool m_IsSick = false;
+    public bool m_IsSick;
 
     public enum PlayerState { Default, Plunder, ChopWood };
     public PlayerState playerState = PlayerState.Default;
@@ -166,11 +164,11 @@ public class CharacterManager
         ArrowDisplay(newVal, valueName);
     }
 
-    public void SetNewCharacterValues(float accumalatedMoraleItemFactors, float accumalatedFullItemFactors, float accumalatedWarmthItemFactors)
+    public void SetNewCharacterValues(float accumulatedMoraleItemFactors, float accumulatedFullItemFactors, float accumulatedWarmthItemFactors)
     {
-        MoraleValue += ((-m_MoraleLossFactor + accumalatedMoraleItemFactors) * m_HealthStatusMoraleLossFactor);
-        FullValue += ((-m_FullLossFactor + accumalatedFullItemFactors) * m_HealthStatusFullLossFactor);
-        WarmthValue += ((-m_WarmthLossFactor + accumalatedWarmthItemFactors) * m_HealthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue/3;
+        MoraleValue += ((-m_MoraleLossFactor + accumulatedMoraleItemFactors) * m_HealthStatusMoraleLossFactor);
+        FullValue += ((-m_FullLossFactor + accumulatedFullItemFactors) * m_HealthStatusFullLossFactor);
+        WarmthValue += ((-m_WarmthLossFactor + accumulatedWarmthItemFactors) * m_HealthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue/3;
 
         m_MoraleValueText.text = m_MoraleValue.ToString("F1");
         m_FullValueText.text = m_FullValue.ToString("F1");
@@ -194,7 +192,6 @@ public class CharacterManager
         get { return m_MoraleValue; }
         set
         {
-            if (m_MoraleValue == value) return;
             m_MoraleValue = value;
             if (MoraleValue < 0) MoraleValue = 0;
             if (MoraleValue > 10) MoraleValue = 10;
@@ -208,7 +205,6 @@ public class CharacterManager
         get { return m_FullValue; }
         set
         {
-            if (m_FullValue == value) return;
             m_FullValue = value;
             if (FullValue < 0) FullValue = 0;
             if (FullValue > 10) FullValue = 10;
@@ -222,7 +218,6 @@ public class CharacterManager
         get { return m_WarmthValue; }
         set
         {
-            if (m_WarmthValue == value) return;
             m_WarmthValue = value;
             if (WarmthValue < 0) WarmthValue = 0;
             if (WarmthValue > 10) WarmthValue = 10;

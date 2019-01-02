@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 [CreateAssetMenu]
 public class Item : ResettableScriptableObject
@@ -16,7 +13,7 @@ public class Item : ResettableScriptableObject
 
     public Sprite m_Icon;
 
-    public bool m_InUse = false;
+    public bool m_InUse;
 
     public override void Reset()
     {

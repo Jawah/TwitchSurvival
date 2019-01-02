@@ -14,7 +14,7 @@ public class Character : ResettableScriptableObject
     public float m_FullGainValue;
     public float m_WarmthGainValue;
 
-    public bool m_InUse = false;
+    public bool m_InUse;
 
     public override void Reset()
     {

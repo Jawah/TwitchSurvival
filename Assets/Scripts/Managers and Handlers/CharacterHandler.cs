@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterHandler : MonoBehaviour {
@@ -13,18 +12,18 @@ public class CharacterHandler : MonoBehaviour {
 
     public void InstantiateNewCharacter(string characterName)
     {
-        Character characterSO;
-
-        for (int i = 0; i < m_AllCharacters.Count; i++)
+        foreach (var character in m_AllCharacters)
         {
-            if (m_AllCharacters[i].m_CharacterName == characterName && m_AllCharacters[i].m_InUse == false && m_ActiveCharacters.Count < 6)
+            if (character.m_CharacterName == characterName && character.m_InUse == false && m_ActiveCharacters.Count < 6)
             {
-                m_AllCharacters[i].m_InUse = true;
-                characterSO = m_AllCharacters[i];
+                character.m_InUse = true;
+                Character characterSO = character;
 
-                CharacterManager tempCharacter = new CharacterManager(characterSO);
+                CharacterManager tempCharacter = new CharacterManager(characterSO)
+                {
+                    m_Instance = Instantiate(m_CharacterCardPrefab, m_CharacterCardPanel.transform)
+                };
 
-                tempCharacter.m_Instance = Instantiate(m_CharacterCardPrefab, m_CharacterCardPanel.transform) as GameObject;
                 tempCharacter.Setup(m_ActiveCharacters.Count);
                 m_ActiveCharacters.Add(tempCharacter);
             }

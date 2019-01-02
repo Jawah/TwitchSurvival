@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class InformationManager : MonoBehaviour {
     
-    [SerializeField] GameObject m_InformationTextPrefab;
-    [SerializeField] GameObject m_InformationPanel;
+    [SerializeField] private GameObject m_InformationTextPrefab;
+    [SerializeField] private GameObject m_InformationPanel;
     [TextArea]
-    [SerializeField] List<string> m_SpecialTextList = new List<string>();
+    [SerializeField] private List<string> m_SpecialTextList = new List<string>();
     
     private enum SpecialEvents { Default, Robbed, SicknessWave, NumberOfTypes };
     private SpecialEvents specialEvent = SpecialEvents.Default;
@@ -21,15 +21,15 @@ public class InformationManager : MonoBehaviour {
         ExecuteForTask();
         ExecuteForHelp();
 
-        for(int i = 0; i < m_InformationPanelTextList.Count; i++)
+        foreach (var texts in m_InformationPanelTextList)
         {
             GameObject tempObject = m_InformationTextPrefab;
-            tempObject.GetComponent<TextMeshProUGUI>().text = m_InformationPanelTextList[i];
+            tempObject.GetComponent<TextMeshProUGUI>().text = texts;
             Instantiate(tempObject, m_InformationPanel.transform);
         }
     }
 
-    void ExecuteForDeath()
+    private void ExecuteForDeath()
     {
         for(int i = 0; i < GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Count; i++)
         {
@@ -49,18 +49,18 @@ public class InformationManager : MonoBehaviour {
                     Destroy(GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_Instance);
                     GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Remove(GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i]);
                     m_InformationPanelTextList.Add(
-                        GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " died. Everbody loses Morale. Why keep on going?");
+                        GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " died. Everybody loses Morale. Why keep on going?");
 
-                    for (int j = 0; j < GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Count; j++)
+                    foreach (var character in GameManager.Instance.m_CharacterHandler.m_ActiveCharacters)
                     {
-                        GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[j].MoraleValue -= 4;
+                        character.MoraleValue -= 4;
                     }
                 }
             }
         }
     }
 
-    void ExecuteForSpecials()
+    private void ExecuteForSpecials()
     {
         int somethingHappensRand = Random.Range(0, 4);
 
@@ -85,18 +85,18 @@ public class InformationManager : MonoBehaviour {
 
             case SpecialEvents.SicknessWave:
                 m_InformationPanelTextList.Add(m_SpecialTextList[1]);
-                for(int i = 0; i < GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Count; i++)
+                foreach (var character in GameManager.Instance.m_CharacterHandler.m_ActiveCharacters)
                 {
-                    GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].healthState = CharacterManager.HealthState.Sick;
-                    GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].StatusChanger();
+                    character.healthState = CharacterManager.HealthState.Sick;
+                    character.StatusChanger();
                 }
                 break;
         }
     }
-    
-    void ExecuteForHealth()
+
+    private void ExecuteForHealth()
     {
-        for (int i = 0; i < GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Count; i++)
+        foreach (var character in GameManager.Instance.m_CharacterHandler.m_ActiveCharacters)
         {
             int randNum = Random.Range(0, 3);
 
@@ -107,57 +107,57 @@ public class InformationManager : MonoBehaviour {
                 switch (randNum2)
                 {
                     case 0:
-                        if (GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].MoraleValue < 3)
+                        if (character.MoraleValue < 3)
                         {
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].healthState = CharacterManager.HealthState.Depressed;
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].StatusChanger();
+                            character.healthState = CharacterManager.HealthState.Depressed;
+                            character.StatusChanger();
                         }
                         break;
 
                     case 1:
-                        if (GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].FullValue < 3)
+                        if (character.FullValue < 3)
                         {
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].healthState = CharacterManager.HealthState.Fracture;
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].StatusChanger();
+                            character.healthState = CharacterManager.HealthState.Fracture;
+                            character.StatusChanger();
                         }
                         break;
 
                     case 2:
-                        if (GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].WarmthValue < 3)
+                        if (character.WarmthValue < 3)
                         {
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].healthState = CharacterManager.HealthState.Sick;
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].StatusChanger();
+                            character.healthState = CharacterManager.HealthState.Sick;
+                            character.StatusChanger();
                         }
                         break;
                 }
             }
 
-            if (GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].healthState != CharacterManager.HealthState.Default)
+            if (character.healthState != CharacterManager.HealthState.Default)
             {
-                if (GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].healthState == CharacterManager.HealthState.Depressed)
+                if (character.healthState == CharacterManager.HealthState.Depressed)
                 {
                     m_InformationPanelTextList.Add(
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " is severly depressed.<br>" +
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " loses Morale faster than the others.");
+                        character.m_CharacterName + " is severely depressed.<br>" +
+                        character.m_CharacterName + " loses Morale faster than the others.");
                 }
 
-                else if (GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].healthState == CharacterManager.HealthState.Fracture)
+                else if (character.healthState == CharacterManager.HealthState.Fracture)
                 {
                     m_InformationPanelTextList.Add(
-                        GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " broke a Leg and needs medical attention.<br>" +
-                        GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " starves faster than the others.");
+                        character.m_CharacterName + " broke a Leg and needs medical attention.<br>" +
+                        character.m_CharacterName + " starves faster than the others.");
                 }
 
-                else if (GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].healthState == CharacterManager.HealthState.Sick)
+                else if (character.healthState == CharacterManager.HealthState.Sick)
                 {
                     m_InformationPanelTextList.Add(
-                        GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " is sick!");
+                        character.m_CharacterName + " is sick!");
                 }
             }
         }
     }
 
-    void ExecuteForTask()
+    private void ExecuteForTask()
     {
         for (int i = 0; i < GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Count; i++)
         {
@@ -200,9 +200,9 @@ public class InformationManager : MonoBehaviour {
                         m_InformationPanelTextList.Add(
                         GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " didn't come back. Let's not hope for our friends return.");
 
-                        for (int j = 0; j < GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Count; j++)
+                        foreach (var character in GameManager.Instance.m_CharacterHandler.m_ActiveCharacters)
                         {
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[j].MoraleValue -= 4;
+                            character.MoraleValue -= 4;
                         }
 
                         Destroy(GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_Instance);
@@ -243,9 +243,9 @@ public class InformationManager : MonoBehaviour {
                         m_InformationPanelTextList.Add(
                         GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " didn't come back. Let's not hope for our friends return.");
 
-                        for (int j = 0; j < GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Count; j++)
+                        foreach (var character in GameManager.Instance.m_CharacterHandler.m_ActiveCharacters)
                         {
-                            GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[j].MoraleValue -= 4;
+                            character.MoraleValue -= 4;
                         }
 
                         Destroy(GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_Instance);
@@ -282,8 +282,6 @@ public class InformationManager : MonoBehaviour {
                     }
                     else
                     {
-                        int randNum5 = Random.Range(0, GameManager.Instance.m_ItemHandler.m_AllItems.Count);
-
                         m_InformationPanelTextList.Add(
                         GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_CharacterName + " brought back some ressources from this trip.");
                         GameManager.Instance.FoodValue += Random.Range(1, 4);
@@ -298,19 +296,19 @@ public class InformationManager : MonoBehaviour {
         }
     }
 
-    void ExecuteForMorale()
+    private void ExecuteForMorale()
     {
         if(Random.Range(0,3) == 0)
         {
-            for(int i = 0; i < GameManager.Instance.m_CharacterHandler.m_ActiveCharacters.Count; i++)
+            foreach (var character in GameManager.Instance.m_CharacterHandler.m_ActiveCharacters)
             {
-                GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].MoraleValue += 3;
+                character.MoraleValue += 3;
                 m_InformationPanelTextList.Add("Morale Boost for all because something good happened.");
             }
         }
     }
 
-    void ExecuteForHelp()
+    private void ExecuteForHelp()
     {
         if(Random.Range(0, 3) == 0)
         {
