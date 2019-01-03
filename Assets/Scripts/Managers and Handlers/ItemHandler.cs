@@ -1,28 +1,29 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class ItemHandler : MonoBehaviour {
 
-    public GameObject m_ItemPanel;
-    public GameObject m_ItemPrefab;
-    public List<Item> m_AllItems = new List<Item>();
-    public List<ItemManager> m_ActiveItems = new List<ItemManager>();
+    public GameObject itemPanel;
+    public GameObject itemPrefab;
+    public List<Item> allItems = new List<Item>();
+    public List<ItemManager> activeItems = new List<ItemManager>();
 
     public void InstantiateNewItem(string itemName)
     {
-        foreach (var item in m_AllItems)
+        foreach (var item in allItems)
         {
-            if (item.m_ItemName == itemName && m_ActiveItems.Count < 6)
+            if (item.itemName == itemName && activeItems.Count < 6)
             {
                 var itemSO = item;
 
                 ItemManager tempItem = new ItemManager(itemSO)
                 {
-                    m_Instance = Instantiate(m_ItemPrefab, m_ItemPanel.transform)
+                    Instance = Instantiate(itemPrefab, itemPanel.transform)
                 };
 
-                tempItem.Setup(m_ActiveItems.Count);
-                m_ActiveItems.Add(tempItem);
+                tempItem.Setup(activeItems.Count);
+                activeItems.Add(tempItem);
             }
         }
     }

@@ -5,33 +5,33 @@ using UnityEngine.UI;
 [System.Serializable]
 public class CharacterManager
 {
-    public string m_CharacterName;
-    public int m_CharacterNumber;
-    public Sprite m_CharacterSprite;
+    public string characterName;
+    public int characterNumber;
+    public Sprite characterSprite;
 
-    public GameObject m_Instance;
+    public GameObject Instance;
 
-    public float m_MoraleValue;
-    private float m_oldMoraleValue;
-    public float m_FullValue;
-    private float m_oldFullValue;
-    public float m_WarmthValue;
-    private float m_oldWarmthValue;
+    public float moraleValue;
+    private float _oldMoraleValue;
+    public float fullValue;
+    private float _oldFullValue;
+    public float warmthValue;
+    private float _oldWarmthValue;
 
-    public float m_MoraleLossFactor;
-    public float m_FullLossFactor;
-    public float m_WarmthLossFactor;
+    public float moraleLossFactor;
+    public float fullLossFactor;
+    public float warmthLossFactor;
 
-    public float m_HealthStatusMoraleLossFactor = 1;
-    public float m_HealthStatusFullLossFactor = 1;
-    public float m_HealthStatusWarmthLossFactor = 1;
+    public float healthStatusMoraleLossFactor = 1;
+    public float healthStatusFullLossFactor = 1;
+    public float healthStatusWarmthLossFactor = 1;
 
-    public float m_FullGainValue;
-    public float m_WarmthGainValue;
+    public float fullGainValue;
+    public float warmthGainValue;
 
-    public bool m_IsPlundering;
+    public bool isPlundering;
 
-    public bool m_IsSick;
+    public bool isSick;
 
     public enum PlayerState { Default, Plunder, ChopWood };
     public PlayerState playerState = PlayerState.Default;
@@ -39,75 +39,75 @@ public class CharacterManager
     public enum HealthState { Default, Sick, Depressed, Fracture };
     public HealthState healthState = HealthState.Default;
 
-    private Character m_Character;
+    private Character _character;
 
-    private TextMeshProUGUI m_NameText;
-    private TextMeshProUGUI m_HealthStatusText;
-    private TextMeshProUGUI m_MoraleValueText;
-    private TextMeshProUGUI m_FullValueText;
-    private TextMeshProUGUI m_WarmthValueText;
+    private TextMeshProUGUI _nameText;
+    private TextMeshProUGUI _healthStatusText;
+    private TextMeshProUGUI _moraleValueText;
+    private TextMeshProUGUI _fullValueText;
+    private TextMeshProUGUI _warmthValueText;
 
-    private ParticleSystem m_MoraleArrowGreen;
-    private ParticleSystem m_MoraleArrowRed;
-    private ParticleSystem m_FullArrowGreen;
-    private ParticleSystem m_FullArrowRed;
-    private ParticleSystem m_WarmthArrowGreen;
-    private ParticleSystem m_WarmthArrowRed;
+    private ParticleSystem _moraleArrowGreen;
+    private ParticleSystem _moraleArrowRed;
+    private ParticleSystem _fullArrowGreen;
+    private ParticleSystem _fullArrowRed;
+    private ParticleSystem _warmthArrowGreen;
+    private ParticleSystem _warmthArrowRed;
 
-    private Image m_CharacterImage;
+    private Image _characterImage;
 
     public CharacterManager(Character characterSO)
     {
-        m_Character = characterSO;
+        _character = characterSO;
     }
 
-    public void Setup(int characterNumber)
+    public void Setup(int characterNum)
     {
-        m_oldMoraleValue = m_MoraleValue;
-        m_oldFullValue = m_FullValue;
-        m_oldWarmthValue = m_WarmthValue;
+        _oldMoraleValue = moraleValue;
+        _oldFullValue = fullValue;
+        _oldWarmthValue = warmthValue;
         
         OnVariableChangeCharacterValues += VariableChangeHandler;
 
-        m_CharacterNumber = characterNumber;
-        m_CharacterName = m_Character.m_CharacterName;
-        m_MoraleLossFactor = m_Character.m_DailyMoraleLossFactor;
-        m_FullLossFactor = m_Character.m_DailyFullLossFactor;
-        m_CharacterSprite = m_Character.m_CharacterSprite;
-        m_WarmthLossFactor = m_Character.m_DailyWarmthLossFactor;
-        m_MoraleValue = Random.Range(3.3f, 7f) + 2f;
-        m_FullValue = Random.Range(3.3f, 7f) + 2f;
-        m_WarmthValue = Random.Range(3.3f, 7f) + 2f;
-        m_oldMoraleValue = m_MoraleValue;
-        m_oldFullValue = m_FullValue;
-        m_oldWarmthValue = m_WarmthValue;
+        characterNumber = characterNum;
+        characterName = _character.characterName;
+        moraleLossFactor = _character.dailyMoraleLossFactor;
+        fullLossFactor = _character.dailyFullLossFactor;
+        characterSprite = _character.characterSprite;
+        warmthLossFactor = _character.dailyWarmthLossFactor;
+        moraleValue = Random.Range(3.3f, 7f) + 2f;
+        fullValue = Random.Range(3.3f, 7f) + 2f;
+        warmthValue = Random.Range(3.3f, 7f) + 2f;
+        _oldMoraleValue = moraleValue;
+        _oldFullValue = fullValue;
+        _oldWarmthValue = warmthValue;
 
-        m_FullGainValue = m_Character.m_FullGainValue;
-        m_WarmthGainValue = m_Character.m_WarmthGainValue;
+        fullGainValue = _character.fullGainValue;
+        warmthGainValue = _character.warmthGainValue;
 
-        var textChildren = m_Instance.GetComponentsInChildren<TextMeshProUGUI>();
+        var textChildren = Instance.GetComponentsInChildren<TextMeshProUGUI>();
         foreach (var child in textChildren)
         {
             if (child.gameObject.CompareTag(Tags.NAME_TEXT_TAG))
-                m_NameText = child.GetComponent<TextMeshProUGUI>();
+                _nameText = child.GetComponent<TextMeshProUGUI>();
             else if (child.gameObject.CompareTag(Tags.MORALE_VALUE_TEXT_TAG))
-                m_MoraleValueText = child.GetComponent<TextMeshProUGUI>();
+                _moraleValueText = child.GetComponent<TextMeshProUGUI>();
             else if (child.gameObject.CompareTag(Tags.FULL_VALUE_TEXT_TAG))
-                m_FullValueText = child.GetComponent<TextMeshProUGUI>();
+                _fullValueText = child.GetComponent<TextMeshProUGUI>();
             else if (child.gameObject.CompareTag(Tags.WARMTH_VALUE_TEXT_TAG))
-                m_WarmthValueText = child.GetComponent<TextMeshProUGUI>();
+                _warmthValueText = child.GetComponent<TextMeshProUGUI>();
             else if (child.gameObject.CompareTag(Tags.HEALTH_STATUS_TEXT_TAG))
-                m_HealthStatusText = child.GetComponent<TextMeshProUGUI>();
+                _healthStatusText = child.GetComponent<TextMeshProUGUI>();
         }
 
-        var imageChildren = m_Instance.GetComponentsInChildren<Image>();
+        var imageChildren = Instance.GetComponentsInChildren<Image>();
         foreach (var child in imageChildren)
         {
             if (child.gameObject.CompareTag(Tags.CHARACTER_IMAGE_TAG))
-                m_CharacterImage = child.GetComponent<Image>();
+                _characterImage = child.GetComponent<Image>();
         }
 
-        var particleChildren = m_Instance.GetComponentsInChildren<ParticleSystem>();
+        var particleChildren = Instance.GetComponentsInChildren<ParticleSystem>();
         foreach (var child in particleChildren)
         {
             if (child.gameObject.CompareTag(Tags.ARROW_RED_TAG))
@@ -115,15 +115,15 @@ public class CharacterManager
                 switch (child.transform.parent.name)
                 {
                     case "MoralePanel":
-                        m_MoraleArrowRed = child.GetComponent<ParticleSystem>();
+                        _moraleArrowRed = child.GetComponent<ParticleSystem>();
                         break;
 
                     case "HungerPanel":
-                        m_FullArrowRed = child.GetComponent<ParticleSystem>();
+                        _fullArrowRed = child.GetComponent<ParticleSystem>();
                         break;
 
                     case "WarmthPanel":
-                        m_WarmthArrowRed = child.GetComponent<ParticleSystem>();
+                        _warmthArrowRed = child.GetComponent<ParticleSystem>();
                         break;
                 }
             }
@@ -132,30 +132,30 @@ public class CharacterManager
                 switch (child.transform.parent.name)
                 {
                     case "MoralePanel":
-                        m_MoraleArrowGreen = child.GetComponent<ParticleSystem>();
+                        _moraleArrowGreen = child.GetComponent<ParticleSystem>();
                         break;
 
                     case "HungerPanel":
-                        m_FullArrowGreen = child.GetComponent<ParticleSystem>();
+                        _fullArrowGreen = child.GetComponent<ParticleSystem>();
                         break;
 
                     case "WarmthPanel":
-                        m_WarmthArrowGreen = child.GetComponent<ParticleSystem>();
+                        _warmthArrowGreen = child.GetComponent<ParticleSystem>();
                         break;
                 }
             }
         }
 
-        m_NameText.text = m_CharacterName;
+        _nameText.text = characterName;
 
-        m_MoraleValueText.text = m_MoraleValue.ToString("F1");
-        m_FullValueText.text = m_FullValue.ToString("F1");
-        m_WarmthValueText.text = m_WarmthValue.ToString("F1");
-        m_CharacterImage.sprite = m_CharacterSprite;
+        _moraleValueText.text = moraleValue.ToString("F1");
+        _fullValueText.text = fullValue.ToString("F1");
+        _warmthValueText.text = warmthValue.ToString("F1");
+        _characterImage.sprite = characterSprite;
 
-        TextColorChanger(m_MoraleValue, "Morale");
-        TextColorChanger(m_FullValue, "Full");
-        TextColorChanger(m_WarmthValue, "Warmth");
+        TextColorChanger(moraleValue, "Morale");
+        TextColorChanger(fullValue, "Full");
+        TextColorChanger(warmthValue, "Warmth");
     }
 
     public void VariableChangeHandler(float newVal, string valueName)
@@ -166,63 +166,63 @@ public class CharacterManager
 
     public void SetNewCharacterValues(float accumulatedMoraleItemFactors, float accumulatedFullItemFactors, float accumulatedWarmthItemFactors)
     {
-        MoraleValue += ((-m_MoraleLossFactor + accumulatedMoraleItemFactors) * m_HealthStatusMoraleLossFactor);
-        FullValue += ((-m_FullLossFactor + accumulatedFullItemFactors) * m_HealthStatusFullLossFactor);
-        WarmthValue += ((-m_WarmthLossFactor + accumulatedWarmthItemFactors) * m_HealthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue/3;
+        MoraleValue += ((-moraleLossFactor + accumulatedMoraleItemFactors) * healthStatusMoraleLossFactor);
+        FullValue += ((-fullLossFactor + accumulatedFullItemFactors) * healthStatusFullLossFactor);
+        WarmthValue += ((-warmthLossFactor + accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue/3;
 
-        m_MoraleValueText.text = m_MoraleValue.ToString("F1");
-        m_FullValueText.text = m_FullValue.ToString("F1");
-        m_WarmthValueText.text = m_WarmthValue.ToString("F1");
+        _moraleValueText.text = moraleValue.ToString("F1");
+        _fullValueText.text = fullValue.ToString("F1");
+        _warmthValueText.text = warmthValue.ToString("F1");
     }
 
     public void AddFull()
     {
-        FullValue += m_FullGainValue;
-        m_FullValueText.text = m_FullValue.ToString("F1");
+        FullValue += fullGainValue;
+        _fullValueText.text = fullValue.ToString("F1");
     }
 
     public void AddWarmth()
     {
-        WarmthValue += m_WarmthGainValue;
-        m_WarmthValueText.text = m_WarmthValue.ToString("F1");
+        WarmthValue += warmthGainValue;
+        _warmthValueText.text = warmthValue.ToString("F1");
     }
 
     public float MoraleValue
     {
-        get { return m_MoraleValue; }
+        get { return moraleValue; }
         set
         {
-            m_MoraleValue = value;
+            moraleValue = value;
             if (MoraleValue < 0) MoraleValue = 0;
             if (MoraleValue > 10) MoraleValue = 10;
             if (OnVariableChangeCharacterValues != null)
-                OnVariableChangeCharacterValues(m_MoraleValue, "Morale");
+                OnVariableChangeCharacterValues(moraleValue, "Morale");
         }
     }
 
     public float FullValue
     {
-        get { return m_FullValue; }
+        get { return fullValue; }
         set
         {
-            m_FullValue = value;
+            fullValue = value;
             if (FullValue < 0) FullValue = 0;
             if (FullValue > 10) FullValue = 10;
             if (OnVariableChangeCharacterValues != null)
-                OnVariableChangeCharacterValues(m_FullValue, "Full");
+                OnVariableChangeCharacterValues(fullValue, "Full");
         }
     }
 
     public float WarmthValue
     {
-        get { return m_WarmthValue; }
+        get { return warmthValue; }
         set
         {
-            m_WarmthValue = value;
+            warmthValue = value;
             if (WarmthValue < 0) WarmthValue = 0;
             if (WarmthValue > 10) WarmthValue = 10;
             if (OnVariableChangeCharacterValues != null)
-                OnVariableChangeCharacterValues(m_WarmthValue, "Warmth");
+                OnVariableChangeCharacterValues(warmthValue, "Warmth");
         }
     }
 
@@ -231,28 +231,28 @@ public class CharacterManager
         switch (healthState)
         {
             case HealthState.Default:
-                m_HealthStatusMoraleLossFactor = 1;
-                m_HealthStatusFullLossFactor = 1;
-                m_HealthStatusWarmthLossFactor = 1;
-                m_HealthStatusText.text = "FEELS GOOD";
-                m_HealthStatusText.color = Color.green;
+                healthStatusMoraleLossFactor = 1;
+                healthStatusFullLossFactor = 1;
+                healthStatusWarmthLossFactor = 1;
+                _healthStatusText.text = "FEELS GOOD";
+                _healthStatusText.color = Color.green;
                 break;
             case HealthState.Depressed:
-                m_HealthStatusMoraleLossFactor = 2;
-                m_HealthStatusText.text = "IS DEPRESSED";
-                m_HealthStatusText.color = Color.red;
+                healthStatusMoraleLossFactor = 2;
+                _healthStatusText.text = "IS DEPRESSED";
+                _healthStatusText.color = Color.red;
                 break;
             case HealthState.Fracture:
-                m_HealthStatusFullLossFactor = 2;
-                m_HealthStatusText.text = "BROKE A LEG";
-                m_HealthStatusText.color = Color.red;
+                healthStatusFullLossFactor = 2;
+                _healthStatusText.text = "BROKE A LEG";
+                _healthStatusText.color = Color.red;
                 break;
             case HealthState.Sick:
-                m_HealthStatusWarmthLossFactor = 2;
-                m_HealthStatusFullLossFactor = 2;
-                m_HealthStatusMoraleLossFactor = 2;
-                m_HealthStatusText.text = "IS SICK";
-                m_HealthStatusText.color = Color.red;
+                healthStatusWarmthLossFactor = 2;
+                healthStatusFullLossFactor = 2;
+                healthStatusMoraleLossFactor = 2;
+                _healthStatusText.text = "IS SICK";
+                _healthStatusText.color = Color.red;
                 break;
         }
     }
@@ -262,48 +262,48 @@ public class CharacterManager
         switch (valueName)
         {
             case "Morale":
-                if (newVal > m_oldMoraleValue)
+                if (newVal > _oldMoraleValue)
                 {
-                    if(m_MoraleArrowGreen != null)
-                        m_MoraleArrowGreen.Play();
+                    if(_moraleArrowGreen != null)
+                        _moraleArrowGreen.Play();
                 }
                 else
                 {
-                    if(m_MoraleArrowRed != null)
-                        m_MoraleArrowRed.Play();
+                    if(_moraleArrowRed != null)
+                        _moraleArrowRed.Play();
                 }
 
-                m_oldMoraleValue = newVal;
+                _oldMoraleValue = newVal;
                 break;
 
             case "Full":
-                if (newVal > m_oldFullValue)
+                if (newVal > _oldFullValue)
                 {
-                    if(m_FullArrowGreen != null)
-                        m_FullArrowGreen.Play();
+                    if(_fullArrowGreen != null)
+                        _fullArrowGreen.Play();
                 }
                 else
                 {
-                    if(m_FullArrowRed != null)
-                        m_FullArrowRed.Play();
+                    if(_fullArrowRed != null)
+                        _fullArrowRed.Play();
                 }
 
-                m_oldFullValue = newVal;
+                _oldFullValue = newVal;
                 break;
 
             case "Warmth":
-                if (newVal > m_oldWarmthValue)
+                if (newVal > _oldWarmthValue)
                 {
-                    if(m_WarmthArrowGreen != null)
-                        m_WarmthArrowGreen.Play();
+                    if(_warmthArrowGreen != null)
+                        _warmthArrowGreen.Play();
                 }
                 else
                 {
-                    if(m_WarmthArrowRed != null)
-                        m_WarmthArrowRed.Play();
+                    if(_warmthArrowRed != null)
+                        _warmthArrowRed.Play();
                 }
 
-                m_oldWarmthValue = newVal;
+                _oldWarmthValue = newVal;
                 break;
         }
     }
@@ -314,29 +314,29 @@ public class CharacterManager
         {
             case "Morale":
                 if (newVal < 3)
-                    m_MoraleValueText.color = Color.red;
+                    _moraleValueText.color = Color.red;
                 else if (newVal < 7)
-                    m_MoraleValueText.color = Color.yellow;
+                    _moraleValueText.color = Color.yellow;
                 else if (newVal >= 7)
-                    m_MoraleValueText.color = Color.green;
+                    _moraleValueText.color = Color.green;
                 break;
 
             case "Full":
                 if (newVal < 3)
-                    m_FullValueText.color = Color.red;
+                    _fullValueText.color = Color.red;
                 else if (newVal < 7)
-                    m_FullValueText.color = Color.yellow;
+                    _fullValueText.color = Color.yellow;
                 else if (newVal >= 7)
-                    m_FullValueText.color = Color.green;
+                    _fullValueText.color = Color.green;
                 break;
 
             case "Warmth":
                 if (newVal < 3)
-                    m_WarmthValueText.color = Color.red;
+                    _warmthValueText.color = Color.red;
                 else if (newVal < 7)
-                    m_WarmthValueText.color = Color.yellow;
+                    _warmthValueText.color = Color.yellow;
                 else if (newVal >= 7)
-                    m_WarmthValueText.color = Color.green;
+                    _warmthValueText.color = Color.green;
                 break;
         }
     }

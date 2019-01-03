@@ -6,8 +6,8 @@ public class FoodEvent : Event {
 
     public override void Instantiate()
     {
-        GameManager.Instance.CountDownValue = m_EventLength;
-        GameManager.Instance.m_InterfaceHandler.m_QuestionText.text = "Should " + GameManager.Instance.m_CharacterHandler.m_CurrentCharacter.m_CharacterName + " get something to eat?";
+        GameManager.Instance.CountDownValue = eventLength;
+        GameManager.Instance.interfaceHandler.questionText.text = "Should " + GameManager.Instance.characterHandler.currentCharacter.characterName + " get something to eat?";
 
         base.Instantiate();
     }
@@ -18,7 +18,7 @@ public class FoodEvent : Event {
         {
             characterV.AddFull();
             GameManager.Instance.FoodValue--;
-            GameManager.Instance.m_InterfaceHandler.m_FoodText.text = GameManager.Instance.FoodValue.ToString() + "x";
+            GameManager.Instance.interfaceHandler.foodText.text = GameManager.Instance.FoodValue.ToString() + "x";
         }
     }
 }

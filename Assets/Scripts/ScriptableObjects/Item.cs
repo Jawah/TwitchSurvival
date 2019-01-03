@@ -1,22 +1,23 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class Item : ResettableScriptableObject
 {
-    public string m_ItemName;
-    public string m_ItemDescription;
-    public string m_ItemShortDescription;
+    public string itemName;
+    public string itemDescription;
+    public string itemShortDescription;
 
-    public float m_MoraleFactorChangeValue;
-    public float m_FullFactorChangeValue;
-    public float m_WarmthFactorChangeValue;
+    public float moraleFactorChangeValue;
+    public float fullFactorChangeValue;
+    public float warmthFactorChangeValue;
 
-    public Sprite m_Icon;
+    public Sprite icon;
 
-    public bool m_InUse;
+    public bool inUse;
 
     public override void Reset()
     {
-        m_InUse = false;
+        inUse = false;
     }
 }

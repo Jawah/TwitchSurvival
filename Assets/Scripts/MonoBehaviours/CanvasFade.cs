@@ -2,12 +2,13 @@
 using UnityEngine;
 
 public class CanvasFade : MonoBehaviour {
-    private CanvasGroup canvasGroup;
+    
+    private CanvasGroup _canvasGroup;
 
     private void OnEnable() {
-        canvasGroup = GetComponent<CanvasGroup>();
+        _canvasGroup = GetComponent<CanvasGroup>();
 
-        canvasGroup.alpha = 1;
+        _canvasGroup.alpha = 1;
 
         Fade();
 	}
@@ -32,9 +33,9 @@ public class CanvasFade : MonoBehaviour {
 
     private IEnumerator DoFade()
     {
-        while(canvasGroup.alpha > 0)
+        while(_canvasGroup.alpha > 0)
         {
-            canvasGroup.alpha -= Time.deltaTime / 2;
+            _canvasGroup.alpha -= Time.deltaTime / 2;
             yield return null;
         }
     }

@@ -1,28 +1,25 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class Event : ScriptableObject
 {
-    public float m_EventLength;
-
-    [TextArea]
-    public string m_EventDescription;
-
-    public List<string> m_PossibleAnswers = new List<string>();
+    public float eventLength;
+    public List<string> possibleAnswers = new List<string>();
 
     public virtual void Instantiate()
     {
-        for (int i = 0; i < m_PossibleAnswers.Count; i++)
+        for (int i = 0; i < possibleAnswers.Count; i++)
         {
-            GameObject tempAnswer = GameManager.Instance.m_InterfaceHandler.m_AnswerPrefab;
-            tempAnswer.GetComponent<TextMeshProUGUI>().text = m_PossibleAnswers[i];
-            Instantiate(tempAnswer, GameManager.Instance.m_InterfaceHandler.m_AnswersPanel.transform);
+            GameObject tempAnswer = GameManager.Instance.interfaceHandler.answerPrefab;
+            tempAnswer.GetComponent<TextMeshProUGUI>().text = possibleAnswers[i];
+            Instantiate(tempAnswer, GameManager.Instance.interfaceHandler.answersPanel.transform);
 
-            GameObject tempSlider = GameManager.Instance.m_InterfaceHandler.m_SliderPrefab;
-            tempSlider.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = m_PossibleAnswers[i];
-            Instantiate(tempSlider, GameManager.Instance.m_InterfaceHandler.m_ResultPanel.transform);
+            GameObject tempSlider = GameManager.Instance.interfaceHandler.sliderPrefab;
+            tempSlider.transform.Find("Text").GetComponent<TextMeshProUGUI>().text = possibleAnswers[i];
+            Instantiate(tempSlider, GameManager.Instance.interfaceHandler.resultPanel.transform);
         }
 
     }

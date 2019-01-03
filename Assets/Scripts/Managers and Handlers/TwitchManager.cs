@@ -32,21 +32,21 @@ public class TwitchManager : MonoBehaviour {
 
     private void OnChatMessage(ref TwitchChatMessage msg)
     {
-        if (GameManager.Instance.m_PollHandler.m_GatherVotes)
+        if (GameManager.Instance.pollHandler.gatherVotes)
         {
-            if (!GameManager.Instance.m_PollHandler.m_VotersList.Contains(msg.userName))
+            if (!GameManager.Instance.pollHandler.votersList.Contains(msg.userName))
             {
                 bool isValidVote = false;
 
-                for (int i = 0; i < GameManager.Instance.m_PollHandler.m_CurrentPossibleAnswers.Count; i++)
+                for (int i = 0; i < GameManager.Instance.pollHandler.currentPossibleAnswers.Count; i++)
                 {
-                    if (msg.chatMessagePlainText.ToLower().Equals(GameManager.Instance.m_PollHandler.m_CurrentPossibleAnswers[i].ToLower()))
+                    if (msg.chatMessagePlainText.ToLower().Equals(GameManager.Instance.pollHandler.currentPossibleAnswers[i].ToLower()))
                     {
                         isValidVote = true;
 
                         Debug.Log(msg.chatMessagePlainText);
 
-                        GameManager.Instance.m_PollHandler.m_PollAnswers.Add(msg.chatMessagePlainText.ToLower());
+                        GameManager.Instance.pollHandler.pollAnswers.Add(msg.chatMessagePlainText.ToLower());
                     }
                 }
 

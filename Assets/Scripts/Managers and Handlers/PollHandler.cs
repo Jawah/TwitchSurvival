@@ -5,103 +5,101 @@ using UnityEngine.UI;
 
 public class PollHandler : MonoBehaviour {
 
-    public List<string> m_VotersList = new List<string>();
-
-    public List<string> m_PollAnswers = new List<string>();
-    public List<List<string>> m_ListOfValidAnswersDivided = new List<List<string>>();
-
-    public bool m_GatherVotes;
-
-    public List<string> m_CurrentPossibleAnswers = new List<string>();
-
-    public int numberOfValidAnswers;
+    [Header("Hallo Konni")]
+    
+    [HideInInspector] public List<string> votersList = new List<string>();
+    [HideInInspector] public List<string> pollAnswers = new List<string>();
+    [HideInInspector] public List<List<string>> listOfValidAnswersDivided = new List<List<string>>();
+    [HideInInspector] public bool gatherVotes;
+    [HideInInspector] public List<string> currentPossibleAnswers = new List<string>();
+    [HideInInspector] public int numberOfValidAnswers;
 
     public IEnumerator DoPoll(Event eventV, CharacterManager characterV)
     {
-        GameManager.Instance.m_EventHandler.m_CurrentEvent = eventV;
-        GameManager.Instance.m_CharacterHandler.m_CurrentCharacter = characterV;
-        m_CurrentPossibleAnswers = eventV.m_PossibleAnswers;
+        GameManager.Instance.eventHandler.m_CurrentEvent = eventV;
+        GameManager.Instance.characterHandler.currentCharacter = characterV;
+        currentPossibleAnswers = eventV.possibleAnswers;
 
         eventV.Instantiate();
-        m_GatherVotes = true;
+        gatherVotes = true;
 
-        yield return new WaitForSeconds(eventV.m_EventLength);
+        yield return new WaitForSeconds(eventV.eventLength);
 
         CalculateAnswers();
-        eventV.Execute(m_ListOfValidAnswersDivided, characterV);
-        m_GatherVotes = false;
+        eventV.Execute(listOfValidAnswersDivided, characterV);
+        gatherVotes = false;
 
         ResetForNewEvent();
     }
 
     public IEnumerator DoPoll(Event eventV)
     {
-        GameManager.Instance.m_EventHandler.m_CurrentEvent = eventV;
-        m_CurrentPossibleAnswers = eventV.m_PossibleAnswers;
+        GameManager.Instance.eventHandler.m_CurrentEvent = eventV;
+        currentPossibleAnswers = eventV.possibleAnswers;
 
         eventV.Instantiate();
-        m_GatherVotes = true;
+        gatherVotes = true;
 
-        yield return new WaitForSeconds(eventV.m_EventLength);
+        yield return new WaitForSeconds(eventV.eventLength);
 
         CalculateAnswers();
-        eventV.Execute(GameManager.Instance.m_PollHandler.m_ListOfValidAnswersDivided);
-        m_GatherVotes = false;
+        eventV.Execute(GameManager.Instance.pollHandler.listOfValidAnswersDivided);
+        gatherVotes = false;
 
         ResetForNewEvent();
     }
 
     public void CalculateAnswers()
     {
-        m_ListOfValidAnswersDivided.Clear();
+        listOfValidAnswersDivided.Clear();
 
-        for (int i = 0; i < GameManager.Instance.m_EventHandler.m_CurrentEvent.m_PossibleAnswers.Count; i++)
+        for (int i = 0; i < GameManager.Instance.eventHandler.m_CurrentEvent.possibleAnswers.Count; i++)
         {
-            m_ListOfValidAnswersDivided.Add(new List<string>());
+            listOfValidAnswersDivided.Add(new List<string>());
         }
 
-        foreach (var answer in m_PollAnswers)
+        foreach (var answer in pollAnswers)
         {
-            for (int k = 0; k < GameManager.Instance.m_EventHandler.m_CurrentEvent.m_PossibleAnswers.Count; k++)
+            for (int k = 0; k < GameManager.Instance.eventHandler.m_CurrentEvent.possibleAnswers.Count; k++)
             {
-                if (answer.ToLower() == GameManager.Instance.m_EventHandler.m_CurrentEvent.m_PossibleAnswers[k].ToLower())
+                if (answer.ToLower() == GameManager.Instance.eventHandler.m_CurrentEvent.possibleAnswers[k].ToLower())
                 {
-                    m_ListOfValidAnswersDivided[k].Add(answer.ToLower());
+                    listOfValidAnswersDivided[k].Add(answer.ToLower());
                     numberOfValidAnswers++;
                 }
             }
         }
 
-        if (m_PollAnswers.Count != 0)
+        if (pollAnswers.Count != 0)
         {
-            for (int l = 0; l < m_ListOfValidAnswersDivided.Count; l++)
+            for (int l = 0; l < listOfValidAnswersDivided.Count; l++)
             {
-                float newValue = m_ListOfValidAnswersDivided[l].Count / (float)m_PollAnswers.Count;
-                GameManager.Instance.m_InterfaceHandler.m_ResultPanel.transform.GetChild(l).GetComponentInChildren<Slider>().value = newValue;
+                float newValue = listOfValidAnswersDivided[l].Count / (float)pollAnswers.Count;
+                GameManager.Instance.interfaceHandler.resultPanel.transform.GetChild(l).GetComponentInChildren<Slider>().value = newValue;
             }
         }
     }
 
     private void ResetForNewEvent()
     {
-        foreach (Transform child in GameManager.Instance.m_InterfaceHandler.m_AnswersPanel.transform)
+        foreach (Transform child in GameManager.Instance.interfaceHandler.answersPanel.transform)
         {
             Destroy(child.gameObject);
         }
 
-        GameManager.Instance.m_InterfaceHandler.m_QuestionText.text = null;
+        GameManager.Instance.interfaceHandler.questionText.text = null;
 
-        foreach (Transform child in GameManager.Instance.m_InterfaceHandler.m_ResultPanel.transform)
+        foreach (Transform child in GameManager.Instance.interfaceHandler.resultPanel.transform)
         {
             Destroy(child.gameObject);
         }
 
-        GameManager.Instance.m_CharacterHandler.m_CurrentCharacter = null;
-        GameManager.Instance.m_EventHandler.m_CurrentEvent = null;
+        GameManager.Instance.characterHandler.currentCharacter = null;
+        GameManager.Instance.eventHandler.m_CurrentEvent = null;
 
-        m_VotersList.Clear();
-        m_PollAnswers.Clear();
-        m_ListOfValidAnswersDivided.Clear();
-        GameManager.Instance.m_InformationManager.Reset();
+        votersList.Clear();
+        pollAnswers.Clear();
+        listOfValidAnswersDivided.Clear();
+        GameManager.Instance.informationManager.Reset();
     }
 }

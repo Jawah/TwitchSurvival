@@ -1,81 +1,81 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Delay Lengths")]
 
-    [SerializeField] private float m_MiniDelayLength;
-    [SerializeField] private float m_ShortDelayLength;
-    [SerializeField] private float m_MediumDelayLength;
-    [SerializeField] private float m_LongDelayLength;
+    [SerializeField] private float _miniDelayLength;
+    [SerializeField] private float _shortDelayLength;
+    [SerializeField] private float _mediumDelayLength;
+    [SerializeField] private float _longDelayLength;
 
     [Header("Ressource Values")]
 
-    [SerializeField] private int m_FoodValue;
-    [SerializeField] private int m_FirewoodValue;
-    [SerializeField] private int m_MedPackValue;
+    [SerializeField] private int _foodValue;
+    [SerializeField] private int _firewoodValue;
+    [SerializeField] private int _medPackValue;
 
     [Header("Other")]
 
-    [SerializeField] private float m_DailyFireValueLoss;
+    [SerializeField] private float _dailyFireValueLoss;
     
     // Manager/Handler Scripts
-    [HideInInspector] public InformationManager m_InformationManager;
-    [HideInInspector] public CharacterHandler m_CharacterHandler;
-    [HideInInspector] public ItemHandler m_ItemHandler;
-    [HideInInspector] public InterfaceHandler m_InterfaceHandler;
-    [HideInInspector] public EventHandler m_EventHandler;
-    [HideInInspector] public PollHandler m_PollHandler;
-    [HideInInspector] public ArrowHandler m_ArrowHandler;
+    [HideInInspector] public InformationManager informationManager;
+    [HideInInspector] public CharacterHandler characterHandler;
+    [HideInInspector] public ItemHandler itemHandler;
+    [HideInInspector] public InterfaceHandler interfaceHandler;
+    [HideInInspector] public EventHandler eventHandler;
+    [HideInInspector] public PollHandler pollHandler;
+    [HideInInspector] public ArrowHandler arrowHandler;
 
     // Variables
-    private int m_Day;
-    private int m_Temperature;
-    private int m_CountDownValueInt;
-    private float m_FireWoodStrength = 2f;
-    private float m_CountDownValue;
-    private bool m_firstRun = true;
+    private int _day;
+    private int _temperature;
+    private int _countDownValueInt;
+    private float _fireWoodStrength = 2f;
+    private float _countDownValue;
+    private bool _firstRun = true;
 
     // For Comparability with Ressource Values
-    [HideInInspector] public int m_OldFoodValue;
-    [HideInInspector] public int m_OldFirewoodValue;
-    [HideInInspector] public int m_OldMedPackValue;
+    [HideInInspector] public int oldFoodValue;
+    [HideInInspector] public int oldFirewoodValue;
+    [HideInInspector] public int oldMedPackValue;
     
     // Pre-defined WaitForSecond yields for easier Reusability
-    private WaitForSeconds m_MiniWait;
-    private WaitForSeconds m_ShortWait;
-    private WaitForSeconds m_MediumWait;
-    private WaitForSeconds m_LongWait;
+    private WaitForSeconds _miniWait;
+    private WaitForSeconds _shortWait;
+    private WaitForSeconds _mediumWait;
+    private WaitForSeconds _longWait;
 
     // Singleton GameManager Instance
-    private static GameManager m_instance;
-    public static GameManager Instance { get { return m_instance; } }
+    private static GameManager _instance;
+    public static GameManager Instance { get { return _instance; } }
 
     private void Awake()
     {
-        if (m_instance != null && m_instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            m_instance = this;
+            _instance = this;
         }
 
-        m_MiniWait = new WaitForSeconds(m_MiniDelayLength);
-        m_ShortWait = new WaitForSeconds(m_ShortDelayLength);
-        m_MediumWait = new WaitForSeconds(m_MediumDelayLength);
-        m_LongWait = new WaitForSeconds(m_LongDelayLength);
+        _miniWait = new WaitForSeconds(_miniDelayLength);
+        _shortWait = new WaitForSeconds(_shortDelayLength);
+        _mediumWait = new WaitForSeconds(_mediumDelayLength);
+        _longWait = new WaitForSeconds(_longDelayLength);
 
-        m_CharacterHandler = GetComponent<CharacterHandler>();
-        m_ItemHandler = GetComponent<ItemHandler>();
-        m_InterfaceHandler = GetComponent<InterfaceHandler>();
-        m_EventHandler = GetComponent<EventHandler>();
-        m_PollHandler = GetComponent<PollHandler>();
-        m_ArrowHandler = GetComponent<ArrowHandler>();
+        informationManager = GameObject.Find("InformationManager").GetComponent<InformationManager>();
+        characterHandler = GetComponent<CharacterHandler>();
+        itemHandler = GetComponent<ItemHandler>();
+        interfaceHandler = GetComponent<InterfaceHandler>();
+        eventHandler = GetComponent<EventHandler>();
+        pollHandler = GetComponent<PollHandler>();
+        arrowHandler = GetComponent<ArrowHandler>();
 
         OnRessourceValueChange += VariableChangeRessourcesHandler;
     }
@@ -90,22 +90,22 @@ public class GameManager : MonoBehaviour
     {
         CountDown();
 
-        if (m_PollHandler.m_GatherVotes)
-            m_PollHandler.CalculateAnswers();
+        if (pollHandler.gatherVotes)
+            pollHandler.CalculateAnswers();
     }
 
     private void CountDown()
     {
-        m_CountDownValue -= Time.deltaTime;
-        m_CountDownValueInt = (int)m_CountDownValue;
-        m_InterfaceHandler.SetCountDownValue(m_CountDownValueInt);
+        _countDownValue -= Time.deltaTime;
+        _countDownValueInt = (int)_countDownValue;
+        interfaceHandler.SetCountDownValue(_countDownValueInt);
     }
 
     private void InstantiateGame()
     {
-        while (m_CharacterHandler.m_ActiveCharacters.Count < 2)
+        while (characterHandler.activeCharacters.Count < 2)
         {
-            m_CharacterHandler.InstantiateNewCharacter(m_CharacterHandler.m_AllCharacters[Random.Range(0, m_CharacterHandler.m_AllCharacters.Count)].m_CharacterName);
+            characterHandler.InstantiateNewCharacter(characterHandler.allCharacters[Random.Range(0, characterHandler.allCharacters.Count)].characterName);
         }
 
         SetNewTemperature();
@@ -116,61 +116,61 @@ public class GameManager : MonoBehaviour
 
     public float CountDownValue
     {
-        get { return m_CountDownValue; }
+        get { return _countDownValue; }
         set
         {
-            m_CountDownValue = value;
+            _countDownValue = value;
         }
     }
 
     public float FirewoodStrengthValue
     {
-        get { return m_FireWoodStrength; }
+        get { return _fireWoodStrength; }
         set
         {
-            m_FireWoodStrength = value;
+            _fireWoodStrength = value;
         }
     }
 
     public int FoodValue
     {
-        get { return m_FoodValue; }
+        get { return _foodValue; }
         set
         {
-            if (m_FoodValue == value) return;
-            m_FoodValue = value;
-            m_InterfaceHandler.m_FoodText.text = m_FoodValue.ToString() + "x";
-            m_OldFoodValue = m_FoodValue;
+            if (_foodValue == value) return;
+            _foodValue = value;
+            interfaceHandler.foodText.text = _foodValue.ToString() + "x";
+            oldFoodValue = _foodValue;
             if (OnRessourceValueChange != null)
-                OnRessourceValueChange(m_FoodValue, "Food");
+                OnRessourceValueChange(_foodValue, "Food");
         }
     }
 
     public int MedPackValue
     {
-        get { return m_MedPackValue; }
+        get { return _medPackValue; }
         set
         {
-            if (m_MedPackValue == value) return;
-            m_MedPackValue = value;
-            m_InterfaceHandler.m_MedPackText.text = m_MedPackValue.ToString() + "x";
-            m_OldMedPackValue = m_MedPackValue;
+            if (_medPackValue == value) return;
+            _medPackValue = value;
+            interfaceHandler.medPackText.text = _medPackValue.ToString() + "x";
+            oldMedPackValue = _medPackValue;
             if (OnRessourceValueChange != null)
-                OnRessourceValueChange(m_MedPackValue, "MedPack");
+                OnRessourceValueChange(_medPackValue, "MedPack");
         }
     }
 
     public int FirewoodValue
     {
-        get { return m_FirewoodValue; }
+        get { return _firewoodValue; }
         set
         {
-            if (m_FirewoodValue == value) return;
-            m_FirewoodValue = value;
-            m_InterfaceHandler.m_FirewoodText.text = m_FirewoodValue.ToString() + "x";
-            m_OldFirewoodValue = m_FirewoodValue;
+            if (_firewoodValue == value) return;
+            _firewoodValue = value;
+            interfaceHandler.firewoodText.text = _firewoodValue.ToString() + "x";
+            oldFirewoodValue = _firewoodValue;
             if (OnRessourceValueChange != null)
-                OnRessourceValueChange(m_FirewoodValue, "Firewood");
+                OnRessourceValueChange(_firewoodValue, "Firewood");
         }
     }
 
@@ -178,17 +178,17 @@ public class GameManager : MonoBehaviour
 
     public void SetNewTemperature()
     {
-        m_Temperature = (int)(m_FireWoodStrength * 8);
-        m_InterfaceHandler.m_TemperatureText.text = m_Temperature + "°C";
+        _temperature = (int)(_fireWoodStrength * 8);
+        interfaceHandler.temperatureText.text = _temperature + "°C";
     }
 
     private void SetRessources()
     {
-        m_OldFoodValue = m_FoodValue;
-        m_OldFirewoodValue = m_FirewoodValue;
-        m_OldMedPackValue = m_MedPackValue;
+        oldFoodValue = _foodValue;
+        oldFirewoodValue = _firewoodValue;
+        oldMedPackValue = _medPackValue;
 
-        m_InterfaceHandler.SetRessourceText();
+        interfaceHandler.SetRessourceText();
     }
 
     private void SetNewCharacterValues()
@@ -197,14 +197,14 @@ public class GameManager : MonoBehaviour
         float accumulatedFullItemFactors = 0;
         float accumulatedWarmthItemFactors = 0;
 
-        foreach (var item in m_ItemHandler.m_ActiveItems)
+        foreach (var item in itemHandler.activeItems)
         {
-            accumulatedMoraleItemFactors += item.m_MoraleFactorChangeValue;
-            accumulatedFullItemFactors += item.m_FullFactorChangeValue;
-            accumulatedWarmthItemFactors += item.m_WarmthFactorChangeValue;
+            accumulatedMoraleItemFactors += item.moraleFactorChangeValue;
+            accumulatedFullItemFactors += item.fullFactorChangeValue;
+            accumulatedWarmthItemFactors += item.warmthFactorChangeValue;
         }
 
-        foreach (var character in m_CharacterHandler.m_ActiveCharacters)
+        foreach (var character in characterHandler.activeCharacters)
         {
             character.SetNewCharacterValues(accumulatedMoraleItemFactors, accumulatedFullItemFactors, accumulatedWarmthItemFactors);
         }
@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
 
     public void VariableChangeRessourcesHandler(int newVal, string valueName)
     {
-        m_ArrowHandler.ArrowDisplayRessources(newVal, valueName);
+        arrowHandler.ArrowDisplayRessources(newVal, valueName);
     }
 
     public delegate void OnVariableChangeDelegate(int newVal, string valueName);
@@ -224,26 +224,26 @@ public class GameManager : MonoBehaviour
     {
         yield return StartCoroutine(NewDay());
 
-        if (!m_firstRun)
+        if (!_firstRun)
         {
             Debug.Log("lol");
             yield return StartCoroutine(InformationScreen());
 
-            if (m_CharacterHandler.m_ActiveCharacters.Count == 0)
+            if (characterHandler.activeCharacters.Count == 0)
             {
-                m_InterfaceHandler.m_LosePanel.SetActive(true);
+                interfaceHandler.losePanel.SetActive(true);
                 Time.timeScale = 0;
             }
         }
         yield return StartCoroutine(DayStarting());
         yield return StartCoroutine(DayPlaying());
 
-        if (m_firstRun)
-            m_firstRun = false;
+        if (_firstRun)
+            _firstRun = false;
         
-        if(m_Day == 5)
+        if(_day == 5)
         {
-            m_InterfaceHandler.m_WinPanel.SetActive(true);
+            interfaceHandler.winPanel.SetActive(true);
             Time.timeScale = 0;
         }
         else
@@ -254,27 +254,27 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator NewDay()
     {
-        m_Day++;
-        m_InterfaceHandler.m_DayText.text = "DAY " + m_Day;
-        m_InterfaceHandler.m_DayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + m_Day.ToString();
-        m_InterfaceHandler.m_DayPanel.SetActive(true);
+        _day++;
+        interfaceHandler.dayText.text = "DAY " + _day;
+        interfaceHandler.dayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day.ToString();
+        interfaceHandler.dayPanel.SetActive(true);
 
-        m_FireWoodStrength -= m_DailyFireValueLoss;
+        _fireWoodStrength -= _dailyFireValueLoss;
 
-        m_CountDownValue = m_MiniDelayLength;
-        yield return m_MiniWait;
+        _countDownValue = _miniDelayLength;
+        yield return _miniWait;
     }
 
     private IEnumerator InformationScreen()
     {
-        m_InformationManager.ExecuteInformationWindow();
+        informationManager.ExecuteInformationWindow();
 
-        m_InterfaceHandler.m_InformationPanel.SetActive(true);
+        interfaceHandler.informationPanel.SetActive(true);
 
-        m_CountDownValue = m_LongDelayLength;
-        yield return m_LongWait;
+        _countDownValue = _longDelayLength;
+        yield return _longWait;
 
-        m_InterfaceHandler.m_InformationPanel.SetActive(false);
+        interfaceHandler.informationPanel.SetActive(false);
     }
 
     private IEnumerator DayStarting()
@@ -282,8 +282,8 @@ public class GameManager : MonoBehaviour
         SetNewCharacterValues();
         SetNewTemperature();
 
-        m_CountDownValue = m_MiniDelayLength;
-        yield return m_MiniWait;
+        _countDownValue = _miniDelayLength;
+        yield return _miniWait;
     }
 
     private IEnumerator DayPlaying()
@@ -294,13 +294,13 @@ public class GameManager : MonoBehaviour
             USE THE EVENT HANDLER AS YOU SEE FIT
         *******/
 
-        m_PollHandler.m_GatherVotes = true;
+        pollHandler.gatherVotes = true;
 
-        foreach (var character in m_CharacterHandler.m_ActiveCharacters)
+        foreach (var character in characterHandler.activeCharacters)
         {
             if(FoodValue > 0)
             {
-                yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), character));
+                yield return StartCoroutine(pollHandler.DoPoll(eventHandler.allEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), character));
                 yield return StartCoroutine(AfterQuestion());
             }
                 
@@ -308,32 +308,32 @@ public class GameManager : MonoBehaviour
             {
                 if (character.healthState != CharacterManager.HealthState.Default)
                 {
-                    yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), character));
+                    yield return StartCoroutine(pollHandler.DoPoll(eventHandler.allEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), character));
                     yield return StartCoroutine(AfterQuestion());
                 }
             }
         }
 
-        foreach (var character in m_CharacterHandler.m_ActiveCharacters)
+        foreach (var character in characterHandler.activeCharacters)
         {
-            yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), character));
+            yield return StartCoroutine(pollHandler.DoPoll(eventHandler.allEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), character));
             yield return StartCoroutine(AfterQuestion());
         }
 
         if(FirewoodValue > 0)
         {
-            yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
+            yield return StartCoroutine(pollHandler.DoPoll(eventHandler.allEvents.Find(m_AllEvents => m_AllEvents.name == "FireWoodEvent")));
             yield return StartCoroutine(AfterQuestion());
         }
 
-        m_CountDownValue = m_MiniDelayLength;
-        yield return m_MiniWait;
+        _countDownValue = _miniDelayLength;
+        yield return _miniWait;
     }
 
     private IEnumerator AfterQuestion()
     {
-        m_CountDownValue = m_MiniDelayLength;
-        yield return m_MiniWait;
+        _countDownValue = _miniDelayLength;
+        yield return _miniWait;
     }
 
     #endregion

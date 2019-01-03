@@ -2,64 +2,64 @@
 
 public class ArrowHandler : MonoBehaviour {
 
-    public ParticleSystem m_FoodArrowGreen;
-    public ParticleSystem m_FoodArrowRed;
-    public ParticleSystem m_FirewoodArrowGreen;
-    public ParticleSystem m_FirewoodArrowRed;
-    public ParticleSystem m_MedPackArrowGreen;
-    public ParticleSystem m_MedPackArrowRed;
+    public ParticleSystem foodArrowGreen;
+    public ParticleSystem foodArrowRed;
+    public ParticleSystem firewoodArrowGreen;
+    public ParticleSystem firewoodArrowRed;
+    public ParticleSystem medPackArrowGreen;
+    public ParticleSystem medPackArrowRed;
 
     public void ArrowDisplayRessources(int newVal, string valueName)
     {
         switch (valueName)
         {
             case "Food":
-                if (newVal > GameManager.Instance.m_OldFoodValue)
+                if (newVal > GameManager.Instance.oldFoodValue)
                 {
-                    if (m_FoodArrowGreen != null)
-                        m_FoodArrowGreen.Play();
+                    if (foodArrowGreen != null)
+                        foodArrowGreen.Play();
                 }
 
                 else
                 {
-                    if (m_FoodArrowRed != null)
-                        m_FoodArrowRed.Play();
+                    if (foodArrowRed != null)
+                        foodArrowRed.Play();
                 }
 
-                GameManager.Instance.m_OldFoodValue = newVal;
+                GameManager.Instance.oldFoodValue = newVal;
                 break;
 
             case "MedPack":
-                if (newVal > GameManager.Instance.m_OldMedPackValue)
+                if (newVal > GameManager.Instance.oldMedPackValue)
                 {
-                    if (m_MedPackArrowGreen != null)
-                        m_MedPackArrowGreen.Play();
+                    if (medPackArrowGreen != null)
+                        medPackArrowGreen.Play();
                 }
 
                 else
                 {
-                    if (m_MedPackArrowRed != null)
-                        m_MedPackArrowRed.Play();
+                    if (medPackArrowRed != null)
+                        medPackArrowRed.Play();
                 }
 
-                GameManager.Instance.m_OldMedPackValue = newVal;
+                GameManager.Instance.oldMedPackValue = newVal;
                 break;
 
             case "Firewood":
-                if (newVal > GameManager.Instance.m_OldFirewoodValue)
+                if (newVal > GameManager.Instance.oldFirewoodValue)
                 {
-                    if (m_FirewoodArrowGreen != null)
-                        m_FirewoodArrowGreen.Play();
+                    if (firewoodArrowGreen != null)
+                        firewoodArrowGreen.Play();
                 }
                   
                 else
                 {
-                    if (m_FirewoodArrowRed != null)
-                        m_FirewoodArrowRed.Play();
+                    if (firewoodArrowRed != null)
+                        firewoodArrowRed.Play();
                 }
 
 
-                GameManager.Instance.m_OldFirewoodValue = newVal;
+                GameManager.Instance.oldFirewoodValue = newVal;
                 break;
         }
     }

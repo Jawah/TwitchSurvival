@@ -1665,10 +1665,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15cc91ef187e82140b8a7f132c62bf0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InformationTextPrefab: {fileID: 1271430318014154, guid: f13517901335806409dc18021a4a772b,
+  _informationTextPrefab: {fileID: 1271430318014154, guid: f13517901335806409dc18021a4a772b,
     type: 2}
-  m_InformationPanel: {fileID: 314273101}
-  m_SpecialTextList:
+  _informationPanel: {fileID: 314273101}
+  _specialTextList:
   - You have been robbed and they took everything.<br>That sucks...
   - 'The rats were out of control and infected all your Characters with the plague.<br>
 
@@ -2464,24 +2464,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c71632fb917ed40aae771cb2c42b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MiniDelayLength: 4
-  m_ShortDelayLength: 6
-  m_MediumDelayLength: 11
-  m_LongDelayLength: 21
-  m_FoodValue: 3
-  m_FirewoodValue: 3
-  m_MedPackValue: 1
-  m_DailyFireValueLoss: 0.4
-  m_InformationManager: {fileID: 580662213}
-  m_CharacterHandler: {fileID: 0}
-  m_ItemHandler: {fileID: 0}
-  m_InterfaceHandler: {fileID: 0}
-  m_EventHandler: {fileID: 0}
-  m_PollHandler: {fileID: 0}
-  m_ArrowHandler: {fileID: 0}
-  m_OldFoodValue: 0
-  m_OldFirewoodValue: 0
-  m_OldMedPackValue: 0
+  _miniDelayLength: 4
+  _shortDelayLength: 6
+  _mediumDelayLength: 11
+  _longDelayLength: 21
+  _foodValue: 3
+  _firewoodValue: 3
+  _medPackValue: 3
+  _dailyFireValueLoss: 2
+  informationManager: {fileID: 0}
+  characterHandler: {fileID: 0}
+  itemHandler: {fileID: 0}
+  interfaceHandler: {fileID: 0}
+  eventHandler: {fileID: 0}
+  pollHandler: {fileID: 0}
+  arrowHandler: {fileID: 0}
+  oldFoodValue: 0
+  oldFirewoodValue: 0
+  oldMedPackValue: 0
 --- !u!4 &831557926
 Transform:
   m_ObjectHideFlags: 0
@@ -2506,12 +2506,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de81e006a57f4e94cb5752b854756c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FoodArrowGreen: {fileID: 2016003415}
-  m_FoodArrowRed: {fileID: 275581473}
-  m_FirewoodArrowGreen: {fileID: 540406494}
-  m_FirewoodArrowRed: {fileID: 924265621}
-  m_MedPackArrowGreen: {fileID: 2037949029}
-  m_MedPackArrowRed: {fileID: 1993612665}
+  foodArrowGreen: {fileID: 2016003415}
+  foodArrowRed: {fileID: 275581473}
+  firewoodArrowGreen: {fileID: 540406494}
+  firewoodArrowRed: {fileID: 924265621}
+  medPackArrowGreen: {fileID: 2037949029}
+  medPackArrowRed: {fileID: 1993612665}
 --- !u!114 &831557928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2523,23 +2523,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f52e480921b7c23478572a14b6db7e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DayText: {fileID: 1625242878}
-  m_TemperatureText: {fileID: 1064832630}
-  m_CountDownText: {fileID: 2094026931}
-  m_FoodText: {fileID: 583302559}
-  m_FirewoodText: {fileID: 265653174}
-  m_MedPackText: {fileID: 136520486}
-  m_QuestionText: {fileID: 1635947309}
-  m_AnswersPanel: {fileID: 1473071328}
-  m_AnswerPrefab: {fileID: 1930182398113062, guid: dae2a1823c9124a4ab03b8c287014277,
+  dayText: {fileID: 1625242878}
+  temperatureText: {fileID: 1064832630}
+  countDownText: {fileID: 2094026931}
+  foodText: {fileID: 583302559}
+  firewoodText: {fileID: 265653174}
+  medPackText: {fileID: 136520486}
+  questionText: {fileID: 1635947309}
+  answersPanel: {fileID: 1473071328}
+  answerPrefab: {fileID: 1930182398113062, guid: dae2a1823c9124a4ab03b8c287014277,
     type: 2}
-  m_ResultPanel: {fileID: 2145868106}
-  m_SliderPrefab: {fileID: 1854638128548862, guid: 2ac2e44f4470da44da087f72c6f51e5f,
+  resultPanel: {fileID: 2145868106}
+  sliderPrefab: {fileID: 1854638128548862, guid: 2ac2e44f4470da44da087f72c6f51e5f,
     type: 2}
-  m_WinPanel: {fileID: 1005489135}
-  m_LosePanel: {fileID: 795805886}
-  m_DayPanel: {fileID: 910057760}
-  m_InformationPanel: {fileID: 801823692}
+  winPanel: {fileID: 1005489135}
+  losePanel: {fileID: 795805886}
+  dayPanel: {fileID: 910057760}
+  informationPanel: {fileID: 801823692}
 --- !u!114 &831557929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2551,35 +2551,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c15a53c6f9978c448bc3cf7f4308f164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CharacterCardPanel: {fileID: 730090731}
-  m_CharacterCardPrefab: {fileID: 1326025991572586, guid: 2a383aff094d9fa438d2bbc5b60c65b2,
+  characterCardPanel: {fileID: 730090731}
+  characterCardPrefab: {fileID: 1326025991572586, guid: 2a383aff094d9fa438d2bbc5b60c65b2,
     type: 2}
-  m_AllCharacters:
+  allCharacters:
   - {fileID: 11400000, guid: 2298af2c8059ea84798fff34d871ee5c, type: 2}
   - {fileID: 11400000, guid: 74a3ac9244e6db3418154446775ffc0b, type: 2}
   - {fileID: 11400000, guid: 4fe3f03f646530146ae9322409f6edef, type: 2}
   - {fileID: 11400000, guid: cc1dd16c21e725041b5f614e8d93fda8, type: 2}
   - {fileID: 11400000, guid: 2a83bad55e3dc264b86388b3926d9ac8, type: 2}
   - {fileID: 11400000, guid: ed87dce2367c1cc488488ca878ac3bf8, type: 2}
-  m_ActiveCharacters: []
-  m_CurrentCharacter:
-    m_CharacterName: 
-    m_CharacterNumber: 0
-    m_CharacterSprite: {fileID: 0}
-    m_Instance: {fileID: 0}
-    m_MoraleValue: 0
-    m_FullValue: 0
-    m_WarmthValue: 0
-    m_MoraleLossFactor: 0
-    m_FullLossFactor: 0
-    m_WarmthLossFactor: 0
-    m_HealthStatusMoraleLossFactor: 0
-    m_HealthStatusFullLossFactor: 0
-    m_HealthStatusWarmthLossFactor: 0
-    m_FullGainValue: 0
-    m_WarmthGainValue: 0
-    m_IsPlundering: 0
-    m_IsSick: 0
+  activeCharacters: []
+  currentCharacter:
+    characterName: 
+    characterNumber: 0
+    characterSprite: {fileID: 0}
+    Instance: {fileID: 0}
+    moraleValue: 0
+    fullValue: 0
+    warmthValue: 0
+    moraleLossFactor: 0
+    fullLossFactor: 0
+    warmthLossFactor: 0
+    healthStatusMoraleLossFactor: 0
+    healthStatusFullLossFactor: 0
+    healthStatusWarmthLossFactor: 0
+    fullGainValue: 0
+    warmthGainValue: 0
+    isPlundering: 0
+    isSick: 0
     playerState: 0
     healthState: 0
 --- !u!114 &831557930
@@ -2593,10 +2593,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263e8ca7597fd5e48b868944ad36c166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ItemPanel: {fileID: 21615858}
-  m_ItemPrefab: {fileID: 1123968554060092, guid: 5935c0464b7f5ee429ad782743a04c07,
-    type: 2}
-  m_AllItems:
+  itemPanel: {fileID: 21615858}
+  itemPrefab: {fileID: 1123968554060092, guid: 5935c0464b7f5ee429ad782743a04c07, type: 2}
+  allItems:
   - {fileID: 11400000, guid: b1f900b3bc445ba4193bad908ac81617, type: 2}
   - {fileID: 11400000, guid: 3733864bef0e3534c847b0a48f2ee7e7, type: 2}
   - {fileID: 11400000, guid: 3e1b75e8e8e536744919ca5d993e7b24, type: 2}
@@ -2614,7 +2613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6437fd6de3de4b449973e9fd44d34f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllEvents:
+  allEvents:
   - {fileID: 11400000, guid: 5e22ec392560c8d46a94588ba95fdcd0, type: 2}
   - {fileID: 11400000, guid: 8a00d9bf8e1787240b1a2d28d1b6db8b, type: 2}
   - {fileID: 11400000, guid: fc47a19d031e98b4c83e58be5709572c, type: 2}
@@ -2631,10 +2630,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fead61572fc30e45b75b04b1dd85a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_VotersList: []
-  m_PollAnswers: []
-  m_GatherVotes: 0
-  m_CurrentPossibleAnswers: []
+  votersList: []
+  pollAnswers: []
+  gatherVotes: 0
+  currentPossibleAnswers: []
   numberOfValidAnswers: 0
 --- !u!1 &859341544
 GameObject:

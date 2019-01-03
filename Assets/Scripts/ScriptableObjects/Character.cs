@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class Character : ResettableScriptableObject
 {
-    public string m_CharacterName;
+    public string characterName;
 
-    public Sprite m_CharacterSprite;
+    public Sprite characterSprite;
 
-    public float m_DailyMoraleLossFactor;
-    public float m_DailyFullLossFactor;
-    public float m_DailyWarmthLossFactor;
+    public float dailyMoraleLossFactor;
+    public float dailyFullLossFactor;
+    public float dailyWarmthLossFactor;
 
-    public float m_FullGainValue;
-    public float m_WarmthGainValue;
+    public float fullGainValue;
+    public float warmthGainValue;
 
-    public bool m_InUse;
+    public bool inUse;
 
     public override void Reset()
     {
-        m_InUse = false;
+        inUse = false;
     }
 }
