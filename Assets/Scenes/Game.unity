@@ -2471,7 +2471,7 @@ MonoBehaviour:
   m_FoodValue: 3
   m_FirewoodValue: 3
   m_MedPackValue: 1
-  DailyFireValueLoss: 0.4
+  m_DailyFireValueLoss: 0.4
   m_InformationManager: {fileID: 580662213}
   m_CharacterHandler: {fileID: 0}
   m_ItemHandler: {fileID: 0}
@@ -5017,7 +5017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 12.440002, y: -7.75}
+  m_AnchoredPosition: {x: 12.440063, y: -7.75}
   m_SizeDelta: {x: 342.31, y: 267.6}
   m_Pivot: {x: 1, y: 0}
 --- !u!1001 &1903236925

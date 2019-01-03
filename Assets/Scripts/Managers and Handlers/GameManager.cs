@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int m_FirewoodValue;
     [SerializeField] private int m_MedPackValue;
 
-    [FormerlySerializedAs("DailyFireValueLoss")]
     [Header("Other")]
 
     [SerializeField] private float m_DailyFireValueLoss;
@@ -227,16 +226,21 @@ public class GameManager : MonoBehaviour
 
         if (!m_firstRun)
         {
+            Debug.Log("lol");
             yield return StartCoroutine(InformationScreen());
 
             if (m_CharacterHandler.m_ActiveCharacters.Count == 0)
             {
                 m_InterfaceHandler.m_LosePanel.SetActive(true);
+                Time.timeScale = 0;
             }
         }
         yield return StartCoroutine(DayStarting());
         yield return StartCoroutine(DayPlaying());
 
+        if (m_firstRun)
+            m_firstRun = false;
+        
         if(m_Day == 5)
         {
             m_InterfaceHandler.m_WinPanel.SetActive(true);
@@ -302,8 +306,11 @@ public class GameManager : MonoBehaviour
                 
             if(MedPackValue > 0)
             {
-                yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), character));
-                yield return StartCoroutine(AfterQuestion());
+                if (character.healthState != CharacterManager.HealthState.Default)
+                {
+                    yield return StartCoroutine(m_PollHandler.DoPoll(m_EventHandler.m_AllEvents.Find(m_AllEvents => m_AllEvents.name == "MedPackEvent"), character));
+                    yield return StartCoroutine(AfterQuestion());
+                }
             }
         }
 
