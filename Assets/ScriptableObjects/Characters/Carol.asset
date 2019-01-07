@@ -11,11 +11,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66583b10b6a37e48a63ea98f524f045, type: 3}
   m_Name: Carol
   m_EditorClassIdentifier: 
-  m_CharacterName: Carol
-  m_CharacterSprite: {fileID: 21300000, guid: 1bb3be9c405695e48896f6321e719050, type: 3}
-  m_DailyMoraleLossFactor: 1.6
-  m_DailyFullLossFactor: 2
-  m_DailyWarmthLossFactor: 1.6
-  m_FullGainValue: 2
-  m_WarmthGainValue: 1
-  m_InUse: 0
+  characterName: Carol
+  characterSprite: {fileID: 0}
+  dailyMoraleLossFactor: 0
+  dailyFullLossFactor: 0
+  dailyWarmthLossFactor: 0
+  fullGainValue: 0
+  warmthGainValue: 0
+  inUse: 0
