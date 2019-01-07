@@ -11,8 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 387eef733ec7e4d4f969749ae7d791aa, type: 3}
   m_Name: FireWoodEvent
   m_EditorClassIdentifier: 
-  m_EventLength: 15
-  m_EventDescription: 
-  m_PossibleAnswers:
+  eventLength: 16
+  possibleAnswers:
   - '!Yes'
   - '!No'

@@ -11,9 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf4dbfb6b969b046a451e763a0adc28, type: 3}
   m_Name: EndOfDayEvent
   m_EditorClassIdentifier: 
-  m_EventLength: 15
-  m_EventDescription: 
-  m_PossibleAnswers:
-  - '!Stay'
+  eventLength: 16
+  possibleAnswers:
   - '!Plunder'
   - '!Timber'
+  - '!Stay'
