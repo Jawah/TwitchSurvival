@@ -221,6 +221,8 @@ public class GameManager : MonoBehaviour
         }
 
         _groupMoraleValue = newGroupMoraleValue / characterHandler.activeCharacters.Count;
+        
+        Debug.Log("Gruppenmoral: " + _groupMoraleValue.ToString("F1"));
     }
 
     public void VariableChangeRessourcesHandler(int newVal, string valueName)
@@ -239,7 +241,6 @@ public class GameManager : MonoBehaviour
 
         if (!_firstRun)
         {
-            Debug.Log("lol");
             yield return StartCoroutine(InformationScreen());
 
             if (characterHandler.activeCharacters.Count == 0)
