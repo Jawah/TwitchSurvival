@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int _foodValue;
     [SerializeField] private int _firewoodValue;
     [SerializeField] private int _medPackValue;
+    [SerializeField] private float _groupMoraleValue;
 
     [Header("Other")]
 
@@ -210,6 +211,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void SetNewGroupMorale()
+    {
+        float newGroupMoraleValue = 0;
+        
+        foreach (var character in characterHandler.activeCharacters)
+        {
+            newGroupMoraleValue += character.moraleValue;
+        }
+
+        _groupMoraleValue = newGroupMoraleValue / characterHandler.activeCharacters.Count;
+    }
+
     public void VariableChangeRessourcesHandler(int newVal, string valueName)
     {
         arrowHandler.ArrowDisplayRessources(newVal, valueName);
@@ -280,8 +293,9 @@ public class GameManager : MonoBehaviour
     private IEnumerator DayStarting()
     {
         SetNewCharacterValues();
+        SetNewGroupMorale();
         SetNewTemperature();
-
+        
         _countDownValue = _miniDelayLength;
         yield return _miniWait;
     }
