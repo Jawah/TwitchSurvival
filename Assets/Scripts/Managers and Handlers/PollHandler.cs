@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,7 @@ public class PollHandler : MonoBehaviour {
     [HideInInspector] public bool gatherVotes;
     [HideInInspector] public List<string> currentPossibleAnswers = new List<string>();
     [HideInInspector] public int numberOfValidAnswers;
+    [HideInInspector] public string chosenAnswer = "";
 
     public IEnumerator DoPoll(Event eventV, CharacterManager characterV)
     {
@@ -30,6 +32,8 @@ public class PollHandler : MonoBehaviour {
         gatherVotes = false;
 
         ResetForNewEvent();
+
+        GameManager.Instance.interfaceHandler.chosenAnswerText.text = chosenAnswer.Replace("!", "");
     }
 
     public IEnumerator DoPoll(Event eventV)
@@ -47,6 +51,8 @@ public class PollHandler : MonoBehaviour {
         gatherVotes = false;
 
         ResetForNewEvent();
+        
+        GameManager.Instance.interfaceHandler.chosenAnswerText.text = chosenAnswer.Replace("!", "");
     }
 
     public void CalculateAnswers()

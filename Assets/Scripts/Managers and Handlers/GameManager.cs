@@ -347,8 +347,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator AfterQuestion()
     {
+        interfaceHandler.chosenAnswerPanel.SetActive(true);
         _countDownValue = _miniDelayLength;
         yield return _miniWait;
+        interfaceHandler.chosenAnswerPanel.SetActive(false);
     }
 
     #endregion

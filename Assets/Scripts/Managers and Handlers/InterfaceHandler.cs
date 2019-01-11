@@ -11,6 +11,7 @@ public class InterfaceHandler : MonoBehaviour {
     public TextMeshProUGUI firewoodText;
     public TextMeshProUGUI medPackText;
     public TextMeshProUGUI questionText;
+    public TextMeshProUGUI chosenAnswerText;
 
     public GameObject answersPanel;
     public GameObject answerPrefab;
@@ -21,6 +22,7 @@ public class InterfaceHandler : MonoBehaviour {
     public GameObject losePanel;
     public GameObject dayPanel;
     public GameObject informationPanel;
+    public GameObject chosenAnswerPanel;
 
     public void SetCountDownValue(int value)
     {
