@@ -5339,7 +5339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628298a967800be45a21b8a6019ed3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  allScenarios: []
+  allScenarios:
+  - {fileID: 11400000, guid: c2c4c9396586076489a2e029cd961097, type: 2}
 --- !u!1 &1865687519
 GameObject:
   m_ObjectHideFlags: 0

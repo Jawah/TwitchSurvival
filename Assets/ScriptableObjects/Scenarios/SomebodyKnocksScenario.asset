@@ -8,7 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b43b69d37d6664498f913fc8ec0f197, type: 3}
-  m_Name: TestScenario
+  m_Script: {fileID: 11500000, guid: 87ae839af02bb734286c7f70b4359d00, type: 3}
+  m_Name: SomebodyKnocksScenario
   m_EditorClassIdentifier: 
-  chatText: {fileID: 11400000, guid: de36edf2bc00064488d7b1c77ee24ec1, type: 2}
+  scenarioEvents:
+  - {fileID: 11400000, guid: ae2b21efa11b6494db0a39730985ba91, type: 2}

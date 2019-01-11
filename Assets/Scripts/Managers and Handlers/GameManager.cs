@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour
         eventHandler = GetComponent<EventHandler>();
         pollHandler = GetComponent<PollHandler>();
         arrowHandler = GetComponent<ArrowHandler>();
+        Debug.Log(scenarioManager.gameObject.name);
 
         OnRessourceValueChange += VariableChangeRessourcesHandler;
     }
@@ -310,10 +311,12 @@ public class GameManager : MonoBehaviour
             THE BEHAVIOUR OF THE DAY WITH FREE STORY TELLING PARTS AND EVENT EXECUTIONS!
             USE THE EVENT HANDLER AS YOU SEE FIT
         *******/
+        
+        yield return StartCoroutine(scenarioManager.StartScenarioRoutine());
+        
 
         pollHandler.gatherVotes = true;
         
-        //yield return StartCoroutine(scenarioManager.StartScenarioRoutine());
         
 
         foreach (var character in characterHandler.activeCharacters)
@@ -350,7 +353,7 @@ public class GameManager : MonoBehaviour
         yield return _miniWait;
     }
 
-    private IEnumerator AfterQuestion()
+    public IEnumerator AfterQuestion()
     {
         interfaceHandler.chosenAnswerPanel.SetActive(true);
         _countDownValue = _miniDelayLength;
@@ -360,8 +363,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    public void CoroutineCaller(IEnumerator routine)
+    public IEnumerator CoroutineCaller(IEnumerator routine)
     {
-        StartCoroutine(routine);
+        yield return StartCoroutine(routine);
     }
 }

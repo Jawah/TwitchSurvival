@@ -2,25 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
 public class Scenario : ScriptableObject
 {    
-    public List<ScriptableObject> executionList = new List<ScriptableObject>();
+    public List<Event> scenarioEvents = new List<Event>();
     
-    public IEnumerator ExecuteScenario()
-    {
-        foreach (ScriptableObject so in executionList)
-        {
-            if (so.GetType().ToString() == "ChatText")
-            {
-                ChatText tempText = so as ChatText;
-                yield return null;
-            }
-            else
-            {
-                Event tempEvent = so as Event;
-                tempEvent.Execute();
-            }
-        }
-    }
+    public virtual IEnumerator ExecuteScenario(){ Debug.LogWarning("No override ExecuteScenario function declared"); yield return null; }
 }

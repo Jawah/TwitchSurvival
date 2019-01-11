@@ -9,7 +9,6 @@ public class ScenarioManager : MonoBehaviour
 	public IEnumerator StartScenarioRoutine()
 	{
 		Scenario tempScenario = allScenarios[Random.Range(0, allScenarios.Count)];
-		//yield return tempScenario.ExecuteScenario();
 		yield return StartCoroutine(tempScenario.ExecuteScenario());
 	}
 }
