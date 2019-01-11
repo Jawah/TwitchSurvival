@@ -12,11 +12,14 @@ public class FoodEvent : Event {
         base.Instantiate();
     }
 
-    public override void Execute(List<List<string>> dividedList, CharacterManager characterV)
+    public override void Execute(List<List<string>> dividedList)
     {
         if (dividedList[0].Count > dividedList[1].Count)
         {
-            characterV.AddFull();
+            foreach (var character in GameManager.Instance.characterHandler.activeCharacters)
+            {
+                character.AddFull();
+            }
             GameManager.Instance.FoodValue--;
             GameManager.Instance.interfaceHandler.foodText.text = GameManager.Instance.FoodValue.ToString() + "x";
         }

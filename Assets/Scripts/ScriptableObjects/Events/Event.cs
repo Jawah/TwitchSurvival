@@ -27,4 +27,6 @@ public class Event : ScriptableObject
     public virtual void Execute(List<List<string>> dividedList, CharacterManager characterV) { Debug.LogWarning("No override Execute function declared!"); }
 
     public virtual void Execute(List<List<string>> dividedList) { Debug.LogWarning("No override Execute function declared!"); }
+    
+    public virtual void Execute() {Debug.LogWarning("No override Execute function declared"); }
 }

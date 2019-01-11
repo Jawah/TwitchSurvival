@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class InterfaceHandler : MonoBehaviour {
 
@@ -16,7 +17,10 @@ public class InterfaceHandler : MonoBehaviour {
     public GameObject answerPrefab;
     public GameObject resultPanel;
     public GameObject sliderPrefab;
-
+    public GameObject storyPanel;
+    public TextMeshProUGUI storyText;
+    
+    
     public GameObject winPanel;
     public GameObject losePanel;
     public GameObject dayPanel;

@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     
     // Manager/Handler Scripts
     [HideInInspector] public InformationManager informationManager;
+    [HideInInspector] public ScenarioManager scenarioManager;
     [HideInInspector] public CharacterHandler characterHandler;
     [HideInInspector] public ItemHandler itemHandler;
     [HideInInspector] public InterfaceHandler interfaceHandler;
@@ -71,6 +72,7 @@ public class GameManager : MonoBehaviour
         _longWait = new WaitForSeconds(_longDelayLength);
 
         informationManager = GameObject.Find("InformationManager").GetComponent<InformationManager>();
+        scenarioManager = GameObject.Find("ScenarioManager").GetComponent<ScenarioManager>();
         characterHandler = GetComponent<CharacterHandler>();
         itemHandler = GetComponent<ItemHandler>();
         interfaceHandler = GetComponent<InterfaceHandler>();
@@ -310,15 +312,12 @@ public class GameManager : MonoBehaviour
         *******/
 
         pollHandler.gatherVotes = true;
+        
+        yield return StartCoroutine(scenarioManager.StartScenarioRoutine());
+        
 
         foreach (var character in characterHandler.activeCharacters)
-        {
-            if(FoodValue > 0)
-            {
-                yield return StartCoroutine(pollHandler.DoPoll(eventHandler.allEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent"), character));
-                yield return StartCoroutine(AfterQuestion());
-            }
-                
+        {  
             if(MedPackValue > 0)
             {
                 if (character.healthState != CharacterManager.HealthState.Default)
@@ -327,6 +326,12 @@ public class GameManager : MonoBehaviour
                     yield return StartCoroutine(AfterQuestion());
                 }
             }
+        }
+        
+        if(FoodValue > 0)
+        {
+            yield return StartCoroutine(pollHandler.DoPoll(eventHandler.allEvents.Find(m_AllEvents => m_AllEvents.name == "FoodEvent")));
+            yield return StartCoroutine(AfterQuestion());
         }
 
         foreach (var character in characterHandler.activeCharacters)
@@ -352,4 +357,9 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+    public void CoroutineCaller(IEnumerator routine)
+    {
+        StartCoroutine(routine);
+    }
 }
