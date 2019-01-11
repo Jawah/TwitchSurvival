@@ -313,7 +313,7 @@ public class GameManager : MonoBehaviour
 
         pollHandler.gatherVotes = true;
         
-        yield return StartCoroutine(scenarioManager.StartScenarioRoutine());
+        //yield return StartCoroutine(scenarioManager.StartScenarioRoutine());
         
 
         foreach (var character in characterHandler.activeCharacters)
@@ -352,8 +352,10 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator AfterQuestion()
     {
+        interfaceHandler.chosenAnswerPanel.SetActive(true);
         _countDownValue = _miniDelayLength;
         yield return _miniWait;
+        interfaceHandler.chosenAnswerPanel.SetActive(false);
     }
 
     #endregion

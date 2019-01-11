@@ -14,14 +14,26 @@ public class FoodEvent : Event {
 
     public override void Execute(List<List<string>> dividedList)
     {
-        if (dividedList[0].Count > dividedList[1].Count)
+        if (dividedList[0].Count > 0 || dividedList[1].Count > 0)
         {
-            foreach (var character in GameManager.Instance.characterHandler.activeCharacters)
+            if (dividedList[0].Count > dividedList[1].Count)
             {
-                character.AddFull();
+                GameManager.Instance.pollHandler.chosenAnswer = dividedList[0][0];
+                foreach (var character in GameManager.Instance.characterHandler.activeCharacters)
+                {
+                    character.AddFull();
+                }
+                GameManager.Instance.FoodValue--;
+                GameManager.Instance.interfaceHandler.foodText.text = GameManager.Instance.FoodValue.ToString() + "x";
             }
-            GameManager.Instance.FoodValue--;
-            GameManager.Instance.interfaceHandler.foodText.text = GameManager.Instance.FoodValue.ToString() + "x";
+            else
+            {
+                GameManager.Instance.pollHandler.chosenAnswer = dividedList[1][0];
+            }
+        }
+        else
+        {
+            GameManager.Instance.pollHandler.chosenAnswer = "nothing";
         }
     }
 }
