@@ -1219,7 +1219,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'It''s DAY 5. A group of Survivors made it to the house and saved all remaining
+  m_text: 'It is DAY 5. A group of Survivors made it to the house and saved all remaining
     characters!
 
 
@@ -1303,7 +1303,7 @@ MonoBehaviour:
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2866,6 +2866,7 @@ MonoBehaviour:
   gatherVotes: 0
   currentPossibleAnswers: []
   numberOfValidAnswers: 0
+  chosenAnswer: 
 --- !u!1 &859341544
 GameObject:
   m_ObjectHideFlags: 0
@@ -5474,7 +5475,6 @@ RectTransform:
   - {fileID: 1601766757}
   - {fileID: 1473071329}
   - {fileID: 665541024}
-  - {fileID: 2049101848}
   - {fileID: 1169763319}
   m_Father: {fileID: 1573224903}
   m_RootOrder: 2
