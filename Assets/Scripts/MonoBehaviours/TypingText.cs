@@ -43,6 +43,7 @@ public class TypingText : MonoBehaviour
 
     public void Type(string txt)
     {
+        target.text = null;
         newText = txt;
     }
 }
