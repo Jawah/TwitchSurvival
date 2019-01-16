@@ -6,7 +6,6 @@ public class SomebodyKnocksEvent : Event {
 
 	public override void Instantiate()
 	{
-		GameManager.Instance.CountDownValue = eventLength;
 		GameManager.Instance.interfaceHandler.questionText.text = "Should we let them in?";
 
 		base.Instantiate();

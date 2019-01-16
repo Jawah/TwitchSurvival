@@ -25,7 +25,7 @@ public class TypingText : MonoBehaviour
     private void Update()
     {
         if (currentText == newText) return;
-        timer += Time.deltaTime;
+        timer += Time.deltaTime * Time.timeScale;
 
         if (timer >= timeInSeconds && i <= newText.Length)
         {
@@ -39,6 +39,7 @@ public class TypingText : MonoBehaviour
             i = 0;
             currentText = newText;
         }
+        
     }
 
     public void Type(string txt)

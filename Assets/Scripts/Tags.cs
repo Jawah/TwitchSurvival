@@ -8,4 +8,5 @@
     public static string HEALTH_STATUS_TEXT_TAG = "HealthStatusText";
     public static string ARROW_GREEN_TAG = "ArrowGreen";
     public static string ARROW_RED_TAG = "ArrowRed";
+    public static string COUNTDOWN_FILL_TAG = "FillArea";
 }

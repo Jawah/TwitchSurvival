@@ -11,6 +11,10 @@ public class Event : ScriptableObject
 
     public virtual void Instantiate()
     {
+        GameManager.Instance.CountDownValue = eventLength;
+        GameManager.Instance.interfaceHandler.countDownSlider.maxValue = eventLength;
+        GameManager.Instance.interfaceHandler.EnableCountDownSlider();
+
         for (int i = 0; i < possibleAnswers.Count; i++)
         {
             GameObject tempAnswer = GameManager.Instance.interfaceHandler.answerPrefab;

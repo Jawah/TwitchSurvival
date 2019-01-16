@@ -12,6 +12,7 @@ TagManager:
   - HealthStatusText
   - ArrowGreen
   - ArrowRed
+  - FillArea
   layers:
   - Default
   - TransparentFX

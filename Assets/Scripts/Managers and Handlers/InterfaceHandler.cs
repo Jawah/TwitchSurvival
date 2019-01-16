@@ -13,6 +13,7 @@ public class InterfaceHandler : MonoBehaviour {
     public TextMeshProUGUI medPackText;
     public TextMeshProUGUI questionText;
     public TextMeshProUGUI chosenAnswerText;
+    public Slider countDownSlider;
 
     public GameObject answersPanel;
     public GameObject answerPrefab;
@@ -38,5 +39,15 @@ public class InterfaceHandler : MonoBehaviour {
         foodText.text = GameManager.Instance.FoodValue + "x";
         firewoodText.text = GameManager.Instance.FirewoodValue + "x";
         medPackText.text = GameManager.Instance.MedPackValue + "x";
+    }
+
+    public void EnableCountDownSlider()
+    {
+        countDownSlider.gameObject.SetActive(true);
+    }
+
+    public void DisableCountDownSlider()
+    {
+        countDownSlider.gameObject.SetActive(false);
     }
 }

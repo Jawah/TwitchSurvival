@@ -6,7 +6,6 @@ public class FoodEvent : Event {
 
     public override void Instantiate()
     {
-        GameManager.Instance.CountDownValue = eventLength;
         GameManager.Instance.interfaceHandler.questionText.text = "Should your people get something to eat?";
 
         base.Instantiate();
