@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     // Manager/Handler Scripts
     [HideInInspector] public InformationManager informationManager;
     [HideInInspector] public ScenarioManager scenarioManager;
+    [HideInInspector] public AudioManager audioManager;
     [HideInInspector] public CharacterHandler characterHandler;
     [HideInInspector] public ItemHandler itemHandler;
     [HideInInspector] public InterfaceHandler interfaceHandler;
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
 
         informationManager = GameObject.Find("InformationManager").GetComponent<InformationManager>();
         scenarioManager = GameObject.Find("ScenarioManager").GetComponent<ScenarioManager>();
+        audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
         characterHandler = GetComponent<CharacterHandler>();
         itemHandler = GetComponent<ItemHandler>();
         interfaceHandler = GetComponent<InterfaceHandler>();
@@ -305,16 +307,17 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator DayPlaying()
-    {
-
-        /*******
-            THE BEHAVIOUR OF THE DAY WITH FREE STORY TELLING PARTS AND EVENT EXECUTIONS!
-            USE THE EVENT HANDLER AS YOU SEE FIT
-        *******/
-        
+    {   
         yield return StartCoroutine(scenarioManager.StartScenarioRoutine());
         
+        scenarioManager.scenarioTextTyper.Type(
+            "Den Rest des Tages bleibt es ruhig..."
+        );
+        CountDownValue = 10;
+        yield return new WaitForSeconds(10);
 
+        interfaceHandler.storyPanel.SetActive(false);
+        
         pollHandler.gatherVotes = true;
         
         

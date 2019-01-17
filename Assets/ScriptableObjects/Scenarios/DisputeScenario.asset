@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed96c7e0b76f4ca4cb0d838c15b6269a, type: 3}
+  m_Name: DisputeScenario
+  m_EditorClassIdentifier: 
+  scenarioEvents:
+  - {fileID: 11400000, guid: c507cf36699255448842a668b489d8fc, type: 2}
+  audioClips:
+  - {fileID: 8300000, guid: 85fff86b6c034844598d61d7faf9cb94, type: 3}

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -25,6 +26,21 @@ public class ItemHandler : MonoBehaviour {
                 tempItem.Setup(activeItems.Count);
                 activeItems.Add(tempItem);
             }
+        }
+    }
+    
+    public Item RandomItem()
+    {
+        Item item = allItems[Random.Range(0, allItems.Count)];
+        return item;
+    }
+
+    public void DeleteAllItems()
+    {
+        foreach(var item in activeItems.ToList())
+        {
+                Destroy(item.Instance);
+                GameManager.Instance.itemHandler.activeItems.Remove(item);
         }
     }
 }

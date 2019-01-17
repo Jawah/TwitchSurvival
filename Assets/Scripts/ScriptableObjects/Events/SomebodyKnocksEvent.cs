@@ -6,7 +6,7 @@ public class SomebodyKnocksEvent : Event {
 
 	public override void Instantiate()
 	{
-		GameManager.Instance.interfaceHandler.questionText.text = "Should we let them in?";
+		GameManager.Instance.interfaceHandler.questionText.text = "Soll die Person reingelassen werden?";
 
 		base.Instantiate();
 	}
@@ -17,8 +17,7 @@ public class SomebodyKnocksEvent : Event {
 		{
 			if (dividedList[0].Count > dividedList[1].Count)
 			{
-				GameManager.Instance.pollHandler.chosenAnswer = dividedList[0][0];
-				GameManager.Instance.characterHandler.InstantiateNewCharacter(GameManager.Instance.characterHandler.allCharacters[Random.Range(0, GameManager.Instance.characterHandler.allCharacters.Count)].characterName);
+				GameManager.Instance.pollHandler.chosenAnswer = dividedList[0][0]; 
 			}
 			else if(dividedList[1].Count > dividedList[0].Count)
 			{

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Scenario : ScriptableObject
 {    
     public List<Event> scenarioEvents = new List<Event>();
+    public List<AudioClip> audioClips = new List<AudioClip>();
     
     public virtual IEnumerator ExecuteScenario(){ Debug.LogWarning("No override ExecuteScenario function declared"); yield return null; }
 }

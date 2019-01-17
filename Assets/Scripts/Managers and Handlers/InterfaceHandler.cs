@@ -45,9 +45,4 @@ public class InterfaceHandler : MonoBehaviour {
     {
         countDownSlider.gameObject.SetActive(true);
     }
-
-    public void DisableCountDownSlider()
-    {
-        countDownSlider.gameObject.SetActive(false);
-    }
 }

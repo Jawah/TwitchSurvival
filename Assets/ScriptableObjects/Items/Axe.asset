@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f3b043b7eb46442b4813af33d2687d, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Axe
   itemDescription: 
   itemShortDescription: 
   moraleFactorChangeValue: 0

@@ -162,6 +162,7 @@ public class CharacterManager
     {
         TextColorChanger(newVal, valueName);
         ArrowDisplay(newVal, valueName);
+        SetValueText();
     }
 
     public void SetNewCharacterValues(float accumulatedMoraleItemFactors, float accumulatedFullItemFactors, float accumulatedWarmthItemFactors)
@@ -170,6 +171,13 @@ public class CharacterManager
         FullValue += ((-fullLossFactor + accumulatedFullItemFactors) * healthStatusFullLossFactor);
         WarmthValue += ((-warmthLossFactor + accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue/3;
 
+        _moraleValueText.text = moraleValue.ToString("F1");
+        _fullValueText.text = fullValue.ToString("F1");
+        _warmthValueText.text = warmthValue.ToString("F1");
+    }
+
+    public void SetValueText()
+    {
         _moraleValueText.text = moraleValue.ToString("F1");
         _fullValueText.text = fullValue.ToString("F1");
         _warmthValueText.text = warmthValue.ToString("F1");
