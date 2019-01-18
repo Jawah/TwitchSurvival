@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
         eventHandler = GetComponent<EventHandler>();
         pollHandler = GetComponent<PollHandler>();
         arrowHandler = GetComponent<ArrowHandler>();
-        Debug.Log(scenarioManager.gameObject.name);
 
         OnRessourceValueChange += VariableChangeRessourcesHandler;
     }
@@ -274,7 +273,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator NewDay()
     {
         _day++;
-        interfaceHandler.dayText.text = "DAY " + _day;
+        interfaceHandler.dayText.text = _day.ToString();
         interfaceHandler.dayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day.ToString();
         interfaceHandler.dayPanel.SetActive(true);
 

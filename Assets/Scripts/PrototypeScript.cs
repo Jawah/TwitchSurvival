@@ -7,7 +7,7 @@ public class PrototypeScript : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(so.GetType().ToString());
+        
     }
     
 	public void TimeScaleSetter(float value)
