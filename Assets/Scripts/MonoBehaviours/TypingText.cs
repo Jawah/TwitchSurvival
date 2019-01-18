@@ -8,6 +8,9 @@ public class TypingText : MonoBehaviour
     private string newText;
     private float timer;
     private int i;
+
+    [SerializeField]
+    private AudioSource typingSound;
     
     public float timeInSeconds;
 
@@ -25,6 +28,9 @@ public class TypingText : MonoBehaviour
     private void Update()
     {
         if (currentText == newText) return;
+        
+        if(!typingSound.isPlaying) typingSound.Play();
+        
         timer += Time.deltaTime * Time.timeScale;
 
         if (timer >= timeInSeconds && i <= newText.Length)
@@ -38,6 +44,7 @@ public class TypingText : MonoBehaviour
         {
             i = 0;
             currentText = newText;
+            typingSound.Stop();
         }
         
     }
