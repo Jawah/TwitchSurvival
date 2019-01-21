@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using TMPro;
 
 public class TypingText : MonoBehaviour
@@ -47,6 +48,14 @@ public class TypingText : MonoBehaviour
             typingSound.Stop();
         }
         
+    }
+    
+    public IEnumerator TypeRoutine(string txt)
+    {
+        target.text = null;
+        newText = txt;
+        yield return new WaitUntil(() => target.text == txt);
+        yield return new WaitForSeconds(3f);
     }
 
     public void Type(string txt)

@@ -8,7 +8,7 @@ public class Event : ScriptableObject
 {
     public float eventLength;
     public List<string> possibleAnswers = new List<string>();
-
+    
     public virtual void Instantiate()
     {
         GameManager.Instance.CountDownValue = eventLength;

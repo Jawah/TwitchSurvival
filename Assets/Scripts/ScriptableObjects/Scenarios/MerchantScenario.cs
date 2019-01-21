@@ -9,60 +9,42 @@ public class MerchantScenario : Scenario {
 	{
 		GameManager.Instance.interfaceHandler.storyPanel.SetActive(true);
 		
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
-			"Es klopft an die Tür."
-		);
-		GameManager.Instance.CountDownValue = 5;
 		GameManager.Instance.audioManager.PlayEffect(audioClips[0]);
-		yield return new WaitForSeconds(5);
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+			"Es klopft an die Tür."
+		));
 
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"Du gehst zum Guckloch und siehst eine merkwürdig geformte, riesige Gestalt."
-		);
-		GameManager.Instance.CountDownValue = 7;
-		yield return new WaitForSeconds(7);
+		));
 
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"'Hi, Hi, Hi.. ich bin Halbert der legendäre Händler. Ich komme von weit her, oh yeah.'"
-		);
-		GameManager.Instance.CountDownValue = 8;
-		yield return new WaitForSeconds(8);
+		));
 
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"'Meine Reise treibt mich über's kaputte Land und dabei reich ich Leuten meine Hand!'"
-		);
-		GameManager.Instance.CountDownValue = 8;
-		yield return new WaitForSeconds(8);
+		));
 		
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"'Ich kaufe und verkaufe Ware, aber nur für das Bare!'"
-		);
-		GameManager.Instance.CountDownValue = 6;
-		yield return new WaitForSeconds(6);
+		));
 		
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"Während der Händler weiterspricht, merkst du, dass die riesige Gestalt eigentlich ein kleiner Mann mit einem riesigen Rucksack ist."
-		);
-		GameManager.Instance.CountDownValue = 12;
-		yield return new WaitForSeconds(12);
+		));
 		
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"Und trotz seiner komischen Art, zeigt ein Blick auf seine Kleidung und auf sein Gesicht, dass seine Reise wohl keine leichte war."
-		);
-		GameManager.Instance.CountDownValue = 11;
-		yield return new WaitForSeconds(11);
+		));
 		
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"'Naja, ich kommem mal zum Punkt. Kann ich von dir etwas Proviant erwirtschaften?'"
-		);
-		GameManager.Instance.CountDownValue = 8;
-		yield return new WaitForSeconds(8);
+		));
 		
-		GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"Da Geld jedoch kein valides Konzept mehr ist, möchte er tauschen. \r\n\r\n" + GameManager.Instance.FoodValue/2 + " Rationen von deinem Proviant gegen eine Stange Zigaretten?"
-		);
-		GameManager.Instance.CountDownValue = 13;
-		yield return new WaitForSeconds(13);
+		));
 		
 		GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
 
@@ -77,79 +59,67 @@ public class MerchantScenario : Scenario {
 
 			if (rnd <= 4)
 			{
-				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 					"Der Tausch ist erfolgreich und das Haus erhält Zigaretten und gibt etwas von seinen Rationen ab."
-				);
-				GameManager.Instance.CountDownValue = 8;
-				yield return new WaitForSeconds(8);
+				));
 				
 				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
 					""
 				);
 				GameManager.Instance.FoodValue -= GameManager.Instance.FoodValue / 2;
 				GameManager.Instance.itemHandler.InstantiateNewItem("Cigarettes");
-				GameManager.Instance.CountDownValue = 3;
-				yield return new WaitForSeconds(3);	
+
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+						""
+					));
 			}
 			else
 			{
-				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 					"Der Tausch ist erfolgreich und das Haus erhält Zigaretten."
-				);
-				GameManager.Instance.CountDownValue = 6;
-				yield return new WaitForSeconds(6);
+				));
 				
-				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
-					""
-				);
 				GameManager.Instance.FoodValue -= GameManager.Instance.FoodValue / 2;
-				GameManager.Instance.CountDownValue = 3;
-				yield return new WaitForSeconds(3);
-				
-				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
-					"Nachdem du jedoch die erste Schachtel öffnest, fällt dir auf, dass diese mit alten Salzstangen gefüllt ist.. und alle anderen auch!"
-				);
-				GameManager.Instance.CountDownValue = 11;
-				yield return new WaitForSeconds(11);
-				
-				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
-					"Bevor du dich dem Händler zuwenden kannst, läuft der schon schneller weg als du ihn jemals einholen könntest."
-				);
-				GameManager.Instance.CountDownValue = 10;
-				yield return new WaitForSeconds(10);
-				
-				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
-					"'Hihihihi, du kriegst mich nie, du Trottel!'"
-				);
-				GameManager.Instance.CountDownValue = 6;
-				yield return new WaitForSeconds(6);
-				
-				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 					""
-				);
+				));
+				
+				
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					"Nachdem du jedoch die erste Schachtel öffnest, fällt dir auf, dass diese mit alten Salzstangen gefüllt ist.. und alle anderen auch!"
+				));
+				
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					"Bevor du dich dem Händler zuwenden kannst, läuft der schon schneller weg als du ihn jemals einholen könntest."
+				));
+				
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					"'Hihihihi, du kriegst mich nie, du Trottel!'"
+				));
+				
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					""
+				));
 				
 				foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 				{
 					character.MoraleValue -= 0.5f;
 				}
-				
-				GameManager.Instance.CountDownValue = 3;
-				yield return new WaitForSeconds(3);
+
+				yield return GameManager.Instance.CoroutineCaller(
+					GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(""
+					));
 			}
 		}
 		else
 		{
-			GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 				"Mit den Worten 'Alles klar, du Sackgesicht' dreht sich der Händler um und geht weg..."
-			);
-			GameManager.Instance.CountDownValue = 7;
-			yield return new WaitForSeconds(7);
+			));
 			
-			GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 				"Achja, und er zeigt dir noch den Mittelfinger."
-			);
-			GameManager.Instance.CountDownValue = 4;
-			yield return new WaitForSeconds(4);
+			));
 		}
 	}
 }
