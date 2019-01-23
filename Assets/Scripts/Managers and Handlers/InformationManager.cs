@@ -210,9 +210,9 @@ public class InformationManager : MonoBehaviour {
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " stayed home and found some helpful Ressources.");
-                        GameManager.Instance.FoodValue += Random.Range(0, 4);
-                        GameManager.Instance.FirewoodValue += Random.Range(0, 4);
-                        GameManager.Instance.MedPackValue += Random.Range(0, 2);
+                        GameManager.Instance.FoodValue += AddRandomResourceAmount(0, 4, foodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(0, 4, firewoodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.MedPackValue += AddRandomResourceAmount(0, 2, medPackSprite, ref _newItemsSpriteList);
                     }
                     else
                     {
@@ -255,13 +255,13 @@ public class InformationManager : MonoBehaviour {
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " brought back a lot of wood today.");
-                        GameManager.Instance.FoodValue += 5;
+                        GameManager.Instance.FirewoodValue += 5;
                     }
                     else
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " brought back some wood.");
-                        GameManager.Instance.FoodValue += 2;
+                        GameManager.Instance.FirewoodValue += 2;
                     }
 
                     character.playerState = CharacterManager.PlayerState.Default;
@@ -294,9 +294,9 @@ public class InformationManager : MonoBehaviour {
                             character.characterName + " did loot a lot and brought back " + GameManager.Instance.itemHandler.allItems[randNum4].itemName + " and a lot of ressources.");
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum4].itemName);
                         _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum4].icon);
-                        GameManager.Instance.FoodValue += 3;
-                        GameManager.Instance.FirewoodValue += 2;
-                        GameManager.Instance.MedPackValue += 4;
+                        GameManager.Instance.FoodValue += AddRandomResourceAmount(3, 3, foodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(2, 2, firewoodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.MedPackValue += AddRandomResourceAmount(4, 4, medPackSprite, ref _newItemsSpriteList);
                     }
                     else if (randNum3 == 3 || randNum3 == 4)
                     {
@@ -306,9 +306,9 @@ public class InformationManager : MonoBehaviour {
                             character.characterName + " did loot a lot and brought back " + GameManager.Instance.itemHandler.allItems[randNum5].itemName + " and some ressources.");
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum5].itemName);
                         _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum5].icon);
-                        GameManager.Instance.FoodValue += Random.Range(1, 4);
-                        GameManager.Instance.FirewoodValue += Random.Range(1, 4);
-                        GameManager.Instance.MedPackValue += Random.Range(1, 4);
+                        GameManager.Instance.FoodValue += AddRandomResourceAmount(1, 4, foodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 4, firewoodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.MedPackValue += AddRandomResourceAmount(1, 4, medPackSprite, ref _newItemsSpriteList);
                     }
                     else if(randNum3 == 5)
                     {
@@ -320,9 +320,9 @@ public class InformationManager : MonoBehaviour {
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " brought back some ressources from this trip.");
-                        GameManager.Instance.FoodValue += Random.Range(1, 4);
-                        GameManager.Instance.FirewoodValue += Random.Range(1, 4);
-                        GameManager.Instance.MedPackValue += Random.Range(1, 4);
+                        GameManager.Instance.FoodValue += AddRandomResourceAmount(1, 4, foodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 4, firewoodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.MedPackValue += AddRandomResourceAmount(1, 4, medPackSprite, ref _newItemsSpriteList);
                     }
 
                     character.playerState = CharacterManager.PlayerState.Default;
@@ -363,9 +363,20 @@ public class InformationManager : MonoBehaviour {
         }
     }
 
+    private int AddRandomResourceAmount(int min, int max, Sprite resourceSprite, ref List<Sprite> newItemList)
+    {
+        int randomResourceAmount = Random.Range(min, max);
+        
+        if (randomResourceAmount > 0 && !newItemList.Contains(resourceSprite))
+            newItemList.Add(resourceSprite);
+
+        return randomResourceAmount;
+    }
+    
     public void Reset()
     {
         _informationPanelTextList.Clear();
+        _newItemsSpriteList.Clear();
 
         foreach (Transform child in _informationPanel.transform)
         {

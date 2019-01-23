@@ -2306,6 +2306,9 @@ MonoBehaviour:
   - 'The rats were out of control and infected all your Characters with the plague.<br>
 
     Better get some Medpacks ready.'
+  foodSprite: {fileID: 21300000, guid: 3a6886d49e388c7498e86811aeeb8732, type: 3}
+  firewoodSprite: {fileID: 21300000, guid: d0f95d32fcbfef947aed5132ad93497b, type: 3}
+  medPackSprite: {fileID: 21300000, guid: f671e987cfcf9344b84f271e2bcd0554, type: 3}
 --- !u!4 &580662214
 Transform:
   m_ObjectHideFlags: 0
