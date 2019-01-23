@@ -2,18 +2,26 @@
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InformationManager : MonoBehaviour {
     
     [SerializeField] private GameObject _informationTextPrefab;
     [SerializeField] private GameObject _informationPanel;
+    [SerializeField] private GameObject _newItemPrefab;
+    [SerializeField] private GameObject _newItemPanel;
     [TextArea]
     [SerializeField] private List<string> _specialTextList = new List<string>();
     
     private enum SpecialEvents { Default, Robbed, SicknessWave, NumberOfTypes };
     private SpecialEvents _specialEvent = SpecialEvents.Default;
     private List<string> _informationPanelTextList = new List<string>();
+    private List<Sprite> _newItemsSpriteList = new List<Sprite>();
 
+    [SerializeField] private Sprite foodSprite;
+    [SerializeField] private Sprite firewoodSprite;
+    [SerializeField] private Sprite medPackSprite;
+    
     public void ExecuteInformationWindow()
     {
         ExecuteForDeath();
@@ -27,6 +35,16 @@ public class InformationManager : MonoBehaviour {
             GameObject tempObject = _informationTextPrefab;
             tempObject.GetComponent<TextMeshProUGUI>().text = text;
             Instantiate(tempObject, _informationPanel.transform);
+        }
+        
+        if (!_newItemsSpriteList.Any()) return;
+        GameObject instantiatedNewItemPanel = Instantiate(_newItemPanel, _informationPanel.transform);
+
+        foreach (var item in _newItemsSpriteList)
+        {
+            GameObject tempObject = _newItemPrefab;
+            tempObject.GetComponent<Image>().sprite = item;
+            Instantiate(tempObject, instantiatedNewItemPanel.transform);
         }
     }
 
@@ -231,6 +249,7 @@ public class InformationManager : MonoBehaviour {
                         _informationPanelTextList.Add(
                             character.characterName + " had a lucky day and found: " + GameManager.Instance.itemHandler.allItems[randNum2].itemName);
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum2].itemName);
+                        _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum2].icon);
                     }
                     else if (randNum == 2|| randNum == 3)
                     {
@@ -272,8 +291,9 @@ public class InformationManager : MonoBehaviour {
                         int randNum4 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
                         _informationPanelTextList.Add(
-                            character.characterName + " did loot a lot and brought back " + GameManager.Instance.itemHandler.allItems[randNum4].itemName + "and a lot of ressources.");
+                            character.characterName + " did loot a lot and brought back " + GameManager.Instance.itemHandler.allItems[randNum4].itemName + " and a lot of ressources.");
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum4].itemName);
+                        _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum4].icon);
                         GameManager.Instance.FoodValue += 3;
                         GameManager.Instance.FirewoodValue += 2;
                         GameManager.Instance.MedPackValue += 4;
@@ -283,8 +303,9 @@ public class InformationManager : MonoBehaviour {
                         int randNum5 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
                         _informationPanelTextList.Add(
-                            character.characterName + " did loot a lot and brought back " + GameManager.Instance.itemHandler.allItems[randNum5].itemName + "and some ressources.");
+                            character.characterName + " did loot a lot and brought back " + GameManager.Instance.itemHandler.allItems[randNum5].itemName + " and some ressources.");
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum5].itemName);
+                        _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum5].icon);
                         GameManager.Instance.FoodValue += Random.Range(1, 4);
                         GameManager.Instance.FirewoodValue += Random.Range(1, 4);
                         GameManager.Instance.MedPackValue += Random.Range(1, 4);
