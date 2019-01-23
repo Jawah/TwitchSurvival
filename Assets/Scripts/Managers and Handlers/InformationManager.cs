@@ -255,13 +255,13 @@ public class InformationManager : MonoBehaviour {
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " brought back a lot of wood today.");
-                        GameManager.Instance.FirewoodValue += 5;
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(5, 5, firewoodSprite, ref _newItemsSpriteList);
                     }
                     else
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " brought back some wood.");
-                        GameManager.Instance.FirewoodValue += 2;
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(2, 2, firewoodSprite, ref _newItemsSpriteList);
                     }
 
                     character.playerState = CharacterManager.PlayerState.Default;
