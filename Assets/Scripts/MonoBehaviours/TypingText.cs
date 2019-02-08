@@ -32,7 +32,7 @@ public class TypingText : MonoBehaviour
         
         if(!typingSound.isPlaying) typingSound.Play();
         
-        timer += Time.deltaTime * Time.timeScale;
+        timer += Time.unscaledDeltaTime * Time.timeScale;
 
         if (timer >= timeInSeconds && i <= newText.Length)
         {
