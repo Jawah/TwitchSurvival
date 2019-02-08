@@ -194,11 +194,12 @@ public class InformationManager : MonoBehaviour {
     {
         foreach (var character in GameManager.Instance.characterHandler.activeCharacters.ToList())
         {
+            int playerStateChance = Random.Range(0, 100);
             switch (character.playerState)
             {
                 case CharacterManager.PlayerState.Default:
                     
-                    if(Random.Range(0,2) == 0)
+                    if(playerStateChance >= 60)
                     {
                         _informationPanelTextList.Add(
                         character.characterName + " stayed home and slept surprisingly good and feels re-energized.");
@@ -206,7 +207,7 @@ public class InformationManager : MonoBehaviour {
                         character.MoraleValue += 2;
                         character.WarmthValue += 2;
                     }
-                    else if(Random.Range(0,5) == 0)
+                    else if(playerStateChance >= 85)
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " stayed home and found some helpful Ressources.");
@@ -226,9 +227,9 @@ public class InformationManager : MonoBehaviour {
 
                 case CharacterManager.PlayerState.ChopWood:
 
-                    int randNum = Random.Range(0, 10);
-
-                    if (randNum == 0)
+                    playerStateChance += character.skillTimber;
+                    
+                    if (playerStateChance <= 15)
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " didn't come back. Let's not hope for our friends return.");
@@ -242,7 +243,7 @@ public class InformationManager : MonoBehaviour {
                         GameManager.Instance.characterHandler.activeCharacters.Remove(character);
                         //GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     }
-                    else if (randNum == 1)
+                    else if (playerStateChance >= 85)
                     {
                         int randNum2 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
@@ -251,7 +252,7 @@ public class InformationManager : MonoBehaviour {
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum2].itemName);
                         _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum2].icon);
                     }
-                    else if (randNum == 2|| randNum == 3)
+                    else if (playerStateChance >= 60)
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " brought back a lot of wood today.");
@@ -270,9 +271,9 @@ public class InformationManager : MonoBehaviour {
 
                 case CharacterManager.PlayerState.Plunder:
 
-                    int randNum3 = Random.Range(0, 9);
-
-                    if (randNum3 == 0 || randNum3 == 1)
+                    playerStateChance += character.skillPlunder;
+                    
+                    if (playerStateChance <= 25)
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " didn't come back. Let's not hope for our friends return.");
@@ -286,7 +287,7 @@ public class InformationManager : MonoBehaviour {
                         GameManager.Instance.characterHandler.activeCharacters.Remove(character);
                         //GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     }
-                    else if (randNum3 == 2)
+                    else if (playerStateChance >= 90)
                     {
                         int randNum4 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
@@ -298,7 +299,7 @@ public class InformationManager : MonoBehaviour {
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(2, 2, firewoodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.MedPackValue += AddRandomResourceAmount(4, 4, medPackSprite, ref _newItemsSpriteList);
                     }
-                    else if (randNum3 == 3 || randNum3 == 4)
+                    else if (playerStateChance >= 75)
                     {
                         int randNum5 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
@@ -310,7 +311,7 @@ public class InformationManager : MonoBehaviour {
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 4, firewoodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.MedPackValue += AddRandomResourceAmount(1, 4, medPackSprite, ref _newItemsSpriteList);
                     }
-                    else if(randNum3 == 5)
+                    else if(playerStateChance <= 40)
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " came back barehanded and also broke his leg. That idiot!");

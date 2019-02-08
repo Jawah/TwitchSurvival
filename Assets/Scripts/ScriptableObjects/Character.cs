@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu]
 public class Character : ResettableScriptableObject
@@ -8,6 +7,9 @@ public class Character : ResettableScriptableObject
 
     public Sprite characterSprite;
 
+    [Range(-25, 25)]public int skillTimber;
+    [Range(-25, 25)]public int skillPlunder;
+    
     public float dailyMoraleLossFactor;
     public float dailyFullLossFactor;
     public float dailyWarmthLossFactor;

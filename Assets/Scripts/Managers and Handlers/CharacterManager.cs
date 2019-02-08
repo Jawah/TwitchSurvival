@@ -18,6 +18,9 @@ public class CharacterManager
     public float warmthValue;
     private float _oldWarmthValue;
 
+    public int skillPlunder;
+    public int skillTimber;
+    
     public float moraleLossFactor;
     public float fullLossFactor;
     public float warmthLossFactor;
@@ -82,6 +85,9 @@ public class CharacterManager
         _oldFullValue = fullValue;
         _oldWarmthValue = warmthValue;
 
+        skillTimber = _character.skillTimber;
+        skillPlunder = _character.skillPlunder;
+        
         fullGainValue = _character.fullGainValue;
         warmthGainValue = _character.warmthGainValue;
 
