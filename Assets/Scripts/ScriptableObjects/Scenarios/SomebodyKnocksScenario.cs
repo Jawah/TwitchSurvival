@@ -174,5 +174,6 @@ public class SomebodyKnocksScenario : Scenario {
 					));
 			}
 		}
-	}
+        wasUsed = true;
+    }    
 }

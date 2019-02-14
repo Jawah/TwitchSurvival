@@ -85,5 +85,6 @@ public class StormyScenario : Scenario {
 					""
 				));
 		}
+        wasUsed = true;
 	}
 }

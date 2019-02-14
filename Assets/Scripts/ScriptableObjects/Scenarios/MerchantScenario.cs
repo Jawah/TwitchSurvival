@@ -121,5 +121,7 @@ public class MerchantScenario : Scenario {
 				"Achja, und er zeigt dir noch den Mittelfinger."
 			));
 		}
+
+        wasUsed = true;
 	}
 }

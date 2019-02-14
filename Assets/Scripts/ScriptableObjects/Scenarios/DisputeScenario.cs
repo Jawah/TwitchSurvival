@@ -115,7 +115,7 @@ public class DisputeScenario : Scenario {
 				""
 			));
 		}
-		
+        wasUsed = true;
 		yield return null;
 	}
 }

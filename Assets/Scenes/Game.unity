@@ -3473,6 +3473,8 @@ MonoBehaviour:
     moraleValue: 0
     fullValue: 0
     warmthValue: 0
+    skillPlunder: 0
+    skillTimber: 0
     moraleLossFactor: 0
     fullLossFactor: 0
     warmthLossFactor: 0
@@ -5787,6 +5789,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 817be6a696d25f54c81882c8dfdabfd0, type: 2}
   - {fileID: 11400000, guid: e74ffb1b2c6d5344992ee61074d70625, type: 2}
   - {fileID: 11400000, guid: 04ae785e447ad6a449bb1937a11c1488, type: 2}
+  - {fileID: 11400000, guid: 907d2142355448c4b8df4389826e0661, type: 2}
+  - {fileID: 11400000, guid: 617350e3e6c619c48b202222bc50c373, type: 2}
+  - {fileID: 11400000, guid: f3ba87e9dcf7f32498345a685abc6922, type: 2}
+  - {fileID: 11400000, guid: c2c4c9396586076489a2e029cd961097, type: 2}
+  - {fileID: 11400000, guid: 4723c5683eabdd84eaf0987aa8c1ad88, type: 2}
 --- !u!4 &1624382419
 Transform:
   m_ObjectHideFlags: 0

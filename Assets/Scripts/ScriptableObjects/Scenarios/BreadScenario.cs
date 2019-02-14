@@ -138,5 +138,6 @@ public class BreadScenario : Scenario {
 				));
 			}
 		}
+        wasUsed = true;
 	}
 }

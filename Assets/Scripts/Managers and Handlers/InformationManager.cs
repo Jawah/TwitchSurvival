@@ -131,7 +131,7 @@ public class InformationManager : MonoBehaviour {
     {
         foreach (var character in GameManager.Instance.characterHandler.activeCharacters)
         {
-            int randNum = Random.Range(0, 3);
+            int randNum = Random.Range(0, 2);
 
             if(randNum == 0)
             {
