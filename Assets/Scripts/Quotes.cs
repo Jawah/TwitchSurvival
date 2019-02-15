@@ -15,7 +15,7 @@
         "Do we have snacks?",
         "My tummy is rumbling..."
     };
-    public static string[] QUOTES_HUNGER_NEGATIV = new string[]
+    public static string[] QUOTES_HUNGER_NEGATIVE = new string[]
     {
         "I'm starving...",
         "Food...",

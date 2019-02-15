@@ -316,6 +316,7 @@ public class InformationManager : MonoBehaviour {
                         _informationPanelTextList.Add(
                             character.characterName + " came back barehanded and also broke his leg. That idiot!");
                         character.healthState = CharacterManager.HealthState.Fracture;
+                        character.StatusChanger();
                     }
                     else
                     {

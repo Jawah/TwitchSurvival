@@ -13,6 +13,7 @@ TagManager:
   - ArrowGreen
   - ArrowRed
   - FillArea
+  - QuoteText
   layers:
   - Default
   - TransparentFX

@@ -50,6 +50,8 @@ public class CharacterManager
     private TextMeshProUGUI _fullValueText;
     private TextMeshProUGUI _warmthValueText;
 
+    private TextMeshProUGUI _quoteText;
+
     private ParticleSystem _moraleArrowGreen;
     private ParticleSystem _moraleArrowRed;
     private ParticleSystem _fullArrowGreen;
@@ -104,6 +106,8 @@ public class CharacterManager
                 _warmthValueText = child.GetComponent<TextMeshProUGUI>();
             else if (child.gameObject.CompareTag(Tags.HEALTH_STATUS_TEXT_TAG))
                 _healthStatusText = child.GetComponent<TextMeshProUGUI>();
+            else if (child.gameObject.CompareTag(Tags.QUOTE_TEXT_TAG))
+                _quoteText = child.GetComponent<TextMeshProUGUI>();
         }
 
         var imageChildren = Instance.GetComponentsInChildren<Image>();
@@ -162,6 +166,7 @@ public class CharacterManager
         TextColorChanger(moraleValue, "Morale");
         TextColorChanger(fullValue, "Full");
         TextColorChanger(warmthValue, "Warmth");
+        SetQuote();
     }
 
     public void VariableChangeHandler(float newVal, string valueName)
@@ -169,6 +174,7 @@ public class CharacterManager
         TextColorChanger(newVal, valueName);
         ArrowDisplay(newVal, valueName);
         SetValueText();
+        SetQuote();
     }
 
     public void SetNewCharacterValues(float accumulatedMoraleItemFactors, float accumulatedFullItemFactors, float accumulatedWarmthItemFactors)
@@ -180,6 +186,7 @@ public class CharacterManager
         _moraleValueText.text = moraleValue.ToString("F1");
         _fullValueText.text = fullValue.ToString("F1");
         _warmthValueText.text = warmthValue.ToString("F1");
+        SetQuote();
     }
 
     public void SetValueText()
@@ -357,4 +364,65 @@ public class CharacterManager
 
     public delegate void OnVariableChangeDelegate(float newVal, string valueName);
     public event OnVariableChangeDelegate OnVariableChangeCharacterValues;
+
+    public void SetQuote()
+    {
+        int rnd = Random.Range(0, 2);
+
+        if (rnd == 0)
+        {
+            if (WarmthValue < 3)
+            {
+                _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
+                _quoteText.color = Color.red;
+            }
+            else if (WarmthValue < 7)
+            {
+                _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
+                _quoteText.color = Color.yellow;
+            }
+
+            if (FullValue < 3)
+            {
+                _quoteText.text = Quotes.QUOTES_HUNGER_NEGATIVE[Random.Range(0, Quotes.QUOTES_HUNGER_NEGATIVE.Length)];
+                _quoteText.color = Color.red;
+            }
+            else if (FullValue < 7)
+            {
+                _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
+                _quoteText.color = Color.yellow;
+            }
+        }
+        
+        if (rnd == 1)
+        {
+            if (FullValue < 3)
+            {
+                _quoteText.text = Quotes.QUOTES_HUNGER_NEGATIVE[Random.Range(0, Quotes.QUOTES_HUNGER_NEGATIVE.Length)];
+                _quoteText.color = Color.red;
+            }
+            else if (FullValue < 7)
+            {
+                _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
+                _quoteText.color = Color.yellow;
+            }
+            
+            if (WarmthValue < 3)
+            {
+                _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
+                _quoteText.color = Color.red;
+            }
+            else if (WarmthValue < 7)
+            {
+                _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
+                _quoteText.color = Color.yellow;
+            }
+        }
+
+        if (MoraleValue >= 7 && FullValue >= 7)
+        {
+            _quoteText.text = Quotes.QUOTES_RANDOM[Random.Range(0, Quotes.QUOTES_RANDOM.Length)];
+            _quoteText.color = Color.white;
+        }
+    }
 }
