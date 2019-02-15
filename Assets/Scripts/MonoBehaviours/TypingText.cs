@@ -15,13 +15,9 @@ public class TypingText : MonoBehaviour
     
     public float timeInSeconds;
 
-    private void Awake()
-    {
-        target = GetComponent<TextMeshProUGUI>();
-    }
-
     private void Start()
     {
+        target = GetComponent<TextMeshProUGUI>();
         currentText = target.text;
         newText = target.text;
     }

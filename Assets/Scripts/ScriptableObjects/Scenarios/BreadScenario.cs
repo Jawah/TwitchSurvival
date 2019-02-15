@@ -10,6 +10,7 @@ public class BreadScenario : Scenario {
 		CharacterManager activeCharacter = GameManager.Instance.characterHandler.RandomActiveCharacter();
 		
 		GameManager.Instance.interfaceHandler.storyPanel.SetActive(true);
+		yield return new WaitForSeconds(2f);
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"Beim Sortieren der Rationen fällt " + activeCharacter.characterName + " etwas sonderbares auf."

@@ -8,6 +8,7 @@ public class SomebodyKnocksScenario : Scenario {
 	public override IEnumerator ExecuteScenario()
 	{
 		GameManager.Instance.interfaceHandler.storyPanel.SetActive(true);
+		yield return new WaitForSeconds(2f);
 		
 		GameManager.Instance.audioManager.PlayEffect(audioClips[0]);
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

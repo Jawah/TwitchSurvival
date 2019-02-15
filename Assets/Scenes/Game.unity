@@ -5209,7 +5209,7 @@ PrefabInstance:
     - target: {fileID: 5075124700885604168, guid: a5d87569056b4a44f9a3a14144e3d683,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5075124700885604170, guid: a5d87569056b4a44f9a3a14144e3d683,
         type: 3}
@@ -5281,6 +5281,27 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 252218595934833968, guid: a5d87569056b4a44f9a3a14144e3d683,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 046a959c4a9332c41b226c2a24391d1f,
+        type: 2}
+    - target: {fileID: 252218595934833968, guid: a5d87569056b4a44f9a3a14144e3d683,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 252218595934833968, guid: a5d87569056b4a44f9a3a14144e3d683,
+        type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3301451802375959629, guid: a5d87569056b4a44f9a3a14144e3d683,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 252218595934833968}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5d87569056b4a44f9a3a14144e3d683, type: 3}
 --- !u!1 &1322850814
