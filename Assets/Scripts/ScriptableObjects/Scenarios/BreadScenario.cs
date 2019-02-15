@@ -10,6 +10,7 @@ public class BreadScenario : Scenario {
 		CharacterManager activeCharacter = GameManager.Instance.characterHandler.RandomActiveCharacter();
 		
 		GameManager.Instance.interfaceHandler.storyPanel.SetActive(true);
+		yield return new WaitForSeconds(2f);
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 			"Beim Sortieren der Rationen fällt " + activeCharacter.characterName + " etwas sonderbares auf."
@@ -31,7 +32,8 @@ public class BreadScenario : Scenario {
 			"Hmm... Jemand oder etwas scheint sich an den Rationen zu vergreifen..."
 		));
 		
-		GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.interfaceHandler.DisableBigPanel());
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.pollHandler.DoPoll(scenarioEvents[0]));
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.AfterQuestion());
@@ -77,9 +79,9 @@ public class BreadScenario : Scenario {
 				{
 					character.MoraleValue -= 1.5f;
 				}
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					""
-				));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//	""
+				//));
 			}
 			else
 			{

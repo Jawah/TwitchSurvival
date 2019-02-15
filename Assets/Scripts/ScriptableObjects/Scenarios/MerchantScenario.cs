@@ -8,6 +8,7 @@ public class MerchantScenario : Scenario {
 	public override IEnumerator ExecuteScenario()
 	{
 		GameManager.Instance.interfaceHandler.storyPanel.SetActive(true);
+		yield return new WaitForSeconds(2f);
 		
 		GameManager.Instance.audioManager.PlayEffect(audioClips[0]);
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -46,7 +47,8 @@ public class MerchantScenario : Scenario {
 			"Da Geld jedoch kein valides Konzept mehr ist, möchte er tauschen. \r\n\r\n" + GameManager.Instance.FoodValue/2 + " Rationen von deinem Proviant gegen eine Stange Zigaretten?"
 		));
 		
-		GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.interfaceHandler.DisableBigPanel());
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.pollHandler.DoPoll(scenarioEvents[0]));
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.AfterQuestion());
@@ -63,15 +65,15 @@ public class MerchantScenario : Scenario {
 					"Der Tausch ist erfolgreich und das Haus erhält Zigaretten und gibt etwas von seinen Rationen ab."
 				));
 				
-				GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
-					""
-				);
+				//GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
+				//	""
+				//);
 				GameManager.Instance.FoodValue -= GameManager.Instance.FoodValue / 2;
 				GameManager.Instance.itemHandler.InstantiateNewItem("Cigarettes");
 
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-						""
-					));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//		""
+				//	));
 			}
 			else
 			{
@@ -80,9 +82,9 @@ public class MerchantScenario : Scenario {
 				));
 				
 				GameManager.Instance.FoodValue -= GameManager.Instance.FoodValue / 2;
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					""
-				));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//	""
+				//));
 				
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -97,18 +99,18 @@ public class MerchantScenario : Scenario {
 					"'Hihihihi, du kriegst mich nie, du Trottel!'"
 				));
 				
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					""
-				));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//	""
+				//));
 				
 				foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 				{
 					character.MoraleValue -= 0.5f;
 				}
 
-				yield return GameManager.Instance.CoroutineCaller(
-					GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(""
-					));
+				//yield return GameManager.Instance.CoroutineCaller(
+				//	GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(""
+				//	));
 			}
 		}
 		else
