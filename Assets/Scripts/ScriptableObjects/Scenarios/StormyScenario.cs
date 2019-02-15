@@ -27,7 +27,8 @@ public class StormyScenario : Scenario {
 			"Man könnte von außen auf das Dach klettern und das Loch wieder zunageln, aber das könnte gefährlich werden.\r\n\r\nEs so zu lassen, klingt aber auch nicht nach einer guten Idee."
 		));
 		
-		GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.interfaceHandler.DisableBigPanel());
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.pollHandler.DoPoll(scenarioEvents[0]));
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.AfterQuestion());
@@ -82,9 +83,9 @@ public class StormyScenario : Scenario {
 				character.WarmthValue -= 2f;
 			}
 
-			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					""
-				));
+			//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+			//		""
+			//	));
 		}
         wasUsed = true;
 	}

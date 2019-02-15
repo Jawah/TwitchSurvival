@@ -312,10 +312,14 @@ public class GameManager : MonoBehaviour
         scenarioManager.scenarioTextTyper.Type(
             "Den Rest des Tages bleibt es ruhig..."
         );
-        CountDownValue = 10;
-        yield return new WaitForSeconds(10);
+        
+        yield return _shortWait;
 
-        interfaceHandler.storyPanel.SetActive(false);
+        scenarioManager.scenarioTextTyper.newText = "";
+        
+        yield return StartCoroutine(interfaceHandler.DisableBigPanel());
+        
+        //interfaceHandler.storyPanel.SetActive(false);
         
         pollHandler.gatherVotes = true;
         

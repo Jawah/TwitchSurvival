@@ -35,7 +35,8 @@ public class SomebodyKnocksScenario : Scenario {
 			"'Mach bitte auf, ansonsten kriegen sie mich!'"
 		));
 
-		GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.interfaceHandler.DisableBigPanel());
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.pollHandler.DoPoll(scenarioEvents[0]));
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.AfterQuestion());
@@ -60,9 +61,9 @@ public class SomebodyKnocksScenario : Scenario {
 				
 				GameManager.Instance.characterHandler.InstantiateNewCharacter(tempCharacter.characterName);
 
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-						""
-					));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//		""
+				//	));
 			}
 			else
 			{
@@ -92,18 +93,18 @@ public class SomebodyKnocksScenario : Scenario {
 					
 					GameManager.Instance.itemHandler.DeleteAllItems();
 
-					yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-							""
-						));
+					//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					//		""
+					//	));
 					
 					foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 					{
 						character.MoraleValue -= 3;
 					}
 
-					yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-							""
-						));
+					//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					//		""
+					//	));
 				}
 				else
 				{
@@ -122,9 +123,9 @@ public class SomebodyKnocksScenario : Scenario {
 						character.MoraleValue -= 2;
 					}
 					
-					yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-						""
-					));
+					//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					//	""
+					//));
 				}
 			}
 		}
@@ -147,9 +148,9 @@ public class SomebodyKnocksScenario : Scenario {
 					character.MoraleValue -= 1;
 				}
 				
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					""
-				));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//	""
+				//));
 			}
 			else
 			{
@@ -170,9 +171,9 @@ public class SomebodyKnocksScenario : Scenario {
 					character.MoraleValue -= 3;
 				}
 
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-						""
-					));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//		""
+				//	));
 			}
 		}
         wasUsed = true;

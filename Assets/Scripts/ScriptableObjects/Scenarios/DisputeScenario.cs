@@ -27,7 +27,8 @@ public class DisputeScenario : Scenario {
 			"Jedoch treiben sich in Kapinsky auch viele Banditen rum. Es könnte vielleicht auch eine Falle sein."
 		));
 		
-		GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
+		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.interfaceHandler.DisableBigPanel());
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.pollHandler.DoPoll(scenarioEvents[0]));
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.AfterQuestion());
@@ -46,9 +47,9 @@ public class DisputeScenario : Scenario {
 				"Und der Verlierer ist " + tempCharacter.characterName + ". \r\n\r\n'Falls ich in den nächsten 2 Stunden nicht zurück bin, rechnet nicht mit mir!'"
 			));
 			
-			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-				""
-			));
+			//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+			//	""
+			//));
 			
 			int rnd = Random.Range(0, 10);
 
@@ -71,9 +72,9 @@ public class DisputeScenario : Scenario {
 					character.MoraleValue += 2;
 				}
 				
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					""
-				));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//	""
+				//));
 			}
 			else
 			{
@@ -90,9 +91,9 @@ public class DisputeScenario : Scenario {
 					character.MoraleValue -= 2;
 				}
 				
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					""
-				));
+				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+				//	""
+				//));
 			}
 		}
 
@@ -111,9 +112,9 @@ public class DisputeScenario : Scenario {
 				character.MoraleValue -= 2;
 			}
 			
-			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-				""
-			));
+			//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+			//	""
+			//));
 		}
         wasUsed = true;
 		yield return null;

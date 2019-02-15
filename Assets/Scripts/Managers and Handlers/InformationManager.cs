@@ -374,7 +374,7 @@ public class InformationManager : MonoBehaviour {
 
         return randomResourceAmount;
     }
-    
+
     public void Reset()
     {
         _informationPanelTextList.Clear();

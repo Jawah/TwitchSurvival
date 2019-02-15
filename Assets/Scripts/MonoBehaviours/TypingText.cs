@@ -6,7 +6,7 @@ public class TypingText : MonoBehaviour
 {
     private TextMeshProUGUI target;
     private string currentText;
-    private string newText;
+    public string newText;
     private float timer;
     private int i;
 

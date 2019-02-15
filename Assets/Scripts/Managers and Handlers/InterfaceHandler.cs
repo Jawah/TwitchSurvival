@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -29,6 +30,13 @@ public class InterfaceHandler : MonoBehaviour {
     public GameObject informationPanel;
     public GameObject chosenAnswerPanel;
 
+    public Animator anim;
+
+    void Start()
+    {
+        anim = storyPanel.GetComponent<Animator>();
+    }
+    
     public void SetCountDownValue(int value)
     {
         countDownText.text = value.ToString();
@@ -44,5 +52,14 @@ public class InterfaceHandler : MonoBehaviour {
     public void EnableCountDownSlider()
     {
         countDownSlider.gameObject.SetActive(true);
+    }
+
+    public IEnumerator DisableBigPanel()
+    {
+        anim.Play("Overlay-Anim_Backwards");
+        
+        yield return new WaitForSeconds(2f);
+        //yield return null;
+        storyPanel.SetActive(false);
     }
 }
