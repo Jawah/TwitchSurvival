@@ -69,7 +69,7 @@ public class DisputeScenario : Scenario {
 				
 				foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 				{
-					character.MoraleValue += 2;
+					character.MoraleValue += 3f;
 				}
 				
 				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -109,7 +109,7 @@ public class DisputeScenario : Scenario {
 			
 			foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 			{
-				character.MoraleValue -= 2;
+				character.MoraleValue -= 1.5f;
 			}
 			
 			//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

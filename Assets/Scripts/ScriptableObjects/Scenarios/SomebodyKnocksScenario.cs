@@ -145,7 +145,7 @@ public class SomebodyKnocksScenario : Scenario {
 				
 				foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 				{
-					character.MoraleValue -= 1;
+					character.MoraleValue -= 0.5f;
 				}
 				
 				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -168,7 +168,7 @@ public class SomebodyKnocksScenario : Scenario {
 				
 				foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 				{
-					character.MoraleValue -= 3;
+					character.MoraleValue -= 2.5f;
 				}
 
 				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

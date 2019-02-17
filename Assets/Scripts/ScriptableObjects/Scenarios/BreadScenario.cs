@@ -77,7 +77,7 @@ public class BreadScenario : Scenario {
 				
 				foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 				{
-					character.MoraleValue -= 1.5f;
+					character.MoraleValue -= 1f;
 				}
 				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 				//	""
