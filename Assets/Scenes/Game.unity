@@ -3458,7 +3458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterCardPanel: {fileID: 730090731}
-  characterCardPrefab: {fileID: 1326025991572586, guid: 2a383aff094d9fa438d2bbc5b60c65b2,
+  characterCardPrefab: {fileID: 5497614553728110084, guid: c61e333c1a599874cbd73f33a0274152,
     type: 3}
   allCharacters:
   - {fileID: 11400000, guid: 2298af2c8059ea84798fff34d871ee5c, type: 2}

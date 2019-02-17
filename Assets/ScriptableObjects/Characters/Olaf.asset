@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b66583b10b6a37e48a63ea98f524f045, type: 3}
   m_Name: Olaf
   m_EditorClassIdentifier: 
-  characterName: Olaf
+  characterName: OLAF
   characterSprite: {fileID: 21300000, guid: 32ce4d1c9aeffe343885f9e3336b2b1e, type: 3}
   skillTimber: 15
   skillPlunder: 5
