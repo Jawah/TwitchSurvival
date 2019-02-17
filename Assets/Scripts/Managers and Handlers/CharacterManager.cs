@@ -181,7 +181,7 @@ public class CharacterManager
     {
         MoraleValue += ((-moraleLossFactor + accumulatedMoraleItemFactors) * healthStatusMoraleLossFactor);
         FullValue += ((-fullLossFactor + accumulatedFullItemFactors) * healthStatusFullLossFactor);
-        WarmthValue += ((-warmthLossFactor + accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue / 3 * 1.5f;
+        WarmthValue += ((-warmthLossFactor + accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue / 3 * 0.5f;
 
         _moraleValueText.text = moraleValue.ToString("F1");
         _fullValueText.text = fullValue.ToString("F1");
@@ -376,7 +376,7 @@ public class CharacterManager
                 _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
                 _quoteText.color = Color.red;
             }
-            else if (WarmthValue < 7)
+            else if (WarmthValue < 5)
             {
                 _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
                 _quoteText.color = Color.yellow;
@@ -387,7 +387,7 @@ public class CharacterManager
                 _quoteText.text = Quotes.QUOTES_HUNGER_NEGATIVE[Random.Range(0, Quotes.QUOTES_HUNGER_NEGATIVE.Length)];
                 _quoteText.color = Color.red;
             }
-            else if (FullValue < 7)
+            else if (FullValue < 5)
             {
                 _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
                 _quoteText.color = Color.yellow;
@@ -401,7 +401,7 @@ public class CharacterManager
                 _quoteText.text = Quotes.QUOTES_HUNGER_NEGATIVE[Random.Range(0, Quotes.QUOTES_HUNGER_NEGATIVE.Length)];
                 _quoteText.color = Color.red;
             }
-            else if (FullValue < 7)
+            else if (FullValue < 5)
             {
                 _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
                 _quoteText.color = Color.yellow;
@@ -412,14 +412,14 @@ public class CharacterManager
                 _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
                 _quoteText.color = Color.red;
             }
-            else if (WarmthValue < 7)
+            else if (WarmthValue < 5)
             {
                 _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
                 _quoteText.color = Color.yellow;
             }
         }
 
-        if (MoraleValue >= 7 && FullValue >= 7)
+        if (MoraleValue >= 5 && FullValue >= 5)
         {
             _quoteText.text = Quotes.QUOTES_RANDOM[Random.Range(0, Quotes.QUOTES_RANDOM.Length)];
             _quoteText.color = Color.white;

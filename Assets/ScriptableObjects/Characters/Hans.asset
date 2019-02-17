@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b66583b10b6a37e48a63ea98f524f045, type: 3}
-  m_Name: Hans
+  m_Name: HANS
   m_EditorClassIdentifier: 
   characterName: HANS
   characterSprite: {fileID: 21300000, guid: c9dcfefe78f206d4d8793032b867dbc5, type: 3}
   skillTimber: 10
   skillPlunder: 10
-  dailyMoraleLossFactor: 1
-  dailyFullLossFactor: 1.7
+  dailyMoraleLossFactor: 0.5
+  dailyFullLossFactor: 2.2
   dailyWarmthLossFactor: 1.5
   fullGainValue: 1.5
   warmthGainValue: 1.9
-  inUse: 1
+  inUse: 0

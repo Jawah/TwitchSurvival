@@ -60,6 +60,7 @@ public class StormyScenario : Scenario {
 				));
 
 				tempCharacter.healthState = CharacterManager.HealthState.Fracture;
+				tempCharacter.StatusChanger();
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 					"Das Bein ist gebrochen, aber das Dach ist zu. Der Wasserschaden wurde durch das schnelle Handeln auch minimal gehalten."

@@ -307,17 +307,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator DayPlaying()
     {   
-        yield return StartCoroutine(scenarioManager.StartScenarioRoutine());
         
-        scenarioManager.scenarioTextTyper.Type(
-            "Den Rest des Tages bleibt es ruhig..."
-        );
-        
-        yield return _shortWait;
-
-        scenarioManager.scenarioTextTyper.newText = "";
-        
-        yield return StartCoroutine(interfaceHandler.DisableBigPanel());
         
         //interfaceHandler.storyPanel.SetActive(false);
         
@@ -343,6 +333,18 @@ public class GameManager : MonoBehaviour
             yield return StartCoroutine(AfterQuestion());
         }
 
+        yield return StartCoroutine(scenarioManager.StartScenarioRoutine());
+        
+        scenarioManager.scenarioTextTyper.Type(
+            "Den Rest des Tages bleibt es ruhig..."
+        );
+        
+        yield return _shortWait;
+
+        scenarioManager.scenarioTextTyper.newText = "";
+        
+        yield return StartCoroutine(interfaceHandler.DisableBigPanel());
+        
         foreach (var character in characterHandler.activeCharacters)
         {
             yield return StartCoroutine(pollHandler.DoPoll(eventHandler.allEvents.Find(m_AllEvents => m_AllEvents.name == "EndOfDayEvent"), character));

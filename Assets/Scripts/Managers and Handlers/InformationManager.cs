@@ -240,9 +240,9 @@ public class InformationManager : MonoBehaviour {
                             character2.MoraleValue -= 3;
                         }
 
-                        Destroy(character.Instance);
                         GameManager.Instance.characterHandler.activeCharacters.Remove(character);
-                        //GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_Instance.SetActive(false);
+                        Destroy(character.Instance);
+                        //GameManager.Instance.characterHandler.activeCharacters[character].m_Instance.SetActive(false);
                     }
                     else if (playerStateChance >= 80)
                     {
@@ -284,8 +284,8 @@ public class InformationManager : MonoBehaviour {
                             character2.MoraleValue -= 3;
                         }
 
-                        Destroy(character.Instance);
                         GameManager.Instance.characterHandler.activeCharacters.Remove(character);
+                        Destroy(character.Instance);
                         //GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     }
                     else if (playerStateChance >= 90)

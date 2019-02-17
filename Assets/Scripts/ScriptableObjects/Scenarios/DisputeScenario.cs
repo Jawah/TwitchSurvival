@@ -12,7 +12,7 @@ public class DisputeScenario : Scenario {
 		
 		GameManager.Instance.audioManager.PlayEffect(audioClips[0]);
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Das Radio empfängt ein Funk-Signal."
+			"Ihr empfangt ein Funk-Signal."
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -85,6 +85,8 @@ public class DisputeScenario : Scenario {
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 					"'Wir sollten nicht auf " + tempCharacter.characterName + "'s Rückkehr hoffen.'"
 				));
+				
+				GameManager.Instance.characterHandler.KillCharacter(tempCharacter.characterName);
 				
 				foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
 				{

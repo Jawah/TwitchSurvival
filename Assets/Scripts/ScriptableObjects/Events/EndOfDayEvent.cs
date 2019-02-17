@@ -30,11 +30,14 @@ public class EndOfDayEvent : Event {
                 characterV.playerState = CharacterManager.PlayerState.ChopWood;
                 GameManager.Instance.pollHandler.chosenAnswer = dividedList[2][0];
             }
+            else
+            {
+                GameManager.Instance.pollHandler.chosenAnswer = "Gleichstand";
+            }
         }
         else
         {
-            characterV.playerState = CharacterManager.PlayerState.Default;
-            GameManager.Instance.pollHandler.chosenAnswer = "nothing";
-        } 
+            GameManager.Instance.pollHandler.chosenAnswer = "Keine Antworten";
+        }  
     }
 }

@@ -25,10 +25,14 @@ public class MerchantEvent : Event {
 			{
 				GameManager.Instance.pollHandler.chosenAnswer = dividedList[1][0];
 			}
+			else
+			{
+				GameManager.Instance.pollHandler.chosenAnswer = "Gleichstand";
+			}
 		}
 		else
 		{
-			GameManager.Instance.pollHandler.chosenAnswer = "nothing";
+			GameManager.Instance.pollHandler.chosenAnswer = "Keine Antworten";
 		} 
 	}
 }

@@ -30,7 +30,7 @@ public class MedPackEvent : Event {
         }
         else
         {
-            GameManager.Instance.pollHandler.chosenAnswer = "nothing";
+            GameManager.Instance.pollHandler.chosenAnswer = "Keine Antworten";
         }
     }
 }
