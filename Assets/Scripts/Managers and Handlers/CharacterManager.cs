@@ -181,7 +181,7 @@ public class CharacterManager
     {
         MoraleValue += ((-moraleLossFactor + accumulatedMoraleItemFactors) * healthStatusMoraleLossFactor);
         FullValue += ((-fullLossFactor + accumulatedFullItemFactors) * healthStatusFullLossFactor);
-        WarmthValue += ((-warmthLossFactor + accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue/3;
+        WarmthValue += ((-warmthLossFactor + accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue / 3 * 1.5f;
 
         _moraleValueText.text = moraleValue.ToString("F1");
         _fullValueText.text = fullValue.ToString("F1");

@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Cigarettes
   itemDescription: 
-  itemShortDescription: 
-  moraleFactorChangeValue: 0
-  fullFactorChangeValue: 0
-  warmthFactorChangeValue: 0
+  itemShortDescription: +M +F -W
+  moraleFactorChangeValue: 0.3
+  fullFactorChangeValue: 0.2
+  warmthFactorChangeValue: -0.2
   icon: {fileID: 21300000, guid: 8d5b02fc96c3c8e4eb7dca7ad19b05d5, type: 3}
   inUse: 0
