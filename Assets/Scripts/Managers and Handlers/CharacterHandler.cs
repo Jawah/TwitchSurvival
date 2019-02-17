@@ -65,5 +65,11 @@ public class CharacterHandler : MonoBehaviour {
                 GameManager.Instance.characterHandler.activeCharacters.Remove(character);
             }
         }
+        
+        if (activeCharacters.Count == 0)
+        {
+            GameManager.Instance.interfaceHandler.losePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }
