@@ -80,9 +80,9 @@ public class CharacterManager
         fullLossFactor = _character.dailyFullLossFactor;
         characterSprite = _character.characterSprite;
         warmthLossFactor = _character.dailyWarmthLossFactor;
-        moraleValue = Random.Range(3.3f, 7f) + 2f;
-        fullValue = Random.Range(3.3f, 7f) + 2f;
-        warmthValue = Random.Range(3.3f, 7f) + 2f;
+        moraleValue = Random.Range(7f, 9f);
+        fullValue = Random.Range(7f, 9f);
+        warmthValue = Random.Range(7f, 9f);
         _oldMoraleValue = moraleValue;
         _oldFullValue = fullValue;
         _oldWarmthValue = warmthValue;
