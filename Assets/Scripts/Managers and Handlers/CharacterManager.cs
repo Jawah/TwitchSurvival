@@ -259,19 +259,19 @@ public class CharacterManager
                 _healthStatusText.color = Color.green;
                 break;
             case HealthState.Depressed:
-                healthStatusMoraleLossFactor = 2;
+                healthStatusMoraleLossFactor = 1.5f;
                 _healthStatusText.text = "IS DEPRESSED";
                 _healthStatusText.color = Color.red;
                 break;
             case HealthState.Fracture:
-                healthStatusFullLossFactor = 2;
+                healthStatusFullLossFactor = 1.3f;
                 _healthStatusText.text = "BROKE A LEG";
                 _healthStatusText.color = Color.red;
                 break;
             case HealthState.Sick:
-                healthStatusWarmthLossFactor = 2;
-                healthStatusFullLossFactor = 2;
-                healthStatusMoraleLossFactor = 2;
+                healthStatusWarmthLossFactor = 1.15f;
+                healthStatusFullLossFactor = 1.15f;
+                healthStatusMoraleLossFactor = 1.15f;
                 _healthStatusText.text = "IS SICK";
                 _healthStatusText.color = Color.red;
                 break;
