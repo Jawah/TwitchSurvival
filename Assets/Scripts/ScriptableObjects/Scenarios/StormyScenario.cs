@@ -40,7 +40,7 @@ public class StormyScenario : Scenario {
 			CharacterManager tempCharacter = GameManager.Instance.characterHandler.RandomActiveCharacter();
 		
 			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-				tempCharacter.characterName + " meldet sich freiwillig und macht sich auch sofort mit Hammer und Holz auf den Weg."
+				tempCharacter.characterName + " macht sich auch sofort mit Hammer, Nägeln und Holz auf den Weg."
 			));
 
 			int rnd = Random.Range(0, 10);
@@ -56,7 +56,7 @@ public class StormyScenario : Scenario {
 			else
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Ohne große Probleme schafft es " + tempCharacter.characterName + " das Loch zuzunageln, rutscht jedoch mit dem letzten Schlag ab, rutscht das Dach herunter."
+					"Ohne große Probleme schafft es " + tempCharacter.characterName + " das Loch zuzunageln, rutscht jedoch mit dem letzten Schlag ab und rutscht das Dach herunter."
 				));
 
 				tempCharacter.healthState = CharacterManager.HealthState.Fracture;

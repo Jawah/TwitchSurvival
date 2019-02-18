@@ -6,7 +6,7 @@ public class FirewoodEvent : Event {
 
     public override void Instantiate()
     {
-        GameManager.Instance.interfaceHandler.questionText.text = "Add Wood to the Fire?";
+        GameManager.Instance.interfaceHandler.questionText.text = "Holz in's Feuer werfen?";
 
         base.Instantiate();
     }

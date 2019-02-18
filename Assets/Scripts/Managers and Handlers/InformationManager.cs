@@ -73,7 +73,7 @@ public class InformationManager : MonoBehaviour {
                     Destroy(character.Instance);
                     GameManager.Instance.characterHandler.activeCharacters.Remove(character);
                     _informationPanelTextList.Add(
-                        character.characterName + " died. Everybody loses Morale. Why keep on going?");
+                        character.characterName + " ist verstorben. Alle verlieren Moral. \r\n 'Gibt es noch einen Grund weiterzumachen?'");
 
                     foreach (var character2 in GameManager.Instance.characterHandler.activeCharacters)
                     {
@@ -171,21 +171,21 @@ public class InformationManager : MonoBehaviour {
                 if (character.healthState == CharacterManager.HealthState.Depressed)
                 {
                     _informationPanelTextList.Add(
-                        character.characterName + " is severely depressed.<br>" +
-                        character.characterName + " loses Morale faster than the others.");
+                        character.characterName + " ist stark depressiv.<br>" +
+                        character.characterName + " verliert schneller Moral.");
                 }
 
                 else if (character.healthState == CharacterManager.HealthState.Fracture)
                 {
                     _informationPanelTextList.Add(
-                        character.characterName + " broke a Leg and needs medical attention.<br>" +
-                        character.characterName + " starves faster than the others.");
+                        character.characterName + " hat ein gebrochenes Bein und benötigt medizinische Behandlung.<br>" +
+                        character.characterName + " verhungert schneller als zuvor.");
                 }
 
                 else if (character.healthState == CharacterManager.HealthState.Sick)
                 {
                     _informationPanelTextList.Add(
-                        character.characterName + " is sick!");
+                        character.characterName + " hat sich die Grippe eingefangen!");
                 }
             }
         }
@@ -203,7 +203,7 @@ public class InformationManager : MonoBehaviour {
                     if(playerStateChance >= 60)
                     {
                         _informationPanelTextList.Add(
-                        character.characterName + " stayed home and slept surprisingly good and feels re-energized.");
+                        character.characterName + " ist zu Hause geblieben und konnte trotz allem etwas von seiner Kraft zurückgewinnen.");
                         // character.FullValue += 2;
                         character.MoraleValue += 2;
                         character.WarmthValue += 2;
@@ -211,7 +211,7 @@ public class InformationManager : MonoBehaviour {
                     else if(playerStateChance >= 85)
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " stayed home and found some helpful Ressources.");
+                            character.characterName + " ist zu Hause geblieben und hat versteckte, hilfreiche Ressourcen gefunden.");
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(0, 3, foodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(0, 4, firewoodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.MedPackValue += AddRandomResourceAmount(0, 2, medPackSprite, ref _newItemsSpriteList);
@@ -219,7 +219,7 @@ public class InformationManager : MonoBehaviour {
                     else
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " stayed home and nothing happened.");
+                            character.characterName + " ist zu Hause geblieben.");
                     }
 
                     character.playerState = CharacterManager.PlayerState.Default;
@@ -233,7 +233,7 @@ public class InformationManager : MonoBehaviour {
                     if (playerStateChance <= 15)
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " didn't come back. Let's not hope for our friends return.");
+                            character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freunds hoffen.");
 
                         foreach (var character2 in GameManager.Instance.characterHandler.activeCharacters)
                         {
@@ -249,20 +249,20 @@ public class InformationManager : MonoBehaviour {
                         int randNum2 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
                         _informationPanelTextList.Add(
-                            character.characterName + " had a lucky day and found: " + GameManager.Instance.itemHandler.allItems[randNum2].itemName);
+                            character.characterName + " hatte eine glückliche Nacht und brachte mit: " + GameManager.Instance.itemHandler.allItems[randNum2].itemName + ".");
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum2].itemName);
                         _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum2].icon);
                     }
                     else if (playerStateChance >= 60)
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " brought back a lot of wood today.");
+                            character.characterName + " brachte eine Menge Feuerholz mit.");
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(3, 5, firewoodSprite, ref _newItemsSpriteList);
                     }
                     else
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " brought back some wood.");
+                            character.characterName + " brachte etwas Feuerholz zurück.");
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 3, firewoodSprite, ref _newItemsSpriteList);
                     }
 
@@ -277,7 +277,7 @@ public class InformationManager : MonoBehaviour {
                     if (playerStateChance <= 25)
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " didn't come back. Let's not hope for our friends return.");
+                            character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freunds hoffen.");
 
                         foreach (var character2 in GameManager.Instance.characterHandler.activeCharacters)
                         {
@@ -293,7 +293,7 @@ public class InformationManager : MonoBehaviour {
                         int randNum4 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
                         _informationPanelTextList.Add(
-                            character.characterName + " did loot a lot and brought back " + GameManager.Instance.itemHandler.allItems[randNum4].itemName + " and a lot of ressources.");
+                            character.characterName + " hat sehr viel erbeutet und brachte " + GameManager.Instance.itemHandler.allItems[randNum4].itemName + " und eine Menge Ressourcen zurück.");
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum4].itemName);
                         _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum4].icon);
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(2, 4, foodSprite, ref _newItemsSpriteList);
@@ -305,7 +305,7 @@ public class InformationManager : MonoBehaviour {
                         int randNum5 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
                         _informationPanelTextList.Add(
-                            character.characterName + " did loot a lot and brought back " + GameManager.Instance.itemHandler.allItems[randNum5].itemName + " and some ressources.");
+                            character.characterName + " hat sehr viel erbeutet und brachte " + GameManager.Instance.itemHandler.allItems[randNum5].itemName + " und etwas an Ressourcen zurück.");
                         GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum5].itemName);
                         _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum5].icon);
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(1, 3, foodSprite, ref _newItemsSpriteList);
@@ -315,14 +315,14 @@ public class InformationManager : MonoBehaviour {
                     else if(playerStateChance <= 40)
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " came back barehanded and also broke his leg. That idiot!");
+                            character.characterName + " kam mit leeren Händen zurück und brauch sich dabei noch das Bein. Dieser Idiot!");
                         character.healthState = CharacterManager.HealthState.Fracture;
                         character.StatusChanger();
                     }
                     else
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " brought back some ressources from this trip.");
+                            character.characterName + " brachte eine Menge Ressourcen von seinem Ausflug mit.");
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(1, 2, foodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 2, firewoodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.MedPackValue += AddRandomResourceAmount(1, 2, medPackSprite, ref _newItemsSpriteList);
@@ -359,7 +359,7 @@ public class InformationManager : MonoBehaviour {
                 if (tempCharacter.inUse == false)
                 {
                     GameManager.Instance.characterHandler.InstantiateNewCharacter(tempCharacter.name);
-                    _informationPanelTextList.Add(tempCharacter.characterName + " joined your House.");
+                    _informationPanelTextList.Add(tempCharacter.characterName + " ist deinem Haus beigetreten.\r\n'Eine Person weniger, die dort draußen sterben muss!'");
                     characterChosen = true;
                 }
             }

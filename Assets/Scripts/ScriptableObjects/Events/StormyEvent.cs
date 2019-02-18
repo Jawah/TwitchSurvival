@@ -7,7 +7,7 @@ public class StormyEvent : Event {
 
 	public override void Instantiate()
 	{
-		GameManager.Instance.interfaceHandler.questionText.text = "Soll jemand auf das Dach gehen und das Loch stopfen?";
+		GameManager.Instance.interfaceHandler.questionText.text = "Soll jemand auf das Dach gehen und das Loch zunageln?";
 
 		base.Instantiate();
 	}

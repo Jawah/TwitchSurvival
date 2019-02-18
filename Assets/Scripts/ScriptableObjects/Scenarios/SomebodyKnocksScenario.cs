@@ -28,7 +28,7 @@ public class SomebodyKnocksScenario : Scenario {
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Durch ihre Kapuze lässt sich ihr Gesicht nur schwer erkennen und auch deine Fragen scheint sie nicht zu beantworten."
+			"Durch die Kapuze lässt sich das Gesicht nur schwer erkennen und auch deine Fragen scheint die Person nicht zu beantworten."
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -50,7 +50,7 @@ public class SomebodyKnocksScenario : Scenario {
 			if (rnd <= 4)
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"'Vielen Dank, dass du mir aufgemacht hast! Seit heute morgen laufe ich vor den Banditen weg. Ich hoffe hier kriegen sie mich nicht.'"
+					"'Vielen Dank, dass du mir aufgemacht hast! Seit heute morgen laufe ich vor den Banditen weg. Ich hoffe, hier kriegen sie mich nicht.'"
 				));
 
 				Character tempCharacter = GameManager.Instance.characterHandler.RandomInactiveCharacter();
@@ -68,7 +68,7 @@ public class SomebodyKnocksScenario : Scenario {
 			else
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"In dem Moment, wo du der fremden Person, die Tür öffnest, stürmen von allen Seiten Banditen in das Haus!"
+					"In dem Moment, wo du der fremden Person die Tür öffnest, stürmen von allen Seiten Banditen in das Haus!"
 				));
 
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -155,7 +155,7 @@ public class SomebodyKnocksScenario : Scenario {
 			else
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Heulend bleibt die Person mit dem Kopf nach unten geneigt vor der Tür liegen als plötzlich ein Rudel Wölfe aus dem Geäst springt."
+					"Heulend bleibt die Person mit dem Kopf nach unten geneigt vor der Tür liegen, als plötzlich ein Rudel Wölfe aus dem Geäst springt."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

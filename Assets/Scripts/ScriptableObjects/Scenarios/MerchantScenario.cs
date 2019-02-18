@@ -40,7 +40,7 @@ public class MerchantScenario : Scenario {
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"'Naja, ich kommem mal zum Punkt. Kann ich von dir etwas Proviant erwirtschaften?'"
+			"'Naja, ich komme mal zum Punkt. Kann ich von dir etwas Proviant erwirtschaften?'"
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -69,7 +69,7 @@ public class MerchantScenario : Scenario {
 				//	""
 				//);
 				GameManager.Instance.FoodValue -= GameManager.Instance.FoodValue / 2;
-				GameManager.Instance.itemHandler.InstantiateNewItem("Cigarettes");
+				GameManager.Instance.itemHandler.InstantiateNewItem("Zigaretten");
 
 				//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
 				//		""

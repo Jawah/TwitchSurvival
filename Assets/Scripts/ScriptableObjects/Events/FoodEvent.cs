@@ -6,7 +6,7 @@ public class FoodEvent : Event {
 
     public override void Instantiate()
     {
-        GameManager.Instance.interfaceHandler.questionText.text = "Should your people get something to eat?";
+        GameManager.Instance.interfaceHandler.questionText.text = "Sollen die Bewohner etwas zu essen kriegen?";
 
         base.Instantiate();
     }

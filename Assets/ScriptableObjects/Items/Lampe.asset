@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7f3b043b7eb46442b4813af33d2687d, type: 3}
-  m_Name: Cards
+  m_Name: Lampe
   m_EditorClassIdentifier: 
-  itemName: Cards
+  itemName: Lampe
   itemDescription: 
-  itemShortDescription: +M +F
-  moraleFactorChangeValue: 0.6
-  fullFactorChangeValue: 0.1
-  warmthFactorChangeValue: 0
-  icon: {fileID: 21300000, guid: 8e6fb8f240dda97489a95a48a013705c, type: 3}
+  itemShortDescription: +M+W
+  moraleFactorChangeValue: 0.2
+  fullFactorChangeValue: 0
+  warmthFactorChangeValue: 0.4
+  icon: {fileID: 21300000, guid: a5d3f9fa3a081ef4fa608b5ac1bcb41b, type: 3}
   inUse: 0

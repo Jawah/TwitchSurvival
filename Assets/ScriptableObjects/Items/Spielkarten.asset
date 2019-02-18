@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a7f3b043b7eb46442b4813af33d2687d, type: 3}
-  m_Name: Booze
+  m_Name: Spielkarten
   m_EditorClassIdentifier: 
-  itemName: Booze
+  itemName: Spielkarten
   itemDescription: 
-  itemShortDescription: +M +F +W
-  moraleFactorChangeValue: 0.2
-  fullFactorChangeValue: 0.2
-  warmthFactorChangeValue: 0.2
-  icon: {fileID: 21300000, guid: 410a2bdb9c007cc45a70748d67c51810, type: 3}
+  itemShortDescription: +M+F
+  moraleFactorChangeValue: 0.6
+  fullFactorChangeValue: 0.1
+  warmthFactorChangeValue: 0
+  icon: {fileID: 21300000, guid: 8e6fb8f240dda97489a95a48a013705c, type: 3}
   inUse: 0

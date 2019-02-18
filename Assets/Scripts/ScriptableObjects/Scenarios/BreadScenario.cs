@@ -86,22 +86,22 @@ public class BreadScenario : Scenario {
 			else
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Bei genauerem Hinsehen siehst du Essenskrümel, die eindeutig rechts hinter dem Schrank langführen."
+					"Bei genauerem Hinsehen siehst du Essenskrümel, die eindeutig rechts hinter dem Schrank entlangführen."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Du folgst dieser Spur bis du zu einem Haufen in der Ecke gestauten Kartons kommst. Viele kleine Fussspuren weisen darauf hin, dass dort etwas hinterliegt."
+					"Du folgst dieser Spur bis du zu einem Haufen in der Ecke gestauter Kartons kommst. Viele kleine Fussspuren weisen darauf hin, dass dort etwas hinterliegt."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Bei genauerem Hinschauen findet " + activeCharacter.characterName + " ein Loch, was in die Wand führt. Ein Rattenloch!"
+					"Bei genauerem Hinschauen findet " + activeCharacter.characterName + " ein Loch, welches in die Wand führt. Ein Rattenloch!"
 				));
 
 				Item tempItem = GameManager.Instance.itemHandler.RandomItem();
 				GameManager.Instance.itemHandler.InstantiateNewItem(tempItem.itemName);
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					activeCharacter.characterName + " beseitigt das Rattennest und findet " + tempItem.itemName
+					activeCharacter.characterName + " beseitigt das Rattennest und findet " + tempItem.itemName + "."
 				));
 			}
 		}
@@ -112,7 +112,7 @@ public class BreadScenario : Scenario {
 			if (rnd <= 4)
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Obwohl du an das gute im Menschen glaubst, war dein Vertrauen wohl an falscher Stelle gesetzt."
+					"Obwohl du an das Gute im Menschen glaubst, war dein Vertrauen wohl an falscher Stelle gesetzt."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -122,11 +122,11 @@ public class BreadScenario : Scenario {
 			else
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Deinem Gefühl zu vertrauen, scheint das richtige gewesen zu sein. Es gab keine weiteren Vorfälle."
+					"Deinem Gefühl zu vertrauen, scheint das Richtige gewesen zu sein. Es gab keine weiteren Vorfälle."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Vertrauen ist das wichtigste in den diesen Zeiten."
+					"'Vertrauen ist das wichtigste in diesen Zeiten.'"
 				));
 				
 				
@@ -134,10 +134,6 @@ public class BreadScenario : Scenario {
 				{
 					character.MoraleValue += 1.5f;
 				}
-				
-				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Vertrauen ist das wichtigste in den diesen Zeiten."
-				));
 			}
 		}
         wasUsed = true;

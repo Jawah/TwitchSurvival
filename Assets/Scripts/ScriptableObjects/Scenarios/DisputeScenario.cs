@@ -38,13 +38,13 @@ public class DisputeScenario : Scenario {
 		if (GameManager.Instance.pollHandler.chosenAnswer == scenarioEvents[0].possibleAnswers[0])
 		{
 			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-				"Alle stimmen zu, aber niemand meldet sich freiwillig.\r\n\r\nEs soll gelost werden."
+				"Jemand soll hingehen..."
 			));
 
 			CharacterManager tempCharacter = GameManager.Instance.characterHandler.RandomActiveCharacter();
 			
 			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-				"Und der Verlierer ist " + tempCharacter.characterName + ". \r\n\r\n'Falls ich in den nächsten 2 Stunden nicht zurück bin, rechnet nicht mit mir!'"
+				"Und der 'Unglückliche' ist " + tempCharacter.characterName + ". \r\n\r\n'Falls ich in den nächsten 2 Stunden nicht zurück bin, rechnet nicht mit mir!'"
 			));
 			
 			//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -56,7 +56,7 @@ public class DisputeScenario : Scenario {
 			if (rnd <= 4)
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					tempCharacter.characterName + " kommt schnell mit guten Neuigkeiten zurück und zwar, dass in Kürze ein Trupp Special Forces kommt, welcher die Bewohner abholen soll."
+					tempCharacter.characterName + " kommt schnell mit guten Neuigkeiten zurück und zwar, dass in Kürze ein Trupp Special Forces kommen soll, welcher die Bewohner abholt."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -79,7 +79,7 @@ public class DisputeScenario : Scenario {
 			else
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Es vergehen mehrere Stunden und die Rückkehr von " + tempCharacter.characterName + " damit unwahrscheinlicher und unwahrscheinlich.."
+					"Es vergehen mehrere Stunden und die Rückkehr von " + tempCharacter.characterName + " wird damit unwahrscheinlicher und unwahrscheinlicher..."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -106,7 +106,7 @@ public class DisputeScenario : Scenario {
 			));
 			
 			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-				"Trotz dieser Tatsache, hängt die Frage im Raum, was hätte werden können..."
+				"Trotz dieser Tatsache hängt die Frage im Raum, was hätte werden können..."
 			));
 			
 			foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)

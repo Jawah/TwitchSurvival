@@ -2,36 +2,36 @@
 {
     public static string[] QUOTES_RANDOM = new string[]
     {
-        "Crazy world!",
-        "What a day!",
-        "What's that?",
-        "What?",
-        "I see..."
+        "Was für ein Ort.",
+        "Hmm.",
+        "Was ist das?",
+        "Wieso?",
+        "Achso."
     };
 
     public static string[] QUOTES_HUNGER_NEUTRAL = new string[]
     {
-        "A snack would be nice",
-        "Do we have snacks?",
-        "My tummy is rumbling..."
+        "Etwas kleines zu essen wäre super.",
+        "Haben wir noch Snacks?",
+        "Mein Magen knurrt..."
     };
     public static string[] QUOTES_HUNGER_NEGATIVE = new string[]
     {
-        "I'm starving...",
-        "Food...",
-        "I yearn for a meal..."
+        "Ich verhungere...",
+        "Essen...",
+        "Ich würde alles für etwas zu essen geben!"
     };
 
     public static string[] QUOTES_WARMTH_NEUTRAL = new string[]
     {
-        "It's a bit fresh.",
-        "Can we close the window?",
-        "Turn the heat up a notch."
+        "Es zieht ein wenig.",
+        "Können wir die Fenster schließen?",
+        "Können wir das Feuer etwas anfachen?"
     };
     public static string[] QUOTES_WARMTH_NEGATIVE = new string[]
     {
-        "It's freezing!",
-        "Let's snuggle!",
-        "We should get blankets."
+        "Es ist eisig!",
+        "So kalt...",
+        "Haben wir noch Decken?"
     };
 }
