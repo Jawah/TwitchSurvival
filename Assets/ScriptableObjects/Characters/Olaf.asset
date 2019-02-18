@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b66583b10b6a37e48a63ea98f524f045, type: 3}
-  m_Name: Olaf
+  m_Name: OLAF
   m_EditorClassIdentifier: 
   characterName: OLAF
   characterSprite: {fileID: 21300000, guid: 32ce4d1c9aeffe343885f9e3336b2b1e, type: 3}
@@ -21,4 +21,4 @@ MonoBehaviour:
   dailyWarmthLossFactor: 0.8
   fullGainValue: 1.4
   warmthGainValue: 2
-  inUse: 0
+  inUse: 1

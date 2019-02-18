@@ -31,6 +31,7 @@ public class InterfaceHandler : MonoBehaviour {
     public GameObject chosenAnswerPanel;
 
     public Animator anim;
+    public Animator animChatBox;
 
     void Start()
     {
@@ -61,5 +62,10 @@ public class InterfaceHandler : MonoBehaviour {
         yield return new WaitForSeconds(2f);
         //yield return null;
         storyPanel.SetActive(false);
+    }
+
+    public void PlayAnswerReveal()
+    {
+        animChatBox.Play("Chat-UI-Reveal");
     }
 }

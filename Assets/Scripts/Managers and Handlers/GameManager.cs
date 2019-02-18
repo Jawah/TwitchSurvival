@@ -363,7 +363,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator AfterQuestion()
     {
         interfaceHandler.chosenAnswerPanel.SetActive(true);
-        _countDownValue = _miniDelayLength;
+        _countDownValue = 6f;
+        interfaceHandler.PlayAnswerReveal();
         yield return _miniWait;
         interfaceHandler.chosenAnswerPanel.SetActive(false);
     }
