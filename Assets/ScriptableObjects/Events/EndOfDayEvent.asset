@@ -15,5 +15,5 @@ MonoBehaviour:
   eventLength: 16
   possibleAnswers:
   - '!bleiben'
-  - '!plundern'
+  - '!pluendern'
   - '!holz'

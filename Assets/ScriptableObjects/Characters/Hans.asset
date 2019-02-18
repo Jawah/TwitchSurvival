@@ -16,9 +16,9 @@ MonoBehaviour:
   characterSprite: {fileID: 21300000, guid: c9dcfefe78f206d4d8793032b867dbc5, type: 3}
   skillTimber: 10
   skillPlunder: 10
-  dailyMoraleLossFactor: 0.5
+  dailyMoraleLossFactor: 1
   dailyFullLossFactor: 2.2
-  dailyWarmthLossFactor: 1.5
+  dailyWarmthLossFactor: 1.1
   fullGainValue: 1.5
   warmthGainValue: 1.9
-  inUse: 0
+  inUse: 1

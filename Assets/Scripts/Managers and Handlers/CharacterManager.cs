@@ -82,7 +82,7 @@ public class CharacterManager
         warmthLossFactor = _character.dailyWarmthLossFactor;
         moraleValue = Random.Range(7f, 9f);
         fullValue = Random.Range(7f, 9f);
-        warmthValue = Random.Range(7f, 9f);
+        warmthValue = Random.Range(4f, 6f);
         _oldMoraleValue = moraleValue;
         _oldFullValue = fullValue;
         _oldWarmthValue = warmthValue;
@@ -181,7 +181,25 @@ public class CharacterManager
     {
         MoraleValue += ((-moraleLossFactor + accumulatedMoraleItemFactors) * healthStatusMoraleLossFactor);
         FullValue += ((-fullLossFactor + accumulatedFullItemFactors) * healthStatusFullLossFactor);
-        WarmthValue += ((-warmthLossFactor + accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue / 3 * 0.5f;
+        //WarmthValue += ((-warmthLossFactor + accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor) + GameManager.Instance.FirewoodStrengthValue / 3 * 0.5f;
+
+        if (GameManager.Instance._temperature >= 20)
+        {
+            WarmthValue += 3;
+        }
+        else if (GameManager.Instance._temperature >= 15)
+        {
+            WarmthValue -= (1.4f - accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor * warmthLossFactor;
+        }
+        else if(GameManager.Instance._temperature >= 10)
+        {
+            WarmthValue -= (2f - accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor * warmthLossFactor;
+        }
+        else
+        {
+            WarmthValue -= (2.6f - accumulatedWarmthItemFactors) * healthStatusWarmthLossFactor * warmthLossFactor;
+        }
+        
 
         _moraleValueText.text = moraleValue.ToString("F1");
         _fullValueText.text = fullValue.ToString("F1");
@@ -333,7 +351,6 @@ public class CharacterManager
     {
         switch (valueName)
         {
-            /*
             case "Morale":
                 if (newVal < 3)
                     _moraleValueText.color = Color.red;
@@ -360,7 +377,6 @@ public class CharacterManager
                 else if (newVal >= 7)
                     _warmthValueText.color = Color.green;
                 break;
-                */
         }
     }
 

@@ -35,9 +35,9 @@ public class GameManager : MonoBehaviour
 
     // Variables
     private int _day;
-    private int _temperature;
+    public int _temperature;
     private int _countDownValueInt;
-    private float _fireWoodStrength = 2f;
+    private float _fireWoodStrength = 3f;
     private float _countDownValue;
     private bool _firstRun = true;
 
@@ -254,20 +254,19 @@ public class GameManager : MonoBehaviour
             }
         }
         yield return StartCoroutine(DayStarting());
+        
+        if(_day == 6)
+        {
+            interfaceHandler.winPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+        
         yield return StartCoroutine(DayPlaying());
 
         if (_firstRun)
             _firstRun = false;
         
-        if(_day == 5)
-        {
-            interfaceHandler.winPanel.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else
-        {
             StartCoroutine(GameLoop());
-        }
     }
 
     private IEnumerator NewDay()

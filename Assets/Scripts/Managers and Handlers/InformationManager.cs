@@ -203,7 +203,7 @@ public class InformationManager : MonoBehaviour {
                     if(playerStateChance >= 60)
                     {
                         _informationPanelTextList.Add(
-                        character.characterName + " ist zu Hause geblieben und konnte trotz allem etwas von seiner Kraft zurückgewinnen.");
+                        character.characterName + " ist zu Hause geblieben und konnte trotz allem was passiert, etwas Kraft zurückgewinnen.");
                         // character.FullValue += 2;
                         character.MoraleValue += 2;
                         character.WarmthValue += 2;
