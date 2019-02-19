@@ -7443,7 +7443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4751873731109412055}
   m_LocalRotation: {x: -0, y: -0, z: 0.07551014, w: 0.99714506}
-  m_LocalPosition: {x: -11.81, y: -3.86, z: 0}
+  m_LocalPosition: {x: -11.93, y: -3.89, z: 0}
   m_LocalScale: {x: 0.29634717, y: 0.21777071, z: 0.29634717}
   m_Children: []
   m_Father: {fileID: 6734233799600898758}
@@ -12167,7 +12167,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4751873731109412055}
   serializedVersion: 6
-  lengthInSec: 25
+  lengthInSec: 18
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -16839,7 +16839,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0c04bdf8058aa6349b36e202d682ebb3, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -16857,16 +16857,16 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -417601223
+  m_SortingLayer: -1
+  m_SortingOrder: 3
   m_RenderMode: 1
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
-  m_LengthScale: 2.4
+  m_LengthScale: 2.6
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_ShadowBias: 0
