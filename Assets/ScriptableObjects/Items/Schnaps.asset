@@ -18,5 +18,5 @@ MonoBehaviour:
   moraleFactorChangeValue: 0.2
   fullFactorChangeValue: 0.2
   warmthFactorChangeValue: 0.2
-  icon: {fileID: 21300000, guid: 410a2bdb9c007cc45a70748d67c51810, type: 3}
+  icon: {fileID: 21300000, guid: 7d281909ad63e0f45bd40452af509c1a, type: 3}
   inUse: 0

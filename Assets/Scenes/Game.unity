@@ -230,14 +230,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3a6886d49e388c7498e86811aeeb8732, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29ae5ad41921923418d45467f5525c3a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1947,8 +1947,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -8, y: 2.2349997}
-  m_SizeDelta: {x: 34.462, y: 34.47}
+  m_AnchoredPosition: {x: -6.9000015, y: 0.6000004}
+  m_SizeDelta: {x: 35.69, y: 35.7}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &511619947
 MonoBehaviour:
@@ -1963,14 +1963,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f9b00d2213ac267469281e38e5a0a355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ada20cdaae7ea824fa0e9c17cdcf5b90, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2425,9 +2425,9 @@ MonoBehaviour:
   _specialTextList:
   - Ihr wurdet ausgeraubt und euch wurde alles gestohlen...
   - "Als ob alles nicht schon schlimm genug w\xE4re, geht eine Grippe-Welle um..."
-  foodSprite: {fileID: 21300000, guid: 3a6886d49e388c7498e86811aeeb8732, type: 3}
-  firewoodSprite: {fileID: 21300000, guid: d0f95d32fcbfef947aed5132ad93497b, type: 3}
-  medPackSprite: {fileID: 21300000, guid: f671e987cfcf9344b84f271e2bcd0554, type: 3}
+  foodSprite: {fileID: 21300000, guid: 29ae5ad41921923418d45467f5525c3a, type: 3}
+  firewoodSprite: {fileID: 21300000, guid: ada20cdaae7ea824fa0e9c17cdcf5b90, type: 3}
+  medPackSprite: {fileID: 21300000, guid: 64a35d770bacd1f4488aa480ae4bc913, type: 3}
 --- !u!4 &580662214
 Transform:
   m_ObjectHideFlags: 0
@@ -2967,14 +2967,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.3019608, b: 0.3019608, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f671e987cfcf9344b84f271e2bcd0554, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64a35d770bacd1f4488aa480ae4bc913, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
