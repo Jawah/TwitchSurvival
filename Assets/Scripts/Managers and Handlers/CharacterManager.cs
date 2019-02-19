@@ -274,24 +274,24 @@ public class CharacterManager
                 healthStatusFullLossFactor = 1;
                 healthStatusWarmthLossFactor = 1;
                 _healthStatusText.text = "OKAY";
-                _healthStatusText.color = Color.green;
+                _healthStatusText.color = new Color(0,130,0);
                 break;
             case HealthState.Depressed:
                 healthStatusMoraleLossFactor = 1.5f;
                 _healthStatusText.text = "DEPRESSIV";
-                _healthStatusText.color = Color.red;
+                _healthStatusText.color = new Color(130,0,0);
                 break;
             case HealthState.Fracture:
                 healthStatusFullLossFactor = 1.3f;
                 _healthStatusText.text = "GEBROCHENES BEIN";
-                _healthStatusText.color = Color.red;
+                _healthStatusText.color = new Color(130,0,0);
                 break;
             case HealthState.Sick:
                 healthStatusWarmthLossFactor = 1.15f;
                 healthStatusFullLossFactor = 1.15f;
                 healthStatusMoraleLossFactor = 1.15f;
                 _healthStatusText.text = "KRANK";
-                _healthStatusText.color = Color.red;
+                _healthStatusText.color = new Color(130,0,0);
                 break;
         }
     }
@@ -351,6 +351,7 @@ public class CharacterManager
     {
         switch (valueName)
         {
+            /*
             case "Morale":
                 if (newVal < 3)
                     _moraleValueText.color = Color.red;
@@ -377,6 +378,7 @@ public class CharacterManager
                 else if (newVal >= 7)
                     _warmthValueText.color = Color.green;
                 break;
+                */
         }
     }
 
