@@ -19,6 +19,6 @@ MonoBehaviour:
   dailyMoraleLossFactor: 1
   dailyFullLossFactor: 2.2
   dailyWarmthLossFactor: 1.1
-  fullGainValue: 1.5
+  fullGainValue: 2
   warmthGainValue: 1.9
   inUse: 1

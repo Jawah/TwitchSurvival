@@ -2,16 +2,16 @@
 {
     public static string[] QUOTES_RANDOM = new string[]
     {
-        "Was für ein Ort.",
+        "Was fuer ein Ort.",
         "Hmm.",
         "Was ist das?",
         "Wieso?",
-        "Achso."
+        "Achso..."
     };
 
     public static string[] QUOTES_HUNGER_NEUTRAL = new string[]
     {
-        "Etwas kleines zu essen wäre super.",
+        "Etwas kleines zu essen waere super.",
         "Haben wir noch Snacks?",
         "Mein Magen knurrt..."
     };
@@ -19,14 +19,14 @@
     {
         "Ich verhungere...",
         "Essen...",
-        "Ich würde alles für etwas zu essen geben!"
+        "Ich wuerde alles für etwas zu essen geben!"
     };
 
     public static string[] QUOTES_WARMTH_NEUTRAL = new string[]
     {
         "Es zieht ein wenig.",
-        "Können wir die Fenster schließen?",
-        "Können wir das Feuer etwas anfachen?"
+        "Koennen wir die Fenster schließen?",
+        "Koennen wir das Feuer etwas anfachen?"
     };
     public static string[] QUOTES_WARMTH_NEGATIVE = new string[]
     {

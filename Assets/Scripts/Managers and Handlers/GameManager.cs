@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public EventHandler eventHandler;
     [HideInInspector] public PollHandler pollHandler;
     [HideInInspector] public ArrowHandler arrowHandler;
-
+    
     // Variables
     private int _day;
     public int _temperature;

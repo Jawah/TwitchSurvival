@@ -218,6 +218,7 @@ public class CharacterManager
     {
         FullValue += fullGainValue;
         _fullValueText.text = fullValue.ToString("F1");
+        SetQuote();
     }
 
     public void AddWarmth()
@@ -387,62 +388,64 @@ public class CharacterManager
 
     public void SetQuote()
     {
-        int rnd = Random.Range(0, 2);
-
-        if (rnd == 0)
-        {
-            if (WarmthValue < 3)
-            {
-                _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
-                _quoteText.color = Color.red;
-            }
-            else if (WarmthValue < 5)
-            {
-                _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
-                _quoteText.color = Color.yellow;
-            }
-
-            if (FullValue < 3)
-            {
-                _quoteText.text = Quotes.QUOTES_HUNGER_NEGATIVE[Random.Range(0, Quotes.QUOTES_HUNGER_NEGATIVE.Length)];
-                _quoteText.color = Color.red;
-            }
-            else if (FullValue < 5)
-            {
-                _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
-                _quoteText.color = Color.yellow;
-            }
-        }
-        
-        if (rnd == 1)
-        {
-            if (FullValue < 3)
-            {
-                _quoteText.text = Quotes.QUOTES_HUNGER_NEGATIVE[Random.Range(0, Quotes.QUOTES_HUNGER_NEGATIVE.Length)];
-                _quoteText.color = Color.red;
-            }
-            else if (FullValue < 5)
-            {
-                _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
-                _quoteText.color = Color.yellow;
-            }
-            
-            if (WarmthValue < 3)
-            {
-                _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
-                _quoteText.color = Color.red;
-            }
-            else if (WarmthValue < 5)
-            {
-                _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
-                _quoteText.color = Color.yellow;
-            }
-        }
-
-        if (MoraleValue >= 5 && FullValue >= 5)
+        if (WarmthValue >= 6 && FullValue >= 6)
         {
             _quoteText.text = Quotes.QUOTES_RANDOM[Random.Range(0, Quotes.QUOTES_RANDOM.Length)];
             _quoteText.color = Color.white;
+        }
+        else
+        {
+            int rnd = Random.Range(0, 2);
+
+            if (rnd == 0)
+            {
+                if (WarmthValue < 3)
+                {
+                    _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
+                    _quoteText.color = Color.red;
+                }
+                else if (WarmthValue < 6)
+                {
+                    _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
+                    _quoteText.color = Color.yellow;
+                }
+
+                if (FullValue < 3)
+                {
+                    _quoteText.text = Quotes.QUOTES_HUNGER_NEGATIVE[Random.Range(0, Quotes.QUOTES_HUNGER_NEGATIVE.Length)];
+                    _quoteText.color = Color.red;
+                }
+                else if (FullValue < 6)
+                {
+                    _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
+                    _quoteText.color = Color.yellow;
+                }
+            }
+        
+            if (rnd == 1)
+            {
+                if (FullValue < 3)
+                {
+                    _quoteText.text = Quotes.QUOTES_HUNGER_NEGATIVE[Random.Range(0, Quotes.QUOTES_HUNGER_NEGATIVE.Length)];
+                    _quoteText.color = Color.red;
+                }
+                else if (FullValue < 6)
+                {
+                    _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
+                    _quoteText.color = Color.yellow;
+                }
+            
+                if (WarmthValue < 3)
+                {
+                    _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
+                    _quoteText.color = Color.red;
+                }
+                else if (WarmthValue < 6)
+                {
+                    _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
+                    _quoteText.color = Color.yellow;
+                }
+            }
         }
     }
 }

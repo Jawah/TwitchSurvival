@@ -52,7 +52,7 @@ public class TwitchManager : MonoBehaviour {
 
                 if (isValidVote)
                 {
-                    //GameManager.Instance.m_VotersList.Add(msg.userName);
+                    GameManager.Instance.pollHandler.votersList.Add(msg.userName);
                 }
             }
         }
