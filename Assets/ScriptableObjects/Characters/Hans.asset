@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HANS
   m_EditorClassIdentifier: 
   characterName: HANS
-  characterSprite: {fileID: 21300000, guid: c9dcfefe78f206d4d8793032b867dbc5, type: 3}
+  characterSprite: {fileID: 21300000, guid: 1172dab545a11904f9525b79b75b8159, type: 3}
   skillTimber: 10
   skillPlunder: 10
   dailyMoraleLossFactor: 1
@@ -21,4 +21,4 @@ MonoBehaviour:
   dailyWarmthLossFactor: 1.1
   fullGainValue: 2
   warmthGainValue: 1.9
-  inUse: 1
+  inUse: 0
