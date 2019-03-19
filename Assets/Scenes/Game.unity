@@ -3659,6 +3659,10 @@ MonoBehaviour:
   dayPanel: {fileID: 910057760}
   informationPanel: {fileID: 1995203160}
   chosenAnswerPanel: {fileID: 234966898}
+  scenarioImageHolder: {fileID: 1296553090}
+  scenarioStandardSprite: {fileID: 21300000, guid: a2658e9915e19e449b580b161d7d2006,
+    type: 3}
+  deathSprite: {fileID: 21300000, guid: f719a76f8478ee240a56b04aaf39949d, type: 3}
   anim: {fileID: 0}
   animChatBox: {fileID: 4289116787306393608}
 --- !u!114 &831557929
@@ -3782,7 +3786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &859341545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5519,6 +5523,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Overlay
       objectReference: {fileID: 0}
+    - target: {fileID: 5075124700885604168, guid: a5d87569056b4a44f9a3a14144e3d683,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1757578827063570783, guid: a5d87569056b4a44f9a3a14144e3d683,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5656,6 +5665,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5d87569056b4a44f9a3a14144e3d683, type: 3}
+--- !u!114 &1296553090 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6550654012316148800, guid: a5d87569056b4a44f9a3a14144e3d683,
+    type: 3}
+  m_PrefabInstance: {fileID: 1296553089}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1322850814
 GameObject:
   m_ObjectHideFlags: 0
@@ -7676,7 +7697,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 62.910004}
+  m_AnchoredPosition: {x: 0, y: 62.910034}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2094026931

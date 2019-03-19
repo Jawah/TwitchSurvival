@@ -7,6 +7,8 @@ public class MerchantScenario : Scenario {
 
 	public override IEnumerator ExecuteScenario()
 	{
+		yield return base.ExecuteScenario();
+		
 		GameManager.Instance.interfaceHandler.storyPanel.SetActive(true);
 		yield return new WaitForSeconds(2f);
 		

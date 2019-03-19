@@ -24,6 +24,8 @@ public class InformationManager : MonoBehaviour {
     
     public void ExecuteInformationWindow()
     {
+        GameManager.Instance.interfaceHandler.scenarioImageHolder.sprite = GameManager.Instance.interfaceHandler.scenarioStandardSprite;
+        
         ExecuteForDeath();
         ExecuteForSpecials();
         ExecuteForHealth();
@@ -70,6 +72,7 @@ public class InformationManager : MonoBehaviour {
             {
                 if(Random.Range(0,3) == 0)
                 {
+                    GameManager.Instance.interfaceHandler.scenarioImageHolder.sprite = GameManager.Instance.interfaceHandler.deathSprite;
                     Destroy(character.Instance);
                     GameManager.Instance.characterHandler.activeCharacters.Remove(character);
                     _informationPanelTextList.Add(

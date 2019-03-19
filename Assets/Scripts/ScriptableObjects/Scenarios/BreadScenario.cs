@@ -7,6 +7,8 @@ public class BreadScenario : Scenario {
 
 	public override IEnumerator ExecuteScenario()
 	{
+		yield return base.ExecuteScenario();
+		
 		CharacterManager activeCharacter = GameManager.Instance.characterHandler.RandomActiveCharacter();
 		
 		GameManager.Instance.interfaceHandler.storyPanel.SetActive(true);

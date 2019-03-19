@@ -30,6 +30,10 @@ public class InterfaceHandler : MonoBehaviour {
     public GameObject informationPanel;
     public GameObject chosenAnswerPanel;
 
+    public Image scenarioImageHolder;
+    public Sprite scenarioStandardSprite;
+    public Sprite deathSprite;
+    
     public Animator anim;
     public Animator animChatBox;
 
