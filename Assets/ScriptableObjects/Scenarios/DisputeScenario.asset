@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,3 +16,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c507cf36699255448842a668b489d8fc, type: 2}
   audioClips:
   - {fileID: 8300000, guid: 85fff86b6c034844598d61d7faf9cb94, type: 3}
+  scenarioSprite: {fileID: 21300000, guid: 1b363a483f7232f4b886385b87f08005, type: 3}
+  wasUsed: 0
