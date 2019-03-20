@@ -3112,7 +3112,7 @@ PrefabInstance:
     - target: {fileID: 198886814957807086, guid: 48796f918ff056845b8fc21172105b10,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 25
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48796f918ff056845b8fc21172105b10, type: 3}
@@ -5347,7 +5347,7 @@ PrefabInstance:
     - target: {fileID: 199992554166295226, guid: 48796f918ff056845b8fc21172105b10,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198886814957807086, guid: 48796f918ff056845b8fc21172105b10,
         type: 3}
@@ -5357,7 +5357,7 @@ PrefabInstance:
     - target: {fileID: 198886814957807086, guid: 48796f918ff056845b8fc21172105b10,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 198886814957807086, guid: 48796f918ff056845b8fc21172105b10,
         type: 3}
