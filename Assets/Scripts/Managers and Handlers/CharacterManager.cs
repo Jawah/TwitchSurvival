@@ -116,7 +116,7 @@ public class CharacterManager
             if (child.gameObject.CompareTag(Tags.CHARACTER_IMAGE_TAG))
                 _characterImage = child.GetComponent<Image>();
         }
-
+        
         var particleChildren = Instance.GetComponentsInChildren<ParticleSystem>();
         foreach (var child in particleChildren)
         {
@@ -274,7 +274,7 @@ public class CharacterManager
                 healthStatusMoraleLossFactor = 1;
                 healthStatusFullLossFactor = 1;
                 healthStatusWarmthLossFactor = 1;
-                _healthStatusText.text = "OKAY";
+                _healthStatusText.text = "";
                 _healthStatusText.color = new Color(0,130,0);
                 break;
             case HealthState.Depressed:
