@@ -253,8 +253,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Mein Magen knurrt...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 33266fac4aaf31346b66ef61d05ddab2, type: 2}
-  m_sharedMaterial: {fileID: 21348667586528592, guid: 33266fac4aaf31346b66ef61d05ddab2,
+  m_fontAsset: {fileID: 11400000, guid: 94d5e3922ff5a7f42b65c76d7aa492bc, type: 2}
+  m_sharedMaterial: {fileID: 21483182737782826, guid: 94d5e3922ff5a7f42b65c76d7aa492bc,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -280,13 +280,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 3
+  m_fontStyle: 2
   m_textAlignment: 514
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
