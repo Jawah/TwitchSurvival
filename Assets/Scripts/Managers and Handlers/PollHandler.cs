@@ -43,7 +43,8 @@ public class PollHandler : MonoBehaviour {
 
         eventV.Instantiate();
         gatherVotes = true;
-
+        GameManager.Instance.interfaceHandler.counterPanel.SetActive(true);
+        
         yield return new WaitForSeconds(eventV.eventLength);
 
         CalculateAnswers();
@@ -107,5 +108,8 @@ public class PollHandler : MonoBehaviour {
         pollAnswers.Clear();
         listOfValidAnswersDivided.Clear();
         GameManager.Instance.informationManager.Reset();
+        GameManager.Instance.answerCount = 0;
+        GameManager.Instance.interfaceHandler.counterText.text = GameManager.Instance.answerCount.ToString();
+        GameManager.Instance.interfaceHandler.counterPanel.SetActive(false);
     }
 }

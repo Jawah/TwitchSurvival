@@ -44,7 +44,10 @@ public class TwitchManager : MonoBehaviour {
                     {
                         isValidVote = true;
 
-                        Debug.Log(msg.chatMessagePlainText);
+                        GameManager.Instance.answerCount++;
+                        GameManager.Instance.interfaceHandler.counterText.text = GameManager.Instance.answerCount.ToString();
+                        
+                        //Debug.Log(msg.chatMessagePlainText);
 
                         GameManager.Instance.pollHandler.pollAnswers.Add(msg.chatMessagePlainText.ToLower());
                     }

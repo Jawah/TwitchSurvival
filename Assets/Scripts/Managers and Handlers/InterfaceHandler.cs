@@ -22,6 +22,8 @@ public class InterfaceHandler : MonoBehaviour {
     public GameObject sliderPrefab;
     public GameObject storyPanel;
     public TextMeshProUGUI storyText;
+    public GameObject counterPanel;
+    public TextMeshProUGUI counterText;
     
     
     public GameObject winPanel;

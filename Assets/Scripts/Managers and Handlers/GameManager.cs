@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     private float _countDownValue;
     private bool _firstRun = true;
 
+    public int answerCount = 0;
+
     // For Comparability with Ressource Values
     [HideInInspector] public int oldFoodValue;
     [HideInInspector] public int oldFirewoodValue;
