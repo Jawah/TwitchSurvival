@@ -14,7 +14,7 @@ public class MerchantScenario : Scenario {
 		
 		GameManager.Instance.audioManager.PlayEffect(audioClips[0]);
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Es klopft an die Tür."
+			"Es klopft an der Tür."
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -26,7 +26,7 @@ public class MerchantScenario : Scenario {
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"'Meine Reise treibt mich über's kaputte Land und dabei reich ich Leuten meine Hand!'"
+			"'Meine Reise treibt mich übers kaputte Land und dabei reich ich Leuten meine Hand!'"
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

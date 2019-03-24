@@ -15,7 +15,7 @@ public class BreadScenario : Scenario {
 		yield return new WaitForSeconds(2f);
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Beim Sortieren der Rationen fällt " + activeCharacter.characterName + " etwas sonderbares auf."
+			"Beim Sortieren der Rationen fällt " + activeCharacter.characterName + " etwas Sonderbares auf."
 			));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -23,7 +23,7 @@ public class BreadScenario : Scenario {
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Es scheint noch frisch zu sein und da nicht allzu lange zu liegen."
+			"Es scheint noch frisch zu sein und dort nicht allzu lange zu liegen."
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -118,7 +118,7 @@ public class BreadScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Rationen verschwinden weiterhin zwischendurch."
+					"Rationen verschwinden zwischendurch."
 				));
 			}
 			else

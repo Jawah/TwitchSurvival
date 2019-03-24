@@ -18,7 +18,7 @@ public class StormyScenario : Scenario {
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Das Haus hat es schwer mit dem Wetter mitzuhalten. Das Holz knarrt und aus kleinen Rissen tropft es in's Gebäude."
+			"Das Haus hat es schwer mit dem Wetter mitzuhalten. Das Holz knarrt und aus kleinen Rissen tropft es ins Gebäude."
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

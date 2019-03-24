@@ -30,7 +30,7 @@ public class SomebodyKnocksScenario : Scenario {
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Durch die Kapuze lässt sich das Gesicht nur schwer erkennen und auch deine Fragen scheint die Person nicht zu beantworten."
+			"Durch den Matsch und die Tränen lässt sich das Gesicht nur schwer erkennen und auch deine Fragen scheint die Person nicht zu beantworten."
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

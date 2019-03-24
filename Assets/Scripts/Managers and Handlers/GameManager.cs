@@ -274,7 +274,7 @@ public class GameManager : MonoBehaviour
     {
         _day++;
         interfaceHandler.dayText.text = _day.ToString();
-        interfaceHandler.dayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Day " + _day.ToString();
+        interfaceHandler.dayPanel.GetComponentInChildren<TextMeshProUGUI>().text = "Tag " + _day.ToString();
         interfaceHandler.dayPanel.SetActive(true);
 
         _fireWoodStrength -= _dailyFireValueLoss;
