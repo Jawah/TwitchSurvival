@@ -28,7 +28,7 @@ public class CanvasFade : MonoBehaviour {
 
     private IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
     }
 
     private IEnumerator DoFade()

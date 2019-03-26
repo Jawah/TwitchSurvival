@@ -250,18 +250,20 @@ public class GameManager : MonoBehaviour
         {
             yield return StartCoroutine(InformationScreen());
 
-            if (characterHandler.activeCharacters.Count == 0)
-            {
-                interfaceHandler.losePanel.SetActive(true);
-                Time.timeScale = 0;
-            }
+            
         }
         yield return StartCoroutine(DayStarting());
         
         if(_day == 6)
         {
+            if (characterHandler.activeCharacters.Count == 0)
+            {
+                interfaceHandler.losePanel.SetActive(true);
+                Time.timeScale = 1f;
+            }
+            
             interfaceHandler.winPanel.SetActive(true);
-            Time.timeScale = 0;
+            Time.timeScale = 1f;
         }
         
         yield return StartCoroutine(DayPlaying());

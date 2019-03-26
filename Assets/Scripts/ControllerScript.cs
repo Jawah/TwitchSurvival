@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControllerScript : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class ControllerScript : MonoBehaviour
                 Time.timeScale = 1;
                 paused = false;
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

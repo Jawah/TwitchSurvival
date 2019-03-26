@@ -19,13 +19,13 @@
     {
         "Ich verhungere...",
         "Essen...",
-        "Ich wuerde alles für etwas zu essen geben!"
+        "Ich wuerde alles fuer etwas zu essen geben!"
     };
 
     public static string[] QUOTES_WARMTH_NEUTRAL = new string[]
     {
         "Es zieht ein wenig.",
-        "Koennen wir die Fenster schließen?",
+        "Koennen wir die Fenster schliessen?",
         "Koennen wir das Feuer etwas anfachen?"
     };
     public static string[] QUOTES_WARMTH_NEGATIVE = new string[]
