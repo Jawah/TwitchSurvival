@@ -23,6 +23,7 @@ public class PollHandler : MonoBehaviour {
         currentPossibleAnswers = eventV.possibleAnswers;
 
         eventV.Instantiate();
+        GameManager.Instance.interfaceHandler.counterPanel.SetActive(true);
         gatherVotes = true;
 
         yield return new WaitForSeconds(eventV.eventLength);

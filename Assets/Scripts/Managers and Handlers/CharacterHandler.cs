@@ -69,7 +69,8 @@ public class CharacterHandler : MonoBehaviour {
         if (activeCharacters.Count == 0)
         {
             GameManager.Instance.interfaceHandler.losePanel.SetActive(true);
-            Time.timeScale = 1;
+
+            StartCoroutine(GameManager.Instance.EndGame());
         }
     }
 }

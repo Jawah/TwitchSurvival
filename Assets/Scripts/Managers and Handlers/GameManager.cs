@@ -249,21 +249,23 @@ public class GameManager : MonoBehaviour
         if (!_firstRun)
         {
             yield return StartCoroutine(InformationScreen());
-
-            
         }
+        
         yield return StartCoroutine(DayStarting());
         
-        if(_day == 6)
+        if (characterHandler.activeCharacters.Count == 0)
         {
-            if (characterHandler.activeCharacters.Count == 0)
-            {
-                interfaceHandler.losePanel.SetActive(true);
-                Time.timeScale = 1f;
-            }
+            interfaceHandler.losePanel.SetActive(true);
             
+            yield return StartCoroutine(EndGame());
+        }
+
+        
+        if(_day == 6 && characterHandler.activeCharacters.Count > 0)
+        {
             interfaceHandler.winPanel.SetActive(true);
-            Time.timeScale = 1f;
+            
+            yield return StartCoroutine(EndGame());
         }
         
         yield return StartCoroutine(DayPlaying());
@@ -309,6 +311,13 @@ public class GameManager : MonoBehaviour
         yield return _miniWait;
     }
 
+    public IEnumerator EndGame()
+    {
+        yield return _mediumWait;
+        Time.timeScale = 0.1f;
+        GameObject.Find("AudioManager").SetActive(false);
+    }
+    
     private IEnumerator DayPlaying()
     {   
         

@@ -68,9 +68,9 @@ public class InformationManager : MonoBehaviour {
             if (character.WarmthValue < 3)
                 counter++;
 
-            if(counter >= 2)
+            if(counter >= 0) // 2
             {
-                if(Random.Range(0,3) == 0)
+                if(Random.Range(0,1) == 0) //3
                 {
                     GameManager.Instance.interfaceHandler.scenarioImageHolder.sprite = GameManager.Instance.interfaceHandler.deathSprite;
                     Destroy(character.Instance);
@@ -354,6 +354,11 @@ public class InformationManager : MonoBehaviour {
     {
         if(Random.Range(0, 4) == 0)
         {
+            string characterName = GameManager.Instance.characterHandler.RandomInactiveCharacter().characterName;
+            GameManager.Instance.characterHandler.InstantiateNewCharacter(characterName);
+            _informationPanelTextList.Add(characterName + " ist deinem Haus beigetreten.\r\n'Eine Person weniger, die dort draußen sterben muss!'");
+            
+            /*
             bool characterChosen = false;
 
             while (!characterChosen)
@@ -366,6 +371,7 @@ public class InformationManager : MonoBehaviour {
                     characterChosen = true;
                 }
             }
+            */
         }
     }
 
