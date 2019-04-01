@@ -313,9 +313,9 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator EndGame()
     {
-        yield return _mediumWait;
-        Time.timeScale = 0.1f;
-        GameObject.Find("AudioManager").SetActive(false);
+        yield return new WaitForSeconds(10f);
+        Time.timeScale = 0f;
+        
     }
     
     private IEnumerator DayPlaying()
