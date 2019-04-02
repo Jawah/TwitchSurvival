@@ -70,11 +70,13 @@ public class InformationManager : MonoBehaviour {
 
             if(counter >= 2)
             {
-                if(Random.Range(0,4) == 0) //BT: 3
+                if(Random.Range(0,3) == 0) //BT: 3
                 {
                     GameManager.Instance.interfaceHandler.scenarioImageHolder.sprite = GameManager.Instance.interfaceHandler.deathSprite;
-                    Destroy(character.Instance);
-                    GameManager.Instance.characterHandler.activeCharacters.Remove(character);
+                    
+                    GameManager.Instance.characterHandler.KillCharacter(character.characterName);
+                    //Destroy(character.Instance);
+                    //GameManager.Instance.characterHandler.activeCharacters.Remove(character);
                     _informationPanelTextList.Add(
                         character.characterName + " ist verstorben. Alle verlieren Moral. \r\n 'Gibt es noch einen Grund weiterzumachen?'");
 
@@ -243,8 +245,9 @@ public class InformationManager : MonoBehaviour {
                             character2.MoraleValue -= 3;
                         }
 
-                        GameManager.Instance.characterHandler.activeCharacters.Remove(character);
-                        Destroy(character.Instance);
+                        GameManager.Instance.characterHandler.KillCharacter(character.characterName);
+                        //GameManager.Instance.characterHandler.activeCharacters.Remove(character);
+                        //Destroy(character.Instance);
                         //GameManager.Instance.characterHandler.activeCharacters[character].m_Instance.SetActive(false);
                     }
                     else if (playerStateChance >= 80)
@@ -287,8 +290,9 @@ public class InformationManager : MonoBehaviour {
                             character2.MoraleValue -= 3;
                         }
 
-                        GameManager.Instance.characterHandler.activeCharacters.Remove(character);
-                        Destroy(character.Instance);
+                        GameManager.Instance.characterHandler.KillCharacter(character.characterName);
+                        //GameManager.Instance.characterHandler.activeCharacters.Remove(character);
+                        //Destroy(character.Instance);
                         //GameManager.Instance.m_CharacterHandler.m_ActiveCharacters[i].m_Instance.SetActive(false);
                     }
                     else if (playerStateChance >= 90)

@@ -51,7 +51,7 @@ public class TypingText : MonoBehaviour
         target.text = null;
         newText = txt;
         yield return new WaitUntil(() => target.text == txt);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
     }
 
     public void Type(string txt)
