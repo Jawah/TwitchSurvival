@@ -132,11 +132,11 @@ public class BreadScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Als du den restlichen Bewohnern den Keller zeigen willst, ist die Kellertür verschwunden..."
+					"Als du den restlichen Bewohnern den Keller zeigen willst, findest du die Kellertür jedoch nicht wieder..."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"\r\n \r\n" + tempString
+					tempString
 				));
 			}
 		}
