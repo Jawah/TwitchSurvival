@@ -27,11 +27,11 @@ public class BreadScenario : Scenario {
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Im Haus sind jedoch ganz klare Regeln definiert. Essensrationen werden immer nur gemeinsam angebrochen und fair aufgeteilt."
+			"Im Haus sind jedoch ganz klare Regeln definiert: Essensrationen werden immer nur gemeinsam angebrochen und fair aufgeteilt."
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Hmm... Jemand oder etwas scheint sich an den Rationen zu vergreifen..."
+			"Hmm... Jemand oder etwas scheint die Regeln nicht einzuhalten..."
 		));
 		
 		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
@@ -66,7 +66,7 @@ public class BreadScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					activeCharacter.characterName + " konfrontiert " + otherCharacter.characterName + " mit dem angeknabberten Brot, worauf unter Tränen das 'Verbrechen' gestanden wird."
+					activeCharacter.characterName + " konfrontiert " + otherCharacter.characterName + " mit dem angebissenen Brot, worauf unter Tränen das 'Verbrechen' gestanden wird."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -132,7 +132,7 @@ public class BreadScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Als du den restlichen Bewohnern den Keller zeigen willst, ist dieser verschwunden..."
+					"Als du den restlichen Bewohnern den Keller zeigen willst, ist die Kellertür verschwunden..."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -161,7 +161,7 @@ public class BreadScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"'Vertrauen ist das wichtigste in diesen Zeiten.'"
+					"'Vertrauen ist das Wichtigste in diesen Zeiten.'"
 				));
 				
 				

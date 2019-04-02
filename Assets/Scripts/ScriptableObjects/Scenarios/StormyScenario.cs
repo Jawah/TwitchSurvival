@@ -26,7 +26,7 @@ public class StormyScenario : Scenario {
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Man könnte von außen auf das Dach klettern und das Loch wieder zunageln, aber das könnte gefährlich werden.\r\n\r\nEs so zu lassen, klingt aber auch nicht nach einer guten Idee."
+			"Man könnte von außen auf das Dach klettern und das Loch wieder zunageln, aber das könnte gefährlich werden."
 		));
 		
 		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
