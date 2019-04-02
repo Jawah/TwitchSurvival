@@ -114,16 +114,16 @@ public class BreadScenario : Scenario {
 							"Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!";
 						break;
 					case "Lampe":
-						tempString = "Das zusätzliche Licht sorgt für Geborgenheit. Wärme und Moral steigt!";
+						tempString = "Das zusätzliche Licht der Lampe sorgt für Geborgenheit. Wärme und Moral steigt!";
 						break;
 					case "Axt":
 						tempString = "Die Axt hilft beim Holzhacken, Plündern und sorgt für Sicherheit. Moral steigt!";
 						break;
 					case "Spielkarten":
-						tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+						tempString = "Ein wenig Ablenkung durch die Spielkarten tut den Bewohnern gut. Moral steigt!";
 						break;
 					case "Radio":
-						tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+						tempString = "Obwohl man nur entfernte, schlechte Signale erreichen kann, sorgt das Radio für Ablenkung. Moral steigt!";
 						break;
 				}
 				

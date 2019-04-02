@@ -91,7 +91,7 @@ public class MerchantScenario : Scenario {
 				
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Nachdem du jedoch die erste Schachtel öffnest, fällt dir auf, dass diese mit alter Knete gefüllt ist.. und alle anderen auch!"
+					"Nachdem du jedoch die erste Schachtel öffnest, fällt dir auf, dass diese mit Dreck gefüllt ist.. und alle anderen auch!"
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

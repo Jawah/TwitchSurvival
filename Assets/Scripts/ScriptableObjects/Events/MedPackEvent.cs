@@ -6,7 +6,7 @@ public class MedPackEvent : Event {
     
     public override void Instantiate()
     {
-        GameManager.Instance.interfaceHandler.questionText.text = "Soll " + GameManager.Instance.characterHandler.currentCharacter.characterName + " ein MedPack bekommen?";
+        GameManager.Instance.interfaceHandler.questionText.text = "Soll " + GameManager.Instance.characterHandler.currentCharacter.characterName + " ein Medpack bekommen?";
 
         base.Instantiate();
     }

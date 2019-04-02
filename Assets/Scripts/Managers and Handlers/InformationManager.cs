@@ -238,7 +238,7 @@ public class InformationManager : MonoBehaviour {
                     if (playerStateChance <= 10) //BT: 15
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freunds hoffen.");
+                            character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freundes hoffen.");
 
                         foreach (var character2 in GameManager.Instance.characterHandler.activeCharacters)
                         {
@@ -267,16 +267,16 @@ public class InformationManager : MonoBehaviour {
                                     "Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!";
                                 break;
                             case "Lampe":
-                                tempString = "Das zusätzliche Licht sorgt für Geborgenheit. Wärme und Moral steigt!";
+                                tempString = "Das zusätzliche Licht der Lampe sorgt für Geborgenheit. Wärme und Moral steigt!";
                                 break;
                             case "Axt":
                                 tempString = "Die Axt hilft beim Holzhacken, Plündern und sorgt für Sicherheit. Moral steigt!";
                                 break;
                             case "Spielkarten":
-                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                tempString = "Ein wenig Ablenkung durch die Spielkarten tut den Bewohnern gut. Moral steigt!";
                                 break;
                             case "Radio":
-                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                tempString = "Obwohl man nur entfernte, schlechte Signale erreichen kann, sorgt das Radio für Ablenkung. Moral steigt!";
                                 break;
 						
                         }
@@ -310,7 +310,7 @@ public class InformationManager : MonoBehaviour {
                     if (playerStateChance <= 20) //BT: 25
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freunds hoffen.");
+                            character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freundes hoffen.");
 
                         foreach (var character2 in GameManager.Instance.characterHandler.activeCharacters)
                         {
@@ -340,16 +340,16 @@ public class InformationManager : MonoBehaviour {
                                     "Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!";
                                 break;
                             case "Lampe":
-                                tempString = "Das zusätzliche Licht sorgt für Geborgenheit. Wärme und Moral steigt!";
+                                tempString = "Das zusätzliche Licht der Lampe sorgt für Geborgenheit. Wärme und Moral steigt!";
                                 break;
                             case "Axt":
                                 tempString = "Die Axt hilft beim Holzhacken, Plündern und sorgt für Sicherheit. Moral steigt!";
                                 break;
                             case "Spielkarten":
-                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                tempString = "Ein wenig Ablenkung durch die Spielkarten tut den Bewohnern gut. Moral steigt!";
                                 break;
                             case "Radio":
-                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                tempString = "Obwohl man nur entfernte, schlechte Signale erreichen kann, sorgt das Radio für Ablenkung. Moral steigt!";
                                 break;
 						
                         }
@@ -379,16 +379,16 @@ public class InformationManager : MonoBehaviour {
                                     "Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!";
                                 break;
                             case "Lampe":
-                                tempString = "Das zusätzliche Licht sorgt für Geborgenheit. Wärme und Moral steigt!";
+                                tempString = "Das zusätzliche Licht der Lampe sorgt für Geborgenheit. Wärme und Moral steigt!";
                                 break;
                             case "Axt":
                                 tempString = "Die Axt hilft beim Holzhacken, Plündern und sorgt für Sicherheit. Moral steigt!";
                                 break;
                             case "Spielkarten":
-                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                tempString = "Ein wenig Ablenkung durch die Spielkarten tut den Bewohnern gut. Moral steigt!";
                                 break;
                             case "Radio":
-                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                tempString = "Obwohl man nur entfernte, schlechte Signale erreichen kann, sorgt das Radio für Ablenkung. Moral steigt!";
                                 break;
 						
                         }
@@ -404,7 +404,7 @@ public class InformationManager : MonoBehaviour {
                     else if(playerStateChance <= 40)
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " kam mit leeren Händen zurück und brauch sich dabei noch das Bein. Dieser Idiot!");
+                            character.characterName + " kam mit leeren Händen zurück und brach sich dabei noch das Bein. Dieser Idiot!");
                         character.healthState = CharacterManager.HealthState.Fracture;
                         character.StatusChanger();
                     }
