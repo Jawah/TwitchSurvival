@@ -8,7 +8,7 @@ public class VolumeFader : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (source.volume > 0)
+        if (source.volume > 0.1f)
         {
             source.volume = source.volume - 0.002f;
         }

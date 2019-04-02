@@ -313,7 +313,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(600f);
         Time.timeScale = 0f;
         
     }
