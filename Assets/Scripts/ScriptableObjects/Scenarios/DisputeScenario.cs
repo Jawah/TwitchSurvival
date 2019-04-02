@@ -26,7 +26,7 @@ public class DisputeScenario : Scenario {
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Du weißt, wo so sich Kapinsky befindet. Doch der Weg ist lang und das Signal könnte eine Falle sein..."
+			"Du weißt, wo sich Kapinsky befindet. Doch der Weg ist lang und das Signal könnte eine Falle sein..."
 		));
 		
 		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
@@ -58,7 +58,7 @@ public class DisputeScenario : Scenario {
 			if (rnd <= 4)
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					tempCharacter.characterName + " kommt schnell mit guten Neuigkeiten zurück und zwar, dass in Kürze eine Spezieleinheit kommen soll, welche die Bewohner retten kann."
+					tempCharacter.characterName + " kommt schnell mit guten Neuigkeiten zurück und zwar, dass am 6. Tag eine Spezieleinheit kommen soll, welche die Bewohner retten kann."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

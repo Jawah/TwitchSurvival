@@ -404,14 +404,14 @@ public class InformationManager : MonoBehaviour {
                     else if(playerStateChance <= 40)
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " kam mit leeren Händen zurück und brach sich dabei noch das Bein. Dieser Idiot!");
+                            character.characterName + " kam mit leeren Händen zurück und brach sich dabei noch das Bein. Was für ein Idiot!");
                         character.healthState = CharacterManager.HealthState.Fracture;
                         character.StatusChanger();
                     }
                     else
                     {
                         _informationPanelTextList.Add(
-                            character.characterName + " brachte eine Menge Ressourcen von seinem Ausflug mit.");
+                            character.characterName + " brachte eine Menge Ressourcen von dem Ausflug mit.");
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(1, 2, foodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 2, firewoodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.MedPackValue += AddRandomResourceAmount(1, 2, medPackSprite, ref _newItemsSpriteList);

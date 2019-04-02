@@ -92,7 +92,7 @@ public class BreadScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Du folgst dieser Spur bis du zu einem Haufen in der Ecke gestauter Pakete kommst. Fussspuren weisen darauf hin, dass dort etwas hinterliegen könnte."
+					"Du folgst dieser Spur bis du zu einem Haufen in der Ecke gestauter Pakete kommst. Fussspuren weisen darauf hin, dass dort etwas dahinter liegen könnte."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

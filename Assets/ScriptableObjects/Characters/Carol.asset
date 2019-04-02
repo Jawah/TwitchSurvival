@@ -20,5 +20,5 @@ MonoBehaviour:
   dailyFullLossFactor: 2
   dailyWarmthLossFactor: 1.2
   fullGainValue: 2.4
-  warmthGainValue: 2
+  warmthGainValue: 2.5
   inUse: 1
