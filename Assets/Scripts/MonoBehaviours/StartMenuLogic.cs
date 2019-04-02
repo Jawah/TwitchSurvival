@@ -9,6 +9,9 @@ public class StartMenuLogic : MonoBehaviour
 
     public GameObject[] objectsToActivate;
     public CanvasGroup toFadeCanvas;
+
+    public GameObject grayCanvas;
+    public GameObject paperCanvas;
     
     void Update()
     {
@@ -22,6 +25,18 @@ public class StartMenuLogic : MonoBehaviour
             }
             else
             {
+                if (counter == 2)
+                {
+                    grayCanvas.SetActive(false);
+                    paperCanvas.SetActive(true);
+                }
+                
+                if (counter == 6)
+                {
+                    grayCanvas.SetActive(true);
+                    paperCanvas.SetActive(false);
+                }
+                
                 objectsToActivate[counter-1].SetActive(false);
                 objectsToActivate[counter].SetActive(true);
             }
@@ -30,9 +45,10 @@ public class StartMenuLogic : MonoBehaviour
 
     IEnumerator StartGameRoutine()
     {
-        while(toFadeCanvas.alpha > 0)
+        
+        while(toFadeCanvas.alpha < 1)
         {
-            toFadeCanvas.alpha -= Time.deltaTime / 2;
+            toFadeCanvas.alpha += Time.deltaTime / 2;
             yield return null;
         }
 
