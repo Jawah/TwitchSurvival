@@ -92,11 +92,11 @@ public class BreadScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Du folgst dieser Spur bis du zu einem Haufen in der Ecke gestauter Kartons kommst. Viele kleine Fussspuren weisen darauf hin, dass dort etwas hinterliegt."
+					"Du folgst dieser Spur bis du zu einem Haufen in der Ecke gestauter Pakete kommst. Fussspuren weisen darauf hin, dass dort etwas hinterliegen könnte."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Bei genauerem Hinschauen findet " + activeCharacter.characterName + " ein Loch, welches in die Wand führt. Ein Rattenloch!"
+					"Bei genauerem Hinschauen findest du eine Kellertür, welche du vorher noch nie gesehen hast..."
 				));
 
 				Item tempItem = GameManager.Instance.itemHandler.RandomItem();
@@ -125,11 +125,18 @@ public class BreadScenario : Scenario {
 					case "Radio":
 						tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
 						break;
-						
 				}
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					activeCharacter.characterName + " beseitigt das Rattennest und findet " + tempItem.itemName + ".\r\n" + tempString
+					"Der Kellerraum ist klein, voller Nebel und hat keine weiteren Ein- oder Ausgänge. \r\nDer einzige Gegenstand, den du dort noch findest, ist: " + tempItem.itemName + "."
+				));
+				
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					"Als du den restlichen Bewohnern den Keller zeigen willst, ist dieser verschwunden..."
+				));
+				
+				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
+					"\r\n \r\n" + tempString
 				));
 			}
 		}
@@ -144,7 +151,7 @@ public class BreadScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Rationen verschwinden zwischendurch."
+					"Rationen verschwinden weiterhin zwischendurch."
 				));
 			}
 			else

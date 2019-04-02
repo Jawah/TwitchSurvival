@@ -26,7 +26,7 @@ public class DisputeScenario : Scenario {
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Jedoch treiben sich in Kapinsky auch viele Banditen rum. Es könnte vielleicht auch eine Falle sein."
+			"Du weißt, wo so sich Kapinsky befindet. Doch der Weg ist lang und das Signal könnte eine Falle sein..."
 		));
 		
 		//GameManager.Instance.interfaceHandler.storyPanel.SetActive(false);
@@ -46,7 +46,7 @@ public class DisputeScenario : Scenario {
 			CharacterManager tempCharacter = GameManager.Instance.characterHandler.RandomActiveCharacter();
 			
 			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-				"Und der 'Unglückliche' ist " + tempCharacter.characterName + ". \r\n\r\n'Falls ich in den nächsten 2 Stunden nicht zurück bin, rechnet nicht mit mir!'"
+				"Und der 'Unglückliche' ist " + tempCharacter.characterName + ". \r\n\r\n'Falls ich in den nächsten 4 Stunden nicht zurück bin, rechnet nicht mehr mit mir!'"
 			));
 			
 			//yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -58,11 +58,11 @@ public class DisputeScenario : Scenario {
 			if (rnd <= 4)
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					tempCharacter.characterName + " kommt schnell mit guten Neuigkeiten zurück und zwar, dass in Kürze ein Trupp Special Forces kommen soll, welcher die Bewohner abholt."
+					tempCharacter.characterName + " kommt schnell mit guten Neuigkeiten zurück und zwar, dass in Kürze eine Spezieleinheit kommen soll, welche die Bewohner retten wird."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"'Bis dahin sollen wir am Leben bleiben und abwarten!'"
+					"'Bis dahin müssen wir überleben!'"
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -104,7 +104,7 @@ public class DisputeScenario : Scenario {
 		else
 		{
 			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-				"Es ist leider ein zu großes Risiko."
+				"Es ist leider ein zu großes Risiko, so einen langen Weg anzutreten."
 			));
 			
 			yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

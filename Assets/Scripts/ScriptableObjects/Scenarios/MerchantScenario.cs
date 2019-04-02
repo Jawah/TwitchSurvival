@@ -22,7 +22,7 @@ public class MerchantScenario : Scenario {
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"'Hi, Hi, Hi.. ich bin Halbert der legendäre Händler. Ich komme von weit her, oh yeah.'"
+			"'Hihihihi.. ich bin Halbert der legendäre Händler. Ich komme von weit her, oh yeah.'"
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -42,7 +42,7 @@ public class MerchantScenario : Scenario {
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"'Naja, ich komme mal zum Punkt. Kann ich von dir etwas Proviant erwirtschaften?'"
+			"'Ich komme mal zum Punkt. Kann ich von dir etwas Proviant erwirtschaften?'"
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -91,7 +91,7 @@ public class MerchantScenario : Scenario {
 				
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Nachdem du jedoch die erste Schachtel öffnest, fällt dir auf, dass diese mit alten Salzstangen gefüllt ist.. und alle anderen auch!"
+					"Nachdem du jedoch die erste Schachtel öffnest, fällt dir auf, dass diese mit alter Knete gefüllt ist.. und alle anderen auch!"
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(

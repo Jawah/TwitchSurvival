@@ -22,7 +22,7 @@ public class StormyScenario : Scenario {
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Plötzlich bricht jedoch ein Balken aus dem Dach und schüttet mitten zwischen die provisorisch eingerichteten Betten."
+			"Plötzlich bricht jedoch ein Balken aus dem Dach und bricht mitten zwischen die provisorisch eingerichteten Betten."
 		));
 
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -50,7 +50,7 @@ public class StormyScenario : Scenario {
 			if (rnd <= 4)
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Ohne große Probleme schafft es " + tempCharacter.characterName + " das Loch zuzunageln. \r\nZum Glück wurde auch so schnell gehandelt, dass der Wasserschaden auch nur minimal ist."
+					"Ohne große Probleme schafft es " + tempCharacter.characterName + " das Loch zuzunageln. \r\nZum Glück wurde auch so schnell gehandelt, dass der Schaden minimal blieb."
 				));
 				
 				
@@ -58,14 +58,14 @@ public class StormyScenario : Scenario {
 			else
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Ohne große Probleme schafft es " + tempCharacter.characterName + " das Loch zuzunageln, rutscht jedoch mit dem letzten Schlag ab und rutscht das Dach herunter."
+					"Ohne große Probleme schafft es " + tempCharacter.characterName + " das Loch zuzunageln, rutscht jedoch mit dem letzten Schlag ab und fällt das Dach herunter."
 				));
 
 				tempCharacter.healthState = CharacterManager.HealthState.Fracture;
 				tempCharacter.StatusChanger();
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Das Bein ist gebrochen, aber das Dach ist zu. Der Wasserschaden wurde durch das schnelle Handeln auch minimal gehalten."
+					"Das Bein ist gebrochen, aber das Dach ist zu. Der Schaden wurde durch das schnelle Handeln auch minimal gehalten."
 				));
 			}
 		}

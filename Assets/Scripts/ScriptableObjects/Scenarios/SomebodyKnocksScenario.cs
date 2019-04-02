@@ -14,7 +14,7 @@ public class SomebodyKnocksScenario : Scenario {
 		
 		GameManager.Instance.audioManager.PlayEffect(audioClips[0]);
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-			"Es klopft an die Tür."
+			"Es klopft an der Tür."
 		));
 		
 		yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
@@ -52,7 +52,7 @@ public class SomebodyKnocksScenario : Scenario {
 			if (rnd <= 4)
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"'Vielen Dank, dass du mir aufgemacht hast! Seit heute morgen laufe ich vor den Banditen weg. Ich hoffe, hier kriegen sie mich nicht.'"
+					"'Vielen Dank, dass du mir aufgemacht hast! Seit heute morgen laufe ich vor IHNEN weg. Ich hoffe, hier kriegen sie mich nicht.'"
 				));
 
 				Character tempCharacter = GameManager.Instance.characterHandler.RandomInactiveCharacter();
@@ -142,7 +142,7 @@ public class SomebodyKnocksScenario : Scenario {
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"'Das wirst du bereuen! Pass auf, wenn du das nächste Mal rausgehst!'"
+					"'Das wirst du bereuen! Pass auf, wenn du das nächste Mal rausgehst! Wir warten im Nebel!'"
 				));
 				
 				foreach (CharacterManager character in GameManager.Instance.characterHandler.activeCharacters)
@@ -157,11 +157,11 @@ public class SomebodyKnocksScenario : Scenario {
 			else
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Heulend bleibt die Person mit dem Kopf nach unten geneigt vor der Tür liegen, als plötzlich ein Rudel Wölfe aus dem Geäst springt."
+					"Heulend bleibt die Person mit dem Kopf nach unten geneigt vor der Tür liegen. Als sich ihr Gesicht plötzlich vor Schmerz verzieht."
 				));
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Nach einem kurzen Aufschrei, bleibt der regungslose Körper auf dem Boden liegen und wird von den Wölfen zurück hinter die nächsten Bäume gezerrt."
+					"Nach einem kurzen Aufschrei, bleibt der regungslose Körper auf dem Boden liegen und wird ruckartig von etwas in den Nebel gezogen."
 				));
 
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
