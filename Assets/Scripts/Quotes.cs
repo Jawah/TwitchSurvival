@@ -3,7 +3,7 @@
     public static string[] QUOTES_RANDOM = new string[]
     {
         "Was fuer ein Ort.",
-        "Hmm.",
+        "Hmm...",
         "Was ist das?",
         "Wieso?",
         "Achso..."
@@ -12,7 +12,7 @@
     public static string[] QUOTES_HUNGER_NEUTRAL = new string[]
     {
         "Etwas kleines zu essen waere super.",
-        "Haben wir noch Snacks?",
+        "Haben wir noch Brot?",
         "Mein Magen knurrt..."
     };
     public static string[] QUOTES_HUNGER_NEGATIVE = new string[]
@@ -32,6 +32,6 @@
     {
         "Es ist eisig!",
         "So kalt...",
-        "Haben wir noch Decken?"
+        "Ich spüre meine Füße nicht mehr..."
     };
 }

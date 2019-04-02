@@ -68,9 +68,9 @@ public class InformationManager : MonoBehaviour {
             if (character.WarmthValue < 3)
                 counter++;
 
-            if(counter >= 0) // 2
+            if(counter >= 2)
             {
-                if(Random.Range(0,1) == 0) //3
+                if(Random.Range(0,4) == 0) //BT: 3
                 {
                     GameManager.Instance.interfaceHandler.scenarioImageHolder.sprite = GameManager.Instance.interfaceHandler.deathSprite;
                     Destroy(character.Instance);
@@ -188,7 +188,7 @@ public class InformationManager : MonoBehaviour {
                 else if (character.healthState == CharacterManager.HealthState.Sick)
                 {
                     _informationPanelTextList.Add(
-                        character.characterName + " hat sich die Grippe eingefangen!");
+                        character.characterName + " hat die Grippe!");
                 }
             }
         }
@@ -233,7 +233,7 @@ public class InformationManager : MonoBehaviour {
 
                     playerStateChance += character.skillTimber;
                     
-                    if (playerStateChance <= 15)
+                    if (playerStateChance <= 10) //BT: 15
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freunds hoffen.");
@@ -277,7 +277,7 @@ public class InformationManager : MonoBehaviour {
 
                     playerStateChance += character.skillPlunder;
                     
-                    if (playerStateChance <= 25)
+                    if (playerStateChance <= 20) //BT: 25
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freunds hoffen.");
@@ -352,7 +352,7 @@ public class InformationManager : MonoBehaviour {
 
     private void ExecuteForHelp()
     {
-        if(Random.Range(0, 4) == 0)
+        if(Random.Range(0, 3) == 0) //BT: 4
         {
             string characterName = GameManager.Instance.characterHandler.RandomInactiveCharacter().characterName;
             GameManager.Instance.characterHandler.InstantiateNewCharacter(characterName);
