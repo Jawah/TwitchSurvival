@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Spielkarten
   itemDescription: 
-  itemShortDescription: +M+F
+  itemShortDescription: +M+S
   moraleFactorChangeValue: 0.6
   fullFactorChangeValue: 0.1
   warmthFactorChangeValue: 0

@@ -32,6 +32,8 @@ public class TwitchManager : MonoBehaviour {
 
     private void OnChatMessage(ref TwitchChatMessage msg)
     {
+        Debug.Log(msg.chatMessagePlainText);
+        
         if (GameManager.Instance.pollHandler.gatherVotes)
         {
             if (!GameManager.Instance.pollHandler.votersList.Contains(msg.userName))

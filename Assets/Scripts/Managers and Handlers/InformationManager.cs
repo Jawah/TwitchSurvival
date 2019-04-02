@@ -254,10 +254,37 @@ public class InformationManager : MonoBehaviour {
                     {
                         int randNum2 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
+                        Item randItem2 = GameManager.Instance.itemHandler.allItems[2];
+                        string tempString = "";
+
+                        switch (randItem2.itemName)
+                        {
+                            case "Schnaps":
+                                tempString = "Schnaps, die Lösung aller Probleme in Zeiten der Apokalypse. Wärme, Moral und Sättigung steigt!";
+                                break;
+                            case "Zigaretten":
+                                tempString =
+                                    "Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!";
+                                break;
+                            case "Lampe":
+                                tempString = "Das zusätzliche Licht sorgt für Geborgenheit. Wärme und Moral steigt!";
+                                break;
+                            case "Axt":
+                                tempString = "Die Axt hilft beim Holzhacken, Plündern und sorgt für Sicherheit. Moral steigt!";
+                                break;
+                            case "Spielkarten":
+                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                break;
+                            case "Radio":
+                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                break;
+						
+                        }
+                        
                         _informationPanelTextList.Add(
-                            character.characterName + " hatte eine glückliche Nacht und brachte mit: " + GameManager.Instance.itemHandler.allItems[randNum2].itemName + ".");
-                        GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum2].itemName);
-                        _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum2].icon);
+                            character.characterName + " hatte eine glückliche Nacht und brachte mit: " + randItem2.itemName + ".\r\n " + tempString);
+                        GameManager.Instance.itemHandler.InstantiateNewItem(randItem2.itemName);
+                        _newItemsSpriteList.Add(randItem2.icon);
                     }
                     else if (playerStateChance >= 60)
                     {
@@ -299,10 +326,38 @@ public class InformationManager : MonoBehaviour {
                     {
                         int randNum4 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
+
+                        Item randItem4 = GameManager.Instance.itemHandler.allItems[randNum4];
+                        string tempString = "";
+
+                        switch (randItem4.itemName)
+                        {
+                            case "Schnaps":
+                                tempString = "Schnaps, die Lösung aller Probleme in Zeiten der Apokalypse. Wärme, Moral und Sättigung steigt!";
+                                break;
+                            case "Zigaretten":
+                                tempString =
+                                    "Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!";
+                                break;
+                            case "Lampe":
+                                tempString = "Das zusätzliche Licht sorgt für Geborgenheit. Wärme und Moral steigt!";
+                                break;
+                            case "Axt":
+                                tempString = "Die Axt hilft beim Holzhacken, Plündern und sorgt für Sicherheit. Moral steigt!";
+                                break;
+                            case "Spielkarten":
+                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                break;
+                            case "Radio":
+                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                break;
+						
+                        }
+                        
                         _informationPanelTextList.Add(
-                            character.characterName + " hat sehr viel erbeutet und brachte " + GameManager.Instance.itemHandler.allItems[randNum4].itemName + " und eine Menge Ressourcen zurück.");
-                        GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum4].itemName);
-                        _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum4].icon);
+                            character.characterName + " hat sehr viel erbeutet und brachte " + randItem4.itemName + " und eine Menge Ressourcen zurück.\r\n " + tempString);
+                        GameManager.Instance.itemHandler.InstantiateNewItem(randItem4.itemName);
+                        _newItemsSpriteList.Add(randItem4.icon);
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(2, 4, foodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(2, 4, firewoodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.MedPackValue += AddRandomResourceAmount(2, 4, medPackSprite, ref _newItemsSpriteList);
@@ -311,10 +366,37 @@ public class InformationManager : MonoBehaviour {
                     {
                         int randNum5 = Random.Range(0, GameManager.Instance.itemHandler.allItems.Count);
 
+                        Item randItem5 = GameManager.Instance.itemHandler.allItems[randNum5];
+                        string tempString = "";
+
+                        switch (randItem5.itemName)
+                        {
+                            case "Schnaps":
+                                tempString = "Schnaps, die Lösung aller Probleme in Zeiten der Apokalypse. Wärme, Moral und Sättigung steigt!";
+                                break;
+                            case "Zigaretten":
+                                tempString =
+                                    "Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!";
+                                break;
+                            case "Lampe":
+                                tempString = "Das zusätzliche Licht sorgt für Geborgenheit. Wärme und Moral steigt!";
+                                break;
+                            case "Axt":
+                                tempString = "Die Axt hilft beim Holzhacken, Plündern und sorgt für Sicherheit. Moral steigt!";
+                                break;
+                            case "Spielkarten":
+                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                break;
+                            case "Radio":
+                                tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+                                break;
+						
+                        }
+                        
                         _informationPanelTextList.Add(
-                            character.characterName + " hat sehr viel erbeutet und brachte " + GameManager.Instance.itemHandler.allItems[randNum5].itemName + " und etwas an Ressourcen zurück.");
-                        GameManager.Instance.itemHandler.InstantiateNewItem(GameManager.Instance.itemHandler.allItems[randNum5].itemName);
-                        _newItemsSpriteList.Add(GameManager.Instance.itemHandler.allItems[randNum5].icon);
+                            character.characterName + " hat sehr viel erbeutet und brachte " + randItem5.itemName + " und etwas an Ressourcen zurück.\r\n " + tempString);
+                        GameManager.Instance.itemHandler.InstantiateNewItem(randItem5.itemName);
+                        _newItemsSpriteList.Add(randItem5.icon);
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(1, 3, foodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 3, firewoodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.MedPackValue += AddRandomResourceAmount(1, 3, medPackSprite, ref _newItemsSpriteList);

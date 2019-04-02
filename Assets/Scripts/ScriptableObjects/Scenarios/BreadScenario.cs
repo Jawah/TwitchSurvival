@@ -101,9 +101,35 @@ public class BreadScenario : Scenario {
 
 				Item tempItem = GameManager.Instance.itemHandler.RandomItem();
 				GameManager.Instance.itemHandler.InstantiateNewItem(tempItem.itemName);
+
+				string tempString = "";
+
+				switch (tempItem.itemName)
+				{
+					case "Schnaps":
+						tempString = "Schnaps, die Lösung aller Probleme in Zeiten der Apokalypse. Wärme, Moral und Sättigung steigt!";
+						break;
+					case "Zigaretten":
+						tempString =
+							"Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!";
+						break;
+					case "Lampe":
+						tempString = "Das zusätzliche Licht sorgt für Geborgenheit. Wärme und Moral steigt!";
+						break;
+					case "Axt":
+						tempString = "Die Axt hilft beim Holzhacken, Plündern und sorgt für Sicherheit. Moral steigt!";
+						break;
+					case "Spielkarten":
+						tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+						break;
+					case "Radio":
+						tempString = "Ein wenig Ablenkung tut den Bewohnern gut. Moral steigt!";
+						break;
+						
+				}
 				
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					activeCharacter.characterName + " beseitigt das Rattennest und findet " + tempItem.itemName + "."
+					activeCharacter.characterName + " beseitigt das Rattennest und findet " + tempItem.itemName + ".\r\n" + tempString
 				));
 			}
 		}

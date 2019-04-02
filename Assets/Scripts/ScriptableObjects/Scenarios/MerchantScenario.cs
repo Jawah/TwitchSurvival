@@ -64,7 +64,8 @@ public class MerchantScenario : Scenario {
 			if (rnd <= 4)
 			{
 				yield return GameManager.Instance.CoroutineCaller(GameManager.Instance.scenarioManager.scenarioTextTyper.TypeRoutine(
-					"Der Tausch ist erfolgreich und das Haus erhält Zigaretten und gibt etwas von seinen Rationen ab."
+					"Der Tausch ist erfolgreich und das Haus erhält Zigaretten und gibt etwas von seinen Rationen ab.\r\n " +
+				"Rauchen ist ungesund, hilft jedoch in Zeiten der Apokalypse. Sättigung und Moral steigt. Wärme sinkt!"
 				));
 				
 				//GameManager.Instance.scenarioManager.scenarioTextTyper.Type(
