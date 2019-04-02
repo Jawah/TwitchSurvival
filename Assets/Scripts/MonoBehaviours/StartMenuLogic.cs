@@ -1,32 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartMenuLogic : MonoBehaviour
 {
     private int counter = 0;
+
+    public GameObject[] objectsToActivate;
+    public CanvasGroup toFadeCanvas;
     
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             counter++;
-
-            switch (counter)
+            
+            if (counter == objectsToActivate.Length)
             {
-                case 1:
-
-                    break;
-                case 2:
-
-                    break;
-                case 3:
-                    
-                    break;
-                case 4:
-
-                    break;
+                StartCoroutine(StartGameRoutine());
+            }
+            else
+            {
+                objectsToActivate[counter-1].SetActive(false);
+                objectsToActivate[counter].SetActive(true);
             }
         }
+    }
+
+    IEnumerator StartGameRoutine()
+    {
+        while(toFadeCanvas.alpha > 0)
+        {
+            toFadeCanvas.alpha -= Time.deltaTime / 2;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+        
+        SceneManager.LoadScene("Game");
     }
 }
