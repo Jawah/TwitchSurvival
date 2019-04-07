@@ -7,7 +7,13 @@ public class PrototypeScript : MonoBehaviour
 
     void Start()
     {
-        
+        PrintPlayerPrefs();
+    }
+
+    void PrintPlayerPrefs()
+    {
+	    Debug.Log(PlayerPrefs.GetString("ChannelName"));
+	    Debug.Log(PlayerPrefs.GetInt("VotingSpeed"));
     }
     
 	public void TimeScaleSetter(float value)

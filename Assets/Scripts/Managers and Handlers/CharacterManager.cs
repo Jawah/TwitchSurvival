@@ -395,10 +395,10 @@ public class CharacterManager
         }
         else
         {
-            //int rnd = Random.Range(0, 2);
+            int rnd = Random.Range(0, 2);
 
-            //if (rnd == 0)
-            //{   
+            if (rnd == 0)
+            {   
                 if (WarmthValue < 3)
                 {
                     _quoteText.text = Quotes.QUOTES_WARMTH_NEGATIVE[Random.Range(0, Quotes.QUOTES_WARMTH_NEGATIVE.Length)];
@@ -420,9 +420,9 @@ public class CharacterManager
                     _quoteText.text = Quotes.QUOTES_HUNGER_NEUTRAL[Random.Range(0, Quotes.QUOTES_HUNGER_NEUTRAL.Length)];
                     _quoteText.color = Color.yellow;
                 }
-            //}
+            }
         
-            /*if (rnd == 1)
+            if (rnd == 1)
             {
                 if (FullValue < 3)
                 {
@@ -445,7 +445,7 @@ public class CharacterManager
                     _quoteText.text = Quotes.QUOTES_WARMTH_NEUTRAL[Random.Range(0, Quotes.QUOTES_WARMTH_NEUTRAL.Length)];
                     _quoteText.color = Color.yellow;
                 }
-            }*/
+            }
         }
     }
 }

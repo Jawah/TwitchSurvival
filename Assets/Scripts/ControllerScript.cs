@@ -6,6 +6,16 @@ using UnityEngine.SceneManagement;
 public class ControllerScript : MonoBehaviour
 {
     private bool paused = false;
+
+    void Start()
+    {
+        SetFromPlayerPrefs();
+    }
+
+    void SetFromPlayerPrefs()
+    {
+        //GameManager.Instance.twitchManager.SetChannel(PlayerPrefs.GetString("ChannelName"));
+    }
     
     void Update()
     {

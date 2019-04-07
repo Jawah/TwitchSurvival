@@ -20,7 +20,7 @@
         "Haben wir noch Brot?",
         "Mein Magen knurrt...",
         "Ich vermisse Schokolade",
-        "Etwas zwischen die Zähne wäre toll."
+        "Etwas zwischen die Zaehne waere toll."
     };
     public static string[] QUOTES_HUNGER_NEGATIVE = new string[]
     {
@@ -37,14 +37,14 @@
         "Koennen wir die Fenster schliessen?",
         "Koennen wir das Feuer etwas anfachen?",
         "Etwas mehr Feuerholz?",
-        "Mich fröstelt es.",
+        "Mich froestelt es.",
         "Ich glaube, ich werde krank."
     };
     public static string[] QUOTES_WARMTH_NEGATIVE = new string[]
     {
         "Es ist eisig!",
         "So kalt...",
-        "Ich spüre meine Füße nicht mehr...",
+        "Ich spuere meine Fuesse nicht mehr...",
         "Ich erfriere...",
         "*zittert*"
     };

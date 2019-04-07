@@ -12,9 +12,9 @@ public class TwitchManager : MonoBehaviour {
             TwitchChatClient.singleton.AddChatListener(OnChatMessage);
         }
 
-        if (!string.IsNullOrEmpty(_pollChannelName))
+        if (!string.IsNullOrEmpty(PlayerPrefs.GetString("ChannelName")))
         {
-            TwitchChatClient.singleton.JoinChannel(_pollChannelName);
+            TwitchChatClient.singleton.JoinChannel(PlayerPrefs.GetString("ChannelName"));
         }
         else
         {

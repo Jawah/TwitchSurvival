@@ -205,7 +205,7 @@ public class InformationManager : MonoBehaviour {
             {
                 case CharacterManager.PlayerState.Default:
                     
-                    if(playerStateChance >= 60)
+                    if(playerStateChance >= 65)
                     {
                         _informationPanelTextList.Add(
                         character.characterName + " ist zu Hause geblieben und konnte trotz allem was passiert, etwas Kraft zurückgewinnen.");
@@ -438,7 +438,7 @@ public class InformationManager : MonoBehaviour {
 
     private void ExecuteForHelp()
     {
-        if(Random.Range(0, 3) == 0) //BT: 4
+        if(Random.Range(0, 4) == 0) //BT: 4
         {
             string characterName = GameManager.Instance.characterHandler.RandomInactiveCharacter().characterName;
             GameManager.Instance.characterHandler.InstantiateNewCharacter(characterName);

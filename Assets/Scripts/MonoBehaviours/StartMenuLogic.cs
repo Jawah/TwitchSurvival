@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEngine.UI;
 
 public class StartMenuLogic : MonoBehaviour
 {
@@ -10,6 +13,9 @@ public class StartMenuLogic : MonoBehaviour
     public GameObject[] objectsToActivate;
     public CanvasGroup toFadeCanvas;
 
+    public TMP_InputField inputField;
+    public ToggleGroup toggleGroup;
+    
     public GameObject grayCanvas;
     public GameObject paperCanvas;
     
@@ -25,13 +31,13 @@ public class StartMenuLogic : MonoBehaviour
             }
             else
             {
-                if (counter == 2)
+                if (counter == 3)
                 {
                     grayCanvas.SetActive(false);
                     paperCanvas.SetActive(true);
                 }
                 
-                if (counter == 6)
+                if (counter == 7)
                 {
                     grayCanvas.SetActive(true);
                     paperCanvas.SetActive(false);
@@ -55,5 +61,14 @@ public class StartMenuLogic : MonoBehaviour
         yield return new WaitForSeconds(1f);
         
         SceneManager.LoadScene("Game");
+    }
+
+    public void SaveToPlayerPrefs()
+    {
+        PlayerPrefs.SetString("ChannelName", inputField.text);
+
+        int votingSpeed = int.Parse(toggleGroup.ActiveToggles().First().name);
+
+        PlayerPrefs.SetInt("VotingSpeed", votingSpeed);
     }
 }

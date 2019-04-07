@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public EventHandler eventHandler;
     [HideInInspector] public PollHandler pollHandler;
     [HideInInspector] public ArrowHandler arrowHandler;
+    [HideInInspector] public TwitchManager twitchManager;
     
     // Variables
     private int _day;
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour
         eventHandler = GetComponent<EventHandler>();
         pollHandler = GetComponent<PollHandler>();
         arrowHandler = GetComponent<ArrowHandler>();
+        twitchManager = GameObject.Find("TwitchManager").GetComponent<TwitchManager>();
 
         OnRessourceValueChange += VariableChangeRessourcesHandler;
     }
