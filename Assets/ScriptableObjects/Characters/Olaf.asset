@@ -17,8 +17,8 @@ MonoBehaviour:
   skillTimber: 15
   skillPlunder: 5
   dailyMoraleLossFactor: 0.9
-  dailyFullLossFactor: 2.5
-  dailyWarmthLossFactor: 0.8
-  fullGainValue: 2.2
-  warmthGainValue: 2.5
+  dailyFullLossFactor: 2.4
+  dailyWarmthLossFactor: 1
+  fullGainValue: 2
+  warmthGainValue: 2.3
   inUse: 0
