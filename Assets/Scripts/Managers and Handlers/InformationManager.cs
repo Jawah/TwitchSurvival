@@ -218,7 +218,7 @@ public class InformationManager : MonoBehaviour {
                         _informationPanelTextList.Add(
                             character.characterName + " ist zu Hause geblieben und hat versteckte, hilfreiche Ressourcen gefunden.");
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(0, 3, foodSprite, ref _newItemsSpriteList);
-                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(0, 4, firewoodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(0, 3, firewoodSprite, ref _newItemsSpriteList);
                         GameManager.Instance.MedPackValue += AddRandomResourceAmount(0, 2, medPackSprite, ref _newItemsSpriteList);
                     }
                     else
@@ -235,7 +235,7 @@ public class InformationManager : MonoBehaviour {
 
                     playerStateChance += character.skillTimber;
                     
-                    if (playerStateChance <= 10) //BT: 15
+                    if (playerStateChance <= 15) //BT: 15
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freundes hoffen.");
@@ -290,7 +290,7 @@ public class InformationManager : MonoBehaviour {
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " brachte eine Menge Feuerholz mit.");
-                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(3, 5, firewoodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(2, 4, firewoodSprite, ref _newItemsSpriteList);
                     }
                     else
                     {
@@ -307,7 +307,7 @@ public class InformationManager : MonoBehaviour {
 
                     playerStateChance += character.skillPlunder;
                     
-                    if (playerStateChance <= 20) //BT: 25
+                    if (playerStateChance <= 25) //BT: 25
                     {
                         _informationPanelTextList.Add(
                             character.characterName + " kam nicht mehr zurück. Lass uns nicht auf die Rückkehr unseres Freundes hoffen.");
@@ -358,9 +358,9 @@ public class InformationManager : MonoBehaviour {
                             character.characterName + " hat sehr viel erbeutet und brachte " + randItem4.itemName + " und eine Menge Ressourcen zurück.\r\n " + tempString);
                         GameManager.Instance.itemHandler.InstantiateNewItem(randItem4.itemName);
                         _newItemsSpriteList.Add(randItem4.icon);
-                        GameManager.Instance.FoodValue += AddRandomResourceAmount(2, 4, foodSprite, ref _newItemsSpriteList);
-                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(2, 4, firewoodSprite, ref _newItemsSpriteList);
-                        GameManager.Instance.MedPackValue += AddRandomResourceAmount(2, 4, medPackSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FoodValue += AddRandomResourceAmount(2, 3, foodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(2, 3, firewoodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.MedPackValue += AddRandomResourceAmount(2, 3, medPackSprite, ref _newItemsSpriteList);
                     }
                     else if (playerStateChance >= 75)
                     {
@@ -398,8 +398,8 @@ public class InformationManager : MonoBehaviour {
                         GameManager.Instance.itemHandler.InstantiateNewItem(randItem5.itemName);
                         _newItemsSpriteList.Add(randItem5.icon);
                         GameManager.Instance.FoodValue += AddRandomResourceAmount(1, 3, foodSprite, ref _newItemsSpriteList);
-                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 3, firewoodSprite, ref _newItemsSpriteList);
-                        GameManager.Instance.MedPackValue += AddRandomResourceAmount(1, 3, medPackSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.FirewoodValue += AddRandomResourceAmount(1, 2, firewoodSprite, ref _newItemsSpriteList);
+                        GameManager.Instance.MedPackValue += AddRandomResourceAmount(1, 2, medPackSprite, ref _newItemsSpriteList);
                     }
                     else if(playerStateChance <= 40)
                     {

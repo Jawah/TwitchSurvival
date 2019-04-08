@@ -8,6 +8,11 @@ public class Event : ScriptableObject
 {
     public float eventLength;
     public List<string> possibleAnswers = new List<string>();
+
+    void OnEnable()
+    {
+        eventLength = PlayerPrefs.GetInt("VotingSpeed");
+    }
     
     public virtual void Instantiate()
     {

@@ -15,13 +15,15 @@ public class StartMenuLogic : MonoBehaviour
 
     public TMP_InputField inputField;
     public ToggleGroup toggleGroup;
+
+    public GameObject nextText;
     
     public GameObject grayCanvas;
     public GameObject paperCanvas;
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && counter != 2)
         {
             counter++;
             
@@ -31,13 +33,18 @@ public class StartMenuLogic : MonoBehaviour
             }
             else
             {
-                if (counter == 3)
+                if (counter == 2)
+                {
+                    nextText.SetActive(false);
+                }
+                
+                else if (counter == 4)
                 {
                     grayCanvas.SetActive(false);
                     paperCanvas.SetActive(true);
                 }
                 
-                if (counter == 7)
+                else if (counter == 8)
                 {
                     grayCanvas.SetActive(true);
                     paperCanvas.SetActive(false);
@@ -70,5 +77,15 @@ public class StartMenuLogic : MonoBehaviour
         int votingSpeed = int.Parse(toggleGroup.ActiveToggles().First().name);
 
         PlayerPrefs.SetInt("VotingSpeed", votingSpeed);
+
+        counter++;
+        
+        if (counter == 3)
+        {
+            nextText.SetActive(true);    
+        }
+        
+        objectsToActivate[counter-1].SetActive(false);
+        objectsToActivate[counter].SetActive(true);
     }
 }
